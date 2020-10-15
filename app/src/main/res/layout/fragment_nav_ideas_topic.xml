@@ -6,10 +6,12 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_nav_ideas_topic_tb"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize" />
 
     <TextView
+        android:id="@+id/fragment_nav_ideas_topic_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="16dp"
@@ -21,6 +23,7 @@
         tools:text="Ideas about how to live your life" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_nav_ideas_topic_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

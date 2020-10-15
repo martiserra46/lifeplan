@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/rvi_ideas_topic_title_tv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -16,7 +16,7 @@
         tools:text="Ideas about how to live your life" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/rvi_ideas_topic_num_ideas_tv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

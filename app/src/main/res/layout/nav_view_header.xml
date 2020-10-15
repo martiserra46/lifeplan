@@ -8,7 +8,7 @@
     android:paddingEnd="16dp">
 
     <ImageView
-        android:id="@+id/fragment_main_nav_view_header_life_plan_icon_iv"
+        android:id="@+id/nav_view_header_life_plan_icon_iv"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/ic_life_plan"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/fragment_main_nav_view_header_life_plan_text_tv"
+        android:id="@+id/nav_view_header_life_plan_text_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -24,20 +24,20 @@
         android:text="@string/app_name"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/fragment_main_nav_view_header_life_plan_description_tv"
-        app:layout_constraintStart_toEndOf="@+id/fragment_main_nav_view_header_life_plan_icon_iv"
-        app:layout_constraintTop_toTopOf="@+id/fragment_main_nav_view_header_life_plan_icon_iv" />
+        app:layout_constraintBottom_toTopOf="@id/nav_view_header_life_plan_description_tv"
+        app:layout_constraintStart_toEndOf="@id/nav_view_header_life_plan_icon_iv"
+        app:layout_constraintTop_toTopOf="@id/nav_view_header_life_plan_icon_iv" />
 
     <TextView
-        android:id="@+id/fragment_main_nav_view_header_life_plan_description_tv"
+        android:id="@+id/nav_view_header_life_plan_description_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:includeFontPadding="false"
         android:text="@string/design_your_life"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/fragment_main_nav_view_header_life_plan_icon_iv"
-        app:layout_constraintStart_toEndOf="@+id/fragment_main_nav_view_header_life_plan_icon_iv"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_main_nav_view_header_life_plan_text_tv" />
+        app:layout_constraintBottom_toBottomOf="@id/nav_view_header_life_plan_icon_iv"
+        app:layout_constraintStart_toEndOf="@id/nav_view_header_life_plan_icon_iv"
+        app:layout_constraintTop_toBottomOf="@id/nav_view_header_life_plan_text_tv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

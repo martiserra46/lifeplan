@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <View
-        android:id="@+id/rvi_status_day_left_circle_v"
+        android:id="@+id/rvi_situation_day_left_circle_v"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginTop="4dp"
@@ -15,29 +15,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/rvi_status_day_left_vertical_line_v"
+        android:id="@+id/rvi_situation_day_left_vertical_line_v"
         android:layout_width="3dp"
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/bg_rvi_situation_day_line"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/rvi_status_day_left_circle_v"
-        app:layout_constraintStart_toStartOf="@+id/rvi_status_day_left_circle_v"
-        app:layout_constraintTop_toBottomOf="@+id/rvi_status_day_left_circle_v" />
+        app:layout_constraintEnd_toEndOf="@+id/rvi_situation_day_left_circle_v"
+        app:layout_constraintStart_toStartOf="@+id/rvi_situation_day_left_circle_v"
+        app:layout_constraintTop_toBottomOf="@+id/rvi_situation_day_left_circle_v" />
 
     <TextView
-        android:id="@+id/rvi_status_day_date_tv"
+        android:id="@+id/rvi_situation_day_date_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/rvi_status_day_left_circle_v"
-        app:layout_constraintTop_toTopOf="@+id/rvi_status_day_left_circle_v"
+        app:layout_constraintStart_toEndOf="@+id/rvi_situation_day_left_circle_v"
+        app:layout_constraintTop_toTopOf="@+id/rvi_situation_day_left_circle_v"
         tools:text="20/03/2021" />
 
     <TextView
-        android:id="@+id/recycler_view_item_status_day_text_tv"
+        android:id="@+id/rvi_situation_day_text_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -45,8 +45,8 @@
         android:textColor="@color/colorSecondaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/rvi_status_day_date_tv"
-        app:layout_constraintTop_toBottomOf="@+id/rvi_status_day_date_tv"
+        app:layout_constraintStart_toStartOf="@+id/rvi_situation_day_date_tv"
+        app:layout_constraintTop_toBottomOf="@+id/rvi_situation_day_date_tv"
         tools:text="dfdsaf fdsa da jfdaweekm, mnbbs ljkl fdasfd f dasfads fd fda fewaferrt rgtrd dadfa dafd cgfgfg ewretw hgfhs are tgfsdgfsd greg gsdf" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

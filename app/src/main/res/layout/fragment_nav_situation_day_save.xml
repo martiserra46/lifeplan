@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_nav_situation_day_save_tb"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize" />
 
@@ -18,7 +19,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/editText1"
+            android:id="@+id/fragment_nav_situation_day_save_date_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
@@ -29,7 +30,7 @@
             tools:text="26/9/2020" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/fragment_nav_situation_day_save_satisfaction_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -39,10 +40,11 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editText1"
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_date_tv"
             tools:text="High Satisfaction" />
 
         <EditText
+            android:id="@+id/fragment_nav_situation_day_save_description_et"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -55,7 +57,7 @@
             android:textColor="@color/colorSecondaryText"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView4"
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_satisfaction_tv"
             tools:layout_editor_absoluteX="16dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -66,6 +68,7 @@
         android:background="@color/colorDividerLine"/>
 
     <Button
+        android:id="@+id/fragment_nav_situation_day_save_save_button_b"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#FBFBFB"

@@ -6,10 +6,12 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_nav_ideas_topic_save_tb"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize" />
 
     <EditText
+        android:id="@+id/fragment_nav_ideas_topic_save_title_et"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -26,6 +28,7 @@
         android:background="@color/colorDividerLine"/>
 
     <Button
+        android:id="@+id/fragment_nav_ideas_topic_save_save_button_b"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#FBFBFB"
