@@ -17,7 +17,8 @@
         android:gravity="start|top"
         android:hint="@string/write_here"
         android:inputType="text"
-        android:padding="16dp" />
+        android:padding="16dp"
+        android:importantForAutofill="no" />
 
     <View
         android:layout_width="match_parent"
