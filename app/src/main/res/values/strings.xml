@@ -3,4 +3,6 @@
     <string name="design_your_life">Design your life</string>
     <string name="save">Save</string>
     <string name="write_here">Write here</string>
+    <string name="title_of_the_idea">Title of the Idea</string>
+    <string name="description_of_the_idea">Description of the Idea</string>
 </resources>
