@@ -7,4 +7,6 @@
     <color name="colorText">#000000</color>
     <color name="colorSecondaryText">#8E8E8E</color>
     <color name="colorDividerLine">#E3E3E3</color>
+
+    <color name="colorStatusDayLine">#CECECE</color>
 </resources>
