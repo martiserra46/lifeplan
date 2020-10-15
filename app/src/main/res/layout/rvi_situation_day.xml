@@ -10,7 +10,7 @@
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginTop="4dp"
-        android:background="@drawable/bg_rvi_status_day_circle"
+        android:background="@drawable/bg_rvi_situation_day_circle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,7 +19,7 @@
         android:layout_width="3dp"
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
-        android:background="@drawable/bg_rvi_status_day_line"
+        android:background="@drawable/bg_rvi_situation_day_line"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/rvi_status_day_left_circle_v"
         app:layout_constraintStart_toStartOf="@+id/rvi_status_day_left_circle_v"
