@@ -6,4 +6,7 @@
     <string name="title_of_the_idea">Title of the Idea</string>
     <string name="description_of_the_idea">Description of the Idea</string>
     <string name="describe_your_situation">Describe your situation</string>
+    <string name="your_life">Your Life</string>
+    <string name="ideas">Ideas</string>
+    <string name="situation">Situation</string>
 </resources>

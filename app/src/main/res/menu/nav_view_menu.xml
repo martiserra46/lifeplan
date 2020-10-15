@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/yourLifeFragment"
+            android:icon="@drawable/ic_nav_your_life"
+            android:title="@string/your_life"
+            android:checked="true" />
+        <item
+            android:id="@+id/notesFragment"
+            android:icon="@drawable/ic_nav_ideas"
+            android:title="@string/ideas" />
+        <item
+            android:id="@+id/statusFragment"
+            android:icon="@drawable/ic_nav_situation"
+            android:title="@string/situation" />
+    </group>
+</menu>
