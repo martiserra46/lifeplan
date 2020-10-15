@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".ui.fragments.nav.ideas.idea.add.AddIdeaFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_idea_save_tb"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize" />
+        style="@style/toolbarStyle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/windowHorizontalPadding"
+        android:paddingTop="@dimen/windowTopPadding"
+        android:paddingBottom="@dimen/windowBottomPadding">
 
         <EditText
             android:id="@+id/fragment_nav_ideas_idea_save_title_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            style="@style/editTextTitleStyle"
+            android:layout_width="0dp"
             android:hint="@string/title_of_the_idea"
-            android:importantForAutofill="no"
             android:inputType="text"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:textColor="@color/colorSecondaryText"
-            android:textStyle="bold"
+            android:importantForAutofill="no"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,39 +39,30 @@
             android:paddingBottom="8dp"
             android:textColor="#FF7878"
             android:textSize="16sp"
-            tools:text="High Importance"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_idea_save_title_et"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_idea_save_title_et"
+            tools:text="High Importance" />
 
         <EditText
             android:id="@+id/fragment_nav_ideas_idea_save_description_et"
-            android:layout_width="match_parent"
+            style="@style/editTextDescriptionStyle"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:gravity="start|top"
             android:hint="@string/description_of_the_idea"
-            android:importantForAutofill="no"
             android:inputType="text"
-            android:paddingTop="8dp"
-            android:textColor="@color/colorSecondaryText"
-            android:textSize="16sp"
+            android:importantForAutofill="no"
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_idea_save_importance_tv"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_idea_save_importance_tv" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorDividerLine"/>
+    <View style="@style/horizontalDividerLineStyle" />
 
     <Button
         android:id="@+id/fragment_nav_ideas_idea_save_save_button_b"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#FBFBFB"
-        android:text="@string/save"/>
+        style="@style/saveButtonStyle" />
 
 </LinearLayout>

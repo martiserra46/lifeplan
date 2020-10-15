@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,28 +9,36 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_topic_tb"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize" />
+        style="@style/toolbarStyle" />
 
-    <TextView
-        android:id="@+id/fragment_nav_ideas_topic_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="8dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="Ideas about how to live your life" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragment_nav_ideas_topic_rv"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp" />
+        android:paddingHorizontal="@dimen/windowHorizontalPadding"
+        android:paddingTop="@dimen/windowTopPadding"
+        android:paddingBottom="@dimen/windowBottomPadding">
+
+        <TextView
+            android:id="@+id/fragment_nav_ideas_topic_title_tv"
+            style="@style/titleStyle"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ideas about how to live your life" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_nav_ideas_topic_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_topic_title_tv"
+            tools:listitem="@layout/rvi_ideas_idea" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

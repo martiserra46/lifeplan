@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="windowHorizontalPadding">16dp</dimen>
+    <dimen name="windowTopPadding">8dp</dimen>
+    <dimen name="windowBottomPadding">16dp</dimen>
+
+    <dimen name="titleTextSize">18sp</dimen>
+    <dimen name="descriptionTextSize">16sp</dimen>
+
+    <dimen name="saveButtonHeight">50dp</dimen>
+    <dimen name="saveButtonTextSize">16sp</dimen>
+
     <dimen name="rviIdeasTopicSize">60dp</dimen>
     <dimen name="rviIdeasIdeaSize">55dp</dimen>
+
+    <dimen name="rviPrimaryTextTextSize">16sp</dimen>
+    <dimen name="rviSecondaryTextTextSize">14sp</dimen>
 </resources>

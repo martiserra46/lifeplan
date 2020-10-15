@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,48 +9,53 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_situation_day_tb"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize" />
+        style="@style/toolbarStyle" />
 
-    <TextView
-        android:id="@+id/fragment_nav_situation_day_date_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        tools:text="26/09/2020"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/fragment_nav_situation_day_satisfaction_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:textColor="#43DB66"
-        android:textSize="16sp"
-        tools:text="High Satisfaction" />
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
+        android:paddingHorizontal="@dimen/windowHorizontalPadding"
+        android:paddingTop="@dimen/windowTopPadding"
+        android:paddingBottom="@dimen/windowBottomPadding">
 
         <TextView
-            android:id="@+id/fragment_nav_situation_day_description_tv"
+            android:id="@+id/fragment_nav_situation_day_date_tv"
+            style="@style/titleStyle"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="26/09/2020" />
+
+        <TextView
+            android:id="@+id/fragment_nav_situation_day_satisfaction_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineHeight="25dp"
-            android:textSize="18sp"
-            tools:text="I have studied a lot and I have improved my overall health" />
+            android:layout_marginTop="16dp"
+            android:textColor="#43DB66"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_date_tv"
+            tools:text="High Satisfaction" />
 
-    </ScrollView>
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_satisfaction_tv">
+
+            <TextView
+                android:id="@+id/fragment_nav_situation_day_description_tv"
+                style="@style/descriptionStyle"
+                tools:text="I have studied a lot and I have improved my overall health" />
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -9,19 +9,19 @@
         android:id="@+id/rvi_ideas_idea_title_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        tools:text="Read 1h a day"
-        android:textSize="16sp"
+        android:textSize="@dimen/rviPrimaryTextTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvi_ideas_idea_date_tv" />
+        app:layout_constraintTop_toBottomOf="@id/rvi_ideas_idea_date_tv"
+        tools:text="Read 1h a day" />
 
     <TextView
         android:id="@+id/rvi_ideas_idea_date_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorSecondaryText"
+        android:textSize="@dimen/rviSecondaryTextTextSize"
         app:layout_constraintBottom_toTopOf="@id/rvi_ideas_idea_title_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,18 +29,19 @@
         tools:text="23/11/2020" />
 
     <View
+        android:id="@+id/rvi_ideas_idea_importance_v"
         android:layout_width="8dp"
         android:layout_height="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/bg_rvi_ideas_idea_circle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:layout_width="0dp" android:layout_height="1dp"
-        android:background="@color/colorDividerLine"
-        app:layout_constraintStart_toStartOf="parent"
+        style="@style/horizontalDividerLineStyle"
+        android:layout_width="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

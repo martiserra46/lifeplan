@@ -4,4 +4,8 @@
     android:id="@+id/fragment_nav_situation_rv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.nav.situation.SituationFragment" />
+    android:paddingHorizontal="@dimen/windowHorizontalPadding"
+    android:paddingTop="@dimen/windowTopPadding"
+    android:paddingBottom="@dimen/windowBottomPadding"
+    tools:context=".ui.fragments.nav.situation.SituationFragment"
+    tools:listitem="@layout/rvi_situation_day" />

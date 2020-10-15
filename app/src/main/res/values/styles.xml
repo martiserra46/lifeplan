@@ -12,4 +12,59 @@
         <item name="android:windowBackground">#ffffff</item>
     </style>
 
+    <style name="toolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+    </style>
+
+    <style name="titleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/titleTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="descriptionStyle" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/descriptionTextSize</item>
+        <item name="android:textStyle">normal</item>
+        <item name="lineHeight">25dp</item>
+    </style>
+
+    <style name="editTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+    </style>
+
+    <style name="editTextTitleStyle" parent="editTextStyle">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="editTextDescriptionStyle" parent="editTextStyle">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="horizontalDividerLineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorDividerLine</item>
+    </style>
+
+    <style name="saveButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/saveButtonHeight</item>
+        <item name="android:background">#FBFBFB</item>
+        <item name="android:textSize">@dimen/saveButtonTextSize</item>
+        <item name="android:text">@string/save</item>
+    </style>
+
 </resources>

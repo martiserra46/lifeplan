@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".ui.fragments.nav.your_life.edit.EditYourLifeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_your_life_save_tb"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize" />
+        style="@style/toolbarStyle" />
 
     <EditText
         android:id="@+id/fragment_nav_your_life_save_description_et"
-        android:layout_width="match_parent"
+        style="@style/editTextDescriptionStyle"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:gravity="start|top"
         android:hint="@string/write_here"
+        android:importantForAutofill="no"
         android:inputType="text"
-        android:padding="16dp"
-        android:importantForAutofill="no" />
+        android:paddingHorizontal="@dimen/windowHorizontalPadding"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorDividerLine"/>
+    <View style="@style/horizontalDividerLineStyle" />
 
     <Button
         android:id="@+id/fragment_nav_your_life_save_save_button_b"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#FBFBFB"
-        android:text="@string/save" />
+        style="@style/saveButtonStyle" />
 
 </LinearLayout>
