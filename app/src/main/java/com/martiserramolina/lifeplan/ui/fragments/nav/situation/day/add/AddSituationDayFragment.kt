@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan
+package com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.add
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 
-class EditSituationDayFragment : Fragment() {
+class AddSituationDayFragment : Fragment() {
 
     private lateinit var binding: FragmentNavSituationDaySaveBinding
 

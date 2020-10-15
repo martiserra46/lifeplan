@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan
+package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.add
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 
-class EditIdeaFragment : Fragment() {
+class AddIdeaFragment : Fragment() {
 
     private lateinit var binding: FragmentNavIdeasIdeaSaveBinding
 
