@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/fragment_main_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_main_nav_graph"
+    app:startDestination="@id/yourLifeFragment">
 
+    <fragment
+        android:id="@+id/ideasFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.IdeasFragment"
+        android:label="ideasFragment"
+        tools:layout="@layout/fragment_nav_ideas" />
+    <fragment
+        android:id="@+id/situationFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.SituationFragment"
+        android:label="situationFragment"
+        tools:layout="@layout/fragment_nav_situation" />
+    <fragment
+        android:id="@+id/yourLifeFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.your_life.YourLifeFragment"
+        android:label="yourLifeFragment"
+        tools:layout="@layout/fragment_nav_your_life" />
 </navigation>
