@@ -98,5 +98,5 @@ fun List<SituationDayDb>.toListSituationDays(): List<SituationDay> {
 }
 
 fun SituationDay.toSituationDayDb(): SituationDayDb {
-    return SituationDayDb(0, day, text)
+    return SituationDayDb(0, date, text)
 }

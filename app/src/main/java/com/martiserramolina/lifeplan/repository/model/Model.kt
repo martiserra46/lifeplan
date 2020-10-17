@@ -15,7 +15,7 @@ data class Idea(
 )
 
 data class SituationDay(
-    var day: Date = Date(),
+    var date: Date = Date(),
     var text: String = "",
     var satisfaction: SituationDaySatisfaction = SituationDaySatisfaction.NORMAL,
 )
