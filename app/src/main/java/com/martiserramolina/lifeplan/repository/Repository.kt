@@ -1,11 +1,11 @@
 package com.martiserramolina.lifeplan.repository
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
+import com.martiserramolina.lifeplan.repository.model.Topic
 import com.martiserramolina.lifeplan.repository.model.YourLife
-import com.martiserramolina.lifeplan.repository.room.AppDb
-import com.martiserramolina.lifeplan.repository.room.YourLifeDb
-import com.martiserramolina.lifeplan.repository.room.toYourLife
-import com.martiserramolina.lifeplan.repository.room.toYourLifeDb
+import com.martiserramolina.lifeplan.repository.room.*
 
 class Repository(context: Context) {
     val yourLifeRepository by lazy { YourLifeRepository(context) }
@@ -29,6 +29,16 @@ class YourLifeRepository(context: Context) {
 
 class IdeasRepository(context: Context) {
 
+    private val db by lazy { AppDb.getInstance(context) }
+    private val daoTopic by lazy { db.daoTopicDb() }
+
+    fun getTopics(): LiveData<List<Topic>> {
+        return Transformations.map(daoTopic.getTopics()) { it.toListTopics() }
+    }
+
+    fun insertTopic(topic: Topic) {
+        daoTopic.insertTopic(topic.toTopicDb())
+    }
 }
 
 class SituationDayRepository(context: Context) {
