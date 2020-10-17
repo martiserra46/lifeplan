@@ -35,6 +35,7 @@ class EditYourLifeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         setupActionBar()
+        setupDescription()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -63,6 +64,12 @@ class EditYourLifeFragment : Fragment() {
             }
         }
         setHasOptionsMenu(true)
+    }
+
+    private fun setupDescription() {
+        viewModel.yourLife.observe(viewLifecycleOwner) { yourLife ->
+            yourLife?.let { binding.fragmentNavYourLifeSaveDescriptionEt.setText(yourLife.text) }
+        }
     }
 
     private fun navigateToMainFragment() {
