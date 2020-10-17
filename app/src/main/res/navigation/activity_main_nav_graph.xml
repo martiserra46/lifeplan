@@ -25,6 +25,10 @@
         <action
             android:id="@+id/action_mainFragment_to_addSituationDayFragment"
             app:destination="@id/addSituationDayFragment" />
+        <argument
+            android:name="navSection"
+            app:argType="com.martiserramolina.lifeplan.enums.NavSection"
+            android:defaultValue="YOUR_LIFE" />
     </fragment>
     <fragment
         android:id="@+id/ideaFragment"
