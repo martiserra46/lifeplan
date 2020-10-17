@@ -1,5 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/activity_main_nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_nav_graph"
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.MainFragment"
+        android:label="mainFragment"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_editYourLifeFragment"
+            app:destination="@id/editYourLifeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_topicFragment"
+            app:destination="@id/topicFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_situationDayFragment"
+            app:destination="@id/situationDayFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addTopicFragment"
+            app:destination="@id/addTopicFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addSituationDayFragment"
+            app:destination="@id/addSituationDayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ideaFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.IdeaFragment"
+        android:label="ideaFragment"
+        tools:layout="@layout/fragment_nav_ideas_idea" >
+        <action
+            android:id="@+id/action_ideaFragment_to_editIdeaFragment"
+            app:destination="@id/editIdeaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addIdeaFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.add.AddIdeaFragment"
+        android:label="addIdeaFragment"
+        tools:layout="@layout/fragment_nav_ideas_idea_save" />
+    <fragment
+        android:id="@+id/topicFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.TopicFragment"
+        android:label="topicFragment"
+        tools:layout="@layout/fragment_nav_ideas_topic" >
+        <action
+            android:id="@+id/action_topicFragment_to_editTopicFragment"
+            app:destination="@id/editTopicFragment" />
+        <action
+            android:id="@+id/action_topicFragment_to_ideaFragment"
+            app:destination="@id/ideaFragment" />
+        <action
+            android:id="@+id/action_topicFragment_to_addIdeaFragment"
+            app:destination="@id/addIdeaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTopicFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.add.AddTopicFragment"
+        android:label="addTopicFragment"
+        tools:layout="@layout/fragment_nav_ideas_topic_save" />
+    <fragment
+        android:id="@+id/situationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.SituationDayFragment"
+        android:label="situationDayFragment"
+        tools:layout="@layout/fragment_nav_situation_day" >
+        <action
+            android:id="@+id/action_situationDayFragment_to_editSituationDayFragment"
+            app:destination="@id/editSituationDayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.add.AddSituationDayFragment"
+        android:label="addSituationDayFragment"
+        tools:layout="@layout/fragment_nav_situation_day_save" />
+    <fragment
+        android:id="@+id/editYourLifeFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.your_life.edit.EditYourLifeFragment"
+        android:label="editYourLifeFragment"
+        tools:layout="@layout/fragment_nav_your_life_save" />
+    <fragment
+        android:id="@+id/editIdeaFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.edit.EditIdeaFragment"
+        android:label="editIdeaFragment"
+        tools:layout="@layout/fragment_nav_ideas_idea_save" />
+    <fragment
+        android:id="@+id/editTopicFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.edit.EditTopicFragment"
+        android:label="editTopicFragment"
+        tools:layout="@layout/fragment_nav_ideas_topic_save" />
+    <fragment
+        android:id="@+id/editSituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.edit.EditSituationDayFragment"
+        android:label="editSituationDayFragment"
+        tools:layout="@layout/fragment_nav_situation_day_save" />
 </navigation>
