@@ -20,7 +20,8 @@
         android:inputType="text"
         android:paddingHorizontal="@dimen/windowHorizontalPadding"
         android:paddingTop="16dp"
-        android:paddingBottom="16dp" />
+        android:paddingBottom="16dp"
+        android:text="hola" />
 
     <View style="@style/horizontalDividerLineStyle" />
 
