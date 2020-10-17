@@ -1,18 +1,20 @@
 package com.martiserramolina.lifeplan.ui.fragments.nav.your_life
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeBinding
+import com.martiserramolina.lifeplan.ui.activities.MainActivity
+import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.your_life.YourLifeViewModel
 
 class YourLifeFragment : Fragment() {
 
     private lateinit var binding: FragmentNavYourLifeBinding
+    private val mainActivity by lazy { activity as MainActivity }
     private val viewModel by lazy { buildViewModel() }
 
     override fun onCreateView(
@@ -26,8 +28,24 @@ class YourLifeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         viewModel.yourLife.observe(viewLifecycleOwner) { yourLife ->
             yourLife?.let { binding.fragmentNavYourLifeDescriptionTv.text = yourLife.text }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.your_life_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.your_life_edit_mi -> {
+                mainActivity.navController
+                    .navigate(MainFragmentDirections.actionMainFragmentToEditYourLifeFragment())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
