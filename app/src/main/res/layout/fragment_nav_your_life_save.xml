@@ -20,10 +20,7 @@
         android:inputType="text"
         android:paddingHorizontal="@dimen/windowHorizontalPadding"
         android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:text="hola" />
-
-    <View style="@style/horizontalDividerLineStyle" />
+        android:paddingBottom="16dp" />
 
     <Button
         android:id="@+id/fragment_nav_your_life_save_save_button_b"

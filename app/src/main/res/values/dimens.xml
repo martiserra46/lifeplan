@@ -7,7 +7,6 @@
     <dimen name="titleTextSize">18sp</dimen>
     <dimen name="descriptionTextSize">16sp</dimen>
 
-    <dimen name="saveButtonHeight">50dp</dimen>
     <dimen name="saveButtonTextSize">16sp</dimen>
 
     <dimen name="rviIdeasTopicSize">60dp</dimen>

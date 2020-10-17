@@ -21,8 +21,6 @@
         android:paddingHorizontal="@dimen/windowHorizontalPadding"
         android:paddingTop="16dp" />
 
-    <View style="@style/horizontalDividerLineStyle" />
-
     <Button
         android:id="@+id/fragment_nav_ideas_topic_save_save_button_b"
         style="@style/saveButtonStyle" />
