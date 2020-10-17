@@ -49,6 +49,10 @@ fun Topic.toTopicDb(): TopicDb {
     return TopicDb(0, name)
 }
 
+fun List<Topic>.toListTopicsDb(): List<TopicDb> {
+    return map { it.toTopicDb() }
+}
+
 @Entity(tableName = "idea")
 data class IdeaDb(
     @PrimaryKey(autoGenerate = true)
@@ -76,6 +80,10 @@ fun Idea.toIdeaDb(topicId: Long): IdeaDb {
     return IdeaDb(0, topicId, text, importance, lastTimeModified)
 }
 
+fun List<Idea>.toListIdeasDb(topicId: Long): List<IdeaDb> {
+    return map { it.toIdeaDb(topicId) }
+}
+
 @Entity(tableName = "situation_day")
 data class SituationDayDb(
     @PrimaryKey(autoGenerate = true)
@@ -99,4 +107,8 @@ fun List<SituationDayDb>.toListSituationDays(): List<SituationDay> {
 
 fun SituationDay.toSituationDayDb(): SituationDayDb {
     return SituationDayDb(0, date, text)
+}
+
+fun List<SituationDay>.toListSituationDaysDb(): List<SituationDayDb> {
+    return map { it.toSituationDayDb() }
 }
