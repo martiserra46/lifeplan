@@ -29,9 +29,7 @@ class YourLifeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        viewModel.yourLife.observe(viewLifecycleOwner) { yourLife ->
-            yourLife?.let { binding.fragmentNavYourLifeDescriptionTv.text = yourLife.text }
-        }
+        setupDescription()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -51,9 +49,13 @@ class YourLifeFragment : Fragment() {
 
     private fun buildViewModel(): YourLifeViewModel {
         return ViewModelProvider(
-            this,
-            YourLifeViewModel.Factory(
-                requireActivity().application)
+            this, YourLifeViewModel.Factory(requireActivity().application)
         ).get(YourLifeViewModel::class.java)
+    }
+
+    private fun setupDescription() {
+        viewModel.yourLife.observe(viewLifecycleOwner) { yourLife ->
+            yourLife?.let { binding.fragmentNavYourLifeDescriptionTv.text = yourLife.text }
+        }
     }
 }
