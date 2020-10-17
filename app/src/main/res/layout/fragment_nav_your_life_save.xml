@@ -17,10 +17,11 @@
         android:layout_weight="1"
         android:hint="@string/write_here"
         android:importantForAutofill="no"
-        android:inputType="text"
+        android:inputType="textMultiLine|text"
         android:paddingHorizontal="@dimen/windowHorizontalPadding"
         android:paddingTop="16dp"
-        android:paddingBottom="16dp" />
+        android:paddingBottom="16dp"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/fragment_nav_your_life_save_save_button_b"

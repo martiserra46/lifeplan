@@ -11,7 +11,7 @@
         android:paddingHorizontal="@dimen/windowHorizontalPadding"
         android:paddingTop="@dimen/windowTopPadding"
         android:paddingBottom="@dimen/windowBottomPadding"
-        android:textSize="18sp"
+        android:textSize="20sp"
         tools:text="@tools:sample/lorem/random" />
 
 </ScrollView>
