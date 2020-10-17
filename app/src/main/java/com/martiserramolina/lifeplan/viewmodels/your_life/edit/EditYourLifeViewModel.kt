@@ -26,7 +26,7 @@ class EditYourLifeViewModel(application: Application) : AndroidViewModel(applica
             }
         }
     }
-    
+
     fun insertYourLife(yourLife: YourLife) {
         coroutineMainScope.launch {
             withContext(Dispatchers.IO) { repository.yourLifeRepository.insertYourLife(yourLife) }
