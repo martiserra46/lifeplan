@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasBinding
+import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 
 class IdeasFragment : Fragment() {
 
@@ -18,5 +19,13 @@ class IdeasFragment : Fragment() {
     ): View? {
         binding = FragmentNavIdeasBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.fragmentNavIdeasRv.apply {
+            setHasFixedSize(true)
+            adapter = TopicAdapter()
+        }
     }
 }
