@@ -5,6 +5,7 @@ import com.martiserramolina.lifeplan.repository.model.YourLife
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.YourLifeDb
 import com.martiserramolina.lifeplan.repository.room.toYourLife
+import com.martiserramolina.lifeplan.repository.room.toYourLifeDb
 
 class Repository(context: Context) {
     val yourLifeRepository by lazy { YourLifeRepository(context) }
@@ -17,12 +18,12 @@ class YourLifeRepository(context: Context) {
     private val db by lazy { AppDb.getInstance(context) }
     private val daoYourLife by lazy { db.daoYourLifeDb() }
 
-    suspend fun getYourLife(): YourLife? {
+    fun getYourLife(): YourLife? {
         return daoYourLife.getYourLife()?.toYourLife()
     }
 
-    suspend fun insertYourLife(lifeDescription: YourLife) {
-        daoYourLife.insertYourLife(YourLifeDb(1, lifeDescription.text))
+    fun insertYourLife(lifeDescription: YourLife) {
+        daoYourLife.insertYourLife(lifeDescription.toYourLifeDb())
     }
 }
 
