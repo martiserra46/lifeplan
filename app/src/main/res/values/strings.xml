@@ -14,4 +14,5 @@
     <string name="life_plan_icon_description">Life Plan Icon</string>
     <string name="num_ideas">%1$d Ideas</string>
     <string name="add">Add</string>
+    <string name="ideas_topic_add">Add Topic</string>
 </resources>

@@ -63,7 +63,11 @@
         android:id="@+id/addTopicFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.add.AddTopicFragment"
         android:label="addTopicFragment"
-        tools:layout="@layout/fragment_nav_ideas_topic_save" />
+        tools:layout="@layout/fragment_nav_ideas_topic_save" >
+        <action
+            android:id="@+id/action_addTopicFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/situationDayFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.SituationDayFragment"
