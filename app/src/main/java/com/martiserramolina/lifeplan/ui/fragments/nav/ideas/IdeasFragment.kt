@@ -26,6 +26,16 @@ class IdeasFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+    }
+
+    private fun buildViewModel(): IdeasViewModel {
+        return ViewModelProvider(
+            this, IdeasViewModel.Factory(requireActivity().application)
+        ).get(IdeasViewModel::class.java)
+    }
+
+    private fun setupRecyclerView() {
         binding.fragmentNavIdeasRv.apply {
             setHasFixedSize(true)
             adapter = TopicAdapter()
@@ -33,11 +43,5 @@ class IdeasFragment : Fragment() {
         viewModel.topics.observe(viewLifecycleOwner) { topics ->
             binding.fragmentNavIdeasRv.adapter.run { this as TopicAdapter }.listTopics = topics
         }
-    }
-
-    private fun buildViewModel(): IdeasViewModel {
-        return ViewModelProvider(
-            this, IdeasViewModel.Factory(requireActivity().application)
-        ).get(IdeasViewModel::class.java)
     }
 }
