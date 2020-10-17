@@ -13,4 +13,7 @@
     <color name="colorDividerLine">#E3E3E3</color>
 
     <color name="colorStatusDayLine">#CECECE</color>
+
+    <color name="navSelectedMenuItemColor">@color/colorText</color>
+    <color name="navUnselectedMenuItemColor">@color/colorSecondaryText</color>
 </resources>
