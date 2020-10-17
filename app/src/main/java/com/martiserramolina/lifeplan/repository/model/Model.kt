@@ -4,7 +4,7 @@ import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import java.util.*
 
-data class LifeDescription(var text: String = "")
+data class YourLife(var text: String = "")
 
 data class Topic(var name: String = "", var ideas: List<Idea> = emptyList())
 
