@@ -5,12 +5,14 @@
     android:layout_height="wrap_content"
     android:paddingStart="16dp"
     android:paddingTop="32dp"
-    android:paddingEnd="16dp">
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
 
     <ImageView
         android:id="@+id/nav_view_header_life_plan_icon_iv"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:contentDescription="@string/life_plan_icon_description"
         android:src="@drawable/ic_life_plan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:includeFontPadding="false"
         android:text="@string/app_name"
         android:textSize="22sp"
@@ -36,7 +39,6 @@
         android:includeFontPadding="false"
         android:text="@string/design_your_life"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/nav_view_header_life_plan_icon_iv"
         app:layout_constraintStart_toEndOf="@id/nav_view_header_life_plan_icon_iv"
         app:layout_constraintTop_toBottomOf="@id/nav_view_header_life_plan_text_tv" />
 
