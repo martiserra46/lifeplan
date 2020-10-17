@@ -1,6 +1,6 @@
 package com.martiserramolina.lifeplan.repository.model
 
-import com.martiserramolina.lifeplan.repository.enums.DaySituationSatisfaction
+import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import java.util.*
 
@@ -17,5 +17,5 @@ data class Idea(
 data class SituationDay(
     var day: Date = Date(),
     var text: String = "",
-    var satisfaction: DaySituationSatisfaction = DaySituationSatisfaction.NORMAL,
+    var satisfaction: SituationDaySatisfaction = SituationDaySatisfaction.NORMAL,
 )
