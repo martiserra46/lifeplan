@@ -8,15 +8,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
+import com.martiserramolina.lifeplan.viewmodels.your_life.YourLifeViewModel
+import com.martiserramolina.lifeplan.viewmodels.your_life.edit.EditYourLifeViewModel
 
 class EditYourLifeFragment : Fragment() {
 
     private lateinit var binding: FragmentNavYourLifeSaveBinding
     private val mainActivity by lazy { activity as MainActivity }
+    private val viewModel by lazy { buildViewModel() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +45,12 @@ class EditYourLifeFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun buildViewModel(): EditYourLifeViewModel {
+        return ViewModelProvider(
+            this, EditYourLifeViewModel.Factory(requireActivity().application)
+        ).get(EditYourLifeViewModel::class.java)
     }
 
     private fun setupActionBar() {
