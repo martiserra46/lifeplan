@@ -2,11 +2,15 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.your_life.edit
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
+import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 
 class EditYourLifeFragment : Fragment() {
@@ -25,7 +29,18 @@ class EditYourLifeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         setupActionBar()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                navigateToMainFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun setupActionBar() {
@@ -38,5 +53,12 @@ class EditYourLifeFragment : Fragment() {
             }
         }
         setHasOptionsMenu(true)
+    }
+
+    private fun navigateToMainFragment() {
+        mainActivity.navController.navigate(
+            EditYourLifeFragmentDirections
+                .actionEditYourLifeFragmentToMainFragment(NavSection.YOUR_LIFE)
+        )
     }
 }

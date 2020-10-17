@@ -82,7 +82,11 @@
         android:id="@+id/editYourLifeFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.nav.your_life.edit.EditYourLifeFragment"
         android:label="editYourLifeFragment"
-        tools:layout="@layout/fragment_nav_your_life_save" />
+        tools:layout="@layout/fragment_nav_your_life_save" >
+        <action
+            android:id="@+id/action_editYourLifeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/editIdeaFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.edit.EditIdeaFragment"
