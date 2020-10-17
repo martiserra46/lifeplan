@@ -12,4 +12,5 @@
     <string name="edit">Edit</string>
     <string name="your_life_edit">Describe your desired life</string>
     <string name="life_plan_icon_description">Life Plan Icon</string>
+    <string name="num_ideas">%1$d Ideas</string>
 </resources>
