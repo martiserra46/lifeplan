@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
+import com.martiserramolina.lifeplan.repository.model.YourLife
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.viewmodels.your_life.YourLifeViewModel
 import com.martiserramolina.lifeplan.viewmodels.your_life.edit.EditYourLifeViewModel
@@ -36,6 +37,7 @@ class EditYourLifeFragment : Fragment() {
         setHasOptionsMenu(true)
         setupActionBar()
         setupDescription()
+        setupSaveButton()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -69,6 +71,15 @@ class EditYourLifeFragment : Fragment() {
     private fun setupDescription() {
         viewModel.yourLife.observe(viewLifecycleOwner) { yourLife ->
             yourLife?.let { binding.fragmentNavYourLifeSaveDescriptionEt.setText(yourLife.text) }
+        }
+    }
+
+    private fun setupSaveButton() {
+        binding.fragmentNavYourLifeSaveSaveButtonB.setOnClickListener {
+            viewModel.insertYourLife(
+                YourLife(binding.fragmentNavYourLifeSaveDescriptionEt.text.toString())
+            )
+            navigateToMainFragment()
         }
     }
 
