@@ -5,10 +5,12 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.repository.Repository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
+import com.martiserramolina.lifeplan.repository.model.Idea
+import com.martiserramolina.lifeplan.repository.model.Topic
+import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
+import java.util.*
 
 class IdeasViewModel(application: Application) : AndroidViewModel(application) {
 

@@ -30,7 +30,9 @@ class IdeasFragment : Fragment() {
             setHasFixedSize(true)
             adapter = TopicAdapter()
         }
-
+        viewModel.topics.observe(viewLifecycleOwner) { topics ->
+            binding.fragmentNavIdeasRv.adapter.run { this as TopicAdapter }.listTopics = topics
+        }
     }
 
     private fun buildViewModel(): IdeasViewModel {

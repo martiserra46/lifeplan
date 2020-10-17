@@ -3,9 +3,12 @@ package com.martiserramolina.lifeplan.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
+import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
+import com.martiserramolina.lifeplan.repository.model.Idea
 import com.martiserramolina.lifeplan.repository.model.Topic
 import com.martiserramolina.lifeplan.repository.model.YourLife
 import com.martiserramolina.lifeplan.repository.room.*
+import java.util.*
 
 class Repository(context: Context) {
     val yourLifeRepository by lazy { YourLifeRepository(context) }

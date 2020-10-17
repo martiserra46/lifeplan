@@ -5,13 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.RviIdeasTopicBinding
+import com.martiserramolina.lifeplan.repository.model.Topic
 
 class TopicAdapter : RecyclerView.Adapter<TopicAdapter.ViewHolder>() {
 
-    private val listTopics = listOf(
-        TopicItem("hola", 12),
-        TopicItem("adeu", 2)
-    )
+    var listTopics = emptyList<Topic>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.create(parent)
@@ -24,8 +26,6 @@ class TopicAdapter : RecyclerView.Adapter<TopicAdapter.ViewHolder>() {
     override fun getItemCount(): Int {
         return listTopics.size
     }
-
-    data class TopicItem(val title: String, val numIdeas: Int)
 
     class ViewHolder(
         private val binding: RviIdeasTopicBinding
@@ -40,11 +40,11 @@ class TopicAdapter : RecyclerView.Adapter<TopicAdapter.ViewHolder>() {
             }
         }
 
-        fun bind(topicItem: TopicItem) {
+        fun bind(topic: Topic) {
             binding.apply {
-                rviIdeasTopicTitleTv.text = topicItem.title
+                rviIdeasTopicTitleTv.text = topic.name
                 rviIdeasTopicNumIdeasTv.text = root.context
-                    .getString(R.string.num_ideas, topicItem.numIdeas)
+                    .getString(R.string.num_ideas, topic.ideas.size)
             }
         }
     }
