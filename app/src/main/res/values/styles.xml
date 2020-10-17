@@ -9,7 +9,7 @@
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textColorHint">@color/colorSecondaryText</item>
 
-        <item name="android:windowBackground">#ffffff</item>
+        <item name="android:windowBackground">@color/screenBackground</item>
     </style>
 
     <style name="toolbarStyle" parent="Widget.AppCompat.Toolbar">
