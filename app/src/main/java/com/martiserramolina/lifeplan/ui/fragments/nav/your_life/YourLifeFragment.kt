@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeBinding
 import com.martiserramolina.lifeplan.viewmodels.your_life.YourLifeViewModel
@@ -22,7 +23,14 @@ class YourLifeFragment : Fragment() {
         binding = FragmentNavYourLifeBinding.inflate(inflater, container, false)
         return binding.root
     }
-    
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.yourLife.observe(viewLifecycleOwner) { yourLife ->
+            yourLife?.let { binding.fragmentNavYourLifeDescriptionTv.text = yourLife.text }
+        }
+    }
+
     private fun buildViewModel(): YourLifeViewModel {
         return ViewModelProvider(
             this,
