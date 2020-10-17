@@ -19,7 +19,7 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
 
-    private val mainActivity by lazy { activity as MainActivity }
+    val mainActivity by lazy { activity as MainActivity }
 
     private val navController: NavController
         get() = childFragmentManager.findFragmentById(
