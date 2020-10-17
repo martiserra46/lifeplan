@@ -10,6 +10,8 @@
         <item name="android:textColorHint">@color/colorSecondaryText</item>
 
         <item name="android:windowBackground">@color/screenBackground</item>
+
+        <item name="colorControlNormal">@color/colorControlNormal</item>
     </style>
 
     <style name="toolbarStyle" parent="Widget.AppCompat.Toolbar">

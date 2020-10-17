@@ -6,6 +6,8 @@
 
     <color name="screenBackground">#ffffff</color>
 
+    <color name="colorControlNormal">#000000</color>
+
     <color name="colorText">#000000</color>
     <color name="colorSecondaryText">#8E8E8E</color>
     <color name="colorDividerLine">#E3E3E3</color>
