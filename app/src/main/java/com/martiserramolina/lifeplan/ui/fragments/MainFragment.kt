@@ -18,8 +18,7 @@ import com.martiserramolina.lifeplan.ui.activities.MainActivity
 class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
-
-    val mainActivity by lazy { activity as MainActivity }
+    private val mainActivity by lazy { activity as MainActivity }
 
     private val navController: NavController
         get() = childFragmentManager.findFragmentById(
