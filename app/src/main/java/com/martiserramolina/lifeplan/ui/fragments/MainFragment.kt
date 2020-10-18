@@ -63,21 +63,21 @@ class MainFragment : FragmentWithBinding<FragmentMainBinding>() {
     private fun setupNavSection() {
         navSection = MainFragmentArgs.fromBundle(requireArguments()).navSection
         mainActivity.supportActionBar?.title = getString(navSection.label)
-        if (navSection != NavSection.YOUR_LIFE) {
-            mainActivity.supportActionBar?.title = getString(navSection.label)
-            binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
-            navController.navigate(navSection.destinationId)
-        }
+        if (navSection != NavSection.YOUR_LIFE) navigateToNavSection(navSection)
     }
 
     private fun setupNavView() {
         binding.fragmentMainNv.setNavigationItemSelectedListener { menuItem ->
             navSection = NavSection.getNavSection(menuItem.itemId)
-            mainActivity.supportActionBar?.title = getString(navSection.label)
-            menuItem.isChecked = true
+            navigateToNavSection(navSection)
             binding.fragmentMainDl.closeDrawers()
-            navController.navigate(navSection.destinationId)
             true
         }
+    }
+
+    private fun navigateToNavSection(navSection: NavSection) {
+        mainActivity.supportActionBar?.title = getString(navSection.label)
+        binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
+        navController.navigate(navSection.destinationId)
     }
 }
