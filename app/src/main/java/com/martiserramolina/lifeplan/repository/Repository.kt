@@ -51,10 +51,10 @@ class SituationDayRepository(context: Context) {
     private val daoSituationDay by lazy { db.daoSituationDayDb() }
 
     fun getSituationDays(): LiveData<List<SituationDay>> {
-        return Transformations.map(daoSituationDay.getStatusDays()) { it.toListSituationDays() }
+        return Transformations.map(daoSituationDay.getSituationDays()) { it.toListSituationDays() }
     }
 
     fun insertSituationDay(situationDay: SituationDay) {
-        daoSituationDay.insertStatusDay(situationDay.toSituationDayDb())
+        daoSituationDay.insertSituationDay(situationDay.toSituationDayDb())
     }
 }
