@@ -6,16 +6,14 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 
-class MainFragment : FragmentWithBinding<FragmentMainBinding>() {
+class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private val mainActivity by lazy { activity as MainActivity }
 

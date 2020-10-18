@@ -2,19 +2,14 @@ package com.martiserramolina.lifeplan.ui.fragments
 
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
-import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 
-abstract class SecondaryFragment<T : ViewBinding> : FragmentWithBinding<T>() {
+abstract class SecondaryFragment<T : ViewBinding> : BaseFragment<T>() {
 
     private val mainActivity by lazy { activity as MainActivity }
     protected val navController by lazy { mainActivity.navController }

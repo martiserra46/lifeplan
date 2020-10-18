@@ -2,17 +2,15 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.your_life
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
-import com.martiserramolina.lifeplan.ui.fragments.FragmentWithBinding
+import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.your_life.YourLifeViewModel
 
-class YourLifeFragment : FragmentWithBinding<FragmentNavYourLifeBinding>() {
+class YourLifeFragment : BaseFragment<FragmentNavYourLifeBinding>() {
 
     private val mainActivity by lazy { activity as MainActivity }
 

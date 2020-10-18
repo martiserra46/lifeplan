@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
-import com.martiserramolina.lifeplan.ui.fragments.FragmentWithBinding
+import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.adapters.SituationDayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.situation.SituationViewModel
 
-class SituationFragment : FragmentWithBinding<FragmentNavSituationBinding>() {
+class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
 
     private val mainActivity by lazy { activity as MainActivity }
 

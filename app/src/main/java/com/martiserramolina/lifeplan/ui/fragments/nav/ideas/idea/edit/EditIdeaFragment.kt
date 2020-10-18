@@ -3,9 +3,9 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.edit
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
-import com.martiserramolina.lifeplan.ui.fragments.FragmentWithBinding
+import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
-class EditIdeaFragment : FragmentWithBinding<FragmentNavIdeasIdeaSaveBinding>() {
+class EditIdeaFragment : BaseFragment<FragmentNavIdeasIdeaSaveBinding>() {
     override fun getBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
