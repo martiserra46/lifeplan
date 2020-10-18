@@ -15,9 +15,8 @@ import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 
-class MainFragment : Fragment() {
+class MainFragment : FragmentWithBinding<FragmentMainBinding>() {
 
-    private lateinit var binding: FragmentMainBinding
     private val mainActivity by lazy { activity as MainActivity }
 
     private val navController: NavController
@@ -27,14 +26,11 @@ class MainFragment : Fragment() {
 
     private lateinit var navSection: NavSection
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentMainBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun getBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentMainBinding {
+        return FragmentMainBinding.inflate(inflater, container, false)
     }
+
+    override fun getRootView(): View = binding.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

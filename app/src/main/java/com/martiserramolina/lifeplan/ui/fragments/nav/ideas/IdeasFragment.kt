@@ -8,25 +8,29 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
+import com.martiserramolina.lifeplan.ui.fragments.FragmentWithBinding
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.IdeaFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.TopicFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.ideas.IdeasViewModel
 
-class IdeasFragment : Fragment() {
+class IdeasFragment : FragmentWithBinding<FragmentNavIdeasBinding>() {
 
-    private lateinit var binding: FragmentNavIdeasBinding
     private val mainActivity by lazy { activity as MainActivity }
-    private val viewModel by lazy { buildViewModel() }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentNavIdeasBinding.inflate(inflater, container, false)
-        return binding.root
+    private val viewModel by lazy {
+        ViewModelProvider(
+            this, IdeasViewModel.Factory(requireActivity().application)
+        ).get(IdeasViewModel::class.java)
     }
+
+    override fun getBinding(
+        inflater: LayoutInflater, container: ViewGroup?
+    ): FragmentNavIdeasBinding {
+        return FragmentNavIdeasBinding.inflate(inflater, container, false)
+    }
+
+    override fun getRootView(): View = binding.root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,12 +50,6 @@ class IdeasFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    private fun buildViewModel(): IdeasViewModel {
-        return ViewModelProvider(
-            this, IdeasViewModel.Factory(requireActivity().application)
-        ).get(IdeasViewModel::class.java)
     }
 
     private fun setupRecyclerView() {

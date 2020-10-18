@@ -11,20 +11,10 @@ import androidx.fragment.app.Fragment
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 
-abstract class SecondaryFragment<T : Any> : Fragment() {
+abstract class SecondaryFragment<T : Any> : FragmentWithBinding<T>() {
 
-    protected lateinit var binding: T
     private val mainActivity by lazy { activity as MainActivity }
     protected val navController by lazy { mainActivity.navController }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = getBinding(inflater, container)
-        return getRootView()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,10 +41,6 @@ abstract class SecondaryFragment<T : Any> : Fragment() {
         }
         setHasOptionsMenu(true)
     }
-
-    abstract fun getBinding(inflater: LayoutInflater, container: ViewGroup?): T
-
-    abstract fun getRootView(): View
 
     abstract fun getToolbar(): Toolbar
 
