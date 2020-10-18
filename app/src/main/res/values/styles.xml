@@ -87,14 +87,4 @@
         <item name="android:background">@color/colorDividerLine</item>
     </style>
 
-    <style name="saveButtonStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">end</item>
-        <item name="android:background">?selectableItemBackgroundBorderless</item>
-        <item name="android:textSize">@dimen/saveButtonTextSize</item>
-        <item name="android:textColor">@color/colorText</item>
-        <item name="android:text">@string/save</item>
-    </style>
-
 </resources>

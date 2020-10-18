@@ -54,8 +54,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/fragment_nav_situation_day_save_save_button_b"
-        style="@style/saveButtonStyle" />
-
 </LinearLayout>

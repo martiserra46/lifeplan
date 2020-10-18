@@ -23,8 +23,4 @@
         android:paddingBottom="16dp"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/fragment_nav_your_life_save_save_button_b"
-        style="@style/saveButtonStyle" />
-
 </LinearLayout>
