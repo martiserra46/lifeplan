@@ -1,12 +1,7 @@
 package com.martiserramolina.lifeplan.ui.fragments.nav.your_life.edit
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.addCallback
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
@@ -14,7 +9,6 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.model.YourLife
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
-import com.martiserramolina.lifeplan.viewmodels.your_life.YourLifeViewModel
 import com.martiserramolina.lifeplan.viewmodels.your_life.edit.EditYourLifeViewModel
 
 class EditYourLifeFragment : Fragment() {
@@ -37,13 +31,20 @@ class EditYourLifeFragment : Fragment() {
         setHasOptionsMenu(true)
         setupActionBar()
         setupDescription()
-        setupSaveButton()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.your_life_edit_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 navigateToMainFragment()
+                true
+            }
+            R.id.your_life_edit_save_mi -> {
+                saveDescription()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -73,13 +74,11 @@ class EditYourLifeFragment : Fragment() {
         }
     }
 
-    private fun setupSaveButton() {
-        binding.fragmentNavYourLifeSaveSaveButtonB.setOnClickListener {
-            viewModel.insertYourLife(
-                YourLife(binding.fragmentNavYourLifeSaveDescriptionEt.text.toString())
-            )
-            navigateToMainFragment()
-        }
+    private fun saveDescription() {
+        viewModel.insertYourLife(
+            YourLife(binding.fragmentNavYourLifeSaveDescriptionEt.text.toString())
+        )
+        navigateToMainFragment()
     }
 
     private fun navigateToMainFragment() {

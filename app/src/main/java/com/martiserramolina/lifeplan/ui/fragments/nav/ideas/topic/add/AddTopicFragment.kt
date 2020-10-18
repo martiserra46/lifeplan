@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.add
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
@@ -33,13 +30,20 @@ class AddTopicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupActionBar()
-        setupSaveButton()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.ideas_topic_add_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 navigateToMainFragment()
+                true
+            }
+            R.id.ideas_topic_add_save_mi -> {
+                saveTopic()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -63,11 +67,9 @@ class AddTopicFragment : Fragment() {
         setHasOptionsMenu(true)
     }
 
-    private fun setupSaveButton() {
-        binding.fragmentNavIdeasTopicSaveSaveButtonB.setOnClickListener {
-            viewModel.insertTopic(Topic(binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()))
-            navigateToMainFragment()
-        }
+    private fun saveTopic() {
+        viewModel.insertTopic(Topic(binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()))
+        navigateToMainFragment()
     }
 
     private fun navigateToMainFragment() {
