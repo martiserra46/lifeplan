@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 
@@ -19,6 +21,7 @@ abstract class SecondaryFragment<T : Any> : FragmentWithBinding<T>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupActionBar()
+        setupBackButton()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -40,6 +43,10 @@ abstract class SecondaryFragment<T : Any> : FragmentWithBinding<T>() {
             }
         }
         setHasOptionsMenu(true)
+    }
+
+    private fun setupBackButton() {
+        mainActivity.onBackPressedDispatcher.addCallback(mainActivity) { navigateToPreviousFragment() }
     }
 
     abstract fun getToolbar(): Toolbar
