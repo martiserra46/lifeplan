@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.your_life.edit
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
@@ -9,27 +10,39 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.model.YourLife
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
+import com.martiserramolina.lifeplan.ui.fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.your_life.edit.EditYourLifeViewModel
 
-class EditYourLifeFragment : Fragment() {
+class EditYourLifeFragment : SecondaryFragment<FragmentNavYourLifeSaveBinding>() {
 
-    private lateinit var binding: FragmentNavYourLifeSaveBinding
-    private val mainActivity by lazy { activity as MainActivity }
-    private val viewModel by lazy { buildViewModel() }
+    private val viewModel by lazy {
+        ViewModelProvider(
+            this, EditYourLifeViewModel.Factory(requireActivity().application)
+        ).get(EditYourLifeViewModel::class.java)
+    }
 
-    override fun onCreateView(
+    override fun getBinding(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentNavYourLifeSaveBinding.inflate(inflater, container, false)
-        return binding.root
+        container: ViewGroup?
+    ): FragmentNavYourLifeSaveBinding {
+        return FragmentNavYourLifeSaveBinding.inflate(inflater, container, false)
+    }
+
+    override fun getRootView(): View = binding.root
+
+    override fun getToolbar(): Toolbar = binding.fragmentNavYourLifeSaveTb
+
+    override fun getTitleId(): Int = R.string.your_life_edit
+
+    override fun navigateToPreviousFragment() {
+        navController.navigate(
+            EditYourLifeFragmentDirections
+                .actionEditYourLifeFragmentToMainFragment(NavSection.YOUR_LIFE)
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setHasOptionsMenu(true)
-        setupActionBar()
         setupDescription()
     }
 
@@ -39,33 +52,12 @@ class EditYourLifeFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
-                navigateToMainFragment()
-                true
-            }
             R.id.your_life_edit_save_mi -> {
                 saveDescription()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    private fun buildViewModel(): EditYourLifeViewModel {
-        return ViewModelProvider(
-            this, EditYourLifeViewModel.Factory(requireActivity().application)
-        ).get(EditYourLifeViewModel::class.java)
-    }
-
-    private fun setupActionBar() {
-        mainActivity.apply {
-            setSupportActionBar(binding.fragmentNavYourLifeSaveTb)
-            supportActionBar?.apply {
-                title = getString(R.string.your_life_edit)
-                setDisplayHomeAsUpEnabled(true)
-            }
-        }
-        setHasOptionsMenu(true)
     }
 
     private fun setupDescription() {
@@ -78,13 +70,6 @@ class EditYourLifeFragment : Fragment() {
         viewModel.insertYourLife(
             YourLife(binding.fragmentNavYourLifeSaveDescriptionEt.text.toString())
         )
-        navigateToMainFragment()
-    }
-
-    private fun navigateToMainFragment() {
-        mainActivity.navController.navigate(
-            EditYourLifeFragmentDirections
-                .actionEditYourLifeFragmentToMainFragment(NavSection.YOUR_LIFE)
-        )
+        navigateToPreviousFragment()
     }
 }
