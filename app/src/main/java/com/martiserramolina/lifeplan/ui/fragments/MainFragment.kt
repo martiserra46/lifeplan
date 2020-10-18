@@ -64,8 +64,9 @@ class MainFragment : FragmentWithBinding<FragmentMainBinding>() {
         navSection = MainFragmentArgs.fromBundle(requireArguments()).navSection
         mainActivity.supportActionBar?.title = getString(navSection.label)
         if (navSection != NavSection.YOUR_LIFE) {
-            navController.navigate(navSection.destinationId)
+            mainActivity.supportActionBar?.title = getString(navSection.label)
             binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
+            navController.navigate(navSection.destinationId)
         }
     }
 
