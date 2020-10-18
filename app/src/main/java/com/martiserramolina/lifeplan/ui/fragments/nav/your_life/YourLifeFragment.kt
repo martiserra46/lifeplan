@@ -43,8 +43,7 @@ class YourLifeFragment : FragmentWithBinding<FragmentNavYourLifeBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.your_life_edit_mi -> {
-                mainActivity.navController
-                    .navigate(MainFragmentDirections.actionMainFragmentToEditYourLifeFragment())
+                navigateToEditYourLifeFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -55,5 +54,10 @@ class YourLifeFragment : FragmentWithBinding<FragmentNavYourLifeBinding>() {
         viewModel.yourLife.observe(viewLifecycleOwner) { yourLife ->
             yourLife?.let { binding.fragmentNavYourLifeDescriptionTv.text = yourLife.text }
         }
+    }
+
+    private fun navigateToEditYourLifeFragment() {
+        mainActivity.navController
+            .navigate(MainFragmentDirections.actionMainFragmentToEditYourLifeFragment())
     }
 }
