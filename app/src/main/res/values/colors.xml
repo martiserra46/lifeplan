@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
 
+    <color name="mainToolbarColor">@color/colorPrimary</color>
+    <color name="secondaryToolbarColor">#ffffff</color>
+
     <color name="colorControlNormal">#000000</color>
 
     <color name="colorText">#000000</color>

@@ -14,9 +14,33 @@
         <item name="colorControlNormal">@color/colorControlNormal</item>
     </style>
 
-    <style name="toolbarStyle" parent="Widget.AppCompat.Toolbar">
+    <style name="mainToolbarStyle" parent="Widget.AppCompat.Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">@color/mainToolbarColor</item>
+        <item name="android:elevation">4dp</item>
+        <item name="titleTextAppearance">@style/mainToolbarTitleStyle</item>
+    </style>
+
+    <style name="mainToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="secondaryToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">@color/secondaryToolbarColor</item>
+        <item name="android:elevation">4dp</item>
+        <item name="titleTextAppearance">@style/secondaryToolbarTitleStyle</item>
+    </style>
+
+    <style name="secondaryToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="titleStyle" parent="TextAppearance.AppCompat">
