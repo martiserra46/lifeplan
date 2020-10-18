@@ -7,7 +7,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
-import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
+import com.martiserramolina.lifeplan.ui.fragments.main_fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.your_life.YourLifeViewModel
 
 class YourLifeFragment : BaseFragment<FragmentNavYourLifeBinding>() {

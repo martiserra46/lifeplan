@@ -15,4 +15,5 @@
     <string name="num_ideas">%1$d Ideas</string>
     <string name="add">Add</string>
     <string name="ideas_topic_add">Add Topic</string>
+    <string name="situation_day_add">Describe current situation</string>
 </resources>

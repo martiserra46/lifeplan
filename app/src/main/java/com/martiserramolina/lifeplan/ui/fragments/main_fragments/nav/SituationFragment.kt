@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.adapters.SituationDayAdapter
-import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
+import com.martiserramolina.lifeplan.ui.fragments.main_fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.situation.SituationViewModel
 
 class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {

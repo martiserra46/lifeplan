@@ -13,7 +13,6 @@ import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
-import com.martiserramolina.lifeplan.ui.fragments.MainFragmentArgs
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
