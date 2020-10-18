@@ -1,22 +1,16 @@
 package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.edit
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
+import com.martiserramolina.lifeplan.ui.fragments.FragmentWithBinding
 
-class EditIdeaFragment : Fragment() {
-
-    private lateinit var binding: FragmentNavIdeasIdeaSaveBinding
-
-    override fun onCreateView(
+class EditIdeaFragment : FragmentWithBinding<FragmentNavIdeasIdeaSaveBinding>() {
+    override fun getBinding(
         inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentNavIdeasIdeaSaveBinding.inflate(inflater, container, false)
-        return binding.root
+        container: ViewGroup?
+    ): FragmentNavIdeasIdeaSaveBinding {
+        return FragmentNavIdeasIdeaSaveBinding.inflate(inflater, container, false)
     }
+
 }

@@ -1,22 +1,13 @@
 package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic
 
-import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicBinding
+import com.martiserramolina.lifeplan.ui.fragments.FragmentWithBinding
 
-class TopicFragment : Fragment() {
-
-    private lateinit var binding: FragmentNavIdeasTopicBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentNavIdeasTopicBinding.inflate(inflater, container, false)
-        return binding.root
+class TopicFragment : FragmentWithBinding<ViewBinding>() {
+    override fun getBinding(inflater: LayoutInflater, container: ViewGroup?): ViewBinding {
+        return FragmentNavIdeasTopicBinding.inflate(inflater, container, false)
     }
 }
