@@ -16,4 +16,7 @@
     <string name="add">Add</string>
     <string name="ideas_topic_add">Add Topic</string>
     <string name="situation_day_add">Describe current situation</string>
+    <string name="high_satisfaction">High satisfaction</string>
+    <string name="normal_satisfaction">Normal satisfaction</string>
+    <string name="low_satisfaction">Low satisfaction</string>
 </resources>

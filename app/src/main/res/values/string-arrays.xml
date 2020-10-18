@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="situationDaySatisfactions">
-        <item>High satisfaction</item>
-        <item>Normal satisfaction</item>
-        <item>Low satisfaction</item>
+        <item>@string/high_satisfaction</item>
+        <item>@string/normal_satisfaction</item>
+        <item>@string/low_satisfaction</item>
     </string-array>
 </resources>

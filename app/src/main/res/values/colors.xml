@@ -17,4 +17,8 @@
 
     <color name="navSelectedMenuItemColor">@color/colorText</color>
     <color name="navUnselectedMenuItemColor">@color/colorSecondaryText</color>
+
+    <color name="colorSituationDayHighSatisfaction">#4DD500</color>
+    <color name="colorSituationDayNormalSatisfaction">#FFC17B</color>
+    <color name="colorSituationDayLowSatisfaction">#FF7878</color>
 </resources>
