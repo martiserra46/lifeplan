@@ -46,7 +46,7 @@ class SituationDayAdapter : RecyclerView.Adapter<SituationDayAdapter.ViewHolder>
             binding.apply {
                 rviSituationDayDateTv.text = situationDayItem.date.format("dd/mm/yyyy")
                 rviSituationDayTextTv.text = situationDayItem.text
-                rviSituationDayLeftCircleV.setBackgroundResource(
+                rviSituationDayCircleV.setBackgroundResource(
                     when (situationDayItem.satisfaction) {
                         SituationDaySatisfaction.SATISFIED ->
                             R.drawable.bg_rvi_situation_day_circle_satisfied
