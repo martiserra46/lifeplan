@@ -12,7 +12,7 @@ import java.util.*
 
 class SituationDayAdapter : RecyclerView.Adapter<SituationDayAdapter.ViewHolder>() {
 
-    private var listSituationDays = emptyList<SituationDay>()
+    var listSituationDays = emptyList<SituationDay>()
         set(value) {
             field = value
             notifyDataSetChanged()
