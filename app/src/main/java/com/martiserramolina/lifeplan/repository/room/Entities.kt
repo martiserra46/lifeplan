@@ -106,7 +106,7 @@ fun List<SituationDayDb>.toListSituationDays(): List<SituationDay> {
 }
 
 fun SituationDay.toSituationDayDb(): SituationDayDb {
-    return SituationDayDb(0, date, text)
+    return SituationDayDb(0, date, text, satisfaction)
 }
 
 fun List<SituationDay>.toListSituationDaysDb(): List<SituationDayDb> {
