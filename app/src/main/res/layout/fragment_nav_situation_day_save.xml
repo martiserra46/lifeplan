@@ -28,22 +28,21 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="26/9/2020" />
 
-        <TextView
-            android:id="@+id/fragment_nav_situation_day_save_satisfaction_tv"
+        <Spinner
+            android:id="@+id/fragment_nav_situation_day_save_satisfaction_sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="#43DB66"
-            android:textSize="16sp"
+            android:layout_height="@dimen/spinnerHeight"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_date_tv"
-            tools:text="High Satisfaction" />
+            tools:listitem="@android:layout/simple_spinner_item" />
 
         <EditText
             android:id="@+id/fragment_nav_situation_day_save_description_et"
             style="@style/editTextDescriptionStyle"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:hint="@string/describe_your_situation"
             android:importantForAutofill="no"
@@ -51,7 +50,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_satisfaction_tv" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_satisfaction_sp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

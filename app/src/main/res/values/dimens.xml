@@ -16,4 +16,6 @@
 
     <dimen name="rviPrimaryTextTextSize">16sp</dimen>
     <dimen name="rviSecondaryTextTextSize">14sp</dimen>
+
+    <dimen name="spinnerHeight">50dp</dimen>
 </resources>
