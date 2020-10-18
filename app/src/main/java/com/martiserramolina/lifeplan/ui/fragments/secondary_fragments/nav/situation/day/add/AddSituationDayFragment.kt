@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.add
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
@@ -15,6 +12,8 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.format
+import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
+import com.martiserramolina.lifeplan.repository.model.SituationDay
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddSituationDayViewModel
 import java.util.*
@@ -51,8 +50,29 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
         setupSatisfactionSpinner()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.situation_day_add_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.situation_day_add_save_mi -> {
+                saveSituationDay()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun saveSituationDay() {
+        viewModel.description = binding.fragmentNavSituationDaySaveDescriptionEt.text.toString()
+        viewModel.insertSituationDay()
+        navigateToPreviousFragment()
+    }
+
     private fun setupDate() {
-        binding.fragmentNavSituationDaySaveDateTv.text = Date().format("dd/mm/yyyy")
+        viewModel.date = Date()
+        binding.fragmentNavSituationDaySaveDateTv.text = viewModel.date.format("dd/mm/yyyy")
     }
 
     private fun setupSatisfactionSpinner() {
@@ -67,14 +87,11 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
                     adapterView: AdapterView<*>?, view: View?, position: Int, id: Long
                 ) {
                     view?.findViewById<TextView>(android.R.id.text1)?.apply {
-                        val colorResource = when (text) {
-                            getString(R.string.high_satisfaction) ->
-                                R.color.colorSituationDayHighSatisfaction
-                            getString(R.string.normal_satisfaction) ->
-                                R.color.colorSituationDayNormalSatisfaction
-                            else -> R.color.colorSituationDayLowSatisfaction
-                        }
-                        setTextColor(ContextCompat.getColor(context, colorResource))
+                        viewModel.satisfaction = SituationDaySatisfaction
+                            .getSituationDaySatisfactionByString(context, text.toString())
+                        setTextColor(
+                            ContextCompat.getColor(context, viewModel.satisfaction.colorId)
+                        )
                     }
                 }
 

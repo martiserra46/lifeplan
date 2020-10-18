@@ -5,21 +5,28 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.repository.Repository
+import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
 import com.martiserramolina.lifeplan.repository.model.SituationDay
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
+import java.util.*
 
 class AddSituationDayViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = Repository(application.applicationContext)
 
+    lateinit var date: Date
+    lateinit var description: String
+    lateinit var satisfaction: SituationDaySatisfaction
+
     private val coroutineJob = Job()
     private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
 
-    fun insertSituationDay(situationDay: SituationDay) {
+    fun insertSituationDay() {
         coroutineMainScope.launch {
             withContext(Dispatchers.IO) {
-                repository.situationDayRepository.insertSituationDay(situationDay)
+                repository.situationDayRepository
+                    .insertSituationDay(SituationDay(date, description, satisfaction))
             }
         }
     }
