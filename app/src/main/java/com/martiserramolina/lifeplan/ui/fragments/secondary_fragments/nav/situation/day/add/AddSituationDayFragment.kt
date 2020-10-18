@@ -80,13 +80,13 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
             adapter = ArrayAdapter.createFromResource(
                 requireContext(),
                 R.array.situationDaySatisfactions,
-                android.R.layout.simple_spinner_item
+                R.layout.spinner_item
             ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>?, view: View?, position: Int, id: Long
                 ) {
-                    view?.findViewById<TextView>(android.R.id.text1)?.apply {
+                    view?.findViewById<TextView>(R.id.spinner_item_tv)?.apply {
                         viewModel.satisfaction = SituationDaySatisfaction
                             .getSituationDaySatisfactionByString(context, text.toString())
                         setTextColor(

@@ -36,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_date_tv"
-            tools:listitem="@android:layout/simple_spinner_item" />
+            tools:listitem="@layout/spinner_item" />
 
         <EditText
             android:id="@+id/fragment_nav_situation_day_save_description_et"
