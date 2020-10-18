@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.repository.model.Idea
+import com.martiserramolina.lifeplan.repository.model.SituationDay
 import com.martiserramolina.lifeplan.repository.model.Topic
 import com.martiserramolina.lifeplan.repository.model.YourLife
 import com.martiserramolina.lifeplan.repository.room.*
@@ -46,4 +47,14 @@ class IdeasRepository(context: Context) {
 
 class SituationDayRepository(context: Context) {
 
+    private val db by lazy { AppDb.getInstance(context) }
+    private val daoSituationDay by lazy { db.daoSituationDayDb() }
+
+    fun getSituationDays(): LiveData<List<SituationDay>> {
+        return Transformations.map(daoSituationDay.getStatusDays()) { it.toListSituationDays() }
+    }
+
+    fun insertSituationDay(situationDay: SituationDay) {
+        daoSituationDay.insertStatusDay(situationDay.toSituationDayDb())
+    }
 }
