@@ -12,10 +12,11 @@ import java.util.*
 
 class SituationDayAdapter : RecyclerView.Adapter<SituationDayAdapter.ViewHolder>() {
 
-    private val listSituationDays = listOf(
-        SituationDay(Date(), "afdasfasf fdsa fa", SituationDaySatisfaction.SATISFIED),
-        SituationDay(Date(), "gggafdasfasf fdsa fa", SituationDaySatisfaction.NORMAL)
-    )
+    private var listSituationDays = emptyList<SituationDay>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.create(parent)
