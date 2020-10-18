@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.add
+package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.add
 
 import android.view.*
 import androidx.appcompat.widget.Toolbar
@@ -7,7 +7,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.model.Topic
-import com.martiserramolina.lifeplan.ui.fragments.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.topic.add.AddTopicViewModel
 
 class AddTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() {

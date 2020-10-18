@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.your_life
+package com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav
 
 import android.os.Bundle
 import android.view.*

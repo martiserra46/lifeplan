@@ -1,16 +1,14 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.your_life.edit
+package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.your_life.edit
 
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavYourLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.model.YourLife
-import com.martiserramolina.lifeplan.ui.activities.MainActivity
-import com.martiserramolina.lifeplan.ui.fragments.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.your_life.edit.EditYourLifeViewModel
 
 class EditYourLifeFragment : SecondaryFragment<FragmentNavYourLifeSaveBinding>() {

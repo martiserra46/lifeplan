@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/ideasFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.IdeasFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav.IdeasFragment"
         android:label="ideasFragment"
         tools:layout="@layout/fragment_nav_ideas" />
     <fragment
         android:id="@+id/situationFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.SituationFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav.SituationFragment"
         android:label="situationFragment"
         tools:layout="@layout/fragment_nav_situation" />
     <fragment
         android:id="@+id/yourLifeFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.your_life.YourLifeFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav.YourLifeFragment"
         android:label="yourLifeFragment"
         tools:layout="@layout/fragment_nav_your_life" />
 </navigation>

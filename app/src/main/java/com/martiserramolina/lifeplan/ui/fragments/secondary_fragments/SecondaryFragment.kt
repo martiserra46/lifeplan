@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments
+package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
+import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 abstract class SecondaryFragment<T : ViewBinding> : BaseFragment<T>() {
 

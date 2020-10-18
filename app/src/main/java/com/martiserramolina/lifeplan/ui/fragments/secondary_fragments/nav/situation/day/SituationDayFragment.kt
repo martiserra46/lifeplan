@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.situation.day
+package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

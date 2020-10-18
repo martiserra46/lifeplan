@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.add
+package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.add
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.nav.your_life.YourLifeFragment">
+    tools:context=".ui.fragments.main_fragments.nav.YourLifeFragment">
 
     <TextView
         android:id="@+id/fragment_nav_your_life_description_tv"

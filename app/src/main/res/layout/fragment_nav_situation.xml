@@ -9,5 +9,5 @@
     android:paddingTop="@dimen/windowTopPadding"
     android:paddingBottom="@dimen/windowBottomPadding"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".ui.fragments.nav.situation.SituationFragment"
+    tools:context=".ui.fragments.main_fragments.nav.SituationFragment"
     tools:listitem="@layout/rvi_situation_day" />

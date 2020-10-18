@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments
+package com.martiserramolina.lifeplan.ui.fragments.main_fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +12,8 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
+import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
+import com.martiserramolina.lifeplan.ui.fragments.MainFragmentArgs
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 

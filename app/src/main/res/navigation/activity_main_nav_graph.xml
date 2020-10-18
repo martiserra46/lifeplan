@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.MainFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.main_fragments.MainFragment"
         android:label="mainFragment"
         tools:layout="@layout/fragment_main" >
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/ideaFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.IdeaFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.IdeaFragment"
         android:label="ideaFragment"
         tools:layout="@layout/fragment_nav_ideas_idea" >
         <action
@@ -41,12 +41,12 @@
     </fragment>
     <fragment
         android:id="@+id/addIdeaFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.add.AddIdeaFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.add.AddIdeaFragment"
         android:label="addIdeaFragment"
         tools:layout="@layout/fragment_nav_ideas_idea_save" />
     <fragment
         android:id="@+id/topicFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.TopicFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.TopicFragment"
         android:label="topicFragment"
         tools:layout="@layout/fragment_nav_ideas_topic" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/addTopicFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.add.AddTopicFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.add.AddTopicFragment"
         android:label="addTopicFragment"
         tools:layout="@layout/fragment_nav_ideas_topic_save" >
         <action
@@ -72,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/situationDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.SituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.SituationDayFragment"
         android:label="situationDayFragment"
         tools:layout="@layout/fragment_nav_situation_day" >
         <action
@@ -81,12 +81,12 @@
     </fragment>
     <fragment
         android:id="@+id/addSituationDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.add.AddSituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.add.AddSituationDayFragment"
         android:label="addSituationDayFragment"
         tools:layout="@layout/fragment_nav_situation_day_save" />
     <fragment
         android:id="@+id/editYourLifeFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.your_life.edit.EditYourLifeFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.your_life.edit.EditYourLifeFragment"
         android:label="editYourLifeFragment"
         tools:layout="@layout/fragment_nav_your_life_save" >
         <action
@@ -97,17 +97,17 @@
     </fragment>
     <fragment
         android:id="@+id/editIdeaFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.edit.EditIdeaFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.edit.EditIdeaFragment"
         android:label="editIdeaFragment"
         tools:layout="@layout/fragment_nav_ideas_idea_save" />
     <fragment
         android:id="@+id/editTopicFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.topic.edit.EditTopicFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.edit.EditTopicFragment"
         android:label="editTopicFragment"
         tools:layout="@layout/fragment_nav_ideas_topic_save" />
     <fragment
         android:id="@+id/editSituationDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.edit.EditSituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.edit.EditSituationDayFragment"
         android:label="editSituationDayFragment"
         tools:layout="@layout/fragment_nav_situation_day_save" />
 </navigation>

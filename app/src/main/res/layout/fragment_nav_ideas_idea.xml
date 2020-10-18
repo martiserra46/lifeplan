@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.nav.ideas.idea.IdeaFragment">
+    tools:context=".ui.fragments.secondary_fragments.nav.ideas.idea.IdeaFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_idea_tb"
