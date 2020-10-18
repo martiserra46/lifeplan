@@ -62,7 +62,6 @@ class EditYourLifeFragment : Fragment() {
             supportActionBar?.apply {
                 title = getString(R.string.your_life_edit)
                 setDisplayHomeAsUpEnabled(true)
-                setHomeAsUpIndicator(R.drawable.ic_back)
             }
         }
         setHasOptionsMenu(true)

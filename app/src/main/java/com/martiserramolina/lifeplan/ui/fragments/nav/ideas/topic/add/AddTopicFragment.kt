@@ -58,7 +58,6 @@ class AddTopicFragment : Fragment() {
             supportActionBar?.apply {
                 title = getString(R.string.ideas_topic_add)
                 setDisplayHomeAsUpEnabled(true)
-                setHomeAsUpIndicator(R.drawable.ic_back)
             }
         }
         setHasOptionsMenu(true)
