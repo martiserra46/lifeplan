@@ -28,8 +28,6 @@ class SituationFragment : FragmentWithBinding<FragmentNavSituationBinding>() {
         return FragmentNavSituationBinding.inflate(inflater, container, false)
     }
 
-    override fun getRootView(): View = binding.root
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)

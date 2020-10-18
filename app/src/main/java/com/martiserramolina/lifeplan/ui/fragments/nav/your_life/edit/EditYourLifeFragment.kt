@@ -28,8 +28,6 @@ class EditYourLifeFragment : SecondaryFragment<FragmentNavYourLifeSaveBinding>()
         return FragmentNavYourLifeSaveBinding.inflate(inflater, container, false)
     }
 
-    override fun getRootView(): View = binding.root
-
     override fun getToolbar(): Toolbar = binding.fragmentNavYourLifeSaveTb
 
     override fun getTitleId(): Int = R.string.your_life_edit

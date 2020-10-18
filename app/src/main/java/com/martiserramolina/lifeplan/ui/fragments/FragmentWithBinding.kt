@@ -5,8 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewbinding.ViewBinding
 
-abstract class FragmentWithBinding<T : Any> : Fragment() {
+abstract class FragmentWithBinding<T : ViewBinding> : Fragment() {
 
     protected lateinit var binding: T
 
@@ -16,10 +17,8 @@ abstract class FragmentWithBinding<T : Any> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = getBinding(inflater, container)
-        return getRootView()
+        return binding.root
     }
 
     abstract fun getBinding(inflater: LayoutInflater, container: ViewGroup?): T
-
-    abstract fun getRootView(): View
 }

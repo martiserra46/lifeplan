@@ -25,8 +25,6 @@ class AddTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() {
         return FragmentNavIdeasTopicSaveBinding.inflate(inflater, container, false)
     }
 
-    override fun getRootView(): View = binding.root
-
     override fun getToolbar(): Toolbar = binding.fragmentNavIdeasTopicSaveTb
 
     override fun getTitleId(): Int = R.string.ideas_topic_add
