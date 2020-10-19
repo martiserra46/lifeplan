@@ -25,8 +25,8 @@
             style="@style/editTextTitleStyle"
             android:layout_width="0dp"
             android:hint="@string/title_of_the_idea"
-            android:inputType="text"
             android:importantForAutofill="no"
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,12 +50,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:hint="@string/description_of_the_idea"
-            android:inputType="text"
             android:importantForAutofill="no"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_idea_save_importance_tv"
+            android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_idea_save_importance_tv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

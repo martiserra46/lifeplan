@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="android:fontFamily">@font/quicksand_medium</item>
+        <item name="android:fontFamily">@font/montserrat</item>
 
         <item name="android:textColor">@color/colorText</item>
         <item name="android:textColorHint">@color/colorSecondaryText</item>
@@ -25,7 +25,7 @@
     </style>
 
     <style name="mainToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
     <style name="secondaryToolbarStyle" parent="Widget.AppCompat.Toolbar">
@@ -39,6 +39,7 @@
     </style>
 
     <style name="secondaryToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textSize">18sp</item>
     </style>
