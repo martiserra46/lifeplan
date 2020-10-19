@@ -12,15 +12,21 @@ import com.martiserramolina.lifeplan.extensions.hideKeyboard
 
 abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
-    protected lateinit var binding: T
+    private var _binding: T? = null
+    protected val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = getBinding(inflater, container)
+        _binding = getBinding(inflater, container)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onDestroy() {
