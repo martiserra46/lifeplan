@@ -2,7 +2,9 @@ package com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav
 
 import android.os.Bundle
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
@@ -51,8 +53,15 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
     private fun setupRecyclerView() {
         binding.fragmentNavSituationRv.adapter = SituationDayAdapter()
         viewModel.situationDays.observe(viewLifecycleOwner) { situationDays ->
-            binding.fragmentNavSituationRv.adapter
-                .run { this as SituationDayAdapter }.listSituationDays = situationDays
+            binding.fragmentNavSituationRv.apply {
+                adapter
+                    .run { this as SituationDayAdapter }.listSituationDays = situationDays
+                addItemDecoration(
+                    DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
+                        setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
+                    }
+                )
+            }
         }
     }
 
