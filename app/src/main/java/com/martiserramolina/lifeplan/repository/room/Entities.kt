@@ -97,11 +97,11 @@ data class SituationDayDb(
     var situationDaySatisfaction: SituationDaySatisfaction = SituationDaySatisfaction.NORMAL,
 )
 
-fun SituationDayDb.toSituationDay(): SituationDay {
-    return SituationDay(situationDayDate, situationDayText, situationDaySatisfaction)
+fun SituationDayDb.toSituationDay(): Pair<Long, SituationDay> {
+    return situationDayId to SituationDay(situationDayDate, situationDayText, situationDaySatisfaction)
 }
 
-fun List<SituationDayDb>.toListSituationDays(): List<SituationDay> {
+fun List<SituationDayDb>.toListSituationDays(): List<Pair<Long, SituationDay>> {
     return map { it.toSituationDay() }
 }
 
