@@ -8,13 +8,15 @@ import java.util.*
 
 data class YourLife(var text: String = "")
 
-data class Topic(var name: String = "", var ideas: List<Idea> = emptyList())
+@Parcelize
+data class Topic(var name: String = "", var ideas: List<Idea> = emptyList()) : Parcelable
 
+@Parcelize
 data class Idea(
     var text: String = "",
     var importance: IdeaImportance = IdeaImportance.NORMAL,
     var lastTimeModified: Date = Date()
-)
+) : Parcelable
 
 @Parcelize
 data class SituationDay(

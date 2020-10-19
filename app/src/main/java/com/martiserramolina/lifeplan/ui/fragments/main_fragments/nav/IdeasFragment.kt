@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasBinding
+import com.martiserramolina.lifeplan.repository.model.Topic
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
@@ -52,7 +53,7 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
     private fun setupRecyclerView() {
         binding.fragmentNavIdeasRv.apply {
             setHasFixedSize(true)
-            adapter = TopicAdapter()
+            adapter = TopicAdapter { navigateToTopicFragment(it) }
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
                     setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
@@ -67,5 +68,10 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
     private fun navigateToAddTopicFragment() {
         mainActivity.navController
             .navigate(MainFragmentDirections.actionMainFragmentToAddTopicFragment())
+    }
+
+    private fun navigateToTopicFragment(topic: Topic) {
+        mainActivity.navController
+            .navigate(MainFragmentDirections.actionMainFragmentToTopicFragment(topic))
     }
 }
