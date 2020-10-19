@@ -6,13 +6,13 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/windowHorizontalPadding"
     android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding">
+    android:paddingBottom="@dimen/windowBottomPadding"
+    android:background="?android:attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/rvi_situation_day_date_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:textSize="@dimen/rviPrimaryTextTextSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,7 +23,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="8dp"
         android:textColor="@color/colorSecondaryText"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +35,7 @@
         android:id="@+id/rvi_situation_day_circle_v"
         android:layout_width="8dp"
         android:layout_height="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/bg_rvi_situation_day_circle_satisfied"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
