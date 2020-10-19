@@ -24,6 +24,4 @@
         android:textSize="@dimen/rviSecondaryTextTextSize"
         tools:text="2 Ideas" />
 
-    <View style="@style/horizontalDividerLineStyle" />
-
 </LinearLayout>
