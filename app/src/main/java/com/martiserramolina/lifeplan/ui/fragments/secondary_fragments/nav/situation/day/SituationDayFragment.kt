@@ -1,12 +1,11 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.format
@@ -48,6 +47,20 @@ class SituationDayFragment : SecondaryFragment<FragmentNavSituationDayBinding>()
         setupDescriptionTextView()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.situation_day_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.situation_day_edit_mi -> {
+                navigateToEditSituationDayFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setupDateTextView() {
         binding.fragmentNavSituationDayDateTv.text = viewModel.situationDay
             .date.format("dd/mm/yyyy")
@@ -64,5 +77,12 @@ class SituationDayFragment : SecondaryFragment<FragmentNavSituationDayBinding>()
 
     private fun setupDescriptionTextView() {
         binding.fragmentNavSituationDayDescriptionTv.text = viewModel.situationDay.text
+    }
+
+    private fun navigateToEditSituationDayFragment() {
+        navController.navigate(
+            SituationDayFragmentDirections
+                .actionSituationDayFragmentToEditSituationDayFragment(viewModel.situationDay)
+        )
     }
 }
