@@ -32,7 +32,7 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
 
     override fun getToolbar(): Toolbar = binding.fragmentNavSituationDaySaveTb
 
-    override fun getTitleId(): Int = R.string.situation_day_add
+    override fun getToolbarTitle(): String = getString(R.string.situation_day_add)
 
     override fun navigateToPreviousFragment() {
         navController.navigate(

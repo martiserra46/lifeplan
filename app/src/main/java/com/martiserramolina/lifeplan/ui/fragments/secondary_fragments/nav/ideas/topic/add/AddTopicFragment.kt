@@ -27,7 +27,7 @@ class AddTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() {
 
     override fun getToolbar(): Toolbar = binding.fragmentNavIdeasTopicSaveTb
 
-    override fun getTitleId(): Int = R.string.ideas_topic_add
+    override fun getToolbarTitle(): String = getString(R.string.ideas_topic_add)
 
     override fun navigateToPreviousFragment() {
         navController.navigate(

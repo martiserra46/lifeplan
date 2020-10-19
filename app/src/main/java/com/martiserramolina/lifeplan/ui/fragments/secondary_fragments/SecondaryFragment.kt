@@ -35,7 +35,7 @@ abstract class SecondaryFragment<T : ViewBinding> : BaseFragment<T>() {
         mainActivity.apply {
             setSupportActionBar(getToolbar())
             supportActionBar?.apply {
-                title = getString(getTitleId())
+                title = getToolbarTitle()
                 setDisplayHomeAsUpEnabled(true)
             }
         }
@@ -48,7 +48,7 @@ abstract class SecondaryFragment<T : ViewBinding> : BaseFragment<T>() {
 
     abstract fun getToolbar(): Toolbar
 
-    abstract fun getTitleId(): Int
+    abstract fun getToolbarTitle(): String
 
     abstract fun navigateToPreviousFragment()
 }

@@ -28,7 +28,7 @@ class EditYourLifeFragment : SecondaryFragment<FragmentNavYourLifeSaveBinding>()
 
     override fun getToolbar(): Toolbar = binding.fragmentNavYourLifeSaveTb
 
-    override fun getTitleId(): Int = R.string.your_life_edit
+    override fun getToolbarTitle(): String = getString(R.string.your_life_edit)
 
     override fun navigateToPreviousFragment() {
         navController.navigate(
