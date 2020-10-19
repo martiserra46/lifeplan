@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.extensions.format
 import com.martiserramolina.lifeplan.repository.model.SituationDay
 
 class SituationDayAdapter(
-    private val onItemClickListener: OnItemClickListener
+    private val onItemClick: (SituationDay) -> Unit
 ) : RecyclerView.Adapter<SituationDayAdapter.ViewHolder>() {
 
     var listSituationDays = emptyList<SituationDay>()
@@ -18,7 +18,7 @@ class SituationDayAdapter(
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.create(parent, onItemClickListener)
+        return ViewHolder.create(parent, onItemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -31,14 +31,14 @@ class SituationDayAdapter(
 
     class ViewHolder(
         private val binding: RviSituationDayBinding,
-        private val onItemClickListener: OnItemClickListener
+        private val onItemClick: (SituationDay) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         companion object {
-            fun create(parent: ViewGroup, onItemClickListener: OnItemClickListener): ViewHolder {
+            fun create(parent: ViewGroup, onItemClick: (SituationDay) -> Unit): ViewHolder {
                 return ViewHolder(
                     RviSituationDayBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
-                    ), onItemClickListener
+                    ), onItemClick
                 )
             }
         }
@@ -49,12 +49,8 @@ class SituationDayAdapter(
                 rviSituationDayTextTv.text = situationDay.text
                 rviSituationDayCircleV
                     .setBackgroundResource(situationDay.satisfaction.drawableId)
-                root.setOnClickListener { onItemClickListener.onClick(situationDay) }
+                root.setOnClickListener { onItemClick(situationDay) }
             }
         }
-    }
-
-    class OnItemClickListener(private val func: (SituationDay) -> Unit) {
-        fun onClick(situationDay: SituationDay) { func(situationDay) }
     }
 }
