@@ -9,7 +9,6 @@
 
     <dimen name="saveButtonTextSize">16sp</dimen>
 
-    <dimen name="rviIdeasTopicSize">60dp</dimen>
     <dimen name="rviIdeasIdeaSize">55dp</dimen>
 
     <dimen name="rviSituationDayMinSize">55dp</dimen>
