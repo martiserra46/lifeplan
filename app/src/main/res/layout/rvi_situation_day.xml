@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
     android:paddingHorizontal="@dimen/windowHorizontalPadding"
     android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding"
-    android:background="?android:attr/selectableItemBackground">
+    android:paddingBottom="@dimen/windowBottomPadding">
 
     <TextView
         android:id="@+id/rvi_situation_day_date_tv"

@@ -3,10 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
     android:paddingHorizontal="@dimen/windowHorizontalPadding"
     android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding"
-    android:orientation="vertical">
+    android:paddingBottom="@dimen/windowBottomPadding">
 
     <TextView
         android:id="@+id/rvi_ideas_topic_title_tv"
