@@ -16,11 +16,16 @@ import com.martiserramolina.lifeplan.viewmodels.situation.day.SituationDayViewMo
 class SituationDayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
 
     private val viewModel by lazy {
+        val situationDayFragmentArgs = SituationDayFragmentArgs.fromBundle(requireArguments())
         ViewModelProvider(
             this,
             SituationDayViewModel
-                .Factory(SituationDayFragmentArgs.fromBundle(requireArguments()).situationDay)
-        ).get(SituationDayViewModel::class.java) }
+                .Factory(
+                    situationDayFragmentArgs.situationDayId,
+                    situationDayFragmentArgs.situationDay
+                )
+        ).get(SituationDayViewModel::class.java)
+    }
 
     override fun getBinding(
         inflater: LayoutInflater,
@@ -82,7 +87,7 @@ class SituationDayFragment : SecondaryFragment<FragmentNavSituationDayBinding>()
     private fun navigateToEditSituationDayFragment() {
         navController.navigate(
             SituationDayFragmentDirections
-                .actionSituationDayFragmentToEditSituationDayFragment(viewModel.situationDay)
+                .actionSituationDayFragmentToEditSituationDayFragment(viewModel.situationDayId, viewModel.situationDay)
         )
     }
 }

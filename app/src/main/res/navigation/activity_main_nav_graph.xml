@@ -129,6 +129,9 @@
         android:label="editSituationDayFragment"
         tools:layout="@layout/fragment_nav_situation_day_save" >
         <argument
+            android:name="situationDayId"
+            app:argType="long" />
+        <argument
             android:name="situationDay"
             app:argType="com.martiserramolina.lifeplan.repository.model.SituationDay" />
     </fragment>
