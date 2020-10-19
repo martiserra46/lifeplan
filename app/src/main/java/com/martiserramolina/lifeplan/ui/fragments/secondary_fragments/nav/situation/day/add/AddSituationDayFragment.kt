@@ -2,11 +2,7 @@ package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situa
 
 import android.os.Bundle
 import android.view.*
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
@@ -14,6 +10,7 @@ import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.format
 import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
 import com.martiserramolina.lifeplan.repository.model.SituationDay
+import com.martiserramolina.lifeplan.ui.adapters.SituationDaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddSituationDayViewModel
 import java.util.*
@@ -46,7 +43,8 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupDate()
+        saveDateToViewModel()
+        setupDateTextView()
         setupSatisfactionSpinner()
     }
 
@@ -64,39 +62,38 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
         }
     }
 
-    private fun saveSituationDay() {
-        viewModel.description = binding.fragmentNavSituationDaySaveDescriptionEt.text.toString()
-        viewModel.insertSituationDay()
-        navigateToPreviousFragment()
+    private fun saveDateToViewModel() {
+        viewModel.date = Date()
     }
 
-    private fun setupDate() {
+    private fun setupDateTextView() {
         viewModel.date = Date()
         binding.fragmentNavSituationDaySaveDateTv.text = viewModel.date.format("dd/mm/yyyy")
     }
 
     private fun setupSatisfactionSpinner() {
         binding.fragmentNavSituationDaySaveSatisfactionSp.apply {
-            adapter = ArrayAdapter.createFromResource(
-                requireContext(),
-                R.array.situationDaySatisfactions,
-                R.layout.spinner_item
+            adapter = SituationDaySatisfactionAdapter(
+                requireContext(), R.layout.spinner_item
             ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
-            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    adapterView: AdapterView<*>?, view: View?, position: Int, id: Long
-                ) {
-                    view?.findViewById<TextView>(R.id.spinner_item_tv)?.apply {
-                        viewModel.satisfaction = SituationDaySatisfaction
-                            .getSituationDaySatisfactionByString(context, text.toString())
-                        setTextColor(
-                            ContextCompat.getColor(context, viewModel.satisfaction.colorId)
-                        )
-                    }
-                }
-
-                override fun onNothingSelected(adapterView: AdapterView<*>?) {}
-            }
         }
+    }
+
+    private fun saveSituationDay() {
+        viewModel.insertSituationDay(SituationDay(getDate(), getDescription(), getSatisfaction()))
+        navigateToPreviousFragment()
+    }
+
+    private fun getDate(): Date {
+        return viewModel.date
+    }
+
+    private fun getSatisfaction(): SituationDaySatisfaction {
+        return binding.fragmentNavSituationDaySaveSatisfactionSp.selectedItem
+            .run { this as SituationDaySatisfaction }
+    }
+
+    private fun getDescription(): String {
+        return binding.fragmentNavSituationDaySaveDescriptionEt.text.toString()
     }
 }

@@ -16,17 +16,15 @@ class AddSituationDayViewModel(application: Application) : AndroidViewModel(appl
     private val repository = Repository(application.applicationContext)
 
     lateinit var date: Date
-    lateinit var description: String
-    lateinit var satisfaction: SituationDaySatisfaction
 
     private val coroutineJob = Job()
     private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
 
-    fun insertSituationDay() {
+    fun insertSituationDay(situationDay: SituationDay) {
         coroutineMainScope.launch {
             withContext(Dispatchers.IO) {
                 repository.situationDayRepository
-                    .insertSituationDay(SituationDay(date, description, satisfaction))
+                    .insertSituationDay(situationDay)
             }
         }
     }
