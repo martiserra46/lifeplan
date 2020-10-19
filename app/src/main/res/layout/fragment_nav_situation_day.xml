@@ -23,6 +23,8 @@
             android:id="@+id/fragment_nav_situation_day_date_tv"
             style="@style/titleStyle"
             android:layout_width="0dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,10 +33,11 @@
         <TextView
             android:id="@+id/fragment_nav_situation_day_satisfaction_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
             android:textColor="#43DB66"
-            android:textSize="16sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_date_tv"
@@ -52,6 +55,8 @@
             <TextView
                 android:id="@+id/fragment_nav_situation_day_description_tv"
                 style="@style/descriptionStyle"
+                android:paddingTop="8dp"
+                android:textSize="18sp"
                 tools:text="I have studied a lot and I have improved my overall health" />
 
         </ScrollView>
