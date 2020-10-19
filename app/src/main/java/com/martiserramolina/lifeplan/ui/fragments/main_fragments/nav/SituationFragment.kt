@@ -53,7 +53,9 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
 
     private fun setupRecyclerView() {
         binding.fragmentNavSituationRv.apply {
-            adapter = SituationDayAdapter { navigateToSituationDayFragment(it) }
+            adapter = SituationDayAdapter { situationDayId, situationDay ->
+                navigateToSituationDayFragment(situationDayId, situationDay)
+            }
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
                     setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
@@ -73,8 +75,10 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
             .navigate(MainFragmentDirections.actionMainFragmentToAddSituationDayFragment())
     }
 
-    private fun navigateToSituationDayFragment(situationDay: SituationDay) {
-        mainActivity.navController
-            .navigate(MainFragmentDirections.actionMainFragmentToSituationDayFragment(situationDay))
+    private fun navigateToSituationDayFragment(situationDayId: Long, situationDay: SituationDay) {
+        mainActivity.navController.navigate(
+            MainFragmentDirections
+                .actionMainFragmentToSituationDayFragment(situationDayId, situationDay)
+        )
     }
 }
