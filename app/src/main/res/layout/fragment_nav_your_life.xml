@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/windowHorizontalPadding"
+    android:paddingTop="@dimen/windowTopPadding"
+    android:paddingBottom="@dimen/windowBottomPadding"
     tools:context=".ui.fragments.main_fragments.nav.YourLifeFragment">
 
     <TextView
         android:id="@+id/fragment_nav_your_life_description_tv"
         style="@style/descriptionStyle"
-        android:paddingHorizontal="@dimen/windowHorizontalPadding"
-        android:paddingTop="@dimen/windowTopPadding"
-        android:paddingBottom="@dimen/windowBottomPadding"
         android:textSize="20sp"
         tools:text="@tools:sample/lorem/random" />
 
