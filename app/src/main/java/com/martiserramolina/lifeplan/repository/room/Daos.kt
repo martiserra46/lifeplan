@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.repository.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface DaoYourLifeDb {
@@ -43,6 +40,9 @@ interface DaoIdeaDb {
 interface DaoSituationDayDb {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertSituationDay(situationDayDb: SituationDayDb): Long
+
+    @Update
+    fun updateSituationDay(situationDayDb: SituationDayDb)
 
     @Query("SELECT * FROM situation_day ORDER BY situation_day_id DESC")
     fun getSituationDays(): LiveData<List<SituationDayDb>>
