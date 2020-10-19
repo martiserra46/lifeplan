@@ -11,8 +11,6 @@
 
     <dimen name="rviIdeasIdeaSize">55dp</dimen>
 
-    <dimen name="rviSituationDayMinSize">55dp</dimen>
-
     <dimen name="rviPrimaryTextTextSize">16sp</dimen>
     <dimen name="rviSecondaryTextTextSize">14sp</dimen>
 

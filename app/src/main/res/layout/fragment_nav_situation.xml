@@ -5,9 +5,6 @@
     android:id="@+id/fragment_nav_situation_rv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/windowHorizontalPadding"
-    android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:context=".ui.fragments.main_fragments.nav.SituationFragment"
     tools:listitem="@layout/rvi_situation_day" />
