@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="windowHorizontalPadding">16dp</dimen>
-    <dimen name="windowTopPadding">8dp</dimen>
+    <dimen name="windowTopPadding">16dp</dimen>
     <dimen name="windowBottomPadding">16dp</dimen>
 
     <dimen name="titleTextSize">18sp</dimen>
