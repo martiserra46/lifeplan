@@ -105,8 +105,8 @@ fun List<SituationDayDb>.toListSituationDays(): List<Pair<Long, SituationDay>> {
     return map { it.toSituationDay() }
 }
 
-fun SituationDay.toSituationDayDb(): SituationDayDb {
-    return SituationDayDb(0, date, text, satisfaction)
+fun SituationDay.toSituationDayDb(id: Long = 0): SituationDayDb {
+    return SituationDayDb(id, date, text, satisfaction)
 }
 
 fun List<SituationDay>.toListSituationDaysDb(): List<SituationDayDb> {
