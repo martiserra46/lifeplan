@@ -8,10 +8,10 @@ import com.martiserramolina.lifeplan.extensions.format
 import com.martiserramolina.lifeplan.repository.model.SituationDay
 
 class SituationDayAdapter(
-    private val onItemClick: (SituationDay) -> Unit
+    private val onItemClick: (Long, SituationDay) -> Unit
 ) : RecyclerView.Adapter<SituationDayAdapter.ViewHolder>() {
 
-    var listSituationDays = emptyList<SituationDay>()
+    var listSituationDays = emptyList<Pair<Long, SituationDay>>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -22,7 +22,8 @@ class SituationDayAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listSituationDays[position])
+        val (situationDayId, situationDay) = listSituationDays[position]
+        holder.bind(situationDayId, situationDay)
     }
 
     override fun getItemCount(): Int {
@@ -31,10 +32,10 @@ class SituationDayAdapter(
 
     class ViewHolder(
         private val binding: RviSituationDayBinding,
-        private val onItemClick: (SituationDay) -> Unit
+        private val onItemClick: (Long, SituationDay) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         companion object {
-            fun create(parent: ViewGroup, onItemClick: (SituationDay) -> Unit): ViewHolder {
+            fun create(parent: ViewGroup, onItemClick: (Long, SituationDay) -> Unit): ViewHolder {
                 return ViewHolder(
                     RviSituationDayBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
@@ -43,13 +44,13 @@ class SituationDayAdapter(
             }
         }
 
-        fun bind(situationDay: SituationDay) {
+        fun bind(situationDayId: Long, situationDay: SituationDay) {
             binding.apply {
                 rviSituationDayDateTv.text = situationDay.date.format("dd/mm/yyyy")
                 rviSituationDayTextTv.text = situationDay.text
                 rviSituationDayCircleV
                     .setBackgroundResource(situationDay.satisfaction.drawableId)
-                root.setOnClickListener { onItemClick(situationDay) }
+                root.setOnClickListener { onItemClick(situationDayId, situationDay) }
             }
         }
     }
