@@ -75,6 +75,6 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
 
     private fun navigateToSituationDayFragment(situationDay: SituationDay) {
         mainActivity.navController
-            .navigate(MainFragmentDirections.actionMainFragmentToSituationDayFragment())
+            .navigate(MainFragmentDirections.actionMainFragmentToSituationDayFragment(situationDay))
     }
 }

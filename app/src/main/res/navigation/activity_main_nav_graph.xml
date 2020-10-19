@@ -78,6 +78,9 @@
         <action
             android:id="@+id/action_situationDayFragment_to_editSituationDayFragment"
             app:destination="@id/editSituationDayFragment" />
+        <argument
+            android:name="situationDay"
+            app:argType="com.martiserramolina.lifeplan.repository.model.SituationDay" />
     </fragment>
     <fragment
         android:id="@+id/addSituationDayFragment"
