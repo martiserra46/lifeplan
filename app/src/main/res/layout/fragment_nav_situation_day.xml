@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_situation_day_tb"
-        style="@style/mainToolbarStyle" />
+        style="@style/secondaryToolbarStyle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

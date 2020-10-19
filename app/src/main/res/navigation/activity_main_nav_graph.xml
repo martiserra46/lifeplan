@@ -84,6 +84,9 @@
         <argument
             android:name="situationDay"
             app:argType="com.martiserramolina.lifeplan.repository.model.SituationDay" />
+        <action
+            android:id="@+id/action_situationDayFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/addSituationDayFragment"
