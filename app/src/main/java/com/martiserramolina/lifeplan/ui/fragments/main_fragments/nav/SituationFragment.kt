@@ -51,16 +51,19 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
     }
 
     private fun setupRecyclerView() {
-        binding.fragmentNavSituationRv.adapter = SituationDayAdapter()
+        binding.fragmentNavSituationRv.apply {
+            adapter = SituationDayAdapter()
+            addItemDecoration(
+                DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
+                    setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
+                }
+            )
+        }
+
         viewModel.situationDays.observe(viewLifecycleOwner) { situationDays ->
             binding.fragmentNavSituationRv.apply {
                 adapter
                     .run { this as SituationDayAdapter }.listSituationDays = situationDays
-                addItemDecoration(
-                    DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
-                        setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
-                    }
-                )
             }
         }
     }
