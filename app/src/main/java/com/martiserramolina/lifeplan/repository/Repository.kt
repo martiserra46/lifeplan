@@ -5,26 +5,26 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.martiserramolina.lifeplan.repository.model.Day
 import com.martiserramolina.lifeplan.repository.model.Topic
-import com.martiserramolina.lifeplan.repository.model.YourLife
+import com.martiserramolina.lifeplan.repository.model.Life
 import com.martiserramolina.lifeplan.repository.room.*
 
 class Repository(context: Context) {
-    val yourLifeRepository by lazy { YourLifeRepository(context) }
+    val lifeRepository by lazy { LifeRepository(context) }
     val ideasRepository by lazy { IdeasRepository(context) }
     val dayRepository by lazy { SituationRepository(context) }
 }
 
-class YourLifeRepository(context: Context) {
+class LifeRepository(context: Context) {
 
     private val db by lazy { AppDb.getInstance(context) }
-    private val daoYourLife by lazy { db.daoYourLifeDb() }
+    private val daoLife by lazy { db.daoLifeDb() }
 
-    fun getYourLife(): YourLife? {
-        return daoYourLife.getYourLife()?.toYourLife()
+    fun getLife(): Life? {
+        return daoLife.getLife()?.toLife()
     }
 
-    fun insertYourLife(lifeDescription: YourLife) {
-        daoYourLife.insertYourLife(lifeDescription.toYourLifeDb())
+    fun insertLife(lifeDescription: Life) {
+        daoLife.insertLife(lifeDescription.toLifeDb())
     }
 }
 

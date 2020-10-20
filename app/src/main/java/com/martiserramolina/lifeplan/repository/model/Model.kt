@@ -6,7 +6,7 @@ import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import kotlinx.android.parcel.Parcelize
 import java.util.*
 
-data class YourLife(var text: String = "")
+data class Life(var text: String = "")
 
 @Parcelize
 data class Topic(var name: String = "", var ideas: List<Idea> = emptyList()) : Parcelable

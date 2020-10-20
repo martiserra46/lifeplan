@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">Life Plan</string>
-    <string name="design_your_life">Design your life</string>
+    <string name="design_life">Design your life</string>
     <string name="save">Save</string>
     <string name="write_here">Write here</string>
     <string name="title_of_the_idea">Title of the Idea</string>
     <string name="description_of_the_idea">Description of the Idea</string>
     <string name="describe_your_situation">Describe your situation</string>
-    <string name="your_life">Your Life</string>
+    <string name="life">Life</string>
     <string name="ideas">Ideas</string>
     <string name="situation">Situation</string>
     <string name="edit">Edit</string>
-    <string name="your_life_edit">Describe your desired life</string>
+    <string name="life_edit">Describe your desired life</string>
     <string name="life_plan_icon_description">Life Plan Icon</string>
     <string name="num_ideas">%1$d Ideas</string>
     <string name="add">Add</string>

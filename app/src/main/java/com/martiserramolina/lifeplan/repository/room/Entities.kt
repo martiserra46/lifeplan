@@ -8,24 +8,24 @@ import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.model.Idea
 import com.martiserramolina.lifeplan.repository.model.Day
 import com.martiserramolina.lifeplan.repository.model.Topic
-import com.martiserramolina.lifeplan.repository.model.YourLife
+import com.martiserramolina.lifeplan.repository.model.Life
 import java.util.*
 
-@Entity(tableName = "your_life")
-data class YourLifeDb(
+@Entity(tableName = "life")
+data class LifeDb(
     @PrimaryKey
-    @ColumnInfo(name = "your_life_id")
-    val yourLifeId: Long = 0,
-    @ColumnInfo(name = "your_life_text")
-    val yourLifeText: String = ""
+    @ColumnInfo(name = "life_id")
+    val lifeId: Long = 0,
+    @ColumnInfo(name = "life_text")
+    val lifeText: String = ""
 )
 
-fun YourLifeDb.toYourLife(): YourLife {
-    return YourLife(yourLifeText)
+fun LifeDb.toLife(): Life {
+    return Life(lifeText)
 }
 
-fun YourLife.toYourLifeDb(): YourLifeDb {
-    return YourLifeDb(yourLifeText = text)
+fun Life.toLifeDb(): LifeDb {
+    return LifeDb(lifeText = text)
 }
 
 @Entity(tableName = "topic")

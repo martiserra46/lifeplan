@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_main_nav_graph"
-    app:startDestination="@id/yourLifeFragment">
+    app:startDestination="@id/lifeFragment">
 
     <fragment
         android:id="@+id/ideasFragment"
@@ -16,8 +16,8 @@
         android:label="situationFragment"
         tools:layout="@layout/fragment_nav_situation" />
     <fragment
-        android:id="@+id/yourLifeFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav.YourLifeFragment"
-        android:label="yourLifeFragment"
-        tools:layout="@layout/fragment_nav_your_life" />
+        android:id="@+id/lifeFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav.LifeFragment"
+        android:label="lifeFragment"
+        tools:layout="@layout/fragment_nav_life" />
 </navigation>

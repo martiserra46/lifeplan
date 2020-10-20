@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
-interface DaoYourLifeDb {
+interface DaoLifeDb {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertYourLife(yourLifeDb: YourLifeDb): Long
+    fun insertLife(lifeDb: LifeDb): Long
 
-    @Query("SELECT * FROM your_life LIMIT 1")
-    fun getYourLife(): YourLifeDb?
+    @Query("SELECT * FROM life LIMIT 1")
+    fun getLife(): LifeDb?
 }
 
 @Dao

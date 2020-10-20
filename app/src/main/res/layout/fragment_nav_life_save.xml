@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.secondary_fragments.nav.your_life.edit.EditYourLifeFragment">
+    tools:context=".ui.fragments.secondary_fragments.nav.life.edit.EditLifeFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/fragment_nav_your_life_save_tb"
+        android:id="@+id/fragment_nav_life_save_tb"
         style="@style/secondaryToolbarStyle" />
 
     <EditText
-        android:id="@+id/fragment_nav_your_life_save_description_et"
+        android:id="@+id/fragment_nav_life_save_description_et"
         style="@style/editTextDescriptionStyle"
         android:layout_height="0dp"
         android:layout_weight="1"

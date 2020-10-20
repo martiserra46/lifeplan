@@ -60,7 +60,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     private fun setupNavSection() {
         navSection = MainFragmentArgs.fromBundle(requireArguments()).navSection
         mainActivity.supportActionBar?.title = getString(navSection.label)
-        if (navSection != NavSection.YOUR_LIFE) navigateToNavSection(navSection)
+        if (navSection != NavSection.LIFE) navigateToNavSection(navSection)
     }
 
     private fun setupNavView() {

@@ -3,7 +3,7 @@ package com.martiserramolina.lifeplan.enums
 import com.martiserramolina.lifeplan.R
 
 enum class NavSection(val label: Int, val destinationId: Int) {
-    YOUR_LIFE(R.string.your_life, R.id.yourLifeFragment),
+    LIFE(R.string.life, R.id.lifeFragment),
     IDEAS(R.string.ideas, R.id.ideasFragment),
     SITUATION(R.string.situation, R.id.situationFragment);
 

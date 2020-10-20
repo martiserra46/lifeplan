@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 
 @Database(
     entities = [
-        YourLifeDb::class,
+        LifeDb::class,
         TopicDb::class,
         IdeaDb::class,
         DayDb::class
@@ -38,7 +38,7 @@ abstract class AppDb : RoomDatabase() {
         }
     }
 
-    abstract fun daoYourLifeDb(): DaoYourLifeDb
+    abstract fun daoLifeDb(): DaoLifeDb
 
     abstract fun daoTopicDb(): DaoTopicDb
 

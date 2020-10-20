@@ -6,10 +6,10 @@
     android:paddingHorizontal="@dimen/windowHorizontalPadding"
     android:paddingTop="@dimen/windowTopPadding"
     android:paddingBottom="@dimen/windowBottomPadding"
-    tools:context=".ui.fragments.main_fragments.nav.YourLifeFragment">
+    tools:context=".ui.fragments.main_fragments.nav.LifeFragment">
 
     <TextView
-        android:id="@+id/fragment_nav_your_life_description_tv"
+        android:id="@+id/fragment_nav_life_description_tv"
         style="@style/descriptionStyle"
         android:textSize="20sp"
         tools:text="@tools:sample/lorem/random" />
