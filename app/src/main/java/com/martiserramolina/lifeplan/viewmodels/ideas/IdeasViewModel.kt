@@ -1,25 +1,26 @@
 package com.martiserramolina.lifeplan.viewmodels.ideas
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.martiserramolina.lifeplan.repository.Repository
-import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
-import com.martiserramolina.lifeplan.repository.model.Idea
-import com.martiserramolina.lifeplan.repository.model.Topic
+import androidx.lifecycle.*
+import com.martiserramolina.lifeplan.repository.IdeasRepository
+import com.martiserramolina.lifeplan.repository.room.AppDb
+import com.martiserramolina.lifeplan.repository.room.Topic
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
-import java.util.*
 
 class IdeasViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = Repository(application.applicationContext)
+    private val repository by lazy {
+        IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
+    }
 
-    private val coroutineJob = Job()
-    private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
+    val topics = MutableLiveData<List<Topic>>()
 
-    val topics = repository.ideasRepository.getTopics()
+    init {
+        viewModelScope.launch {
+            topics.value = repository.getTopics()
+        }
+    }
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
