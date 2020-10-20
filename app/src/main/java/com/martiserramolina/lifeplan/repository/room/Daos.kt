@@ -17,6 +17,9 @@ interface DaoIdeas {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTopic(topic: Topic): Long
 
+    @Update
+    suspend fun updateTopic(topic: Topic)
+    
     @Query("SELECT * FROM topic ORDER BY topic_id DESC")
     suspend fun getTopics(): List<Topic>
 
