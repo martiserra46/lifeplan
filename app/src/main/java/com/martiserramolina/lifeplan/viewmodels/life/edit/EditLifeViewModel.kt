@@ -1,35 +1,30 @@
 package com.martiserramolina.lifeplan.viewmodels.life.edit
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.martiserramolina.lifeplan.repository.Repository
-import com.martiserramolina.lifeplan.repository.model.Life
+import androidx.lifecycle.*
+import com.martiserramolina.lifeplan.repository.LifeRepository
+import com.martiserramolina.lifeplan.repository.room.AppDb
+import com.martiserramolina.lifeplan.repository.room.Life
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class EditLifeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = Repository(application.applicationContext)
+    private val repository by lazy {
+        LifeRepository(AppDb.getInstance(application.applicationContext).daoLife())
+    }
 
-    private val coroutineJob = Job()
-    private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
-
-    val life = MutableLiveData<Life?>().apply { value = null }
+    val life = MutableLiveData<Life?>()
 
     init {
-        coroutineMainScope.launch {
-            life.value = withContext(Dispatchers.IO) {
-                repository.lifeRepository.getLife()
-            }
+        viewModelScope.launch {
+            life.value = repository.getLife()
         }
     }
 
     fun insertLife(life: Life) {
-        coroutineMainScope.launch {
-            withContext(Dispatchers.IO) { repository.lifeRepository.insertLife(life) }
+        viewModelScope.launch {
+            repository.insertLife(life)
         }
     }
 
