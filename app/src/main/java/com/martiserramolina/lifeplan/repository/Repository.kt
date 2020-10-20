@@ -1,57 +1,46 @@
 package com.martiserramolina.lifeplan.repository
 
-import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
-import com.martiserramolina.lifeplan.repository.model.Day
-import com.martiserramolina.lifeplan.repository.model.Topic
-import com.martiserramolina.lifeplan.repository.model.Life
 import com.martiserramolina.lifeplan.repository.room.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class Repository(context: Context) {
-    val lifeRepository by lazy { LifeRepository(context) }
-    val ideasRepository by lazy { IdeasRepository(context) }
-    val dayRepository by lazy { SituationRepository(context) }
-}
+class LifeRepository(private val daoLife: DaoLife) {
 
-class LifeRepository(context: Context) {
-
-    private val db by lazy { AppDb.getInstance(context) }
-    private val daoLife by lazy { db.daoLife() }
-
-    fun getLife(): Life? {
-        return daoLife.getLife()?.toLife()
+    suspend fun getLife(): Life? {
+        return withContext(Dispatchers.IO) { daoLife.getLife() }
     }
 
-    fun insertLife(lifeDescription: Life) {
-        daoLife.insertLife(lifeDescription.toLifeDb())
+    suspend fun insertLife(life: Life): Long {
+        return withContext(Dispatchers.IO) { daoLife.insertLife(life) }
     }
 }
 
-class IdeasRepository(context: Context) {
+class IdeasRepository(private val daoIdeas: DaoIdeas) {
 
-    private val db by lazy { AppDb.getInstance(context) }
-    private val daoTopic by lazy { db.daoIdeas() }
-
-    fun getTopics(): LiveData<List<Topic>> {
-        return Transformations.map(daoTopic.getTopics()) { it.toListTopics() }
+    suspend fun getTopics(): List<Topic> {
+        return withContext(Dispatchers.IO) { daoIdeas.getTopics() }
     }
 
-    fun insertTopic(topic: Topic) {
-        daoTopic.insertTopic(topic.toTopicDb())
+    suspend fun insertTopic(topic: Topic) {
+        return withContext(Dispatchers.IO) { daoIdeas.insertTopic(topic) }
+    }
+
+    suspend fun getIdeas(): List<Idea> {
+        return withContext(Dispatchers.IO) { daoIdeas.getIdeas() }
+    }
+
+    suspend fun insertIdea(idea: Idea) {
+        return withContext(Dispatchers.IO) { daoIdeas.insertIdeaAndUpdateItsTopic(idea) }
     }
 }
 
-class SituationRepository(context: Context) {
+class SituationRepository(private val daoSituation: DaoSituation) {
 
-    private val db by lazy { AppDb.getInstance(context) }
-    private val daoDay by lazy { db.daoSituation() }
-
-    fun getDays(): LiveData<List<Pair<Long, Day>>> {
-        return Transformations.map(daoDay.getDays()) { it.toListDays() }
+    suspend fun getDays(): List<Day> {
+        return withContext(Dispatchers.IO) { daoSituation.getDays() }
     }
 
-    fun insertDay(day: Day) {
-        daoDay.insertDay(day.toDayDb())
+    suspend fun insertDay(day: Day): Long {
+        return withContext(Dispatchers.IO) { daoSituation.insertDay(day) }
     }
 }
