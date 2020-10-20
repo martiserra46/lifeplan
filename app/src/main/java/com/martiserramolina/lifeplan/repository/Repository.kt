@@ -17,7 +17,7 @@ class Repository(context: Context) {
 class LifeRepository(context: Context) {
 
     private val db by lazy { AppDb.getInstance(context) }
-    private val daoLife by lazy { db.daoLifeDb() }
+    private val daoLife by lazy { db.daoLife() }
 
     fun getLife(): Life? {
         return daoLife.getLife()?.toLife()
@@ -31,7 +31,7 @@ class LifeRepository(context: Context) {
 class IdeasRepository(context: Context) {
 
     private val db by lazy { AppDb.getInstance(context) }
-    private val daoTopic by lazy { db.daoTopicDb() }
+    private val daoTopic by lazy { db.daoIdeas() }
 
     fun getTopics(): LiveData<List<Topic>> {
         return Transformations.map(daoTopic.getTopics()) { it.toListTopics() }
@@ -45,7 +45,7 @@ class IdeasRepository(context: Context) {
 class SituationRepository(context: Context) {
 
     private val db by lazy { AppDb.getInstance(context) }
-    private val daoDay by lazy { db.daoDayDb() }
+    private val daoDay by lazy { db.daoSituation() }
 
     fun getDays(): LiveData<List<Pair<Long, Day>>> {
         return Transformations.map(daoDay.getDays()) { it.toListDays() }

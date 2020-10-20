@@ -38,11 +38,9 @@ abstract class AppDb : RoomDatabase() {
         }
     }
 
-    abstract fun daoLifeDb(): DaoLife
+    abstract fun daoLife(): DaoLife
 
-    abstract fun daoTopicDb(): DaoIdeas
+    abstract fun daoIdeas(): DaoIdeas
 
-    abstract fun daoIdeaDb(): DaoIdea
-
-    abstract fun daoDayDb(): DaoSituation
+    abstract fun daoSituation(): DaoSituation
 }
