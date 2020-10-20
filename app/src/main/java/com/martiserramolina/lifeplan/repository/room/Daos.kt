@@ -12,7 +12,8 @@ interface DaoLife {
 }
 
 @Dao
-interface DaoTopic {
+interface DaoIdeas {
+    /* TOPIC */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTopic(topic: Topic): Long
 
@@ -21,10 +22,8 @@ interface DaoTopic {
 
     @Query("SELECT * FROM topic WHERE topic_id = :topicId")
     suspend fun getTopic(topicId: Long): Topic
-}
 
-@Dao
-interface DaoIdea {
+    /* IDEA */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIdea(idea: Idea): Long
 
@@ -36,7 +35,7 @@ interface DaoIdea {
 }
 
 @Dao
-interface DaoDay {
+interface DaoSituation {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDay(day: Day): Long
 
