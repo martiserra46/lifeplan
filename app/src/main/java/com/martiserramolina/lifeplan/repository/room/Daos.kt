@@ -19,7 +19,7 @@ interface DaoIdeas {
 
     @Update
     suspend fun updateTopic(topic: Topic)
-    
+
     @Query("SELECT * FROM topic ORDER BY topic_id DESC")
     suspend fun getTopics(): List<Topic>
 
@@ -29,6 +29,9 @@ interface DaoIdeas {
     /* IDEA */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIdea(idea: Idea): Long
+
+    @Update
+    suspend fun updateIdea(idea: Idea)
 
     @Query("SELECT * FROM idea ORDER BY idea_id DESC")
     suspend fun getIdeas(): List<Idea>
