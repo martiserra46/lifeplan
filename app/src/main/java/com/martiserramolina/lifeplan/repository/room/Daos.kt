@@ -1,52 +1,51 @@
 package com.martiserramolina.lifeplan.repository.room
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface DaoLifeDb {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertLife(lifeDb: LifeDb): Long
+    suspend fun insertLife(lifeDb: LifeDb): Long
 
     @Query("SELECT * FROM life LIMIT 1")
-    fun getLife(): LifeDb?
+    suspend fun getLife(): LifeDb?
 }
 
 @Dao
 interface DaoTopicDb {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTopic(topicDb: TopicDb): Long
+    suspend fun insertTopic(topicDb: TopicDb): Long
 
     @Query("SELECT * FROM topic ORDER BY topic_id DESC")
-    fun getTopics(): LiveData<List<TopicDb>>
+    suspend fun getTopics(): List<TopicDb>
 
     @Query("SELECT * FROM topic WHERE topic_id = :topicId")
-    fun getTopic(topicId: Long): TopicDb
+    suspend fun getTopic(topicId: Long): TopicDb
 }
 
 @Dao
 interface DaoIdeaDb {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertIdea(ideaDb: IdeaDb): Long
+    suspend fun insertIdea(ideaDb: IdeaDb): Long
 
     @Query("SELECT * FROM idea ORDER BY idea_id DESC")
-    fun getIdeas(): LiveData<List<IdeaDb>>
+    suspend fun getIdeas(): List<IdeaDb>
 
     @Query("SELECT * FROM idea WHERE idea_id = :ideaId")
-    fun getIdea(ideaId: Long): IdeaDb
+    suspend fun getIdea(ideaId: Long): IdeaDb
 }
 
 @Dao
 interface DaoDayDb {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertDay(dayDb: DayDb): Long
+    suspend fun insertDay(dayDb: DayDb): Long
 
     @Update
-    fun updateDay(dayDb: DayDb)
+    suspend fun updateDay(dayDb: DayDb)
 
     @Query("SELECT * FROM day ORDER BY day_id DESC")
-    fun getDays(): LiveData<List<DayDb>>
+    suspend fun getDays(): List<DayDb>
 
     @Query("SELECT * FROM day WHERE day_id = :dayId")
-    fun getDay(dayId: Long): DayDb
+    suspend fun getDay(dayId: Long): DayDb
 }
