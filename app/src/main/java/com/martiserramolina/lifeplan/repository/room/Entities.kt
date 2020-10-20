@@ -52,5 +52,5 @@ data class Day(
     @ColumnInfo(name = "day_text")
     var dayText: String = "",
     @ColumnInfo(name = "day_satisfaction")
-    var daySatisfaction: DaySatisfaction = DaySatisfaction.NORMAL,
+    var daySatisfaction: DaySatisfaction = DaySatisfaction.NORMAL
 )
