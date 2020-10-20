@@ -4,27 +4,25 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.martiserramolina.lifeplan.repository.Repository
-import com.martiserramolina.lifeplan.repository.model.Day
+import androidx.lifecycle.viewModelScope
+import com.martiserramolina.lifeplan.repository.SituationRepository
+import com.martiserramolina.lifeplan.repository.room.AppDb
+import com.martiserramolina.lifeplan.repository.room.Day
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 import java.util.*
 
 class AddDayViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = Repository(application.applicationContext)
+    private val repository by lazy {
+        SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
+    }
 
     lateinit var date: Date
 
-    private val coroutineJob = Job()
-    private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
-
     fun insertDay(day: Day) {
-        coroutineMainScope.launch {
-            withContext(Dispatchers.IO) {
-                repository.dayRepository
-                    .insertDay(day)
-            }
+        viewModelScope.launch {
+            repository.insertDay(day)
         }
     }
 
