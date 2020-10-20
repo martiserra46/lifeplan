@@ -1,12 +1,15 @@
 package com.martiserramolina.lifeplan.repository.room
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
+@Parcelize
 @Entity(tableName = "life")
 data class Life(
     @PrimaryKey
@@ -14,8 +17,9 @@ data class Life(
     val lifeId: Long = 0,
     @ColumnInfo(name = "life_text")
     val lifeText: String = ""
-)
+) : Parcelable
 
+@Parcelize
 @Entity(tableName = "topic")
 data class Topic(
     @PrimaryKey(autoGenerate = true)
@@ -25,8 +29,9 @@ data class Topic(
     val topicText: String = "",
     @ColumnInfo(name = "topic_num_ideas")
     var topicNumIdeas: Int = 0
-)
+) : Parcelable
 
+@Parcelize
 @Entity(tableName = "idea")
 data class Idea(
     @PrimaryKey(autoGenerate = true)
@@ -40,8 +45,9 @@ data class Idea(
     var ideaImportance: IdeaImportance = IdeaImportance.NORMAL,
     @ColumnInfo(name = "idea_last_time_modified")
     var ideaLastTimeModified: Date = Date()
-)
+) : Parcelable
 
+@Parcelize
 @Entity(tableName = "day")
 data class Day(
     @PrimaryKey(autoGenerate = true)
@@ -53,4 +59,4 @@ data class Day(
     var dayText: String = "",
     @ColumnInfo(name = "day_satisfaction")
     var daySatisfaction: DaySatisfaction = DaySatisfaction.NORMAL
-)
+) : Parcelable
