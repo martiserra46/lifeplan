@@ -13,12 +13,12 @@
     <color name="colorSecondaryText">#8E8E8E</color>
     <color name="colorDividerLine">#E3E3E3</color>
 
-    <color name="colorStatusDayLine">#CECECE</color>
+    <color name="colorSituationDayLine">#CECECE</color>
 
     <color name="navSelectedMenuItemColor">@color/colorText</color>
     <color name="navUnselectedMenuItemColor">@color/colorSecondaryText</color>
 
-    <color name="colorSituationDayHighSatisfaction">#4DD500</color>
-    <color name="colorSituationDayNormalSatisfaction">#FFC17B</color>
-    <color name="colorSituationDayLowSatisfaction">#FF7878</color>
+    <color name="colorDayHighSatisfaction">#4DD500</color>
+    <color name="colorDayNormalSatisfaction">#FFC17B</color>
+    <color name="colorDayLowSatisfaction">#FF7878</color>
 </resources>

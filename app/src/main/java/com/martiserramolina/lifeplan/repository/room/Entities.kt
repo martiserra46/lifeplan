@@ -88,27 +88,27 @@ fun List<Idea>.toListIdeasDb(topicId: Long): List<IdeaDb> {
 data class DayDb(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "situation_day_id")
-    val situationDayId: Long = 0,
+    val dayId: Long = 0,
     @ColumnInfo(name = "situation_day_date")
-    var situationDayDate: Date = Date(),
+    var dayDate: Date = Date(),
     @ColumnInfo(name = "situation_day_text")
-    var situationDayText: String = "",
+    var dayText: String = "",
     @ColumnInfo(name = "situation_day_satisfaction")
-    var situationDaySatisfaction: DaySatisfaction = DaySatisfaction.NORMAL,
+    var daySatisfaction: DaySatisfaction = DaySatisfaction.NORMAL,
 )
 
-fun DayDb.toSituationDay(): Pair<Long, Day> {
-    return situationDayId to Day(situationDayDate, situationDayText, situationDaySatisfaction)
+fun DayDb.toDay(): Pair<Long, Day> {
+    return dayId to Day(dayDate, dayText, daySatisfaction)
 }
 
-fun List<DayDb>.toListSituationDays(): List<Pair<Long, Day>> {
-    return map { it.toSituationDay() }
+fun List<DayDb>.toListDays(): List<Pair<Long, Day>> {
+    return map { it.toDay() }
 }
 
-fun Day.toSituationDayDb(id: Long = 0): DayDb {
+fun Day.toDayDb(id: Long = 0): DayDb {
     return DayDb(id, date, text, satisfaction)
 }
 
-fun List<Day>.toListSituationDaysDb(): List<DayDb> {
-    return map { it.toSituationDayDb() }
+fun List<Day>.toListDaysDb(): List<DayDb> {
+    return map { it.toDayDb() }
 }

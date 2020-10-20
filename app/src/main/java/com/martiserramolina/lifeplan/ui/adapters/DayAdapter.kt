@@ -11,7 +11,7 @@ class DayAdapter(
     private val onItemClick: (Long, Day) -> Unit
 ) : RecyclerView.Adapter<DayAdapter.ViewHolder>() {
 
-    var listSituationDays = emptyList<Pair<Long, Day>>()
+    var listDays = emptyList<Pair<Long, Day>>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -22,12 +22,12 @@ class DayAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (situationDayId, situationDay) = listSituationDays[position]
-        holder.bind(situationDayId, situationDay)
+        val (dayId, day) = listDays[position]
+        holder.bind(dayId, day)
     }
 
     override fun getItemCount(): Int {
-        return listSituationDays.size
+        return listDays.size
     }
 
     class ViewHolder(
@@ -44,13 +44,13 @@ class DayAdapter(
             }
         }
 
-        fun bind(situationDayId: Long, situationDay: Day) {
+        fun bind(dayId: Long, day: Day) {
             binding.apply {
-                rviSituationDayDateTv.text = situationDay.date.format("dd/mm/yyyy")
-                rviSituationDayTextTv.text = situationDay.text
+                rviSituationDayDateTv.text = day.date.format("dd/mm/yyyy")
+                rviSituationDayTextTv.text = day.text
                 rviSituationDayCircleV
-                    .setBackgroundResource(situationDay.satisfaction.drawableId)
-                root.setOnClickListener { onItemClick(situationDayId, situationDay) }
+                    .setBackgroundResource(day.satisfaction.drawableId)
+                root.setOnClickListener { onItemClick(dayId, day) }
             }
         }
     }

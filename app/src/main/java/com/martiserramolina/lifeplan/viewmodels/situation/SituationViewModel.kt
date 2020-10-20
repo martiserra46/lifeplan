@@ -14,7 +14,7 @@ class SituationViewModel(application: Application) : AndroidViewModel(applicatio
 
     private val repository = Repository(application.applicationContext)
 
-    val situationDays = repository.situationDayRepository.getSituationDays()
+    val days = repository.dayRepository.getDays()
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {

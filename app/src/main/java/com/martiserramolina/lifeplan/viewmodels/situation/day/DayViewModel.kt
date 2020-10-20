@@ -6,16 +6,16 @@ import com.martiserramolina.lifeplan.repository.model.Day
 import java.lang.IllegalArgumentException
 
 class DayViewModel(
-    val situationDayId: Long, val situationDay: Day
+    val dayId: Long, val day: Day
 ) : ViewModel() {
 
     class Factory(
-        private val situationDayId: Long, private val situationDay: Day
+        private val dayId: Long, private val day: Day
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(DayViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return DayViewModel(situationDayId, situationDay) as T
+                return DayViewModel(dayId, day) as T
             }
             throw IllegalArgumentException("Invalid ViewModel")
         }

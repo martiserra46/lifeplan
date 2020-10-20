@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="situationDaySatisfactions">
+    <string-array name="daySatisfactions">
         <item>@string/high_satisfaction</item>
         <item>@string/normal_satisfaction</item>
         <item>@string/low_satisfaction</item>

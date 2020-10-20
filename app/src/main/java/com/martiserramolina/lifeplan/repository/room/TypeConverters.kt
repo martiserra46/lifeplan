@@ -18,12 +18,12 @@ class IdeaImportanceConverterDb {
 
 class DaySatisfactionConverterDb {
     @TypeConverter
-    fun fromSituationDaySatisfactionToInt(situationDaySatisfaction: DaySatisfaction): Int {
-        return situationDaySatisfaction.ordinal
+    fun fromDaySatisfactionToInt(daySatisfaction: DaySatisfaction): Int {
+        return daySatisfaction.ordinal
     }
 
     @TypeConverter
-    fun fromIntToSituationDaySatisfaction(int: Int): DaySatisfaction {
+    fun fromIntToDaySatisfaction(int: Int): DaySatisfaction {
         return DaySatisfaction.values()[int]
     }
 }

@@ -20,8 +20,8 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
             this,
             DayViewModel
                 .Factory(
-                    dayFragmentArgs.situationDayId,
-                    dayFragmentArgs.situationDay
+                    dayFragmentArgs.dayId,
+                    dayFragmentArgs.day
                 )
         ).get(DayViewModel::class.java)
     }
@@ -40,7 +40,7 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
     override fun navigateToPreviousFragment() {
         navController.navigate(
             DayFragmentDirections
-                .actionSituationDayFragmentToMainFragment(NavSection.SITUATION)
+                .actionDayFragmentToMainFragment(NavSection.SITUATION)
         )
     }
 
@@ -58,7 +58,7 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.situation_day_edit_mi -> {
-                navigateToEditSituationDayFragment()
+                navigateToEditDayFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -66,12 +66,12 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
     }
 
     private fun setupDateTextView() {
-        binding.fragmentNavSituationDayDateTv.text = viewModel.situationDay
+        binding.fragmentNavSituationDayDateTv.text = viewModel.day
             .date.format("dd/mm/yyyy")
     }
 
     private fun setupSatisfactionTextView() {
-        viewModel.situationDay.satisfaction.let { satisfaction ->
+        viewModel.day.satisfaction.let { satisfaction ->
             binding.fragmentNavSituationDaySatisfactionTv.apply {
                 text = getString(satisfaction.stringId)
                 setTextColor(ContextCompat.getColor(context, satisfaction.colorId))
@@ -80,13 +80,13 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
     }
 
     private fun setupDescriptionTextView() {
-        binding.fragmentNavSituationDayDescriptionTv.text = viewModel.situationDay.text
+        binding.fragmentNavSituationDayDescriptionTv.text = viewModel.day.text
     }
 
-    private fun navigateToEditSituationDayFragment() {
+    private fun navigateToEditDayFragment() {
         navController.navigate(
             DayFragmentDirections
-                .actionSituationDayFragmentToEditSituationDayFragment(viewModel.situationDayId, viewModel.situationDay)
+                .actionDayFragmentToEditDayFragment(viewModel.dayId, viewModel.day)
         )
     }
 }

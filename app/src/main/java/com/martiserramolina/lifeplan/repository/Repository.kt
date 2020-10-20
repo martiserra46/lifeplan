@@ -11,7 +11,7 @@ import com.martiserramolina.lifeplan.repository.room.*
 class Repository(context: Context) {
     val yourLifeRepository by lazy { YourLifeRepository(context) }
     val ideasRepository by lazy { IdeasRepository(context) }
-    val situationDayRepository by lazy { SituationRepository(context) }
+    val dayRepository by lazy { SituationRepository(context) }
 }
 
 class YourLifeRepository(context: Context) {
@@ -45,13 +45,13 @@ class IdeasRepository(context: Context) {
 class SituationRepository(context: Context) {
 
     private val db by lazy { AppDb.getInstance(context) }
-    private val daoSituationDay by lazy { db.daoSituationDayDb() }
+    private val daoDay by lazy { db.daoDayDb() }
 
-    fun getSituationDays(): LiveData<List<Pair<Long, Day>>> {
-        return Transformations.map(daoSituationDay.getSituationDays()) { it.toListSituationDays() }
+    fun getDays(): LiveData<List<Pair<Long, Day>>> {
+        return Transformations.map(daoDay.getDays()) { it.toListDays() }
     }
 
-    fun insertSituationDay(situationDay: Day) {
-        daoSituationDay.insertSituationDay(situationDay.toSituationDayDb())
+    fun insertDay(day: Day) {
+        daoDay.insertDay(day.toDayDb())
     }
 }

@@ -39,14 +39,14 @@ interface DaoIdeaDb {
 @Dao
 interface DaoDayDb {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertSituationDay(situationDayDb: DayDb): Long
+    fun insertDay(dayDb: DayDb): Long
 
     @Update
-    fun updateSituationDay(situationDayDb: DayDb)
+    fun updateDay(dayDb: DayDb)
 
     @Query("SELECT * FROM situation_day ORDER BY situation_day_id DESC")
-    fun getSituationDays(): LiveData<List<DayDb>>
+    fun getDays(): LiveData<List<DayDb>>
 
-    @Query("SELECT * FROM situation_day WHERE situation_day_id = :situationDayId")
-    fun getSituationDay(situationDayId: Long): DayDb
+    @Query("SELECT * FROM situation_day WHERE situation_day_id = :dayId")
+    fun getDay(dayId: Long): DayDb
 }

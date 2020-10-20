@@ -37,7 +37,7 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
     override fun navigateToPreviousFragment() {
         navController.navigate(
             AddDayFragmentDirections
-                .actionAddSituationDayFragmentToMainFragment(NavSection.SITUATION)
+                .actionAddDayFragmentToMainFragment(NavSection.SITUATION)
         )
     }
 
@@ -55,7 +55,7 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.situation_day_add_save_mi -> {
-                saveSituationDay()
+                saveDay()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -79,8 +79,8 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
         }
     }
 
-    private fun saveSituationDay() {
-        viewModel.insertSituationDay(Day(getDate(), getDescription(), getSatisfaction()))
+    private fun saveDay() {
+        viewModel.insertDay(Day(getDate(), getDescription(), getSatisfaction()))
         navigateToPreviousFragment()
     }
 

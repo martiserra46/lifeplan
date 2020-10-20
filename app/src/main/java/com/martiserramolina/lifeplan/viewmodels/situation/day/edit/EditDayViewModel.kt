@@ -19,11 +19,11 @@ class EditDayViewModel(application: Application) : AndroidViewModel(application)
     private val coroutineJob = Job()
     private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
 
-    fun updateSituationDay(situationDay: Day) {
+    fun updateDay(day: Day) {
         coroutineMainScope.launch {
             withContext(Dispatchers.IO) {
-                repository.situationDayRepository
-                    .insertSituationDay(situationDay)
+                repository.dayRepository
+                    .insertDay(day)
             }
         }
     }

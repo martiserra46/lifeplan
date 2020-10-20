@@ -44,7 +44,7 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.situation_add_mi -> {
-                navigateToAddSituationDayFragment()
+                navigateToAddDayFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -53,8 +53,8 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
 
     private fun setupRecyclerView() {
         binding.fragmentNavSituationRv.apply {
-            adapter = DayAdapter { situationDayId, situationDay ->
-                navigateToSituationDayFragment(situationDayId, situationDay)
+            adapter = DayAdapter { dayId, day ->
+                navigateToDayFragment(dayId, day)
             }
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
@@ -63,22 +63,22 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
             )
         }
 
-        viewModel.situationDays.observe(viewLifecycleOwner) { situationDays ->
+        viewModel.days.observe(viewLifecycleOwner) { days ->
             binding.fragmentNavSituationRv.apply {
-                adapter.run { this as DayAdapter }.listSituationDays = situationDays
+                adapter.run { this as DayAdapter }.listDays = days
             }
         }
     }
 
-    private fun navigateToAddSituationDayFragment() {
+    private fun navigateToAddDayFragment() {
         mainActivity.navController
-            .navigate(MainFragmentDirections.actionMainFragmentToAddSituationDayFragment())
+            .navigate(MainFragmentDirections.actionMainFragmentToAddDayFragment())
     }
 
-    private fun navigateToSituationDayFragment(situationDayId: Long, situationDay: Day) {
+    private fun navigateToDayFragment(dayId: Long, day: Day) {
         mainActivity.navController.navigate(
             MainFragmentDirections
-                .actionMainFragmentToSituationDayFragment(situationDayId, situationDay)
+                .actionMainFragmentToDayFragment(dayId, day)
         )
     }
 }
