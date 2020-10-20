@@ -25,12 +25,20 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
         return withContext(Dispatchers.IO) { daoIdeas.insertTopic(topic) }
     }
 
+    suspend fun updateTopic(topic: Topic) {
+        withContext(Dispatchers.IO) { daoIdeas.updateTopic(topic) }
+    }
+
     suspend fun getIdeas(): List<Idea> {
         return withContext(Dispatchers.IO) { daoIdeas.getIdeas() }
     }
 
     suspend fun insertIdea(idea: Idea) {
         return withContext(Dispatchers.IO) { daoIdeas.insertIdeaAndUpdateItsTopic(idea) }
+    }
+
+    suspend fun updateIdea(idea: Idea) {
+        withContext(Dispatchers.IO) { daoIdeas.updateIdea(idea) }
     }
 }
 
@@ -42,5 +50,9 @@ class SituationRepository(private val daoSituation: DaoSituation) {
 
     suspend fun insertDay(day: Day): Long {
         return withContext(Dispatchers.IO) { daoSituation.insertDay(day) }
+    }
+
+    suspend fun updateDay(day: Day) {
+        withContext(Dispatchers.IO) { daoSituation.updateDay(day) }
     }
 }
