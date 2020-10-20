@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class EditLifeViewModel(
-    private val life: Life,
+    private val life: Life?,
     application: Application
 ) : AndroidViewModel(application) {
 
@@ -23,7 +23,7 @@ class EditLifeViewModel(
         }
     }
 
-    class Factory(private val life: Life, private val application: Application) : ViewModelProvider.Factory {
+    class Factory(private val life: Life?, private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(EditLifeViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
