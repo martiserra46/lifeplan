@@ -21,8 +21,8 @@ data class Topic(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "topic_id")
     val topicId: Long = 0,
-    @ColumnInfo(name = "topic_name")
-    val topicName: String = "",
+    @ColumnInfo(name = "topic_text")
+    val topicText: String = "",
     @ColumnInfo(name = "topic_num_ideas")
     var topicNumIdeas: Int = 0
 )
