@@ -58,9 +58,6 @@
         <action
             android:id="@+id/action_topicFragment_to_addIdeaFragment"
             app:destination="@id/addIdeaFragment" />
-        <argument
-            android:name="topic"
-            app:argType="com.martiserramolina.lifeplan.repository.model.Topic" />
     </fragment>
     <fragment
         android:id="@+id/addTopicFragment"
@@ -84,12 +81,6 @@
         <action
             android:id="@+id/action_dayFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <argument
-            android:name="dayId"
-            app:argType="long" />
-        <argument
-            android:name="day"
-            app:argType="com.martiserramolina.lifeplan.repository.model.Day" />
     </fragment>
     <fragment
         android:id="@+id/addDayFragment"
@@ -127,12 +118,5 @@
         android:id="@+id/editDayFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.edit.EditDayFragment"
         android:label="editDayFragment"
-        tools:layout="@layout/fragment_nav_situation_day_save" >
-        <argument
-            android:name="dayId"
-            app:argType="long" />
-        <argument
-            android:name="day"
-            app:argType="com.martiserramolina.lifeplan.repository.model.Day" />
-    </fragment>
+        tools:layout="@layout/fragment_nav_situation_day_save" />
 </navigation>
