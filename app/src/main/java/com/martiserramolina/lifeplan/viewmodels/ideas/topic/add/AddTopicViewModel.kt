@@ -4,23 +4,22 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.martiserramolina.lifeplan.repository.Repository
-import com.martiserramolina.lifeplan.repository.model.Topic
+import androidx.lifecycle.viewModelScope
+import com.martiserramolina.lifeplan.repository.IdeasRepository
+import com.martiserramolina.lifeplan.repository.room.AppDb
+import com.martiserramolina.lifeplan.repository.room.Topic
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class AddTopicViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = Repository(application.applicationContext)
-
-    private val coroutineJob = Job()
-    private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
+    private val repository by lazy {
+        IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
+    }
 
     fun insertTopic(topic: Topic) {
-        coroutineMainScope.launch {
-            withContext(Dispatchers.IO) {
-                repository.ideasRepository.insertTopic(topic)
-            }
+        viewModelScope.launch {
+            repository.insertTopic(topic)
         }
     }
 
