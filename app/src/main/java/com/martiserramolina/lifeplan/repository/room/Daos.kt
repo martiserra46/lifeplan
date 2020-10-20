@@ -38,6 +38,12 @@ interface DaoIdeas {
 
     @Query("SELECT * FROM idea WHERE idea_id = :ideaId")
     suspend fun getIdea(ideaId: Long): Idea
+
+    /* TOPIC & IDEA */
+    suspend fun insertIdeaAndUpdateItsTopic(idea: Idea): Long {
+        updateTopic(getTopic(idea.ideaTopicId).apply { topicNumIdeas++ })
+        return insertIdea(idea)
+    }
 }
 
 @Dao
