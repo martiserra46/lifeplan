@@ -5,10 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
-import com.martiserramolina.lifeplan.repository.model.Idea
-import com.martiserramolina.lifeplan.repository.model.Day
-import com.martiserramolina.lifeplan.repository.model.Topic
-import com.martiserramolina.lifeplan.repository.model.Life
 import java.util.*
 
 @Entity(tableName = "life")
