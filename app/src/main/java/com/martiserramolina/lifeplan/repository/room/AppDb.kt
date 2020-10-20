@@ -8,10 +8,10 @@ import androidx.room.TypeConverters
 
 @Database(
     entities = [
-        LifeDb::class,
-        TopicDb::class,
-        IdeaDb::class,
-        DayDb::class
+        Life::class,
+        Topic::class,
+        Idea::class,
+        Day::class
     ],
     version = 1,
     exportSchema = false

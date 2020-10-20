@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import java.util.*
 
 @Entity(tableName = "life")
-data class LifeDb(
+data class Life(
     @PrimaryKey
     @ColumnInfo(name = "life_id")
     val lifeId: Long = 0,
@@ -17,7 +17,7 @@ data class LifeDb(
 )
 
 @Entity(tableName = "topic")
-data class TopicDb(
+data class Topic(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "topic_id")
     val topicId: Long = 0,
@@ -28,7 +28,7 @@ data class TopicDb(
 )
 
 @Entity(tableName = "idea")
-data class IdeaDb(
+data class Idea(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idea_id")
     val ideaId: Long = 0,
@@ -43,7 +43,7 @@ data class IdeaDb(
 )
 
 @Entity(tableName = "day")
-data class DayDb(
+data class Day(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "day_id")
     val dayId: Long = 0,
