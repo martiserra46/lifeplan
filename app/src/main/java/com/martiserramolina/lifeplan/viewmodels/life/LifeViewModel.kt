@@ -2,25 +2,23 @@ package com.martiserramolina.lifeplan.viewmodels.life
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.martiserramolina.lifeplan.repository.Repository
-import com.martiserramolina.lifeplan.repository.model.Life
+import com.martiserramolina.lifeplan.repository.LifeRepository
+import com.martiserramolina.lifeplan.repository.room.AppDb
+import com.martiserramolina.lifeplan.repository.room.Life
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class LifeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = Repository(application.applicationContext)
+    private val repository by lazy {
+        LifeRepository(AppDb.getInstance(application.applicationContext).daoLife())
+    }
 
-    private val coroutineJob = Job()
-    private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
-
-    val life = MutableLiveData<Life?>().apply { value = null }
+    val life = MutableLiveData<Life?>()
 
     init {
-        coroutineMainScope.launch {
-            life.value = withContext(Dispatchers.IO) {
-                repository.lifeRepository.getLife()
-            }
+        viewModelScope.launch {
+            life.value = repository.getLife()
         }
     }
 
