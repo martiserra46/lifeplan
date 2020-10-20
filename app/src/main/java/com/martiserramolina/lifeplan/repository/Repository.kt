@@ -21,7 +21,7 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
         return withContext(Dispatchers.IO) { daoIdeas.getTopics() }
     }
 
-    suspend fun insertTopic(topic: Topic) {
+    suspend fun insertTopic(topic: Topic): Long {
         return withContext(Dispatchers.IO) { daoIdeas.insertTopic(topic) }
     }
 
@@ -33,7 +33,7 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
         return withContext(Dispatchers.IO) { daoIdeas.getIdeas() }
     }
 
-    suspend fun insertIdea(idea: Idea) {
+    suspend fun insertIdea(idea: Idea): Long {
         return withContext(Dispatchers.IO) { daoIdeas.insertIdeaAndUpdateItsTopic(idea) }
     }
 
