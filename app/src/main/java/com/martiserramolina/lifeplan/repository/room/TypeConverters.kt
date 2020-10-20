@@ -5,7 +5,7 @@ import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import java.util.*
 
-class IdeaImportanceConverterDb {
+class IdeaImportanceConverter {
     @TypeConverter
     fun fromIdeaImportanceToInt(ideaImportance: IdeaImportance): Int {
         return ideaImportance.ordinal
@@ -16,7 +16,7 @@ class IdeaImportanceConverterDb {
     }
 }
 
-class DaySatisfactionConverterDb {
+class DaySatisfactionConverter {
     @TypeConverter
     fun fromDaySatisfactionToInt(daySatisfaction: DaySatisfaction): Int {
         return daySatisfaction.ordinal
@@ -28,7 +28,7 @@ class DaySatisfactionConverterDb {
     }
 }
 
-class DateConverterDb {
+class DateConverter {
     @TypeConverter
     fun fromDateToLong(date: Date): Long {
         return date.time

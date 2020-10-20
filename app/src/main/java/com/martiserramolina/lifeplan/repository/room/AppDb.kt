@@ -17,9 +17,9 @@ import androidx.room.TypeConverters
     exportSchema = false
 )
 @TypeConverters(
-    IdeaImportanceConverterDb::class,
-    DaySatisfactionConverterDb::class,
-    DateConverterDb::class
+    IdeaImportanceConverter::class,
+    DaySatisfactionConverter::class,
+    DateConverter::class
 )
 abstract class AppDb : RoomDatabase() {
     companion object {
