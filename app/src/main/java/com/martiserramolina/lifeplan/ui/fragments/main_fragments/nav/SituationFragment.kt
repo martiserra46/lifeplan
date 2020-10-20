@@ -7,10 +7,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
-import com.martiserramolina.lifeplan.repository.model.SituationDay
+import com.martiserramolina.lifeplan.repository.model.Day
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
-import com.martiserramolina.lifeplan.ui.adapters.SituationDayAdapter
+import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.main_fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.situation.SituationViewModel
 
@@ -53,7 +53,7 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
 
     private fun setupRecyclerView() {
         binding.fragmentNavSituationRv.apply {
-            adapter = SituationDayAdapter { situationDayId, situationDay ->
+            adapter = DayAdapter { situationDayId, situationDay ->
                 navigateToSituationDayFragment(situationDayId, situationDay)
             }
             addItemDecoration(
@@ -65,7 +65,7 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
 
         viewModel.situationDays.observe(viewLifecycleOwner) { situationDays ->
             binding.fragmentNavSituationRv.apply {
-                adapter.run { this as SituationDayAdapter }.listSituationDays = situationDays
+                adapter.run { this as DayAdapter }.listSituationDays = situationDays
             }
         }
     }
@@ -75,7 +75,7 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
             .navigate(MainFragmentDirections.actionMainFragmentToAddSituationDayFragment())
     }
 
-    private fun navigateToSituationDayFragment(situationDayId: Long, situationDay: SituationDay) {
+    private fun navigateToSituationDayFragment(situationDayId: Long, situationDay: Day) {
         mainActivity.navController.navigate(
             MainFragmentDirections
                 .actionMainFragmentToSituationDayFragment(situationDayId, situationDay)

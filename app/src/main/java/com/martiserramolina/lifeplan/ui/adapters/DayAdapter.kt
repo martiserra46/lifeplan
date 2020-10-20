@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.databinding.RviSituationDayBinding
 import com.martiserramolina.lifeplan.extensions.format
-import com.martiserramolina.lifeplan.repository.model.SituationDay
+import com.martiserramolina.lifeplan.repository.model.Day
 
-class SituationDayAdapter(
-    private val onItemClick: (Long, SituationDay) -> Unit
-) : RecyclerView.Adapter<SituationDayAdapter.ViewHolder>() {
+class DayAdapter(
+    private val onItemClick: (Long, Day) -> Unit
+) : RecyclerView.Adapter<DayAdapter.ViewHolder>() {
 
-    var listSituationDays = emptyList<Pair<Long, SituationDay>>()
+    var listSituationDays = emptyList<Pair<Long, Day>>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -32,10 +32,10 @@ class SituationDayAdapter(
 
     class ViewHolder(
         private val binding: RviSituationDayBinding,
-        private val onItemClick: (Long, SituationDay) -> Unit
+        private val onItemClick: (Long, Day) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         companion object {
-            fun create(parent: ViewGroup, onItemClick: (Long, SituationDay) -> Unit): ViewHolder {
+            fun create(parent: ViewGroup, onItemClick: (Long, Day) -> Unit): ViewHolder {
                 return ViewHolder(
                     RviSituationDayBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
@@ -44,7 +44,7 @@ class SituationDayAdapter(
             }
         }
 
-        fun bind(situationDayId: Long, situationDay: SituationDay) {
+        fun bind(situationDayId: Long, situationDay: Day) {
             binding.apply {
                 rviSituationDayDateTv.text = situationDay.date.format("dd/mm/yyyy")
                 rviSituationDayTextTv.text = situationDay.text

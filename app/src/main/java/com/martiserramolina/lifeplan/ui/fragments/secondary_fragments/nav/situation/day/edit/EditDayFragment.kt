@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
-class EditSituationDayFragment : BaseFragment<FragmentNavSituationDaySaveBinding>() {
+class EditDayFragment : BaseFragment<FragmentNavSituationDaySaveBinding>() {
     override fun getBinding(
         inflater: LayoutInflater,
         container: ViewGroup?

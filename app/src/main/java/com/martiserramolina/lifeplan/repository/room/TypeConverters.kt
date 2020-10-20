@@ -2,7 +2,7 @@ package com.martiserramolina.lifeplan.repository.room
 
 import androidx.room.TypeConverter
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
-import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
+import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import java.util.*
 
 class IdeaImportanceConverterDb {
@@ -16,15 +16,15 @@ class IdeaImportanceConverterDb {
     }
 }
 
-class SituationDaySatisfactionConverterDb {
+class DaySatisfactionConverterDb {
     @TypeConverter
-    fun fromSituationDaySatisfactionToInt(situationDaySatisfaction: SituationDaySatisfaction): Int {
+    fun fromSituationDaySatisfactionToInt(situationDaySatisfaction: DaySatisfaction): Int {
         return situationDaySatisfaction.ordinal
     }
 
     @TypeConverter
-    fun fromIntToSituationDaySatisfaction(int: Int): SituationDaySatisfaction {
-        return SituationDaySatisfaction.values()[int]
+    fun fromIntToSituationDaySatisfaction(int: Int): DaySatisfaction {
+        return DaySatisfaction.values()[int]
     }
 }
 

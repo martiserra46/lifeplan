@@ -1,17 +1,16 @@
-package com.martiserramolina.lifeplan.viewmodels.situation.day.add
+package com.martiserramolina.lifeplan.viewmodels.situation.day.edit
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.repository.Repository
-import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
-import com.martiserramolina.lifeplan.repository.model.SituationDay
+import com.martiserramolina.lifeplan.repository.model.Day
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 import java.util.*
 
-class AddSituationDayViewModel(application: Application) : AndroidViewModel(application) {
+class EditDayViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = Repository(application.applicationContext)
 
@@ -20,7 +19,7 @@ class AddSituationDayViewModel(application: Application) : AndroidViewModel(appl
     private val coroutineJob = Job()
     private val coroutineMainScope = CoroutineScope(Dispatchers.Main + coroutineJob)
 
-    fun insertSituationDay(situationDay: SituationDay) {
+    fun updateSituationDay(situationDay: Day) {
         coroutineMainScope.launch {
             withContext(Dispatchers.IO) {
                 repository.situationDayRepository
@@ -31,9 +30,9 @@ class AddSituationDayViewModel(application: Application) : AndroidViewModel(appl
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(AddSituationDayViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(EditDayViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return AddSituationDayViewModel(application) as T
+                return EditDayViewModel(application) as T
             }
             throw IllegalArgumentException("Invalid ViewModel")
         }

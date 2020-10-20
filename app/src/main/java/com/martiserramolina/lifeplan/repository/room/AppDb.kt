@@ -11,14 +11,14 @@ import androidx.room.TypeConverters
         YourLifeDb::class,
         TopicDb::class,
         IdeaDb::class,
-        SituationDayDb::class
+        DayDb::class
     ],
     version = 1,
     exportSchema = false
 )
 @TypeConverters(
     IdeaImportanceConverterDb::class,
-    SituationDaySatisfactionConverterDb::class,
+    DaySatisfactionConverterDb::class,
     DateConverterDb::class
 )
 abstract class AppDb : RoomDatabase() {
@@ -44,5 +44,5 @@ abstract class AppDb : RoomDatabase() {
 
     abstract fun daoIdeaDb(): DaoIdeaDb
 
-    abstract fun daoSituationDayDb(): DaoSituationDayDb
+    abstract fun daoSituationDayDb(): DaoDayDb
 }

@@ -1,7 +1,7 @@
 package com.martiserramolina.lifeplan.repository.model
 
 import android.os.Parcelable
-import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
+import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import kotlinx.android.parcel.Parcelize
 import java.util.*
@@ -19,8 +19,8 @@ data class Idea(
 ) : Parcelable
 
 @Parcelize
-data class SituationDay(
+data class Day(
     var date: Date = Date(),
     var text: String = "",
-    var satisfaction: SituationDaySatisfaction = SituationDaySatisfaction.NORMAL,
+    var satisfaction: DaySatisfaction = DaySatisfaction.NORMAL,
 ) : Parcelable

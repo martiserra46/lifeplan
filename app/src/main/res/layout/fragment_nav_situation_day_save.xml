@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.secondary_fragments.nav.situation.day.add.AddSituationDayFragment">
+    tools:context=".ui.fragments.secondary_fragments.nav.situation.day.add.AddDayFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_situation_day_save_tb"

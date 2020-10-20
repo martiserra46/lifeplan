@@ -4,7 +4,7 @@ import com.martiserramolina.lifeplan.R
 
 enum class IdeaImportance { IMPORTANT, NORMAL, UNIMPORTANT }
 
-enum class SituationDaySatisfaction(val drawableId: Int, val colorId: Int, val stringId: Int) {
+enum class DaySatisfaction(val drawableId: Int, val colorId: Int, val stringId: Int) {
     SATISFIED(
         R.drawable.bg_rvi_situation_day_circle_satisfied,
         R.color.colorSituationDayHighSatisfaction,

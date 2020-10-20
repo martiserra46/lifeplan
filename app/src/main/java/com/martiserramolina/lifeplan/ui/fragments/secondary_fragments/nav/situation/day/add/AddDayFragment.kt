@@ -8,19 +8,19 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.format
-import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
-import com.martiserramolina.lifeplan.repository.model.SituationDay
-import com.martiserramolina.lifeplan.ui.adapters.SituationDaySatisfactionAdapter
+import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
+import com.martiserramolina.lifeplan.repository.model.Day
+import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
-import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddSituationDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddDayViewModel
 import java.util.*
 
-class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
+class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this, AddSituationDayViewModel.Factory(requireActivity().application)
-        ).get(AddSituationDayViewModel::class.java)
+            this, AddDayViewModel.Factory(requireActivity().application)
+        ).get(AddDayViewModel::class.java)
     }
 
     override fun getBinding(
@@ -36,7 +36,7 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
 
     override fun navigateToPreviousFragment() {
         navController.navigate(
-            AddSituationDayFragmentDirections
+            AddDayFragmentDirections
                 .actionAddSituationDayFragmentToMainFragment(NavSection.SITUATION)
         )
     }
@@ -73,14 +73,14 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
 
     private fun setupSatisfactionSpinner() {
         binding.fragmentNavSituationDaySaveSatisfactionSp.apply {
-            adapter = SituationDaySatisfactionAdapter(
+            adapter = DaySatisfactionAdapter(
                 requireContext(), R.layout.spinner_item
             ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
         }
     }
 
     private fun saveSituationDay() {
-        viewModel.insertSituationDay(SituationDay(getDate(), getDescription(), getSatisfaction()))
+        viewModel.insertSituationDay(Day(getDate(), getDescription(), getSatisfaction()))
         navigateToPreviousFragment()
     }
 
@@ -88,9 +88,9 @@ class AddSituationDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBin
         return viewModel.date
     }
 
-    private fun getSatisfaction(): SituationDaySatisfaction {
+    private fun getSatisfaction(): DaySatisfaction {
         return binding.fragmentNavSituationDaySaveSatisfactionSp.selectedItem
-            .run { this as SituationDaySatisfaction }
+            .run { this as DaySatisfaction }
     }
 
     private fun getDescription(): String {

@@ -4,9 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
-import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
+import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.model.Idea
-import com.martiserramolina.lifeplan.repository.model.SituationDay
+import com.martiserramolina.lifeplan.repository.model.Day
 import com.martiserramolina.lifeplan.repository.model.Topic
 import com.martiserramolina.lifeplan.repository.model.YourLife
 import java.util.*
@@ -85,7 +85,7 @@ fun List<Idea>.toListIdeasDb(topicId: Long): List<IdeaDb> {
 }
 
 @Entity(tableName = "situation_day")
-data class SituationDayDb(
+data class DayDb(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "situation_day_id")
     val situationDayId: Long = 0,
@@ -94,21 +94,21 @@ data class SituationDayDb(
     @ColumnInfo(name = "situation_day_text")
     var situationDayText: String = "",
     @ColumnInfo(name = "situation_day_satisfaction")
-    var situationDaySatisfaction: SituationDaySatisfaction = SituationDaySatisfaction.NORMAL,
+    var situationDaySatisfaction: DaySatisfaction = DaySatisfaction.NORMAL,
 )
 
-fun SituationDayDb.toSituationDay(): Pair<Long, SituationDay> {
-    return situationDayId to SituationDay(situationDayDate, situationDayText, situationDaySatisfaction)
+fun DayDb.toSituationDay(): Pair<Long, Day> {
+    return situationDayId to Day(situationDayDate, situationDayText, situationDaySatisfaction)
 }
 
-fun List<SituationDayDb>.toListSituationDays(): List<Pair<Long, SituationDay>> {
+fun List<DayDb>.toListSituationDays(): List<Pair<Long, Day>> {
     return map { it.toSituationDay() }
 }
 
-fun SituationDay.toSituationDayDb(id: Long = 0): SituationDayDb {
-    return SituationDayDb(id, date, text, satisfaction)
+fun Day.toSituationDayDb(id: Long = 0): DayDb {
+    return DayDb(id, date, text, satisfaction)
 }
 
-fun List<SituationDay>.toListSituationDaysDb(): List<SituationDayDb> {
+fun List<Day>.toListSituationDaysDb(): List<DayDb> {
     return map { it.toSituationDayDb() }
 }

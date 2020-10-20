@@ -3,18 +3,15 @@ package com.martiserramolina.lifeplan.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
-import com.martiserramolina.lifeplan.repository.model.Idea
-import com.martiserramolina.lifeplan.repository.model.SituationDay
+import com.martiserramolina.lifeplan.repository.model.Day
 import com.martiserramolina.lifeplan.repository.model.Topic
 import com.martiserramolina.lifeplan.repository.model.YourLife
 import com.martiserramolina.lifeplan.repository.room.*
-import java.util.*
 
 class Repository(context: Context) {
     val yourLifeRepository by lazy { YourLifeRepository(context) }
     val ideasRepository by lazy { IdeasRepository(context) }
-    val situationDayRepository by lazy { SituationDayRepository(context) }
+    val situationDayRepository by lazy { SituationRepository(context) }
 }
 
 class YourLifeRepository(context: Context) {
@@ -45,16 +42,16 @@ class IdeasRepository(context: Context) {
     }
 }
 
-class SituationDayRepository(context: Context) {
+class SituationRepository(context: Context) {
 
     private val db by lazy { AppDb.getInstance(context) }
     private val daoSituationDay by lazy { db.daoSituationDayDb() }
 
-    fun getSituationDays(): LiveData<List<Pair<Long, SituationDay>>> {
+    fun getSituationDays(): LiveData<List<Pair<Long, Day>>> {
         return Transformations.map(daoSituationDay.getSituationDays()) { it.toListSituationDays() }
     }
 
-    fun insertSituationDay(situationDay: SituationDay) {
+    fun insertSituationDay(situationDay: Day) {
         daoSituationDay.insertSituationDay(situationDay.toSituationDayDb())
     }
 }

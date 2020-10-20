@@ -9,22 +9,21 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.format
-import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
-import com.martiserramolina.lifeplan.viewmodels.situation.day.SituationDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.situation.day.DayViewModel
 
-class SituationDayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
+class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
 
     private val viewModel by lazy {
-        val situationDayFragmentArgs = SituationDayFragmentArgs.fromBundle(requireArguments())
+        val dayFragmentArgs = DayFragmentArgs.fromBundle(requireArguments())
         ViewModelProvider(
             this,
-            SituationDayViewModel
+            DayViewModel
                 .Factory(
-                    situationDayFragmentArgs.situationDayId,
-                    situationDayFragmentArgs.situationDay
+                    dayFragmentArgs.situationDayId,
+                    dayFragmentArgs.situationDay
                 )
-        ).get(SituationDayViewModel::class.java)
+        ).get(DayViewModel::class.java)
     }
 
     override fun getBinding(
@@ -40,7 +39,7 @@ class SituationDayFragment : SecondaryFragment<FragmentNavSituationDayBinding>()
 
     override fun navigateToPreviousFragment() {
         navController.navigate(
-            SituationDayFragmentDirections
+            DayFragmentDirections
                 .actionSituationDayFragmentToMainFragment(NavSection.SITUATION)
         )
     }
@@ -86,7 +85,7 @@ class SituationDayFragment : SecondaryFragment<FragmentNavSituationDayBinding>()
 
     private fun navigateToEditSituationDayFragment() {
         navController.navigate(
-            SituationDayFragmentDirections
+            DayFragmentDirections
                 .actionSituationDayFragmentToEditSituationDayFragment(viewModel.situationDayId, viewModel.situationDay)
         )
     }

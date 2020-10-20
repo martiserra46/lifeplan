@@ -6,13 +6,13 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import com.martiserramolina.lifeplan.repository.enums.SituationDaySatisfaction
+import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 
-class SituationDaySatisfactionAdapter(
+class DaySatisfactionAdapter(
     context: Context, textViewId: Int
-) : ArrayAdapter<SituationDaySatisfaction>(context, textViewId, SituationDaySatisfaction.values()) {
+) : ArrayAdapter<DaySatisfaction>(context, textViewId, DaySatisfaction.values()) {
 
-    private val listSatisfactions = SituationDaySatisfaction.values()
+    private val listSatisfactions = DaySatisfaction.values()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val textView = super.getView(position, convertView, parent) as TextView

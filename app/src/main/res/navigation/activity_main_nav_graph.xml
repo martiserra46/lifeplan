@@ -75,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/situationDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.SituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.DayFragment"
         android:label="situationDayFragment"
         tools:layout="@layout/fragment_nav_situation_day" >
         <action
@@ -89,11 +89,11 @@
             app:argType="long" />
         <argument
             android:name="situationDay"
-            app:argType="com.martiserramolina.lifeplan.repository.model.SituationDay" />
+            app:argType="com.martiserramolina.lifeplan.repository.model.Day" />
     </fragment>
     <fragment
         android:id="@+id/addSituationDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.add.AddSituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.add.AddDayFragment"
         android:label="addSituationDayFragment"
         tools:layout="@layout/fragment_nav_situation_day_save" >
         <action
@@ -125,7 +125,7 @@
         tools:layout="@layout/fragment_nav_ideas_topic_save" />
     <fragment
         android:id="@+id/editSituationDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.edit.EditSituationDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.edit.EditDayFragment"
         android:label="editSituationDayFragment"
         tools:layout="@layout/fragment_nav_situation_day_save" >
         <argument
@@ -133,6 +133,6 @@
             app:argType="long" />
         <argument
             android:name="situationDay"
-            app:argType="com.martiserramolina.lifeplan.repository.model.SituationDay" />
+            app:argType="com.martiserramolina.lifeplan.repository.model.Day" />
     </fragment>
 </navigation>
