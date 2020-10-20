@@ -26,7 +26,9 @@ data class TopicDb(
     @ColumnInfo(name = "topic_id")
     val topicId: Long = 0,
     @ColumnInfo(name = "topic_name")
-    val topicName: String = ""
+    val topicName: String = "",
+    @ColumnInfo(name = "topic_num_ideas")
+    var topicNumIdeas: Int = 0
 )
 
 @Entity(tableName = "idea")
