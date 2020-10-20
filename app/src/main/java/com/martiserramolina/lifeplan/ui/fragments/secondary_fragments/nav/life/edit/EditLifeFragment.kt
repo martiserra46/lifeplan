@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.repository.model.Life
+import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.life.edit.EditLifeViewModel
 
@@ -15,7 +15,11 @@ class EditLifeFragment : SecondaryFragment<FragmentNavLifeSaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this, EditLifeViewModel.Factory(requireActivity().application)
+            this,
+            EditLifeViewModel.Factory(
+                EditLifeFragmentArgs.fromBundle(requireArguments()).life,
+                requireActivity().application
+            )
         ).get(EditLifeViewModel::class.java)
     }
 
@@ -39,7 +43,7 @@ class EditLifeFragment : SecondaryFragment<FragmentNavLifeSaveBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupDescription()
+        setupTextTv()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -49,23 +53,20 @@ class EditLifeFragment : SecondaryFragment<FragmentNavLifeSaveBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.life_edit_save_mi -> {
-                saveDescription()
+                saveText()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupDescription() {
-        viewModel.life.observe(viewLifecycleOwner) { life ->
-            life?.let { binding.fragmentNavLifeSaveDescriptionEt.setText(life.text) }
-        }
+    private fun setupTextTv() {
+        viewModel.life?.let { binding.fragmentNavLifeSaveDescriptionEt.setText(it.lifeText) }
     }
 
-    private fun saveDescription() {
-        viewModel.insertLife(
-            Life(binding.fragmentNavLifeSaveDescriptionEt.text.toString())
-        )
+    private fun saveText() {
+        viewModel
+            .insertLife(Life(0, binding.fragmentNavLifeSaveDescriptionEt.text.toString()))
         navigateToPreviousFragment()
     }
 }
