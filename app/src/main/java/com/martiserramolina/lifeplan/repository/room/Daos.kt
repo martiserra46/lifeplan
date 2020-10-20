@@ -3,7 +3,7 @@ package com.martiserramolina.lifeplan.repository.room
 import androidx.room.*
 
 @Dao
-interface DaoLifeDb {
+interface DaoLife {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertLife(life: Life): Long
 
@@ -12,7 +12,7 @@ interface DaoLifeDb {
 }
 
 @Dao
-interface DaoTopicDb {
+interface DaoTopic {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTopic(topic: Topic): Long
 
@@ -24,7 +24,7 @@ interface DaoTopicDb {
 }
 
 @Dao
-interface DaoIdeaDb {
+interface DaoIdea {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIdea(idea: Idea): Long
 
@@ -36,7 +36,7 @@ interface DaoIdeaDb {
 }
 
 @Dao
-interface DaoDayDb {
+interface DaoDay {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDay(day: Day): Long
 
