@@ -14,9 +14,9 @@ import java.util.*
 data class Life(
     @PrimaryKey
     @ColumnInfo(name = "life_id")
-    val lifeId: Long = 0,
+    var lifeId: Long = 0,
     @ColumnInfo(name = "life_text")
-    val lifeText: String = ""
+    var lifeText: String = ""
 ) : Parcelable
 
 @Parcelize
@@ -24,9 +24,9 @@ data class Life(
 data class Topic(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "topic_id")
-    val topicId: Long = 0,
+    var topicId: Long = 0,
     @ColumnInfo(name = "topic_text")
-    val topicText: String = "",
+    var topicText: String = "",
     @ColumnInfo(name = "topic_num_ideas")
     var topicNumIdeas: Int = 0
 ) : Parcelable
@@ -36,9 +36,9 @@ data class Topic(
 data class Idea(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "idea_id")
-    val ideaId: Long = 0,
+    var ideaId: Long = 0,
     @ColumnInfo(name = "idea_topic_id")
-    val ideaTopicId: Long,
+    var ideaTopicId: Long,
     @ColumnInfo(name = "idea_text")
     var ideaText: String = "",
     @ColumnInfo(name = "idea_importance")
@@ -52,7 +52,7 @@ data class Idea(
 data class Day(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "day_id")
-    val dayId: Long = 0,
+    var dayId: Long = 0,
     @ColumnInfo(name = "day_date")
     var dayDate: Date = Date(),
     @ColumnInfo(name = "day_text")
