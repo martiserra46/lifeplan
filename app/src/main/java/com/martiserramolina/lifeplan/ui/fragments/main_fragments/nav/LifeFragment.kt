@@ -5,6 +5,7 @@ import android.view.*
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
+import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.main_fragments.MainFragmentDirections
@@ -29,7 +30,7 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupDescription()
+        setupTextTv()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -46,14 +47,16 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>() {
         }
     }
 
-    private fun setupDescription() {
+    private fun setupTextTv() {
         viewModel.life.observe(viewLifecycleOwner) { life ->
-            life?.let { binding.fragmentNavLifeDescriptionTv.text = life.text }
+            life?.let { binding.fragmentNavLifeDescriptionTv.text = life.lifeText }
         }
     }
 
     private fun navigateToEditLifeFragment() {
         mainActivity.navController
-            .navigate(MainFragmentDirections.actionMainFragmentToEditLifeFragment())
+            .navigate(
+                MainFragmentDirections.actionMainFragmentToEditLifeFragment(viewModel.life.value)
+            )
     }
 }
