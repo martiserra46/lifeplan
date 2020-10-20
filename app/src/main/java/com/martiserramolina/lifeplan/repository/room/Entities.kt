@@ -84,16 +84,16 @@ fun List<Idea>.toListIdeasDb(topicId: Long): List<IdeaDb> {
     return map { it.toIdeaDb(topicId) }
 }
 
-@Entity(tableName = "situation_day")
+@Entity(tableName = "day")
 data class DayDb(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "situation_day_id")
+    @ColumnInfo(name = "day_id")
     val dayId: Long = 0,
-    @ColumnInfo(name = "situation_day_date")
+    @ColumnInfo(name = "day_date")
     var dayDate: Date = Date(),
-    @ColumnInfo(name = "situation_day_text")
+    @ColumnInfo(name = "day_text")
     var dayText: String = "",
-    @ColumnInfo(name = "situation_day_satisfaction")
+    @ColumnInfo(name = "day_satisfaction")
     var daySatisfaction: DaySatisfaction = DaySatisfaction.NORMAL,
 )
 

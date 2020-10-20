@@ -44,9 +44,9 @@ interface DaoDayDb {
     @Update
     fun updateDay(dayDb: DayDb)
 
-    @Query("SELECT * FROM situation_day ORDER BY situation_day_id DESC")
+    @Query("SELECT * FROM day ORDER BY day_id DESC")
     fun getDays(): LiveData<List<DayDb>>
 
-    @Query("SELECT * FROM situation_day WHERE situation_day_id = :dayId")
+    @Query("SELECT * FROM day WHERE day_id = :dayId")
     fun getDay(dayId: Long): DayDb
 }
