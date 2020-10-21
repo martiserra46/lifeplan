@@ -11,7 +11,6 @@ import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
-import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddDayViewModel
 import com.martiserramolina.lifeplan.viewmodels.situation.day.edit.EditDayViewModel
 import java.util.*
 
@@ -39,7 +38,8 @@ class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() 
     override fun getToolbarTitle(): String = getString(R.string.edit)
 
     override fun navigateToPreviousFragment() {
-        navController.navigateUp()
+        navController
+            .navigate(EditDayFragmentDirections.actionEditDayFragmentToDayFragment(viewModel.day))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,7 +81,8 @@ class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() 
     }
 
     private fun saveDay() {
-        viewModel.updateDay(Day(viewModel.day.dayId, getDate(), getDescription(), getSatisfaction()))
+        viewModel.day = Day(viewModel.day.dayId, getDate(), getDescription(), getSatisfaction())
+        viewModel.updateDay(viewModel.day)
         navigateToPreviousFragment()
     }
 

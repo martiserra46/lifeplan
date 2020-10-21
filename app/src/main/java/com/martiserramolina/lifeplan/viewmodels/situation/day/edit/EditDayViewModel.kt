@@ -12,7 +12,7 @@ import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 import java.util.*
 
-class EditDayViewModel(val day: Day, application: Application) : AndroidViewModel(application) {
+class EditDayViewModel(var day: Day, application: Application) : AndroidViewModel(application) {
 
     private val repository by lazy {
         SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
