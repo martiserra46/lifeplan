@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_edit"
         android:title="@string/edit"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/situation_day_delete_mi"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/delete"
+        app:showAsAction="ifRoom" />
 </menu>
