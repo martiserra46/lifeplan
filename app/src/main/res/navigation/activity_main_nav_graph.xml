@@ -87,6 +87,9 @@
         <action
             android:id="@+id/action_dayFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="day"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Day" />
     </fragment>
     <fragment
         android:id="@+id/addDayFragment"
