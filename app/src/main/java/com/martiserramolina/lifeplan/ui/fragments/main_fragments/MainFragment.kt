@@ -69,7 +69,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         binding.fragmentMainNv.setNavigationItemSelectedListener { menuItem ->
             navSection = NavSection.getNavSection(menuItem.itemId)
             navigateToNavSection(navSection)
-            Handler(Looper.getMainLooper()).post { binding.fragmentMainDl.closeDrawers() }
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.fragmentMainDl.closeDrawers()
+            }, 100)
             true
         }
     }
