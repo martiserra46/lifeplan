@@ -20,6 +20,9 @@ interface DaoIdeas {
     @Update
     suspend fun updateTopic(topic: Topic)
 
+    @Delete
+    suspend fun deleteTopic(topic: Topic)
+
     @Query("SELECT * FROM topic ORDER BY topic_id DESC")
     suspend fun getTopics(): List<Topic>
 
@@ -32,6 +35,9 @@ interface DaoIdeas {
 
     @Update
     suspend fun updateIdea(idea: Idea)
+
+    @Delete
+    suspend fun deleteIdea(idea: Idea)
 
     @Query("SELECT * FROM idea ORDER BY idea_id DESC")
     suspend fun getIdeas(): List<Idea>
@@ -53,6 +59,9 @@ interface DaoSituation {
 
     @Update
     suspend fun updateDay(day: Day)
+
+    @Delete
+    suspend fun deleteDay(day: Day)
 
     @Query("SELECT * FROM day ORDER BY day_id DESC")
     suspend fun getDays(): List<Day>
