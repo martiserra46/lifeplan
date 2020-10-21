@@ -81,7 +81,7 @@ class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() 
     }
 
     private fun saveDay() {
-        viewModel.updateDay(Day(0, getDate(), getDescription(), getSatisfaction()))
+        viewModel.updateDay(Day(viewModel.day.dayId, getDate(), getDescription(), getSatisfaction()))
         navigateToPreviousFragment()
     }
 
