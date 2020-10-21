@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_ideaFragment_to_editIdeaFragment"
             app:destination="@id/editIdeaFragment" />
+        <argument
+            android:name="idea"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Idea" />
     </fragment>
     <fragment
         android:id="@+id/addIdeaFragment"
