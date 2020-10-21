@@ -9,7 +9,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBind
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.format
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
-import com.martiserramolina.lifeplan.repository.model.Day
+import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddDayViewModel
@@ -44,8 +44,8 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         saveDateToViewModel()
-        setupDateTextView()
-        setupSatisfactionSpinner()
+        setupDateTv()
+        setupSatisfactionSp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -66,12 +66,11 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
         viewModel.date = Date()
     }
 
-    private fun setupDateTextView() {
-        viewModel.date = Date()
+    private fun setupDateTv() {
         binding.fragmentNavSituationDaySaveDateTv.text = viewModel.date.format("dd/mm/yyyy")
     }
 
-    private fun setupSatisfactionSpinner() {
+    private fun setupSatisfactionSp() {
         binding.fragmentNavSituationDaySaveSatisfactionSp.apply {
             adapter = DaySatisfactionAdapter(
                 requireContext(), R.layout.spinner_item
@@ -80,7 +79,7 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun saveDay() {
-        viewModel.insertDay(Day(getDate(), getDescription(), getSatisfaction()))
+        viewModel.insertDay(Day(0, getDate(), getDescription(), getSatisfaction()))
         navigateToPreviousFragment()
     }
 
