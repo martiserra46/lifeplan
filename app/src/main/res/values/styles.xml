@@ -43,12 +43,10 @@
     </style>
 
     <style name="titleTextAppearance" parent="TextAppearance.AppTheme">
-        <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textSize">@dimen/titleTextSize</item>
     </style>
 
     <style name="descriptionTextAppearance" parent="TextAppearance.AppTheme">
-        <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textSize">@dimen/descriptionTextSize</item>
         <item name="android:textStyle">normal</item>
         <item name="lineHeight">25dp</item>
