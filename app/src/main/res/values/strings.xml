@@ -10,6 +10,7 @@
     <string name="ideas">Ideas</string>
     <string name="situation">Situation</string>
     <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
     <string name="life_edit">Describe your desired life</string>
     <string name="life_plan_icon_description">Life Plan Icon</string>
     <string name="num_ideas">%1$d Ideas</string>
