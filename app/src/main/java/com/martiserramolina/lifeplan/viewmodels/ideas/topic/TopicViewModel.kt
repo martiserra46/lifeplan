@@ -19,7 +19,7 @@ class TopicViewModel(val topic: Topic, application: Application) : AndroidViewMo
 
     init {
         viewModelScope.launch {
-            ideas.value = repository.getIdeas()
+            ideas.value = repository.getIdeas(topic.topicId)
         }
     }
 
