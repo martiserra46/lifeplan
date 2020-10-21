@@ -29,6 +29,10 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
         withContext(Dispatchers.IO) { daoIdeas.updateTopic(topic) }
     }
 
+    suspend fun deleteTopic(topic: Topic) {
+        withContext(Dispatchers.IO) { daoIdeas.deleteTopic(topic) }
+    }
+
     suspend fun getIdeas(): List<Idea> {
         return withContext(Dispatchers.IO) { daoIdeas.getIdeas() }
     }
@@ -39,6 +43,10 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
 
     suspend fun updateIdea(idea: Idea) {
         withContext(Dispatchers.IO) { daoIdeas.updateIdea(idea) }
+    }
+
+    suspend fun deleteIdea(idea: Idea) {
+        withContext(Dispatchers.IO) { daoIdeas.deleteIdea(idea) }
     }
 }
 
@@ -54,5 +62,9 @@ class SituationRepository(private val daoSituation: DaoSituation) {
 
     suspend fun updateDay(day: Day) {
         withContext(Dispatchers.IO) { daoSituation.updateDay(day) }
+    }
+
+    suspend fun deleteDay(day: Day) {
+        withContext(Dispatchers.IO) { daoSituation.deleteDay(day) }
     }
 }
