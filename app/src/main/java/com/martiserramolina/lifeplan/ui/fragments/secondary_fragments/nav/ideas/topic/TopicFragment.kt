@@ -1,6 +1,8 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
@@ -35,5 +37,14 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
     override fun navigateToPreviousFragment() {
         navController
             .navigate(TopicFragmentDirections.actionTopicFragmentToMainFragment(NavSection.IDEAS))
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupTitleTv()
+    }
+
+    private fun setupTitleTv() {
+        binding.fragmentNavIdeasTopicTitleTv.text = viewModel.topic.topicText
     }
 }
