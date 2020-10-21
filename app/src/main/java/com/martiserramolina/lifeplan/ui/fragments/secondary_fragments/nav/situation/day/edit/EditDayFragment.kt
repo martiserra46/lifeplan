@@ -1,19 +1,19 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.edit
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.extensions.format
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
+import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddDayViewModel
 import com.martiserramolina.lifeplan.viewmodels.situation.day.edit.EditDayViewModel
+import java.util.*
 
 class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
 
@@ -49,6 +49,20 @@ class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() 
         setupTextTv()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.situation_day_edit_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.situation_day_edit_mi -> {
+                saveDay()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setupDateTv() {
         binding.fragmentNavSituationDaySaveDateTv.text = viewModel.day.dayDate.format("dd/mm/yyyy")
     }
@@ -64,5 +78,23 @@ class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() 
 
     private fun setupTextTv() {
         binding.fragmentNavSituationDaySaveDateTv.text = viewModel.day.dayText
+    }
+
+    private fun saveDay() {
+        viewModel.updateDay(Day(0, getDate(), getDescription(), getSatisfaction()))
+        navigateToPreviousFragment()
+    }
+
+    private fun getDate(): Date {
+        return viewModel.day.dayDate
+    }
+
+    private fun getSatisfaction(): DaySatisfaction {
+        return binding.fragmentNavSituationDaySaveSatisfactionSp.selectedItem
+            .run { this as DaySatisfaction }
+    }
+
+    private fun getDescription(): String {
+        return binding.fragmentNavSituationDaySaveDescriptionEt.text.toString()
     }
 }
