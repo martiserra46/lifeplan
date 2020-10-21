@@ -36,7 +36,7 @@
         android:layout_width="8dp"
         android:layout_height="8dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/bg_rvi_ideas_idea_circle"
+        android:background="@drawable/bg_rvi_ideas_idea_circle_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
