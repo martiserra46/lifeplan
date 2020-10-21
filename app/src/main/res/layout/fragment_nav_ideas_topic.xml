@@ -9,31 +9,19 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_topic_tb"
-        style="@style/secondaryToolbarStyle" />
+        style="@style/styleSecondaryTb" />
 
     <TextView
         android:id="@+id/fragment_nav_ideas_topic_title_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingHorizontal="@dimen/windowHorizontalPadding"
-        android:textAppearance="@style/titleTextAppearance"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        style="@style/styleTitleTv"
         tools:text="Ideas about how to live your life" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_nav_ideas_topic_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:layout_weight="1"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_topic_title_tv"
         tools:listitem="@layout/rvi_ideas_idea" />
 
 </LinearLayout>

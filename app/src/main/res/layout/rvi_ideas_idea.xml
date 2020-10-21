@@ -7,15 +7,14 @@
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:paddingHorizontal="@dimen/windowHorizontalPadding"
-    android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding">
+    android:paddingHorizontal="@dimen/paddingNormal"
+    android:paddingVertical="@dimen/paddingNormal">
 
     <TextView
         android:id="@+id/rvi_ideas_idea_title_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/rviPrimaryTextTextSize"
+        android:textSize="@dimen/textSizeMainTvInRvi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorSecondaryText"
-        android:textSize="@dimen/rviSecondaryTextTextSize"
+        android:textSize="@dimen/textSizeSecondaryTvInRvi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"

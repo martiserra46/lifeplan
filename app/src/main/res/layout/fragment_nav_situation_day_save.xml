@@ -9,53 +9,31 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_situation_day_save_tb"
-        style="@style/secondaryToolbarStyle" />
+        style="@style/styleSecondaryTb" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/fragment_nav_situation_day_save_date_tv"
+        style="@style/styleTitleTv"
+        tools:text="26/9/2020" />
+
+    <Spinner
+        android:id="@+id/fragment_nav_situation_day_save_satisfaction_sp"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginNormal"
+        android:paddingHorizontal="@dimen/paddingNormal"
+        tools:listitem="@layout/spinner_item" />
+
+    <EditText
+        android:id="@+id/fragment_nav_situation_day_save_description_et"
+        style="@style/styleDescriptionEt"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/windowHorizontalPadding"
-        android:paddingTop="@dimen/windowTopPadding"
-        android:paddingBottom="@dimen/windowBottomPadding">
-
-        <TextView
-            android:id="@+id/fragment_nav_situation_day_save_date_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/titleTextAppearance"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="26/9/2020" />
-
-        <Spinner
-            android:id="@+id/fragment_nav_situation_day_save_satisfaction_sp"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/spinnerHeight"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_date_tv"
-            tools:listitem="@layout/spinner_item" />
-
-        <EditText
-            android:id="@+id/fragment_nav_situation_day_save_description_et"
-            style="@style/editTextDescriptionStyle"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
-            android:hint="@string/describe_your_situation"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine|text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_save_satisfaction_sp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:hint="@string/describe_your_situation"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine|text"
+        android:paddingHorizontal="@dimen/paddingNormal"
+        android:paddingTop="@dimen/paddingNormal"
+        android:paddingBottom="@dimen/paddingNormal" />
 
 </LinearLayout>

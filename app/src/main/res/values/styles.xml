@@ -14,71 +14,101 @@
         <item name="colorControlNormal">@color/colorControlNormal</item>
     </style>
 
-    <style name="TextAppearance.AppTheme" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/montserrat</item>
-    </style>
-
-    <style name="toolbarStyle" parent="Widget.AppCompat.Toolbar">
+    <style name="styleMainTb" parent="Widget.AppCompat.Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?android:attr/actionBarSize</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:background">@color/mainToolbarColor</item>
-        <item name="android:elevation">4dp</item>
-        <item name="titleTextAppearance">@style/toolbarTitleStyle</item>
+        <item name="android:background">@color/colorMainTb</item>
+        <item name="titleTextAppearance">@style/textAppearanceMainTb</item>
     </style>
 
-    <style name="toolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="styleSecondaryTb" parent="styleMainTb">
+        <item name="titleTextAppearance">@style/textAppearanceSecondaryTb</item>
+    </style>
+
+    <style name="textAppearanceMainTb" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="secondaryToolbarStyle" parent="toolbarStyle">
-        <item name="titleTextAppearance">@style/secondaryToolbarTitleStyle</item>
-    </style>
-
-    <style name="secondaryToolbarTitleStyle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="textAppearanceSecondaryTb" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="titleTextAppearance" parent="TextAppearance.AppTheme">
-        <item name="android:textSize">@dimen/titleTextSize</item>
-    </style>
-
-    <style name="descriptionTextAppearance" parent="TextAppearance.AppTheme">
-        <item name="android:textSize">@dimen/descriptionTextSize</item>
-        <item name="android:textStyle">normal</item>
-        <item name="lineHeight">25dp</item>
-    </style>
-
-    <style name="editTextStyle" parent="Widget.AppCompat.EditText">
+    <style name="styleTitleTv" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">start</item>
+        <item name="android:paddingStart">@dimen/paddingNormal</item>
+        <item name="android:paddingEnd">@dimen/paddingNormal</item>
+        <item name="android:paddingTop">@dimen/paddingNormal</item>
+        <item name="android:paddingBottom">@dimen/paddingNormal</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textAppearance">@style/textAppearanceTitleTv</item>
+        <item name="android:textColor">@color/colorTitleText</item>
+    </style>
+
+    <style name="styleDescriptionTv" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/textAppearanceDescriptionTv</item>
+        <item name="android:lineHeight">30dp</item>
+    </style>
+
+    <style name="textAppearanceTitleTv" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/textSizeTitle</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="textAppearanceDescriptionTv" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">@dimen/textSizeDescription</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="styleTitleEt" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/paddingNormal</item>
+        <item name="android:paddingEnd">@dimen/paddingNormal</item>
+        <item name="android:paddingTop">@dimen/paddingNormal</item>
+        <item name="android:paddingBottom">@dimen/paddingNormal</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textAppearance">@style/textAppearanceTitleEt</item>
+        <item name="android:textColor">@color/colorTitleText</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:textColorHint">@color/colorSecondaryText</item>
     </style>
 
-    <style name="editTextTitleStyle" parent="editTextStyle">
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="android:textSize">20sp</item>
-    </style>
-
-    <style name="editTextDescriptionStyle" parent="editTextStyle">
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:inputType">textMultiLine</item>
-    </style>
-
-    <style name="horizontalDividerLineStyle">
+    <style name="styleDescriptionEt" parent="Widget.AppCompat.EditText">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/colorDividerLine</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textAppearance">@style/textAppearanceDescriptionEt</item>
+        <item name="android:lineHeight">30dp</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+    <style name="textAppearanceTitleEt" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">@dimen/textSizeTitle</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="textAppearanceDescriptionEt" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">@dimen/textSizeDescription</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="styleSpinnerTv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/paddingNormal</item>
+        <item name="android:paddingBottom">@dimen/paddingNormal</item>
+        <item name="android:textSize">@dimen/textSizeSpinnerTv</item>
     </style>
 
 </resources>

@@ -7,15 +7,14 @@
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:paddingHorizontal="@dimen/windowHorizontalPadding"
-    android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding">
+    android:paddingHorizontal="@dimen/paddingNormal"
+    android:paddingVertical="@dimen/paddingNormal">
 
     <TextView
         android:id="@+id/rvi_situation_day_date_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/rviPrimaryTextTextSize"
+        android:textSize="@dimen/textSizeMainTvInRvi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="20/03/2021" />
@@ -31,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvi_situation_day_date_tv"
-        tools:text="dfdsaf fdsa da jfdaweekm, mnbbs ljkl fdasfd f dasfads fd fda fewaferrt rgtrd dadfa dafd cgfgfg ewretw hgfhs are tgfsdgfsd greg gsdf" />
+        tools:text="I have been studying a lot and I have learned a lot of things. I am being very productive..." />
 
     <View
         android:id="@+id/rvi_situation_day_circle_v"

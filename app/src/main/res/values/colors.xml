@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
 
-    <color name="mainToolbarColor">@color/colorPrimary</color>
-    <color name="secondaryToolbarColor">#ffffff</color>
+    <color name="colorMainTb">@color/colorPrimary</color>
+    <color name="colorSecondaryTb">#ffffff</color>
 
     <color name="colorControlNormal">#000000</color>
 
@@ -15,8 +15,8 @@
 
     <color name="colorSituationDayLine">#CECECE</color>
 
-    <color name="navSelectedMenuItemColor">@color/colorText</color>
-    <color name="navUnselectedMenuItemColor">@color/colorSecondaryText</color>
+    <color name="colorNavSelectedMenuItem">@color/colorText</color>
+    <color name="colorNavUnselectedMenuItem">@color/colorSecondaryText</color>
 
     <color name="colorDayHighSatisfaction">#4DD500</color>
     <color name="colorDayNormalSatisfaction">#FFC17B</color>
@@ -25,4 +25,6 @@
     <color name="colorIdeaHighImportance">#FF7878</color>
     <color name="colorIdeaNormalImportance">#FFC17B</color>
     <color name="colorIdeaLowImportance">#CDDC39</color>
+
+    <color name="colorTitleText">#FFFFFF</color>
 </resources>

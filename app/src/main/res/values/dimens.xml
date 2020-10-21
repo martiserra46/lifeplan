@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="windowHorizontalPadding">16dp</dimen>
-    <dimen name="windowTopPadding">16dp</dimen>
-    <dimen name="windowBottomPadding">16dp</dimen>
+    <dimen name="paddingNormal">16dp</dimen>
 
-    <dimen name="titleTextSize">18sp</dimen>
-    <dimen name="descriptionTextSize">16sp</dimen>
+    <dimen name="paddingSmall">8dp</dimen>
 
-    <dimen name="saveButtonTextSize">16sp</dimen>
+    <dimen name="marginNormal">16dp</dimen>
 
-    <dimen name="rviPrimaryTextTextSize">16sp</dimen>
-    <dimen name="rviSecondaryTextTextSize">14sp</dimen>
+    <dimen name="marginSmall">8dp</dimen>
 
-    <dimen name="spinnerHeight">50dp</dimen>
+    <dimen name="textSizeTitle">20sp</dimen>
+    <dimen name="textSizeDescription">18sp</dimen>
+
+    <dimen name="textSizeMainTvInRvi">16sp</dimen>
+    <dimen name="textSizeSecondaryTvInRvi">14sp</dimen>
+
+    <dimen name="textSizeSpinnerTv">18sp</dimen>
 </resources>

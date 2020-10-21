@@ -3,17 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/windowHorizontalPadding"
-    android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding"
+    android:paddingHorizontal="@dimen/paddingNormal"
+    android:paddingVertical="@dimen/paddingNormal"
     tools:context=".ui.fragments.main_fragments.nav.LifeFragment">
 
     <TextView
         android:id="@+id/fragment_nav_life_description_tv"
+        style="@style/styleDescriptionTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/descriptionTextAppearance"
-        android:textSize="20sp"
         tools:text="@tools:sample/lorem/random" />
 
 </ScrollView>

@@ -7,9 +7,8 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
-    android:paddingHorizontal="@dimen/windowHorizontalPadding"
-    android:paddingTop="@dimen/windowTopPadding"
-    android:paddingBottom="@dimen/windowBottomPadding">
+    android:paddingHorizontal="@dimen/paddingNormal"
+    android:paddingVertical="@dimen/paddingNormal">
 
     <TextView
         android:id="@+id/rvi_ideas_topic_title_tv"
@@ -17,7 +16,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="bottom"
-        android:textSize="@dimen/rviPrimaryTextTextSize"
+        android:textSize="@dimen/textSizeMainTvInRvi"
         tools:text="Ideas about how to live your life" />
 
     <TextView
@@ -27,7 +26,7 @@
         android:layout_weight="1"
         android:gravity="top"
         android:textColor="@color/colorSecondaryText"
-        android:textSize="@dimen/rviSecondaryTextTextSize"
+        android:textSize="@dimen/textSizeSecondaryTvInRvi"
         tools:text="2 Ideas" />
 
 </LinearLayout>

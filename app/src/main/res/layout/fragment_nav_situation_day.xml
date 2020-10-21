@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,61 +8,34 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_situation_day_tb"
-        style="@style/secondaryToolbarStyle" />
+        style="@style/styleSecondaryTb" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/fragment_nav_situation_day_date_tv"
+        style="@style/styleTitleTv"
+        tools:text="26/09/2020" />
+
+    <TextView
+        android:id="@+id/fragment_nav_situation_day_satisfaction_tv"
+        style="@style/styleSpinnerTv"
+        android:layout_marginTop="@dimen/marginNormal"
+        android:paddingHorizontal="@dimen/paddingNormal"
+        android:textColor="@color/colorDayHighSatisfaction"
+        tools:text="High Satisfaction" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingTop="@dimen/marginNormal"
         android:layout_weight="1"
-        android:paddingHorizontal="@dimen/windowHorizontalPadding"
-        android:paddingTop="@dimen/windowTopPadding"
-        android:paddingBottom="@dimen/windowBottomPadding">
+        android:paddingHorizontal="@dimen/paddingNormal"
+        android:paddingBottom="@dimen/paddingNormal">
 
         <TextView
-            android:id="@+id/fragment_nav_situation_day_date_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="@style/titleTextAppearance"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="26/09/2020" />
+            android:id="@+id/fragment_nav_situation_day_description_tv"
+            style="@style/styleDescriptionTv"
+            tools:text="I have studied a lot and I have improved my overall health" />
 
-        <TextView
-            android:id="@+id/fragment_nav_situation_day_satisfaction_tv"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:textColor="#43DB66"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_date_tv"
-            tools:text="High Satisfaction" />
-
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_nav_situation_day_satisfaction_tv">
-
-            <TextView
-                android:id="@+id/fragment_nav_situation_day_description_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/descriptionTextAppearance"
-                android:paddingTop="8dp"
-                android:textSize="18sp"
-                tools:text="I have studied a lot and I have improved my overall health" />
-
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </LinearLayout>

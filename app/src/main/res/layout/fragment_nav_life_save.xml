@@ -8,19 +8,17 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_life_save_tb"
-        style="@style/secondaryToolbarStyle" />
+        style="@style/styleSecondaryTb" />
 
     <EditText
         android:id="@+id/fragment_nav_life_save_description_et"
-        style="@style/editTextDescriptionStyle"
+        style="@style/styleDescriptionEt"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:hint="@string/write_here"
         android:importantForAutofill="no"
         android:inputType="textMultiLine|text"
-        android:paddingHorizontal="@dimen/windowHorizontalPadding"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:textSize="20sp" />
+        android:paddingHorizontal="@dimen/paddingNormal"
+        android:paddingVertical="@dimen/paddingNormal" />
 
 </LinearLayout>
