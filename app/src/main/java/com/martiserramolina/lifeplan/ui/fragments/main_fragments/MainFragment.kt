@@ -1,6 +1,8 @@
 package com.martiserramolina.lifeplan.ui.fragments.main_fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -67,7 +69,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         binding.fragmentMainNv.setNavigationItemSelectedListener { menuItem ->
             navSection = NavSection.getNavSection(menuItem.itemId)
             navigateToNavSection(navSection)
-            binding.fragmentMainDl.closeDrawers()
+            Handler(Looper.getMainLooper()).post { binding.fragmentMainDl.closeDrawers() }
             true
         }
     }
