@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
-import com.martiserramolina.lifeplan.repository.model.Day
+import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
@@ -34,7 +34,7 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupRecyclerView()
+        setupDaysRv()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -51,11 +51,9 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
         }
     }
 
-    private fun setupRecyclerView() {
+    private fun setupDaysRv() {
         binding.fragmentNavSituationRv.apply {
-            adapter = DayAdapter { dayId, day ->
-                navigateToDayFragment(dayId, day)
-            }
+            adapter = DayAdapter { navigateToDayFragment(it) }
             addItemDecoration(
                 DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
                     setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
@@ -75,10 +73,10 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
             .navigate(MainFragmentDirections.actionMainFragmentToAddDayFragment())
     }
 
-    private fun navigateToDayFragment(dayId: Long, day: Day) {
+    private fun navigateToDayFragment(day: Day) {
         mainActivity.navController.navigate(
             MainFragmentDirections
-                .actionMainFragmentToDayFragment(dayId, day)
+                .actionMainFragmentToDayFragment(day)
         )
     }
 }
