@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.repository.model.Topic
+import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.topic.add.AddTopicViewModel
 
@@ -50,7 +50,8 @@ class AddTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() {
     }
 
     private fun saveTopic() {
-        viewModel.insertTopic(Topic(binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()))
+        viewModel
+            .insertTopic(Topic(0, binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()))
         navigateToPreviousFragment()
     }
 }
