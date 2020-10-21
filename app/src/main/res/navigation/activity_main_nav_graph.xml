@@ -120,7 +120,11 @@
         android:id="@+id/editTopicFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.edit.EditTopicFragment"
         android:label="editTopicFragment"
-        tools:layout="@layout/fragment_nav_ideas_topic_save" />
+        tools:layout="@layout/fragment_nav_ideas_topic_save" >
+        <argument
+            android:name="topic"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+    </fragment>
     <fragment
         android:id="@+id/editDayFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situation.day.edit.EditDayFragment"
