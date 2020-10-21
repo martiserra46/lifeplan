@@ -20,4 +20,7 @@
     <string name="high_satisfaction">High satisfaction</string>
     <string name="normal_satisfaction">Normal satisfaction</string>
     <string name="low_satisfaction">Low satisfaction</string>
+    <string name="high_importance">High importance</string>
+    <string name="normal_importance">Normal importance</string>
+    <string name="low_importance">Low importance</string>
 </resources>
