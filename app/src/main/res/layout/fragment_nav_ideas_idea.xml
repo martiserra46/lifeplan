@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_idea_tb"
-        style="@style/toolbarStyle" />
+        style="@style/secondaryToolbarStyle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,8 +21,9 @@
 
         <TextView
             android:id="@+id/fragment_nav_ideas_idea_title_tv"
-            style="@style/titleTextAppearance"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/titleTextAppearance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +52,9 @@
 
             <TextView
                 android:id="@+id/fragment_nav_ideas_idea_description_tv"
-                style="@style/descriptionTextAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/descriptionTextAppearance"
                 tools:text="I have to read 1h a day to learn new things and improve my productivity" />
 
         </ScrollView>

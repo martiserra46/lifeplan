@@ -21,8 +21,9 @@
 
         <TextView
             android:id="@+id/fragment_nav_situation_day_date_tv"
-            style="@style/titleTextAppearance"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/titleTextAppearance"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +55,9 @@
 
             <TextView
                 android:id="@+id/fragment_nav_situation_day_description_tv"
-                style="@style/descriptionTextAppearance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/descriptionTextAppearance"
                 android:paddingTop="8dp"
                 android:textSize="18sp"
                 tools:text="I have studied a lot and I have improved my overall health" />

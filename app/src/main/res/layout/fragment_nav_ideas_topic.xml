@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_topic_tb"
-        style="@style/toolbarStyle" />
+        style="@style/secondaryToolbarStyle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,8 +21,9 @@
 
         <TextView
             android:id="@+id/fragment_nav_ideas_topic_title_tv"
-            style="@style/titleTextAppearance"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/titleTextAppearance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
