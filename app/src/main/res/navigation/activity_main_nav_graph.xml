@@ -146,5 +146,8 @@
         <argument
             android:name="day"
             app:argType="com.martiserramolina.lifeplan.repository.room.Day" />
+        <action
+            android:id="@+id/action_editDayFragment_to_dayFragment"
+            app:destination="@id/dayFragment" />
     </fragment>
 </navigation>
