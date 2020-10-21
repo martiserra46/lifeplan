@@ -21,4 +21,8 @@
     <color name="colorDayHighSatisfaction">#4DD500</color>
     <color name="colorDayNormalSatisfaction">#FFC17B</color>
     <color name="colorDayLowSatisfaction">#FF7878</color>
+
+    <color name="colorIdeaHighImportance">#FF7878</color>
+    <color name="colorIdeaNormalImportance">#FFC17B</color>
+    <color name="colorIdeaLowImportance">#CDDC39</color>
 </resources>
