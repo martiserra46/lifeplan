@@ -3,13 +3,23 @@ package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
-import androidx.viewbinding.ViewBinding
-import com.martiserramolina.lifeplan.R
+import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
+import com.martiserramolina.lifeplan.viewmodels.ideas.topic.TopicViewModel
 
 class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
+
+    private val viewModel by lazy {
+        ViewModelProvider(
+            this,
+            TopicViewModel.Factory(
+                TopicFragmentArgs.fromBundle(requireArguments()).topic,
+                requireActivity().application
+            )
+        ).get(TopicViewModel::class.java)
+    }
 
     override fun getBinding(
         inflater: LayoutInflater,
