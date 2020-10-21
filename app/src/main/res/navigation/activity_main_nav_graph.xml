@@ -118,7 +118,11 @@
         android:id="@+id/editIdeaFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.edit.EditIdeaFragment"
         android:label="editIdeaFragment"
-        tools:layout="@layout/fragment_nav_ideas_idea_save" />
+        tools:layout="@layout/fragment_nav_ideas_idea_save" >
+        <argument
+            android:name="idea"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Idea" />
+    </fragment>
     <fragment
         android:id="@+id/editTopicFragment"
         android:name="com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.edit.EditTopicFragment"
