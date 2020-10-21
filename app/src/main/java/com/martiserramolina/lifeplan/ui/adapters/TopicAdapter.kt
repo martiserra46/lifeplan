@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.RviIdeasTopicBinding
-import com.martiserramolina.lifeplan.repository.model.Topic
+import com.martiserramolina.lifeplan.repository.room.Topic
 
 class TopicAdapter(
     private val onTopicClick: (Topic) -> Unit
@@ -45,9 +45,9 @@ class TopicAdapter(
 
         fun bind(topic: Topic) {
             binding.apply {
-                rviIdeasTopicTitleTv.text = topic.name
+                rviIdeasTopicTitleTv.text = topic.topicText
                 rviIdeasTopicNumIdeasTv.text = root.context
-                    .getString(R.string.num_ideas, topic.ideas.size)
+                    .getString(R.string.num_ideas, topic.topicNumIdeas)
                 root.setOnClickListener { onTopicClick(topic) }
             }
         }
