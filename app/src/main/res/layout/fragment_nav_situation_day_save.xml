@@ -22,7 +22,7 @@
 
         <TextView
             android:id="@+id/fragment_nav_situation_day_save_date_tv"
-            style="@style/titleStyle"
+            style="@style/titleTextAppearance"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             app:layout_constraintEnd_toEndOf="parent"

@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/fragment_nav_life_description_tv"
-        style="@style/descriptionStyle"
+        style="@style/descriptionTextAppearance"
         android:textSize="20sp"
         tools:text="@tools:sample/lorem/random" />
 

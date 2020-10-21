@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/fragment_nav_situation_day_date_tv"
-            style="@style/titleStyle"
+            style="@style/titleTextAppearance"
             android:layout_width="0dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
@@ -54,7 +54,7 @@
 
             <TextView
                 android:id="@+id/fragment_nav_situation_day_description_tv"
-                style="@style/descriptionStyle"
+                style="@style/descriptionTextAppearance"
                 android:paddingTop="8dp"
                 android:textSize="18sp"
                 tools:text="I have studied a lot and I have improved my overall health" />

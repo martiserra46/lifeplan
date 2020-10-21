@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/fragment_nav_ideas_idea_title_tv"
-            style="@style/titleStyle"
+            style="@style/titleTextAppearance"
             android:layout_width="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
 
             <TextView
                 android:id="@+id/fragment_nav_ideas_idea_description_tv"
-                style="@style/descriptionStyle"
+                style="@style/descriptionTextAppearance"
                 tools:text="I have to read 1h a day to learn new things and improve my productivity" />
 
         </ScrollView>

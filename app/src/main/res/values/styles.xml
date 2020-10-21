@@ -42,12 +42,12 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="titleStyle" parent="TextAppearance.AppTheme">
+    <style name="titleTextAppearance" parent="TextAppearance.AppTheme">
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textSize">@dimen/titleTextSize</item>
     </style>
 
-    <style name="descriptionStyle" parent="TextAppearance.AppTheme">
+    <style name="descriptionTextAppearance" parent="TextAppearance.AppTheme">
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textSize">@dimen/descriptionTextSize</item>
         <item name="android:textStyle">normal</item>
