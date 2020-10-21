@@ -16,7 +16,11 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this, DayViewModel.Factory(DayFragmentArgs.fromBundle(requireArguments()).day)
+            this,
+            DayViewModel.Factory(
+                DayFragmentArgs.fromBundle(requireArguments()).day,
+                requireActivity().application
+            )
         ).get(DayViewModel::class.java)
     }
 
@@ -55,6 +59,10 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
                 navigateToEditDayFragment()
                 true
             }
+            R.id.situation_day_delete_mi -> {
+                deleteDay()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -81,5 +89,10 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
         navController.navigate(
             DayFragmentDirections.actionDayFragmentToEditDayFragment(viewModel.day)
         )
+    }
+
+    private fun deleteDay() {
+        viewModel.deleteDay()
+        navigateToPreviousFragment()
     }
 }
