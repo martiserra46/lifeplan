@@ -3,7 +3,6 @@ package com.martiserramolina.lifeplan.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.RviIdeasIdeaBinding
 import com.martiserramolina.lifeplan.extensions.format
 import com.martiserramolina.lifeplan.repository.room.Idea
