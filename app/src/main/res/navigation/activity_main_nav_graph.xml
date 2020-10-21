@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_topicFragment_to_addIdeaFragment"
             app:destination="@id/addIdeaFragment" />
+        <argument
+            android:name="topic"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
     </fragment>
     <fragment
         android:id="@+id/addTopicFragment"
