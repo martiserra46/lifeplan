@@ -55,7 +55,7 @@ class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.situation_day_edit_mi -> {
+            R.id.situation_day_edit_save_mi -> {
                 saveDay()
                 true
             }
