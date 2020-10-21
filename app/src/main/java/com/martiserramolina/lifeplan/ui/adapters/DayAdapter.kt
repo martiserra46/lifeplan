@@ -5,13 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.databinding.RviSituationDayBinding
 import com.martiserramolina.lifeplan.extensions.format
-import com.martiserramolina.lifeplan.repository.model.Day
+import com.martiserramolina.lifeplan.repository.room.Day
 
 class DayAdapter(
-    private val onItemClick: (Long, Day) -> Unit
+    private val onItemClick: (Day) -> Unit
 ) : RecyclerView.Adapter<DayAdapter.ViewHolder>() {
 
-    var listDays = emptyList<Pair<Long, Day>>()
+    var listDays = emptyList<Day>()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -22,8 +22,7 @@ class DayAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val (dayId, day) = listDays[position]
-        holder.bind(dayId, day)
+        holder.bind(listDays[position])
     }
 
     override fun getItemCount(): Int {
@@ -32,10 +31,10 @@ class DayAdapter(
 
     class ViewHolder(
         private val binding: RviSituationDayBinding,
-        private val onItemClick: (Long, Day) -> Unit
+        private val onItemClick: (Day) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
         companion object {
-            fun create(parent: ViewGroup, onItemClick: (Long, Day) -> Unit): ViewHolder {
+            fun create(parent: ViewGroup, onItemClick: (Day) -> Unit): ViewHolder {
                 return ViewHolder(
                     RviSituationDayBinding.inflate(
                         LayoutInflater.from(parent.context), parent, false
@@ -44,13 +43,12 @@ class DayAdapter(
             }
         }
 
-        fun bind(dayId: Long, day: Day) {
+        fun bind(day: Day) {
             binding.apply {
-                rviSituationDayDateTv.text = day.date.format("dd/mm/yyyy")
-                rviSituationDayTextTv.text = day.text
-                rviSituationDayCircleV
-                    .setBackgroundResource(day.satisfaction.drawableId)
-                root.setOnClickListener { onItemClick(dayId, day) }
+                rviSituationDayDateTv.text = day.dayDate.format("dd/mm/yyyy")
+                rviSituationDayTextTv.text = day.dayText
+                rviSituationDayCircleV.setBackgroundResource(day.daySatisfaction.drawableId)
+                root.setOnClickListener { onItemClick(day) }
             }
         }
     }
