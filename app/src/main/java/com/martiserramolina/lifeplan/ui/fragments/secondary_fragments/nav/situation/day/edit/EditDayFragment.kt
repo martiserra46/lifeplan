@@ -77,7 +77,7 @@ class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() 
     }
 
     private fun setupTextTv() {
-        binding.fragmentNavSituationDaySaveDateTv.text = viewModel.day.dayText
+        binding.fragmentNavSituationDaySaveDescriptionEt.setText(viewModel.day.dayText)
     }
 
     private fun saveDay() {
