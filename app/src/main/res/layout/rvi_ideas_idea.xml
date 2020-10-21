@@ -3,10 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/rviIdeasIdeaSize"
+    android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:paddingHorizontal="@dimen/windowHorizontalPadding"
+    android:paddingTop="@dimen/windowTopPadding"
+    android:paddingBottom="@dimen/windowBottomPadding">
 
     <TextView
         android:id="@+id/rvi_ideas_idea_title_tv"
@@ -16,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rvi_ideas_idea_date_tv"
+        app:layout_constraintTop_toBottomOf="@+id/rvi_ideas_idea_date_tv"
         tools:text="Read 1h a day" />
 
     <TextView
@@ -25,7 +28,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorSecondaryText"
         android:textSize="@dimen/rviSecondaryTextTextSize"
-        app:layout_constraintBottom_toTopOf="@id/rvi_ideas_idea_title_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
@@ -35,16 +37,9 @@
         android:id="@+id/rvi_ideas_idea_importance_v"
         android:layout_width="8dp"
         android:layout_height="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/bg_rvi_ideas_idea_circle_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        style="@style/horizontalDividerLineStyle"
-        android:layout_width="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
