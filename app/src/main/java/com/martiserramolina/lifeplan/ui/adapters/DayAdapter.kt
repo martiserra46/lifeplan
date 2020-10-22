@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.databinding.RviSituationDayBinding
 import com.martiserramolina.lifeplan.extensions.formatted
@@ -13,8 +14,10 @@ class DayAdapter(
 
     var listDays = emptyList<Day>()
         set(value) {
-            field = value
-            notifyDataSetChanged()
+            val oldValue = field
+            field = value.toList()
+            DiffUtil.calculateDiff(DayAdapter.DayListDiffCallback(oldValue, field))
+                .dispatchUpdatesTo(this)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,5 +54,16 @@ class DayAdapter(
                 root.setOnClickListener { onItemClick(day) }
             }
         }
+    }
+
+    class DayListDiffCallback(
+        private val oldDayList: List<Day>, private val newDayList: List<Day>
+    ) : DiffUtil.Callback() {
+        override fun getOldListSize() = oldDayList.size
+        override fun getNewListSize() = newDayList.size
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
+            oldDayList[oldItemPosition].dayId == newDayList[newItemPosition].dayId
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
+            oldDayList[oldItemPosition] == newDayList[newItemPosition]
     }
 }
