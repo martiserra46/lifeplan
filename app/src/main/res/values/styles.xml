@@ -80,6 +80,7 @@
         <item name="android:textColor">@color/colorTitleText</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColorHint">@color/colorSecondaryText</item>
+        <item name="android:textCursorDrawable">@drawable/cs_edit_text_title</item>
     </style>
 
     <style name="styleDescriptionEt" parent="Widget.AppCompat.EditText">

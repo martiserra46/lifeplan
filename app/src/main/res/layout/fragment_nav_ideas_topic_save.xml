@@ -15,7 +15,6 @@
         style="@style/styleTitleEt"
         android:hint="@string/add_topic_hint"
         android:importantForAutofill="no"
-        android:inputType="text"
-        android:textCursorDrawable="@drawable/cs_edit_text_title" />
+        android:inputType="text" />
 
 </LinearLayout>
