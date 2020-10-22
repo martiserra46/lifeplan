@@ -24,4 +24,5 @@
     <string name="normal_importance">Normal importance</string>
     <string name="low_importance">Low importance</string>
     <string name="add_topic_hint">Topic name</string>
+    <string name="add_idea">Add Idea</string>
 </resources>
