@@ -69,22 +69,6 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
         }
     }
 
-    private fun navigateToAddIdeaFragment() {
-        navController
-            .navigate(TopicFragmentDirections.actionTopicFragmentToAddIdeaFragment(viewModel.topic))
-    }
-
-    private fun navigateToEditTopicFragment() {
-        navController.navigate(
-            TopicFragmentDirections.actionTopicFragmentToEditTopicFragment(viewModel.topic)
-        )
-    }
-
-    private fun deleteTopic() {
-        viewModel.deleteTopic()
-        navigateToPreviousFragment()
-    }
-
     private fun setupTitleTv() {
         binding.fragmentNavIdeasTopicTitleTv.text = viewModel.topic.topicText
     }
@@ -102,5 +86,21 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
         viewModel.ideas.observe(viewLifecycleOwner) { ideas ->
             binding.fragmentNavIdeasTopicRv.adapter.run { this as IdeaAdapter }.listIdeas = ideas
         }
+    }
+
+    private fun navigateToAddIdeaFragment() {
+        navController
+            .navigate(TopicFragmentDirections.actionTopicFragmentToAddIdeaFragment(viewModel.topic))
+    }
+
+    private fun navigateToEditTopicFragment() {
+        navController.navigate(
+            TopicFragmentDirections.actionTopicFragmentToEditTopicFragment(viewModel.topic)
+        )
+    }
+
+    private fun deleteTopic() {
+        viewModel.deleteTopic()
+        navigateToPreviousFragment()
     }
 }
