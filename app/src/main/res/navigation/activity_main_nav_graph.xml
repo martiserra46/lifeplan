@@ -172,6 +172,11 @@
         <argument
             android:name="topic"
             app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+        <action
+            android:id="@+id/action_editIdeaFragment_to_ideaFragment"
+            app:destination="@id/ideaFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/editTopicFragment"
