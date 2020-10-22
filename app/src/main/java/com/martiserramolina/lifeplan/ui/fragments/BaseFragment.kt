@@ -24,9 +24,13 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         return binding.root
     }
 
+    override fun onStop() {
+        super.onStop()
+        requireActivity().hideKeyboard()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
-        requireActivity().hideKeyboard()
         _binding = null
     }
 
