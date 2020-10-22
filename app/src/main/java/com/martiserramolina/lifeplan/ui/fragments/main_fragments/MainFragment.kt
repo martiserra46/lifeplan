@@ -71,7 +71,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             navigateToNavSection(navSection)
             Handler(Looper.getMainLooper()).postDelayed({
                 binding.fragmentMainDl.closeDrawers()
-            }, 100)
+            }, requireContext().resources.getInteger(R.integer.animation_start_offset).toLong())
             true
         }
     }
