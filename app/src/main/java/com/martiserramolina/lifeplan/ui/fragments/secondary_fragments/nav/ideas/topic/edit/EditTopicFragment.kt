@@ -1,13 +1,12 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.edit
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
+import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.topic.edit.EditTopicViewModel
@@ -45,7 +44,31 @@ class EditTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() 
         setupTextTv()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.ideas_topic_edit_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.ideas_topic_edit_save_mi -> {
+                saveTopic()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun saveTopic() {
+        viewModel.topic = Topic(viewModel.topic.topicId, getText())
+        viewModel.updateTopic(viewModel.topic)
+        navigateToPreviousFragment()
+    }
+
     private fun setupTextTv() {
         binding.fragmentNavIdeasTopicSaveTitleEt.setText(viewModel.topic.topicText)
+    }
+
+    private fun getText(): String {
+        return binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()
     }
 }

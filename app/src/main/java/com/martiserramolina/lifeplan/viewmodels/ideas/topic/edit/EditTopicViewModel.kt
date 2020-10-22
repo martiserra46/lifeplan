@@ -11,13 +11,13 @@ import com.martiserramolina.lifeplan.repository.room.Topic
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class EditTopicViewModel(val topic: Topic, application: Application) : AndroidViewModel(application) {
+class EditTopicViewModel(var topic: Topic, application: Application) : AndroidViewModel(application) {
 
     private val repository by lazy {
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
-    fun updateTopic() {
+    fun updateTopic(topic: Topic) {
         viewModelScope.launch {
             repository.updateTopic(topic)
         }
