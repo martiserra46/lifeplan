@@ -1,12 +1,11 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.idea.IdeaViewModel
@@ -44,6 +43,20 @@ class IdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaBinding>() {
         setupDescriptionTv()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.ideas_idea_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.ideas_idea_edit_mi -> {
+                navigateToEditIdeaFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setupTitleTv() {
         binding.fragmentNavIdeasIdeaTitleTv.text = viewModel.idea.ideaTitle
     }
@@ -59,5 +72,12 @@ class IdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaBinding>() {
 
     private fun setupDescriptionTv() {
         binding.fragmentNavIdeasIdeaDescriptionTv.text = viewModel.idea.ideaDescription
+    }
+
+    private fun navigateToEditIdeaFragment() {
+        navController.navigate(
+            IdeaFragmentDirections
+                .actionIdeaFragmentToEditIdeaFragment(viewModel.idea, viewModel.topic)
+        )
     }
 }
