@@ -1,18 +1,17 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.add
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
-import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
+import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
+import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaImportanceAdapter
-import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.idea.add.AddIdeaViewModel
+import java.util.*
 
 class AddIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
@@ -47,11 +46,53 @@ class AddIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
         setupImportanceSp()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.ideas_idea_add_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.ideas_idea_add_save_mi -> {
+                saveIdea()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setupImportanceSp() {
         binding.fragmentNavIdeasIdeaSaveImportanceSp.apply {
             adapter = IdeaImportanceAdapter(
                 requireContext(), R.layout.spinner_item
             ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
         }
+    }
+
+    private fun saveIdea() {
+        viewModel.insertIdea(
+            Idea(0, getTopicId(), getTitle(), getImportance(), getDescription(), getDate())
+        )
+        navigateToPreviousFragment()
+    }
+
+    private fun getTopicId(): Long {
+        return viewModel.topic.topicId
+    }
+
+    private fun getTitle(): String {
+        return binding.fragmentNavIdeasIdeaSaveTitleEt.text.toString()
+    }
+
+    private fun getImportance(): IdeaImportance {
+        return binding.fragmentNavIdeasIdeaSaveImportanceSp.selectedItem
+            .run { this as IdeaImportance }
+    }
+
+    private fun getDescription(): String {
+        return binding.fragmentNavIdeasIdeaSaveDescriptionEt.text.toString()
+    }
+
+    private fun getDate(): Date {
+        return Date()
     }
 }
