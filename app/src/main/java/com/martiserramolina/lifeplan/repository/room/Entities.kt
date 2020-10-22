@@ -39,10 +39,12 @@ data class Idea(
     var ideaId: Long = 0,
     @ColumnInfo(name = "idea_topic_id")
     var ideaTopicId: Long,
-    @ColumnInfo(name = "idea_text")
-    var ideaText: String = "",
+    @ColumnInfo(name = "idea_title")
+    var ideaTitle: String = "",
     @ColumnInfo(name = "idea_importance")
     var ideaImportance: IdeaImportance = IdeaImportance.NORMAL,
+    @ColumnInfo(name = "idea_description")
+    var ideaDescription: String = "",
     @ColumnInfo(name = "idea_last_time_modified")
     var ideaLastTimeModified: Date = Date()
 ) : Parcelable

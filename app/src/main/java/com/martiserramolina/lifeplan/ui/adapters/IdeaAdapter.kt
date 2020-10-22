@@ -46,7 +46,7 @@ class IdeaAdapter(
         fun bind(idea: Idea) {
             binding.apply {
                 rviIdeasIdeaDateTv.text = idea.ideaLastTimeModified.format("dd/mm/yyyy")
-                rviIdeasIdeaTitleTv.text = idea.ideaText
+                rviIdeasIdeaTitleTv.text = idea.ideaTitle
                 rviIdeasIdeaImportanceV.setBackgroundResource(idea.ideaImportance.drawableId)
                 root.setOnClickListener { onIdeaClick(idea) }
             }
