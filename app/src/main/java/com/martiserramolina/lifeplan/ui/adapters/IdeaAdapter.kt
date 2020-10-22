@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.databinding.RviIdeasIdeaBinding
 import com.martiserramolina.lifeplan.extensions.formatted
@@ -13,8 +14,10 @@ class IdeaAdapter(
 
     var listIdeas = emptyList<Idea>()
         set(value) {
-            field = value
-            notifyDataSetChanged()
+            val oldValue = field
+            field = value.toList()
+            DiffUtil.calculateDiff(IdeaAdapter.IdeaListDiffCallback(oldValue, field))
+                .dispatchUpdatesTo(this)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,5 +54,16 @@ class IdeaAdapter(
                 root.setOnClickListener { onIdeaClick(idea) }
             }
         }
+    }
+
+    class IdeaListDiffCallback(
+        private val oldIdeaList: List<Idea>, private val newIdeaList: List<Idea>
+    ) : DiffUtil.Callback() {
+        override fun getOldListSize() = oldIdeaList.size
+        override fun getNewListSize() = newIdeaList.size
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
+            oldIdeaList[oldItemPosition].ideaId == newIdeaList[newItemPosition].ideaId
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
+            oldIdeaList[oldItemPosition] == newIdeaList[newItemPosition]
     }
 }
