@@ -14,11 +14,25 @@ class IdeasViewModel(application: Application) : AndroidViewModel(application) {
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
-    val topics = MutableLiveData<List<Topic>>()
+    val topics = MutableLiveData<MutableList<Topic>>()
+
+    private var nextPositionToFetchTopics: Int = 0
+    private val numTopicsToFetch: Int = 10
 
     init {
         viewModelScope.launch {
-            topics.value = repository.getTopics()
+            topics.value = mutableListOf(
+                *repository.getTopics(nextPositionToFetchTopics++, numTopicsToFetch).toTypedArray()
+            )
+        }
+    }
+
+    fun fetchTopicsFromNextPosition() {
+        nextPositionToFetchTopics += numTopicsToFetch
+        viewModelScope.launch {
+            topics.value = topics.value?.apply {
+                addAll(repository.getTopics(nextPositionToFetchTopics++, numTopicsToFetch))
+            }
         }
     }
 
