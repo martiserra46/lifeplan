@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -36,6 +37,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         setupActionBar()
         setupNavSection()
         setupNavView()
+        setupBackButton()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,6 +76,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             }, requireContext().resources.getInteger(R.integer.animation_start_offset).toLong())
             true
         }
+    }
+
+    private fun setupBackButton() {
+        mainActivity.onBackPressedDispatcher.addCallback(mainActivity) { requireActivity().finish() }
     }
 
     private fun navigateToNavSection(navSection: NavSection) {

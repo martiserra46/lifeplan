@@ -97,9 +97,7 @@
             android:id="@+id/action_addTopicFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popUpTo="@id/mainFragment"
-            app:popUpToInclusive="true" />
+            app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/dayFragment"
@@ -129,9 +127,7 @@
             android:id="@+id/action_addDayFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popUpTo="@id/mainFragment"
-            app:popUpToInclusive="true" />
+            app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/editLifeFragment"
@@ -142,9 +138,7 @@
             android:id="@+id/action_editLifeFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popUpTo="@id/mainFragment"
-            app:popUpToInclusive="true" />
+            app:exitAnim="@anim/to_right" />
         <argument
             android:name="life"
             app:argType="com.martiserramolina.lifeplan.repository.room.Life"
