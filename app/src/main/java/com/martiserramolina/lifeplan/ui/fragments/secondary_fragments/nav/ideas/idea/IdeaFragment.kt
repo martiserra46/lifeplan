@@ -53,6 +53,10 @@ class IdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaBinding>() {
                 navigateToEditIdeaFragment()
                 true
             }
+            R.id.ideas_idea_delete_mi -> {
+                deleteIdea()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -79,5 +83,10 @@ class IdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaBinding>() {
             IdeaFragmentDirections
                 .actionIdeaFragmentToEditIdeaFragment(viewModel.idea, viewModel.topic)
         )
+    }
+
+    private fun deleteIdea() {
+        viewModel.deleteIdea()
+        navigateToPreviousFragment()
     }
 }
