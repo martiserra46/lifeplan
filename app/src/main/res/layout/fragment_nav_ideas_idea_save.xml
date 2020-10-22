@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,13 +18,13 @@
         android:importantForAutofill="no"
         android:inputType="text" />
 
-    <TextView
-        android:id="@+id/fragment_nav_ideas_idea_save_importance_tv"
-        style="@style/styleSpinnerTv"
+    <Spinner
+        android:id="@+id/fragment_nav_ideas_idea_save_importance_sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginNormal"
         android:paddingHorizontal="@dimen/paddingNormal"
-        android:textColor="@color/colorIdeaHighImportance"
-        tools:text="High Importance" />
+        tools:listitem="@layout/spinner_item" />
 
     <EditText
         android:id="@+id/fragment_nav_ideas_idea_save_description_et"
@@ -33,15 +32,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingHorizontal="@dimen/paddingNormal"
-        android:paddingTop="@dimen/paddingNormal"
-        android:paddingBottom="@dimen/paddingNormal"
         android:hint="@string/description_of_the_idea"
         android:importantForAutofill="no"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_nav_ideas_idea_save_importance_tv" />
+        android:paddingHorizontal="@dimen/paddingNormal"
+        android:paddingTop="@dimen/paddingNormal"
+        android:paddingBottom="@dimen/paddingNormal" />
 
 </LinearLayout>
