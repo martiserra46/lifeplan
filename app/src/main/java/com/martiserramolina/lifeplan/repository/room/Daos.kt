@@ -23,8 +23,8 @@ interface DaoIdeas {
     @Delete
     suspend fun deleteTopic(topic: Topic)
 
-    @Query("SELECT * FROM topic ORDER BY topic_id DESC LIMIT :position, 10")
-    suspend fun getTopics(position: Int): List<Topic>
+    @Query("SELECT * FROM topic ORDER BY topic_id DESC LIMIT :position, :numTopics")
+    suspend fun getTopics(position: Int, numTopics: Int): List<Topic>
 
     @Query("SELECT * FROM topic WHERE topic_id = :topicId")
     suspend fun getTopic(topicId: Long): Topic
