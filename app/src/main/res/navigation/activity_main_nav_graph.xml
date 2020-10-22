@@ -165,6 +165,9 @@
         <argument
             android:name="topic"
             app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+        <action
+            android:id="@+id/action_editTopicFragment_to_topicFragment"
+            app:destination="@id/topicFragment" />
     </fragment>
     <fragment
         android:id="@+id/editDayFragment"
