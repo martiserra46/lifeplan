@@ -11,16 +11,29 @@ import java.lang.IllegalArgumentException
 
 class TopicViewModel(val topic: Topic, application: Application) : AndroidViewModel(application) {
 
+    companion object {
+        private const val NUM_IDEAS_TO_FETCH = 20
+    }
+
     private val repository by lazy {
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
-    val ideas = MutableLiveData<List<Idea>>()
+    val ideas = MutableLiveData<MutableList<Idea>>().apply { value = mutableListOf() }
 
-    init {
+    private var lastIdeaPositionUsedToFetch: Int? = null
+
+    init { fetchIdeasFromPositionIfNotFetched(0) }
+
+    fun fetchIdeasFromPositionIfNotFetched(position: Int): Boolean {
+        if (position == lastIdeaPositionUsedToFetch) return false
+        lastIdeaPositionUsedToFetch = position
         viewModelScope.launch {
-            ideas.value = repository.getIdeas(topic.topicId)
+            ideas.value = ideas.value?.apply {
+                addAll(repository.getIdeas(topic.topicId, position, NUM_IDEAS_TO_FETCH))
+            }
         }
+        return true
     }
 
     fun deleteTopic() {

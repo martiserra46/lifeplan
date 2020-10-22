@@ -42,8 +42,8 @@ interface DaoIdeas {
     @Query("SELECT * FROM idea ORDER BY idea_id DESC")
     suspend fun getIdeas(): List<Idea>
 
-    @Query("SELECT * FROM idea WHERE idea_topic_id = :topicId ORDER BY idea_id DESC")
-    suspend fun getIdeas(topicId: Long): List<Idea>
+    @Query("SELECT * FROM idea WHERE idea_topic_id = :topicId ORDER BY idea_id DESC LIMIT :position, :numIdeas")
+    suspend fun getIdeas(topicId: Long, position: Int, numIdeas: Int): List<Idea>
 
     @Query("SELECT * FROM idea WHERE idea_id = :ideaId")
     suspend fun getIdea(ideaId: Long): Idea

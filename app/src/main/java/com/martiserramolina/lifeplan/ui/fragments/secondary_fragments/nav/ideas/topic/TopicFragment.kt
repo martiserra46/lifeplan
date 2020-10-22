@@ -6,11 +6,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaAdapter
+import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.topic.TopicViewModel
 
@@ -83,6 +86,11 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
                     setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
                 }
             )
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    onScrollIdeasRv()
+                }
+            })
         }
         viewModel.ideas.observe(viewLifecycleOwner) { ideas ->
             binding.fragmentNavIdeasTopicRv.adapter.run { this as IdeaAdapter }.listIdeas = ideas
@@ -109,5 +117,15 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
         navController.navigate(
             TopicFragmentDirections.actionTopicFragmentToIdeaFragment(idea, viewModel.topic)
         )
+    }
+
+    private fun onScrollIdeasRv() {
+        val lastVisibleIdeaPosition = binding.fragmentNavIdeasTopicRv.layoutManager
+            .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
+        val lastIdeaPositionRv = binding.fragmentNavIdeasTopicRv.adapter
+            .run { this as IdeaAdapter }.listIdeas.size - 1
+        if (lastVisibleIdeaPosition == lastIdeaPositionRv) {
+            viewModel.fetchIdeasFromPositionIfNotFetched(lastIdeaPositionRv + 1)
+        }
     }
 }

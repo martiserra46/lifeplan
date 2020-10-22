@@ -33,8 +33,8 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
         withContext(Dispatchers.IO) { daoIdeas.deleteTopic(topic) }
     }
 
-    suspend fun getIdeas(topicId: Long): List<Idea> {
-        return withContext(Dispatchers.IO) { daoIdeas.getIdeas(topicId) }
+    suspend fun getIdeas(topicId: Long, position: Int, numIdeas: Int): List<Idea> {
+        return withContext(Dispatchers.IO) { daoIdeas.getIdeas(topicId, position, numIdeas) }
     }
 
     suspend fun insertIdea(idea: Idea): Long {
