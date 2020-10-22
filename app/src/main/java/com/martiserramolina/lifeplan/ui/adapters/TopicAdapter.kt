@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.RviIdeasTopicBinding
@@ -13,8 +14,9 @@ class TopicAdapter(
 
     var listTopics = emptyList<Topic>()
         set(value) {
+            val diffResult = DiffUtil.calculateDiff(TopicListDiffCallback(field, value))
             field = value
-            notifyDataSetChanged()
+            diffResult.dispatchUpdatesTo(this)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,5 +53,17 @@ class TopicAdapter(
                 root.setOnClickListener { onTopicClick(topic) }
             }
         }
+    }
+
+    class TopicListDiffCallback(
+        private val oldTopicList: List<Topic>,
+        private val newTopicList: List<Topic>
+    ) : DiffUtil.Callback() {
+        override fun getOldListSize() = oldTopicList.size
+        override fun getNewListSize() = newTopicList.size
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int) =
+            oldTopicList[oldItemPosition].topicId == newTopicList[newItemPosition].topicId
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int) =
+            oldTopicList[oldItemPosition] == newTopicList[newItemPosition]
     }
 }
