@@ -52,8 +52,8 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
 
 class SituationRepository(private val daoSituation: DaoSituation) {
 
-    suspend fun getDays(): List<Day> {
-        return withContext(Dispatchers.IO) { daoSituation.getDays() }
+    suspend fun getDays(position: Int, numDays: Int): List<Day> {
+        return withContext(Dispatchers.IO) { daoSituation.getDays(position, numDays) }
     }
 
     suspend fun insertDay(day: Day): Long {

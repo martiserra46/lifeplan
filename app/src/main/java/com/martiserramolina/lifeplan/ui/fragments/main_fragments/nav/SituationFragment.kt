@@ -5,12 +5,15 @@ import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
+import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 import com.martiserramolina.lifeplan.ui.fragments.main_fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.situation.SituationViewModel
 
@@ -59,6 +62,11 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
                     setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
                 }
             )
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    onScrollDaysRv()
+                }
+            })
         }
 
         viewModel.days.observe(viewLifecycleOwner) { days ->
@@ -78,5 +86,15 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
             MainFragmentDirections
                 .actionMainFragmentToDayFragment(day)
         )
+    }
+
+    private fun onScrollDaysRv() {
+        val lastVisibleDayPosition = binding.fragmentNavSituationRv.layoutManager
+            .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
+        val lastDayPositionRv = binding.fragmentNavSituationRv.adapter
+            .run { this as DayAdapter }.listDays.size - 1
+        if (lastVisibleDayPosition == lastDayPositionRv) {
+            viewModel.fetchDaysFromPositionIfNotFetched(lastDayPositionRv + 1)
+        }
     }
 }

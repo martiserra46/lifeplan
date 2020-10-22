@@ -73,8 +73,8 @@ interface DaoSituation {
     @Delete
     suspend fun deleteDay(day: Day)
 
-    @Query("SELECT * FROM day ORDER BY day_id DESC")
-    suspend fun getDays(): List<Day>
+    @Query("SELECT * FROM day ORDER BY day_id DESC LIMIT :position, :numDays")
+    suspend fun getDays(position: Int, numDays: Int): List<Day>
 
     @Query("SELECT * FROM day WHERE day_id = :dayId")
     suspend fun getDay(dayId: Long): Day
