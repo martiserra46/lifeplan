@@ -17,8 +17,8 @@ class LifeRepository(private val daoLife: DaoLife) {
 
 class IdeasRepository(private val daoIdeas: DaoIdeas) {
 
-    suspend fun getTopics(): List<Topic> {
-        return withContext(Dispatchers.IO) { daoIdeas.getTopics() }
+    suspend fun getTopics(position: Int): List<Topic> {
+        return withContext(Dispatchers.IO) { daoIdeas.getTopics(position) }
     }
 
     suspend fun insertTopic(topic: Topic): Long {
