@@ -57,7 +57,7 @@
             android:name="topic"
             app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
         <action
-            android:id="@+id/action_ideaFragment_to_topicFragment2"
+            android:id="@+id/action_ideaFragment_to_topicFragment"
             app:destination="@id/topicFragment" />
     </fragment>
     <fragment
