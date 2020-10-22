@@ -57,6 +57,10 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
                 navigateToAddIdeaFragment()
                 true
             }
+            R.id.ideas_topic_edit_mi -> {
+                navigateToEditTopicFragment()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -64,6 +68,12 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
     private fun navigateToAddIdeaFragment() {
         navController
             .navigate(TopicFragmentDirections.actionTopicFragmentToAddIdeaFragment(viewModel.topic))
+    }
+
+    private fun navigateToEditTopicFragment() {
+        navController.navigate(
+            TopicFragmentDirections.actionTopicFragmentToEditTopicFragment(viewModel.topic)
+        )
     }
 
     private fun setupTitleTv() {
