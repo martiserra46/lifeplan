@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -83,10 +84,12 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
     }
 
     private fun onScrollTopicsRv() {
-        val lastVisiblePosition = binding.fragmentNavIdeasRv.layoutManager
+        val lastVisibleTopicPosition = binding.fragmentNavIdeasRv.layoutManager
             .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
-        val lastPosition = binding.fragmentNavIdeasRv.adapter
+        val lastTopicPositionRv = binding.fragmentNavIdeasRv.adapter
             .run { this as TopicAdapter }.listTopics.size - 1
-        if (lastVisiblePosition == lastPosition) viewModel.fetchTopicsFromNextPosition()
+        if (lastVisibleTopicPosition == lastTopicPositionRv) {
+            viewModel.fetchTopicsFromPositionIfNotFetched(lastTopicPositionRv + 1)
+        }
     }
 }

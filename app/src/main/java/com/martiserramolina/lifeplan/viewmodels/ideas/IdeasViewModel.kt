@@ -10,30 +10,27 @@ import java.lang.IllegalArgumentException
 
 class IdeasViewModel(application: Application) : AndroidViewModel(application) {
 
+    companion object { private const val NUM_TOPICS_TO_FETCH = 20 }
+
     private val repository by lazy {
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
-    val topics = MutableLiveData<MutableList<Topic>>()
+    val topics = MutableLiveData<MutableList<Topic>>().apply { value = mutableListOf() }
 
-    private var nextPositionToFetchTopics: Int = 0
-    private val numTopicsToFetch: Int = 10
+    private var lastTopicPositionUsedToFetch: Int? = null
 
-    init {
-        viewModelScope.launch {
-            topics.value = mutableListOf(
-                *repository.getTopics(nextPositionToFetchTopics++, numTopicsToFetch).toTypedArray()
-            )
-        }
-    }
+    init { fetchTopicsFromPositionIfNotFetched(0) }
 
-    fun fetchTopicsFromNextPosition() {
-        nextPositionToFetchTopics += numTopicsToFetch
+    fun fetchTopicsFromPositionIfNotFetched(position: Int): Boolean {
+        if (position == lastTopicPositionUsedToFetch) return false
+        lastTopicPositionUsedToFetch = position
         viewModelScope.launch {
             topics.value = topics.value?.apply {
-                addAll(repository.getTopics(nextPositionToFetchTopics++, numTopicsToFetch))
+                addAll(repository.getTopics(position, NUM_TOPICS_TO_FETCH))
             }
         }
+        return true
     }
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {
