@@ -2,7 +2,6 @@ package com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
