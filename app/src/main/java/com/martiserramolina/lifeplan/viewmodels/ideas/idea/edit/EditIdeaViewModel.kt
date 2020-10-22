@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class EditIdeaViewModel(
-    val idea: Idea, val topic: Topic, application: Application
+    var idea: Idea, val topic: Topic, application: Application
 ) : AndroidViewModel(application) {
 
     private val repository by lazy {

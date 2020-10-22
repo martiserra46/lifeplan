@@ -1,19 +1,20 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.edit
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
+import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
+import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.adapters.IdeaImportanceAdapter
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.idea.IdeaFragmentArgs
 import com.martiserramolina.lifeplan.viewmodels.ideas.idea.edit.EditIdeaViewModel
+import java.util.*
 
 class EditIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
@@ -50,6 +51,20 @@ class EditIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
         setupDescriptionTv()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.ideas_idea_edit_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.ideas_idea_edit_save_mi -> {
+                saveIdea()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setupTitleTv() {
         binding.fragmentNavIdeasIdeaSaveTitleEt.setText(viewModel.idea.ideaTitle)
     }
@@ -65,5 +80,39 @@ class EditIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
     private fun setupDescriptionTv() {
         binding.fragmentNavIdeasIdeaSaveDescriptionEt.setText(viewModel.idea.ideaDescription)
+    }
+
+    private fun saveIdea() {
+        viewModel.idea = Idea(
+            viewModel.idea.ideaId,
+            getTopicId(),
+            getTitle(),
+            getImportance(),
+            getDescription(),
+            getDate()
+        )
+        viewModel.updateIdea(viewModel.idea)
+        navigateToPreviousFragment()
+    }
+
+    private fun getTopicId(): Long {
+        return viewModel.topic.topicId
+    }
+
+    private fun getTitle(): String {
+        return binding.fragmentNavIdeasIdeaSaveTitleEt.text.toString()
+    }
+
+    private fun getImportance(): IdeaImportance {
+        return binding.fragmentNavIdeasIdeaSaveImportanceSp.selectedItem
+            .run { this as IdeaImportance }
+    }
+
+    private fun getDescription(): String {
+        return binding.fragmentNavIdeasIdeaSaveDescriptionEt.text.toString()
+    }
+
+    private fun getDate(): Date {
+        return Date()
     }
 }
