@@ -49,11 +49,13 @@ interface DaoIdeas {
     suspend fun getIdea(ideaId: Long): Idea
 
     /* TOPIC & IDEA */
+    @Transaction
     suspend fun insertIdeaAndUpdateItsTopic(idea: Idea): Long {
         updateTopic(getTopic(idea.ideaTopicId).apply { topicNumIdeas++ })
         return insertIdea(idea)
     }
 
+    @Transaction
     suspend fun deleteIdeaAndUpdateItsTopic(idea: Idea) {
         updateTopic(getTopic(idea.ideaTopicId).apply { topicNumIdeas-- })
         deleteIdea(idea)
