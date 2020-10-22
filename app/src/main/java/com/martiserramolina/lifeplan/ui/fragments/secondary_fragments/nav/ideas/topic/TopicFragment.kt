@@ -1,9 +1,7 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -47,6 +45,25 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
         super.onViewCreated(view, savedInstanceState)
         setupTitleTv()
         setupIdeasRv()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.ideas_topic_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.ideas_topic_add_idea_mi -> {
+                navigateToAddIdeaFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun navigateToAddIdeaFragment() {
+        navController
+            .navigate(TopicFragmentDirections.actionTopicFragmentToAddIdeaFragment(viewModel.topic))
     }
 
     private fun setupTitleTv() {
