@@ -1,6 +1,8 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.edit
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
@@ -36,5 +38,14 @@ class EditTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() 
     override fun navigateToPreviousFragment() {
         navController
             .navigate(EditTopicFragmentDirections.actionEditTopicFragmentToTopicFragment(viewModel.topic))
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupTextTv()
+    }
+
+    private fun setupTextTv() {
+        binding.fragmentNavIdeasTopicSaveTitleEt.setText(viewModel.topic.topicText)
     }
 }
