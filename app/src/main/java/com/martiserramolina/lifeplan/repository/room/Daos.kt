@@ -53,6 +53,11 @@ interface DaoIdeas {
         updateTopic(getTopic(idea.ideaTopicId).apply { topicNumIdeas++ })
         return insertIdea(idea)
     }
+
+    suspend fun deleteIdeaAndUpdateItsTopic(idea: Idea) {
+        updateTopic(getTopic(idea.ideaTopicId).apply { topicNumIdeas-- })
+        deleteIdea(idea)
+    }
 }
 
 @Dao

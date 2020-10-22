@@ -46,7 +46,7 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
     }
 
     suspend fun deleteIdea(idea: Idea) {
-        withContext(Dispatchers.IO) { daoIdeas.deleteIdea(idea) }
+        withContext(Dispatchers.IO) { daoIdeas.deleteIdeaAndUpdateItsTopic(idea) }
     }
 }
 
