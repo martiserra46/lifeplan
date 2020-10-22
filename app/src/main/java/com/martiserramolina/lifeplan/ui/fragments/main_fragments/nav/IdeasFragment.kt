@@ -5,6 +5,8 @@ import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasBinding
 import com.martiserramolina.lifeplan.repository.room.Topic
@@ -59,6 +61,11 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
                     setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
                 }
             )
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    onScrollTopicsRv()
+                }
+            })
         }
         viewModel.topics.observe(viewLifecycleOwner) { topics ->
             binding.fragmentNavIdeasRv.adapter.run { this as TopicAdapter }.listTopics = topics
@@ -73,5 +80,13 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
     private fun navigateToTopicFragment(topic: Topic) {
         mainActivity.navController
             .navigate(MainFragmentDirections.actionMainFragmentToTopicFragment(topic))
+    }
+
+    private fun onScrollTopicsRv() {
+        val lastVisiblePosition = binding.fragmentNavIdeasRv.layoutManager
+            .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
+        val lastPosition = binding.fragmentNavIdeasRv.adapter
+            .run { this as TopicAdapter }.listTopics.size - 1
+        if (lastVisiblePosition == lastPosition) viewModel.fetchTopicsFromNextPosition()
     }
 }
