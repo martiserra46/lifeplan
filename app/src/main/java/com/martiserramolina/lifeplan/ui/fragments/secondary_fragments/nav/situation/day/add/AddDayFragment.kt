@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.extensions.format
+import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
@@ -67,7 +67,7 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun setupDateTv() {
-        binding.fragmentNavSituationDaySaveDateTv.text = viewModel.date.format("dd/mm/yyyy")
+        binding.fragmentNavSituationDaySaveDateTv.text = viewModel.date.formatted()
     }
 
     private fun setupSatisfactionSp() {

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.databinding.RviIdeasIdeaBinding
-import com.martiserramolina.lifeplan.extensions.format
+import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.room.Idea
 
 class IdeaAdapter(
@@ -45,7 +45,7 @@ class IdeaAdapter(
 
         fun bind(idea: Idea) {
             binding.apply {
-                rviIdeasIdeaDateTv.text = idea.ideaLastTimeModified.format("dd/mm/yyyy")
+                rviIdeasIdeaDateTv.text = idea.ideaLastTimeModified.formatted()
                 rviIdeasIdeaTitleTv.text = idea.ideaTitle
                 rviIdeasIdeaImportanceV.setBackgroundResource(idea.ideaImportance.drawableId)
                 root.setOnClickListener { onIdeaClick(idea) }

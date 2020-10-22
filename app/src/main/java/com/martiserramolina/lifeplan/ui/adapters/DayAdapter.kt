@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.databinding.RviSituationDayBinding
-import com.martiserramolina.lifeplan.extensions.format
+import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.room.Day
 
 class DayAdapter(
@@ -45,7 +45,7 @@ class DayAdapter(
 
         fun bind(day: Day) {
             binding.apply {
-                rviSituationDayDateTv.text = day.dayDate.format("dd/mm/yyyy")
+                rviSituationDayDateTv.text = day.dayDate.formatted()
                 rviSituationDayTextTv.text = day.dayText
                 rviSituationDayCircleV.setBackgroundResource(day.daySatisfaction.drawableId)
                 root.setOnClickListener { onItemClick(day) }

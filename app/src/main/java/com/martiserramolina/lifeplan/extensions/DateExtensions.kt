@@ -3,6 +3,6 @@ package com.martiserramolina.lifeplan.extensions
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun Date.format(format: String): String {
-    return SimpleDateFormat(format, Locale.getDefault()).format(this)
+fun Date.formatted(): String {
+    return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
 }

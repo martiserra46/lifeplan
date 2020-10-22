@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.extensions.format
+import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.SecondaryFragment
 import com.martiserramolina.lifeplan.viewmodels.situation.day.DayViewModel
 
@@ -69,7 +69,7 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
 
     private fun setupDateTv() {
         binding.fragmentNavSituationDayDateTv.text = viewModel.day
-            .dayDate.format("dd/mm/yyyy")
+            .dayDate.formatted()
     }
 
     private fun setupSatisfactionTv() {
