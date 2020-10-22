@@ -61,6 +61,10 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
                 navigateToEditTopicFragment()
                 true
             }
+            R.id.ideas_topic_delete_mi -> {
+                deleteTopic()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -74,6 +78,11 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
         navController.navigate(
             TopicFragmentDirections.actionTopicFragmentToEditTopicFragment(viewModel.topic)
         )
+    }
+
+    private fun deleteTopic() {
+        viewModel.deleteTopic()
+        navigateToPreviousFragment()
     }
 
     private fun setupTitleTv() {
