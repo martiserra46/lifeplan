@@ -14,9 +14,10 @@ import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.BaseFragment
 import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
+import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.viewmodels.situation.SituationViewModel
 
-class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
+class SituationFragment : BaseFragment<FragmentNavSituationBinding>(), OnAddMenuItemClickListener {
 
     private val mainActivity by lazy { activity as MainActivity }
 
@@ -45,10 +46,7 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.situation_add_mi -> {
-                navigateToAddDayFragment()
-                true
-            }
+            R.id.situation_add_mi -> onAddMenuItemClicked()
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -73,6 +71,11 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>() {
                 adapter.run { this as DayAdapter }.listDays = days
             }
         }
+    }
+
+    override fun onAddMenuItemClicked(): Boolean {
+        navigateToAddDayFragment()
+        return true
     }
 
     private fun navigateToAddDayFragment() {

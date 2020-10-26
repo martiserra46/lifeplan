@@ -14,9 +14,10 @@ import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
+import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.viewmodels.ideas.IdeasViewModel
 
-class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
+class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>(), OnAddMenuItemClickListener {
 
     private val mainActivity by lazy { activity as MainActivity }
 
@@ -44,10 +45,7 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.ideas_topic_add_mi -> {
-                navigateToAddTopicFragment()
-                true
-            }
+            R.id.ideas_topic_add_mi -> onAddMenuItemClicked()
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -70,6 +68,11 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>() {
         viewModel.topics.observe(viewLifecycleOwner) { topics ->
             binding.fragmentNavIdeasRv.adapter.run { this as TopicAdapter }.listTopics = topics
         }
+    }
+
+    override fun onAddMenuItemClicked(): Boolean {
+        navigateToAddTopicFragment()
+        return true
     }
 
     private fun navigateToAddTopicFragment() {
