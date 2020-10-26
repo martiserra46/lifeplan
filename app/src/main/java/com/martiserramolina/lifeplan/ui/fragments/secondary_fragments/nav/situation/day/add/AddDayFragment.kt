@@ -46,6 +46,7 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
         saveDateToViewModel()
         setupDateTv()
         setupSatisfactionSp()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -80,7 +81,6 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
 
     private fun saveDay() {
         viewModel.insertDay(Day(0, getDate(), getDescription(), getSatisfaction()))
-        navigateToPreviousFragment()
     }
 
     private fun getDate(): Date {
@@ -94,5 +94,11 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
 
     private fun getDescription(): String {
         return binding.fragmentNavSituationDaySaveDescriptionEt.text.toString()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.dayInserted.observe(viewLifecycleOwner) { dayInserted ->
+            if (dayInserted) navigateToPreviousFragment()
+        }
     }
 }

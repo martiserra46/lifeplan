@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.viewmodels.situation.day.add
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.SituationRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Day
@@ -20,9 +17,12 @@ class AddDayViewModel(application: Application) : AndroidViewModel(application) 
 
     lateinit var date: Date
 
+    val dayInserted = MutableLiveData<Boolean>().apply { value = false }
+
     fun insertDay(day: Day) {
         viewModelScope.launch {
             repository.insertDay(day)
+            dayInserted.value = true
         }
     }
 
