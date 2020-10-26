@@ -9,10 +9,10 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.situation.day.DayViewModel
 
-class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
+class DayFragment : UpButtonFragment<FragmentNavSituationDayBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

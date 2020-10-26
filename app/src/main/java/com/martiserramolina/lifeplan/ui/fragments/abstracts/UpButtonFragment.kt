@@ -9,7 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 
-abstract class SecondaryFragment<T : ViewBinding> : BaseFragment<T>() {
+abstract class UpButtonFragment<T : ViewBinding> : BaseFragment<T>() {
 
     private val mainActivity by lazy { activity as MainActivity }
     protected val navController by lazy { mainActivity.navController }

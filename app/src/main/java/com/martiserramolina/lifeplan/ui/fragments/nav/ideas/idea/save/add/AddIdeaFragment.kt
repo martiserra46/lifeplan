@@ -9,11 +9,11 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaImportanceAdapter
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.idea.add.AddIdeaViewModel
 import java.util.*
 
-class AddIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
+class AddIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

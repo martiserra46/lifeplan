@@ -10,11 +10,11 @@ import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.situation.day.edit.EditDayViewModel
 import java.util.*
 
-class EditDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
+class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

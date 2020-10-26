@@ -13,10 +13,10 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaAdapter
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.topic.TopicViewModel
 
-class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
+class TopicFragment : UpButtonFragment<FragmentNavIdeasTopicBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

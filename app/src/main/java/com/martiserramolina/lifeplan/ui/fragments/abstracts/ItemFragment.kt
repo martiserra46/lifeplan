@@ -5,7 +5,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.viewbinding.ViewBinding
 
-abstract class ItemFragment<T : ViewBinding> : SecondaryFragment<T>() {
+abstract class ItemFragment<T : ViewBinding> : UpButtonFragment<T>() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(getMenuResource(), menu)

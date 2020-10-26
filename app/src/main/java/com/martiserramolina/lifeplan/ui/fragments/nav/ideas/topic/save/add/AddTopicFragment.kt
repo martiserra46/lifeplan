@@ -8,10 +8,10 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Topic
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.ideas.topic.add.AddTopicViewModel
 
-class AddTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() {
+class AddTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

@@ -8,10 +8,10 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Life
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.SecondaryFragment
+import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.life.edit.EditLifeViewModel
 
-class EditLifeFragment : SecondaryFragment<FragmentNavLifeSaveBinding>() {
+class EditLifeFragment : UpButtonFragment<FragmentNavLifeSaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
