@@ -41,6 +41,7 @@ class IdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaBinding>() {
         setupTitleTv()
         setupImportanceTv()
         setupDescriptionTv()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -87,6 +88,11 @@ class IdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaBinding>() {
 
     private fun deleteIdea() {
         viewModel.deleteIdea()
-        navigateToPreviousFragment()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.ideaDeleted.observe(viewLifecycleOwner) { ideaDeleted ->
+            if (ideaDeleted) navigateToPreviousFragment()
+        }
     }
 }

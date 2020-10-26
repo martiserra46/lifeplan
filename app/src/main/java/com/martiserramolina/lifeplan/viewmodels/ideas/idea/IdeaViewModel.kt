@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.viewmodels.ideas.idea
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.IdeasRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Idea
@@ -20,9 +17,12 @@ class IdeaViewModel(
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
+    val ideaDeleted = MutableLiveData<Boolean>().apply { value = false }
+
     fun deleteIdea() {
         viewModelScope.launch {
             repository.deleteIdea(idea)
+            ideaDeleted.value = true
         }
     }
 
