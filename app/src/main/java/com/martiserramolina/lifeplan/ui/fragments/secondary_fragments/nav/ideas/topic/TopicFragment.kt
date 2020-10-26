@@ -49,6 +49,7 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
         super.onViewCreated(view, savedInstanceState)
         setupTitleTv()
         setupIdeasRv()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -110,7 +111,6 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
 
     private fun deleteTopic() {
         viewModel.deleteTopic()
-        navigateToPreviousFragment()
     }
 
     private fun navigateToIdeaFragment(idea: Idea) {
@@ -126,6 +126,12 @@ class TopicFragment : SecondaryFragment<FragmentNavIdeasTopicBinding>() {
             .run { this as IdeaAdapter }.listIdeas.size - 1
         if (lastVisibleIdeaPosition == lastIdeaPositionRv) {
             viewModel.fetchIdeasFromPositionIfNotFetched(lastIdeaPositionRv + 1)
+        }
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.topicDeleted.observe(viewLifecycleOwner) { topicDeleted ->
+            if (topicDeleted) navigateToPreviousFragment()
         }
     }
 }

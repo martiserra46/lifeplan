@@ -19,6 +19,8 @@ class TopicViewModel(val topic: Topic, application: Application) : AndroidViewMo
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
+    val topicDeleted = MutableLiveData<Boolean>().apply { value = false }
+
     val ideas = MutableLiveData<MutableList<Idea>>().apply { value = mutableListOf() }
 
     private var lastIdeaPositionUsedToFetch: Int? = null
@@ -39,6 +41,7 @@ class TopicViewModel(val topic: Topic, application: Application) : AndroidViewMo
     fun deleteTopic() {
         viewModelScope.launch {
             repository.deleteTopic(topic)
+            topicDeleted.value = true
         }
     }
 
