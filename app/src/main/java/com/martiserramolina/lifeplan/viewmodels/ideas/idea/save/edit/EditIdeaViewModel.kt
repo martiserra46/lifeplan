@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.ideas.idea.add
+package com.martiserramolina.lifeplan.viewmodels.ideas.idea.save.edit
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -9,30 +9,30 @@ import com.martiserramolina.lifeplan.repository.room.Topic
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class AddIdeaViewModel(val topic: Topic, application: Application) : AndroidViewModel(application) {
+class EditIdeaViewModel(
+    val idea: Idea, val topic: Topic, application: Application
+) : AndroidViewModel(application) {
 
     private val repository by lazy {
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
-    val idea = Idea()
+    val ideaEdited = MutableLiveData<Boolean>().apply { value = false }
 
-    val ideaAdded = MutableLiveData<Boolean>().apply { value = false }
-
-    fun addIdea() {
+    fun editIdea() {
         viewModelScope.launch {
-            repository.insertIdea(idea)
-            ideaAdded.value = true
+            repository.updateIdea(idea)
+            ideaEdited.value = true
         }
     }
 
     class Factory(
-        private val topic: Topic, private val application: Application
+        private val topic: Topic, private val idea: Idea, private val application: Application
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(AddIdeaViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(EditIdeaViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return AddIdeaViewModel(topic, application) as T
+                return EditIdeaViewModel(idea, topic, application) as T
             }
             throw IllegalArgumentException("Invalid ViewModel")
         }

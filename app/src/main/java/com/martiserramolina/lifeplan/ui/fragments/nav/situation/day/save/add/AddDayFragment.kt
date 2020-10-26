@@ -12,7 +12,7 @@ import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
-import com.martiserramolina.lifeplan.viewmodels.situation.day.add.AddDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.situation.day.save.add.AddDayViewModel
 import java.util.*
 
 class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {

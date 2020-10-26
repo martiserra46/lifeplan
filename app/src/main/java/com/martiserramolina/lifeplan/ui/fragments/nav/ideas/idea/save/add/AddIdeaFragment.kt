@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaImportanceAdapter
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
-import com.martiserramolina.lifeplan.viewmodels.ideas.idea.add.AddIdeaViewModel
+import com.martiserramolina.lifeplan.viewmodels.ideas.idea.save.add.AddIdeaViewModel
 import java.util.*
 
 class AddIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {

@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.situation.day.edit
+package com.martiserramolina.lifeplan.viewmodels.situation.day.save.add
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -8,28 +8,28 @@ import com.martiserramolina.lifeplan.repository.room.Day
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
-class EditDayViewModel(val day: Day, application: Application) : AndroidViewModel(application) {
+class AddDayViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository by lazy {
         SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
     }
 
-    val dayEdited = MutableLiveData<Boolean>().apply { value = false }
+    val day = Day()
 
-    fun editDay() {
+    val dayAdded = MutableLiveData<Boolean>().apply { value = false }
+
+    fun addDay() {
         viewModelScope.launch {
-            repository.updateDay(day)
-            dayEdited.value = true
+            repository.insertDay(day)
+            dayAdded.value = true
         }
     }
 
-    class Factory(
-        private val day: Day, private val application: Application
-    ) : ViewModelProvider.Factory {
+    class Factory(private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(EditDayViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(AddDayViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return EditDayViewModel(day, application) as T
+                return AddDayViewModel(application) as T
             }
             throw IllegalArgumentException("Invalid ViewModel")
         }

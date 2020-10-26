@@ -9,7 +9,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBindin
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
-import com.martiserramolina.lifeplan.viewmodels.ideas.topic.add.AddTopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.ideas.topic.save.add.AddTopicViewModel
 
 class AddTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
 

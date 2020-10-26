@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.ideas.topic.add
+package com.martiserramolina.lifeplan.viewmodels.ideas.topic.save.add
 
 import android.app.Application
 import androidx.lifecycle.*
