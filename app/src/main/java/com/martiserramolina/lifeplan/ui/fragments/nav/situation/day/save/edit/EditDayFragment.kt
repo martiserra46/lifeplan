@@ -83,7 +83,7 @@ class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
 
     private fun saveDay() {
         viewModel.day = Day(viewModel.day.dayId, getDate(), getDescription(), getSatisfaction())
-        viewModel.updateDay(viewModel.day)
+        viewModel.editDay(viewModel.day)
     }
 
     private fun getDate(): Date {
@@ -100,7 +100,7 @@ class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.dayUpdated.observe(viewLifecycleOwner) { dayUpdated ->
+        viewModel.dayEdited.observe(viewLifecycleOwner) { dayUpdated ->
             if (dayUpdated) navigateToPreviousFragment()
         }
     }

@@ -7,7 +7,6 @@ import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Day
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
-import java.util.*
 
 class EditDayViewModel(val day: Day, application: Application) : AndroidViewModel(application) {
 
@@ -15,12 +14,12 @@ class EditDayViewModel(val day: Day, application: Application) : AndroidViewMode
         SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
     }
 
-    val dayUpdated = MutableLiveData<Boolean>().apply { value = false }
+    val dayEdited = MutableLiveData<Boolean>().apply { value = false }
 
-    fun updateDay() {
+    fun editDay() {
         viewModelScope.launch {
             repository.updateDay(day)
-            dayUpdated.value = true
+            dayEdited.value = true
         }
     }
 

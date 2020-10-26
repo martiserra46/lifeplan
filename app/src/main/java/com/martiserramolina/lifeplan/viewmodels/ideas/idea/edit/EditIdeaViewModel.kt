@@ -17,12 +17,12 @@ class EditIdeaViewModel(
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
-    val ideaUpdated = MutableLiveData<Boolean>().apply { value = false }
+    val ideaEdited = MutableLiveData<Boolean>().apply { value = false }
 
-    fun updateIdea() {
+    fun editIdea() {
         viewModelScope.launch {
             repository.updateIdea(idea)
-            ideaUpdated.value = true
+            ideaEdited.value = true
         }
     }
 

@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
@@ -89,7 +88,7 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun saveData() {
-        viewModel.insertDay(Day(0, getDate(), getDescription(), getSatisfaction()))
+        viewModel.addDay(Day(0, getDate(), getDescription(), getSatisfaction()))
     }
 
     private fun showInvalidDataMessage() {
@@ -110,7 +109,7 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.dayInserted.observe(viewLifecycleOwner) { dayInserted ->
+        viewModel.dayAdded.observe(viewLifecycleOwner) { dayInserted ->
             if (dayInserted) navigateToPreviousFragment()
         }
     }

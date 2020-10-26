@@ -14,12 +14,12 @@ class EditTopicViewModel(val topic: Topic, application: Application) : AndroidVi
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
-    val topicUpdated = MutableLiveData<Boolean>().apply { value = false }
+    val topicEdited = MutableLiveData<Boolean>().apply { value = false }
 
-    fun updateTopic() {
+    fun editTopic() {
         viewModelScope.launch {
             repository.updateTopic(topic)
-            topicUpdated.value = true
+            topicEdited.value = true
         }
     }
 

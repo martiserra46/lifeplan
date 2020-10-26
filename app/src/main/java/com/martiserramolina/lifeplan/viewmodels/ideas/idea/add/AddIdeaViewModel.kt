@@ -17,12 +17,12 @@ class AddIdeaViewModel(val topic: Topic, application: Application) : AndroidView
 
     val idea = Idea()
 
-    val ideaInserted = MutableLiveData<Boolean>().apply { value = false }
+    val ideaAdded = MutableLiveData<Boolean>().apply { value = false }
 
-    fun insertIdea() {
+    fun addIdea() {
         viewModelScope.launch {
             repository.insertIdea(idea)
-            ideaInserted.value = true
+            ideaAdded.value = true
         }
     }
 

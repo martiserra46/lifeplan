@@ -60,7 +60,7 @@ class EditTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
 
     private fun saveTopic() {
         viewModel.topic = Topic(viewModel.topic.topicId, getText())
-        viewModel.updateTopic(viewModel.topic)
+        viewModel.editTopic(viewModel.topic)
     }
 
     private fun setupTextTv() {
@@ -72,7 +72,7 @@ class EditTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.topicUpdated.observe(viewLifecycleOwner) { topicUpdated ->
+        viewModel.topicEdited.observe(viewLifecycleOwner) { topicUpdated ->
             if (topicUpdated) navigateToPreviousFragment()
         }
     }

@@ -77,7 +77,7 @@ class EditLifeFragment :
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.lifeInserted.observe(viewLifecycleOwner) { lifeInserted ->
+        viewModel.lifeEdited.observe(viewLifecycleOwner) { lifeInserted ->
             if (lifeInserted) navigateToPreviousFragment()
         }
     }

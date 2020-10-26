@@ -18,7 +18,7 @@ class AddTopicViewModel(application: Application) : AndroidViewModel(application
 
     val topicAdded = MutableLiveData<Boolean>().apply { value = false }
 
-    fun insertTopic() {
+    fun addTopic() {
         viewModelScope.launch {
             repository.insertTopic(topic)
             topicAdded.value = true

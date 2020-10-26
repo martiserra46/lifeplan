@@ -70,7 +70,7 @@ class AddIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {
     }
 
     private fun saveIdea() {
-        viewModel.insertIdea(
+        viewModel.addIdea(
             Idea(0, getTopicId(), getTitle(), getImportance(), getDescription(), getDate())
         )
     }
@@ -97,7 +97,7 @@ class AddIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.ideaInserted.observe(viewLifecycleOwner) { ideaInserted ->
+        viewModel.ideaAdded.observe(viewLifecycleOwner) { ideaInserted ->
             if (ideaInserted) navigateToPreviousFragment()
         }
     }
