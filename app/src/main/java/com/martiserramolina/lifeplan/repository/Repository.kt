@@ -6,8 +6,8 @@ import kotlinx.coroutines.withContext
 
 class LifeRepository(private val daoLife: DaoLife) {
 
-    suspend fun getLife(): Life? {
-        return withContext(Dispatchers.IO) { daoLife.getLife() }
+    suspend fun getLife(): Life {
+        return withContext(Dispatchers.IO) { daoLife.getLife() ?: Life() }
     }
 
     suspend fun insertLife(life: Life): Long {

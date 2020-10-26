@@ -14,7 +14,7 @@ class LifeViewModel(application: Application) : AndroidViewModel(application) {
         LifeRepository(AppDb.getInstance(application.applicationContext).daoLife())
     }
 
-    val life = MutableLiveData<Life?>().apply { value = null }
+    val life = MutableLiveData<Life>().apply { value = Life() }
 
     init {
         viewModelScope.launch {
