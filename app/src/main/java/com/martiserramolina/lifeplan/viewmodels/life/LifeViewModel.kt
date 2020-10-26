@@ -16,9 +16,12 @@ class LifeViewModel(application: Application) : AndroidViewModel(application) {
 
     val life = MutableLiveData<Life>().apply { value = Life() }
 
+    val isLifeLoaded = MutableLiveData<Boolean>().apply { value = false }
+
     init {
         viewModelScope.launch {
             life.value = repository.getLife()
+            isLifeLoaded.value = true
         }
     }
 
