@@ -2,10 +2,10 @@ package com.martiserramolina.lifeplan.ui.fragments.main_fragments.nav
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
-import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.main_fragments.MainFragmentDirections
@@ -40,7 +40,8 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.life_edit_mi -> {
-                navigateToEditLifeFragment()
+                if (isDataLoaded()) navigateToEditLifeFragment()
+                else showWaitUntilDataIsLoadedMessage()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -53,10 +54,19 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>() {
         }
     }
 
+    private fun isDataLoaded(): Boolean = viewModel.life.value != null
+
     private fun navigateToEditLifeFragment() {
-        mainActivity.navController
-            .navigate(
-                MainFragmentDirections.actionMainFragmentToEditLifeFragment(viewModel.life.value)
-            )
+        mainActivity.navController.navigate(
+            MainFragmentDirections.actionMainFragmentToEditLifeFragment(viewModel.life.value)
+        )
+    }
+
+    private fun showWaitUntilDataIsLoadedMessage() {
+        Toast.makeText(
+            context,
+            "Wait until all the data is loaded",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
