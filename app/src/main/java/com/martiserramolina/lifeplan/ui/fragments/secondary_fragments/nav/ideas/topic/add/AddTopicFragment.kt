@@ -1,5 +1,6 @@
 package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.ideas.topic.add
 
+import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
@@ -35,6 +36,11 @@ class AddTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() {
         )
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navigateToPreviousFragmentAfterDbOp()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.ideas_topic_add_menu, menu)
     }
@@ -52,6 +58,11 @@ class AddTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() {
     private fun saveTopic() {
         viewModel
             .insertTopic(Topic(0, binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()))
-        navigateToPreviousFragment()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.topicAdded.observe(viewLifecycleOwner) { topicAdded ->
+            if (topicAdded) navigateToPreviousFragment()
+        }
     }
 }
