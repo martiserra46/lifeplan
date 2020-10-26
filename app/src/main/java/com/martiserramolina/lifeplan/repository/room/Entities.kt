@@ -38,7 +38,7 @@ data class Idea(
     @ColumnInfo(name = "idea_id")
     var ideaId: Long = 0,
     @ColumnInfo(name = "idea_topic_id")
-    var ideaTopicId: Long,
+    var ideaTopicId: Long = 0,
     @ColumnInfo(name = "idea_title")
     var ideaTitle: String = "",
     @ColumnInfo(name = "idea_importance")
