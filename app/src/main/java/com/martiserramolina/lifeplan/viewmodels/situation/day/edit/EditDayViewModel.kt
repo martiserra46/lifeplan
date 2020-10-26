@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.viewmodels.situation.day.edit
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.SituationRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Day
@@ -18,9 +15,12 @@ class EditDayViewModel(var day: Day, application: Application) : AndroidViewMode
         SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
     }
 
+    val dayUpdated = MutableLiveData<Boolean>().apply { value = false }
+
     fun updateDay(day: Day) {
         viewModelScope.launch {
             repository.updateDay(day)
+            dayUpdated.value = true
         }
     }
 
