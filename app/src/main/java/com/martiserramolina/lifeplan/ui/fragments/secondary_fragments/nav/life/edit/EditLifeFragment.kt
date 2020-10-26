@@ -44,6 +44,7 @@ class EditLifeFragment : SecondaryFragment<FragmentNavLifeSaveBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTextTv()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -67,6 +68,11 @@ class EditLifeFragment : SecondaryFragment<FragmentNavLifeSaveBinding>() {
     private fun saveText() {
         viewModel
             .insertLife(Life(0, binding.fragmentNavLifeSaveDescriptionEt.text.toString()))
-        navigateToPreviousFragment()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.lifeInserted.observe(viewLifecycleOwner) { lifeInserted ->
+            if (lifeInserted) navigateToPreviousFragment()
+        }
     }
 }

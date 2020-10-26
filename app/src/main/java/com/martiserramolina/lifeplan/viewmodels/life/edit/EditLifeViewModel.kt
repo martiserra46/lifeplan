@@ -17,9 +17,12 @@ class EditLifeViewModel(
         LifeRepository(AppDb.getInstance(application.applicationContext).daoLife())
     }
 
+    val lifeInserted = MutableLiveData<Boolean>().apply { value = false }
+
     fun insertLife(life: Life) {
         viewModelScope.launch {
             repository.insertLife(life)
+            lifeInserted.value = true
         }
     }
 
