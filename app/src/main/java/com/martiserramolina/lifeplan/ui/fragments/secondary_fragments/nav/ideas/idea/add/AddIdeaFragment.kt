@@ -44,6 +44,7 @@ class AddIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupImportanceSp()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -72,7 +73,6 @@ class AddIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
         viewModel.insertIdea(
             Idea(0, getTopicId(), getTitle(), getImportance(), getDescription(), getDate())
         )
-        navigateToPreviousFragment()
     }
 
     private fun getTopicId(): Long {
@@ -94,5 +94,11 @@ class AddIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
     private fun getDate(): Date {
         return Date()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.ideaInserted.observe(viewLifecycleOwner) { ideaInserted ->
+            if (ideaInserted) navigateToPreviousFragment()
+        }
     }
 }

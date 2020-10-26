@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.viewmodels.ideas.idea.add
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.IdeasRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Idea
@@ -18,9 +15,12 @@ class AddIdeaViewModel(val topic: Topic, application: Application) : AndroidView
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
+    val ideaInserted = MutableLiveData<Boolean>().apply { value = false }
+
     fun insertIdea(idea: Idea) {
         viewModelScope.launch {
             repository.insertIdea(idea)
+            ideaInserted.value = true
         }
     }
 
