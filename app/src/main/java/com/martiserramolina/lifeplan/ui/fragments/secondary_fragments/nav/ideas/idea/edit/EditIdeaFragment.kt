@@ -49,6 +49,7 @@ class EditIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
         setupTitleTv()
         setupImportanceSp()
         setupDescriptionTv()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -92,7 +93,6 @@ class EditIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
             getDate()
         )
         viewModel.updateIdea(viewModel.idea)
-        navigateToPreviousFragment()
     }
 
     private fun getTopicId(): Long {
@@ -114,5 +114,11 @@ class EditIdeaFragment : SecondaryFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
     private fun getDate(): Date {
         return Date()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.ideaUpdated.observe(viewLifecycleOwner) { ideaUpdated ->
+            if (ideaUpdated) navigateToPreviousFragment()
+        }
     }
 }

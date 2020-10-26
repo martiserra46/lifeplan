@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.viewmodels.ideas.idea.edit
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.IdeasRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Idea
@@ -20,9 +17,12 @@ class EditIdeaViewModel(
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
+    val ideaUpdated = MutableLiveData<Boolean>().apply { value = false }
+
     fun updateIdea(idea: Idea) {
         viewModelScope.launch {
             repository.updateIdea(idea)
+            ideaUpdated.value = true
         }
     }
 
