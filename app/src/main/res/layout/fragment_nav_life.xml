@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/paddingNormal"
     android:paddingVertical="@dimen/paddingNormal"
-    tools:context=".ui.fragments.main_fragments.nav.LifeFragment">
+    tools:context=".ui.fragments.nav.life.LifeFragment">
 
     <TextView
         android:id="@+id/fragment_nav_life_description_tv"
