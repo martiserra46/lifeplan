@@ -42,6 +42,7 @@ class EditTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTextTv()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -61,7 +62,6 @@ class EditTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() 
     private fun saveTopic() {
         viewModel.topic = Topic(viewModel.topic.topicId, getText())
         viewModel.updateTopic(viewModel.topic)
-        navigateToPreviousFragment()
     }
 
     private fun setupTextTv() {
@@ -70,5 +70,11 @@ class EditTopicFragment : SecondaryFragment<FragmentNavIdeasTopicSaveBinding>() 
 
     private fun getText(): String {
         return binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.topicUpdated.observe(viewLifecycleOwner) { topicUpdated ->
+            if (topicUpdated) navigateToPreviousFragment()
+        }
     }
 }

@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.viewmodels.ideas.topic.edit
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.IdeasRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Topic
@@ -17,9 +14,12 @@ class EditTopicViewModel(var topic: Topic, application: Application) : AndroidVi
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
+    val topicUpdated = MutableLiveData<Boolean>().apply { value = false }
+
     fun updateTopic(topic: Topic) {
         viewModelScope.launch {
             repository.updateTopic(topic)
+            topicUpdated.value = true
         }
     }
 
