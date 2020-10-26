@@ -1,10 +1,7 @@
 package com.martiserramolina.lifeplan.viewmodels.situation.day
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.SituationRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Day
@@ -17,9 +14,12 @@ class DayViewModel(val day: Day, application: Application) : AndroidViewModel(ap
         SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
     }
 
+    val dayDeleted = MutableLiveData<Boolean>().apply { value = false }
+
     fun deleteDay() {
         viewModelScope.launch {
             repository.deleteDay(day)
+            dayDeleted.value = true
         }
     }
 

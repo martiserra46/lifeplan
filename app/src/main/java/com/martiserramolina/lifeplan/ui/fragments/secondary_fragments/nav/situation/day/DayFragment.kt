@@ -47,6 +47,7 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
         setupDateTv()
         setupSatisfactionTv()
         setupDescriptionTv()
+        navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -93,6 +94,11 @@ class DayFragment : SecondaryFragment<FragmentNavSituationDayBinding>() {
 
     private fun deleteDay() {
         viewModel.deleteDay()
-        navigateToPreviousFragment()
+    }
+
+    private fun navigateToPreviousFragmentAfterDbOp() {
+        viewModel.dayDeleted.observe(viewLifecycleOwner) { dayDeleted ->
+            if (dayDeleted) navigateToPreviousFragment()
+        }
     }
 }
