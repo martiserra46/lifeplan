@@ -19,7 +19,7 @@ class EditLifeViewModel(
 
     val lifeInserted = MutableLiveData<Boolean>().apply { value = false }
 
-    fun insertLife(life: Life) {
+    fun insertLife() {
         viewModelScope.launch {
             repository.insertLife(life)
             lifeInserted.value = true
