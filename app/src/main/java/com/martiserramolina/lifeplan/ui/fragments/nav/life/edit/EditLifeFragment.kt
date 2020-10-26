@@ -66,7 +66,7 @@ class EditLifeFragment : UpButtonFragment<FragmentNavLifeSaveBinding>() {
 
     private fun saveText() {
         viewModel
-            .insertLife(Life(0, binding.fragmentNavLifeSaveDescriptionEt.text.toString()))
+            .editLife(Life(0, binding.fragmentNavLifeSaveDescriptionEt.text.toString()))
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
