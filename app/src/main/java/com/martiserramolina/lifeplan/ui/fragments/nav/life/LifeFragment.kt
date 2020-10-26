@@ -61,7 +61,7 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>(), OnEditMenuItemClick
 
     private fun navigateToEditLifeFragment() {
         mainActivity.navController.navigate(
-            MainFragmentDirections.actionMainFragmentToEditLifeFragment(viewModel.life.value)
+            MainFragmentDirections.actionMainFragmentToEditLifeFragment(viewModel.life.value!!)
         )
     }
 

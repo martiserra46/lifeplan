@@ -158,8 +158,7 @@
             app:exitAnim="@anim/to_right" />
         <argument
             android:name="life"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Life"
-            app:nullable="true" />
+            app:argType="com.martiserramolina.lifeplan.repository.room.Life" />
     </fragment>
     <fragment
         android:id="@+id/editIdeaFragment"
