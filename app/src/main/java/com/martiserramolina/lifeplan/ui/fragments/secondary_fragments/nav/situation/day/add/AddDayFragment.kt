@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.fragments.secondary_fragments.nav.situa
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
@@ -56,7 +57,7 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.situation_day_add_save_mi -> {
-                saveDay()
+                saveDataIfValid()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -79,8 +80,21 @@ class AddDayFragment : SecondaryFragment<FragmentNavSituationDaySaveBinding>() {
         }
     }
 
-    private fun saveDay() {
+    private fun saveDataIfValid() {
+        if (isDataValid()) saveData()
+        else showInvalidDataMessage()
+    }
+
+    private fun isDataValid(): Boolean {
+        return getDescription().isNotEmpty()
+    }
+
+    private fun saveData() {
         viewModel.insertDay(Day(0, getDate(), getDescription(), getSatisfaction()))
+    }
+
+    private fun showInvalidDataMessage() {
+        Toast.makeText(context, "Invalid Data", Toast.LENGTH_SHORT).show()
     }
 
     private fun getDate(): Date {
