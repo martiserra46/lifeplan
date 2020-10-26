@@ -9,9 +9,10 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
+import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnEditMenuItemClickListener
 import com.martiserramolina.lifeplan.viewmodels.life.LifeViewModel
 
-class LifeFragment : BaseFragment<FragmentNavLifeBinding>() {
+class LifeFragment : BaseFragment<FragmentNavLifeBinding>(), OnEditMenuItemClickListener {
 
     private val mainActivity by lazy { activity as MainActivity }
 
@@ -39,11 +40,7 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.life_edit_mi -> {
-                if (isDataLoaded()) navigateToEditLifeFragment()
-                else showWaitUntilDataIsLoadedMessage()
-                true
-            }
+            R.id.life_edit_mi -> onEditMenuItemClicked()
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -52,6 +49,12 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>() {
         viewModel.life.observe(viewLifecycleOwner) { life ->
             life?.let { binding.fragmentNavLifeDescriptionTv.text = life.lifeText }
         }
+    }
+
+    override fun onEditMenuItemClicked(): Boolean {
+        if (isDataLoaded()) navigateToEditLifeFragment()
+        else showWaitUntilDataIsLoadedMessage()
+        return true
     }
 
     private fun isDataLoaded(): Boolean = viewModel.life.value != null
