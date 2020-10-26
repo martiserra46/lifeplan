@@ -15,9 +15,11 @@ class AddIdeaViewModel(val topic: Topic, application: Application) : AndroidView
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
+    val idea = Idea()
+
     val ideaInserted = MutableLiveData<Boolean>().apply { value = false }
 
-    fun insertIdea(idea: Idea) {
+    fun insertIdea() {
         viewModelScope.launch {
             repository.insertIdea(idea)
             ideaInserted.value = true

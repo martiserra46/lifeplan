@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 import java.util.*
 
-class EditDayViewModel(var day: Day, application: Application) : AndroidViewModel(application) {
+class EditDayViewModel(val day: Day, application: Application) : AndroidViewModel(application) {
 
     private val repository by lazy {
         SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
@@ -17,7 +17,7 @@ class EditDayViewModel(var day: Day, application: Application) : AndroidViewMode
 
     val dayUpdated = MutableLiveData<Boolean>().apply { value = false }
 
-    fun updateDay(day: Day) {
+    fun updateDay() {
         viewModelScope.launch {
             repository.updateDay(day)
             dayUpdated.value = true

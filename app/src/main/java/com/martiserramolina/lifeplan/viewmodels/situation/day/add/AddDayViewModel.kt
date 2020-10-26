@@ -15,11 +15,11 @@ class AddDayViewModel(application: Application) : AndroidViewModel(application) 
         SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
     }
 
-    lateinit var date: Date
+    val day = Day()
 
     val dayInserted = MutableLiveData<Boolean>().apply { value = false }
 
-    fun insertDay(day: Day) {
+    fun insertDay() {
         viewModelScope.launch {
             repository.insertDay(day)
             dayInserted.value = true

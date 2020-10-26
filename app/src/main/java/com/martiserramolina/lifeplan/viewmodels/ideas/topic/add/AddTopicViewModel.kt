@@ -14,9 +14,11 @@ class AddTopicViewModel(application: Application) : AndroidViewModel(application
         IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
     }
 
+    val topic = Topic()
+
     val topicAdded = MutableLiveData<Boolean>().apply { value = false }
 
-    fun insertTopic(topic: Topic) {
+    fun insertTopic() {
         viewModelScope.launch {
             repository.insertTopic(topic)
             topicAdded.value = true

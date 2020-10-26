@@ -9,7 +9,7 @@ import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class EditLifeViewModel(
-    var life: Life,
+    val life: Life,
     application: Application
 ) : AndroidViewModel(application) {
 

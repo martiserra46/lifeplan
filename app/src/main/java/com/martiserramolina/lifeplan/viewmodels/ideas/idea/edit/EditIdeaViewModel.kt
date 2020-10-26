@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class EditIdeaViewModel(
-    var idea: Idea, val topic: Topic, application: Application
+    val idea: Idea, val topic: Topic, application: Application
 ) : AndroidViewModel(application) {
 
     private val repository by lazy {
@@ -19,7 +19,7 @@ class EditIdeaViewModel(
 
     val ideaUpdated = MutableLiveData<Boolean>().apply { value = false }
 
-    fun updateIdea(idea: Idea) {
+    fun updateIdea() {
         viewModelScope.launch {
             repository.updateIdea(idea)
             ideaUpdated.value = true
