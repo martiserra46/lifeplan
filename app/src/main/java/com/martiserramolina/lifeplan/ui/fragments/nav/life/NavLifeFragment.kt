@@ -13,7 +13,7 @@ import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnEditMenuItemClick
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.life.LifeViewModel
 
-class LifeFragment : NavFragment<FragmentNavLifeBinding>(), OnEditMenuItemClickListener {
+class NavLifeFragment : NavFragment<FragmentNavLifeBinding>(), OnEditMenuItemClickListener {
 
     private val mainActivity by lazy { activity as MainActivity }
 

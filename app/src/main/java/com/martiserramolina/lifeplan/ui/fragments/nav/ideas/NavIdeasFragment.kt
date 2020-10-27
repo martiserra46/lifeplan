@@ -18,7 +18,7 @@ import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickL
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.IdeasViewModel
 
-class IdeasFragment : NavFragment<FragmentNavIdeasBinding>(), OnAddMenuItemClickListener {
+class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>(), OnAddMenuItemClickListener {
 
     private val mainActivity by lazy { activity as MainActivity }
 
