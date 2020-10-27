@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.up.situation.day
+package com.martiserramolina.lifeplan.ui.fragments.up.situation.day.info
 
 import android.os.Bundle
 import android.view.*
@@ -10,6 +10,8 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentArgs
+import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.DayViewModel
 
 class DayFragment : UpFragment<FragmentNavSituationDayBinding>() {

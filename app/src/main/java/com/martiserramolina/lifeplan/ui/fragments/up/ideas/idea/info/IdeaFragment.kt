@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea
+package com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.info
 
 import android.os.Bundle
 import android.view.*
@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentArgs
+import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.IdeaViewModel
 
 class IdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {

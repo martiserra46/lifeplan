@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/ideaFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.info.IdeaFragment"
         android:label="ideaFragment"
         tools:layout="@layout/fragment_nav_ideas_idea" >
         <action
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/topicFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.info.TopicFragment"
         android:label="topicFragment"
         tools:layout="@layout/fragment_nav_ideas_topic" >
         <action
@@ -118,7 +118,7 @@
     </fragment>
     <fragment
         android:id="@+id/dayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.up.situation.day.info.DayFragment"
         android:label="dayFragment"
         tools:layout="@layout/fragment_nav_situation_day" >
         <action

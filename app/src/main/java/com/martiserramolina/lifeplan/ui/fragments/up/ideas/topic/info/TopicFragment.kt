@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic
+package com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.info
 
 import android.os.Bundle
 import android.view.*
@@ -14,6 +14,8 @@ import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentArgs
+import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.TopicViewModel
 
 class TopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
