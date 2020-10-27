@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
-import com.martiserramolina.lifeplan.viewmodels.situation.day.DayViewModel
+import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.DayViewModel
 
 class DayFragment : UpButtonFragment<FragmentNavSituationDayBinding>() {
 

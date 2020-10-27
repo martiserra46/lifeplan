@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.ideas
+package com.martiserramolina.lifeplan.viewmodels.nav.ideas
 
 import android.app.Application
 import androidx.lifecycle.*

@@ -9,7 +9,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnSaveMenuItemClickListener
-import com.martiserramolina.lifeplan.viewmodels.life.edit.EditLifeViewModel
+import com.martiserramolina.lifeplan.viewmodels.nav.life.edit.EditLifeViewModel
 
 class EditLifeFragment :
     UpButtonFragment<FragmentNavLifeSaveBinding>(),

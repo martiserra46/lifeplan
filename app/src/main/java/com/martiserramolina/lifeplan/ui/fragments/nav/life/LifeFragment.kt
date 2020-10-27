@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnEditMenuItemClickListener
-import com.martiserramolina.lifeplan.viewmodels.life.LifeViewModel
+import com.martiserramolina.lifeplan.viewmodels.nav.life.LifeViewModel
 
 class LifeFragment : BaseFragment<FragmentNavLifeBinding>(), OnEditMenuItemClickListener {
 

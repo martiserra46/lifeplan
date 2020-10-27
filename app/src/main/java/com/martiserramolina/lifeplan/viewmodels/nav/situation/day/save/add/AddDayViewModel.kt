@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.situation.day.save.add
+package com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.add
 
 import android.app.Application
 import androidx.lifecycle.*

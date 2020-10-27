@@ -14,7 +14,7 @@ import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaAdapter
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
-import com.martiserramolina.lifeplan.viewmodels.ideas.topic.TopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.TopicViewModel
 
 class TopicFragment : UpButtonFragment<FragmentNavIdeasTopicBinding>() {
 

@@ -15,7 +15,7 @@ import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
-import com.martiserramolina.lifeplan.viewmodels.ideas.IdeasViewModel
+import com.martiserramolina.lifeplan.viewmodels.nav.ideas.IdeasViewModel
 
 class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>(), OnAddMenuItemClickListener {
 

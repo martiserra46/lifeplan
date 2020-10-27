@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.life
+package com.martiserramolina.lifeplan.viewmodels.nav.life.edit
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -8,28 +8,29 @@ import com.martiserramolina.lifeplan.repository.room.Life
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
-class LifeViewModel(application: Application) : AndroidViewModel(application) {
+class EditLifeViewModel(
+    val life: Life,
+    application: Application
+) : AndroidViewModel(application) {
 
     private val repository by lazy {
         LifeRepository(AppDb.getInstance(application.applicationContext).daoLife())
     }
 
-    val life = MutableLiveData<Life>().apply { value = Life() }
+    val lifeEdited = MutableLiveData<Boolean>().apply { value = false }
 
-    val isLifeLoaded = MutableLiveData<Boolean>().apply { value = false }
-
-    init {
+    fun editLife() {
         viewModelScope.launch {
-            life.value = repository.getLife()
-            isLifeLoaded.value = true
+            repository.insertLife(life)
+            lifeEdited.value = true
         }
     }
 
-    class Factory(private val application: Application) : ViewModelProvider.Factory {
+    class Factory(private val life: Life, private val application: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(LifeViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(EditLifeViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return LifeViewModel(application) as T
+                return EditLifeViewModel(life, application) as T
             }
             throw IllegalArgumentException("Invalid ViewModel")
         }
