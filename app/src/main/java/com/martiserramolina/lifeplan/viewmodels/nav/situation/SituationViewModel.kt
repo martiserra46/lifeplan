@@ -5,16 +5,13 @@ import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.SituationRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Day
+import com.martiserramolina.lifeplan.viewmodels.abstracts.SituationRepositoryViewModel
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class SituationViewModel(application: Application) : AndroidViewModel(application) {
+class SituationViewModel(application: Application) : SituationRepositoryViewModel(application) {
 
     companion object { private const val NUM_DAYS_TO_FETCH = 20 }
-
-    private val repository by lazy {
-        SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
-    }
 
     val days = MutableLiveData<MutableList<Day>>().apply { value = mutableListOf() }
 

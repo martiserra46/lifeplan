@@ -5,14 +5,11 @@ import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.LifeRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Life
+import com.martiserramolina.lifeplan.viewmodels.abstracts.LifeRepositoryViewModel
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
-class LifeViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val repository by lazy {
-        LifeRepository(AppDb.getInstance(application.applicationContext).daoLife())
-    }
+class LifeViewModel(application: Application) : LifeRepositoryViewModel(application) {
 
     val life = MutableLiveData<Life>().apply { value = Life() }
 

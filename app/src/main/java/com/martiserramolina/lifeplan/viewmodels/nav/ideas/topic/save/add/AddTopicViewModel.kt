@@ -5,14 +5,11 @@ import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.IdeasRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Topic
+import com.martiserramolina.lifeplan.viewmodels.abstracts.IdeasRepositoryViewModel
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
-class AddTopicViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val repository by lazy {
-        IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
-    }
+class AddTopicViewModel(application: Application) : IdeasRepositoryViewModel(application) {
 
     val topic = Topic()
 

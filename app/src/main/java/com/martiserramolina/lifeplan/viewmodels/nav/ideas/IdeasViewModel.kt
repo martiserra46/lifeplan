@@ -5,16 +5,13 @@ import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.IdeasRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Topic
+import com.martiserramolina.lifeplan.viewmodels.abstracts.IdeasRepositoryViewModel
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
-class IdeasViewModel(application: Application) : AndroidViewModel(application) {
+class IdeasViewModel(application: Application) : IdeasRepositoryViewModel(application) {
 
     companion object { private const val NUM_TOPICS_TO_FETCH = 20 }
-
-    private val repository by lazy {
-        IdeasRepository(AppDb.getInstance(application.applicationContext).daoIdeas())
-    }
 
     val topics = MutableLiveData<MutableList<Topic>>().apply { value = mutableListOf() }
 

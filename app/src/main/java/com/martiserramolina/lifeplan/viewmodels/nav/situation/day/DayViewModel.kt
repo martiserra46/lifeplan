@@ -5,14 +5,11 @@ import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.SituationRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Day
+import com.martiserramolina.lifeplan.viewmodels.abstracts.SituationRepositoryViewModel
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class DayViewModel(val day: Day, application: Application) : AndroidViewModel(application) {
-
-    private val repository by lazy {
-        SituationRepository(AppDb.getInstance(application.applicationContext).daoSituation())
-    }
+class DayViewModel(val day: Day, application: Application) : SituationRepositoryViewModel(application) {
 
     val dayDeleted = MutableLiveData<Boolean>().apply { value = false }
 
