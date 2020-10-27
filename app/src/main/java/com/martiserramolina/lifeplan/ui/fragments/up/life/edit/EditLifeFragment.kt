@@ -7,12 +7,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.ui.fragments.up.UpButtonFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnSaveMenuItemClickListener
 import com.martiserramolina.lifeplan.viewmodels.nav.life.edit.EditLifeViewModel
 
 class EditLifeFragment :
-    UpButtonFragment<FragmentNavLifeSaveBinding>(),
+    UpFragment<FragmentNavLifeSaveBinding>(),
     OnSaveMenuItemClickListener
 {
 

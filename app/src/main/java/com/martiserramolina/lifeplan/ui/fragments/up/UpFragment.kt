@@ -10,7 +10,7 @@ import androidx.viewbinding.ViewBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
-abstract class UpButtonFragment<T : ViewBinding> : BaseFragment<T>() {
+abstract class UpFragment<T : ViewBinding> : BaseFragment<T>() {
 
     private val mainActivity by lazy { activity as MainActivity }
     protected val navController by lazy { mainActivity.navController }

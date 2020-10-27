@@ -6,10 +6,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
-import com.martiserramolina.lifeplan.ui.fragments.up.UpButtonFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.save.edit.EditTopicViewModel
 
-class EditTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
+class EditTopicFragment : UpFragment<FragmentNavIdeasTopicSaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

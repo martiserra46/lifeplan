@@ -11,11 +11,11 @@ import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
-import com.martiserramolina.lifeplan.ui.fragments.up.UpButtonFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.add.AddDayViewModel
 import java.util.*
 
-class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
+class AddDayFragment : UpFragment<FragmentNavSituationDaySaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

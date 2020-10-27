@@ -7,10 +7,10 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
-import com.martiserramolina.lifeplan.ui.fragments.up.UpButtonFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.IdeaViewModel
 
-class IdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaBinding>() {
+class IdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
 
     private val viewModel by lazy {
         val args = IdeaFragmentArgs.fromBundle(requireArguments())
