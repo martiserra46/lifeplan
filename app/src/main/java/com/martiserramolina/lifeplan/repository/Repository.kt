@@ -4,7 +4,9 @@ import com.martiserramolina.lifeplan.repository.room.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class LifeRepository(private val daoLife: DaoLife) {
+sealed class Repository
+
+class LifeRepository(private val daoLife: DaoLife): Repository() {
 
     suspend fun getLife(): Life {
         return withContext(Dispatchers.IO) { daoLife.getLife() ?: Life() }
@@ -15,7 +17,7 @@ class LifeRepository(private val daoLife: DaoLife) {
     }
 }
 
-class IdeasRepository(private val daoIdeas: DaoIdeas) {
+class IdeasRepository(private val daoIdeas: DaoIdeas): Repository() {
 
     suspend fun getTopics(position: Int, numTopics: Int): List<Topic> {
         return withContext(Dispatchers.IO) { daoIdeas.getTopics(position, numTopics) }
@@ -50,7 +52,7 @@ class IdeasRepository(private val daoIdeas: DaoIdeas) {
     }
 }
 
-class SituationRepository(private val daoSituation: DaoSituation) {
+class SituationRepository(private val daoSituation: DaoSituation): Repository() {
 
     suspend fun getDays(position: Int, numDays: Int): List<Day> {
         return withContext(Dispatchers.IO) { daoSituation.getDays(position, numDays) }
