@@ -26,7 +26,7 @@ class EditLifeFragment :
         ).get(EditLifeViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentNavLifeSaveBinding {

@@ -22,7 +22,7 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>(), OnEditMenuItemClick
         ).get(LifeViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater, container: ViewGroup?
     ): FragmentNavLifeBinding {
         return FragmentNavLifeBinding.inflate(inflater, container, false)

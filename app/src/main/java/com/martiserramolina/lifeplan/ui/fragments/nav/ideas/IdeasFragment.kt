@@ -27,7 +27,7 @@ class IdeasFragment : BaseFragment<FragmentNavIdeasBinding>(), OnAddMenuItemClic
         ).get(IdeasViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater, container: ViewGroup?
     ): FragmentNavIdeasBinding {
         return FragmentNavIdeasBinding.inflate(inflater, container, false)

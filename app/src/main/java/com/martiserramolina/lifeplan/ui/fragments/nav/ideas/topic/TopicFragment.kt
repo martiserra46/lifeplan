@@ -28,7 +28,7 @@ class TopicFragment : UpButtonFragment<FragmentNavIdeasTopicBinding>() {
         ).get(TopicViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentNavIdeasTopicBinding {

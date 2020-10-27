@@ -28,7 +28,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private lateinit var navSection: NavSection
 
-    override fun getBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentMainBinding {
+    override fun buildBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentMainBinding {
         return FragmentMainBinding.inflate(inflater, container, false)
     }
 

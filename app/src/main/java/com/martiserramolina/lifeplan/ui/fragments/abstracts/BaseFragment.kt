@@ -18,7 +18,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = getBinding(inflater, container)
+        _binding = buildBinding(inflater, container)
         return binding.root
     }
 
@@ -32,5 +32,5 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
         _binding = null
     }
 
-    abstract fun getBinding(inflater: LayoutInflater, container: ViewGroup?): T
+    abstract fun buildBinding(inflater: LayoutInflater, container: ViewGroup?): T
 }

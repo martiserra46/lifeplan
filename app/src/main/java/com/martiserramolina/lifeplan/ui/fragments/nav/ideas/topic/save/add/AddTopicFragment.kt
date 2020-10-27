@@ -19,7 +19,7 @@ class AddTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
         ).get(AddTopicViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentNavIdeasTopicSaveBinding {

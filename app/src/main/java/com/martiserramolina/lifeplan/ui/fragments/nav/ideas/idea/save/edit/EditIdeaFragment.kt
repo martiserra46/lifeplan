@@ -23,7 +23,7 @@ class EditIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {
         ).get(EditIdeaViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentNavIdeasIdeaSaveBinding {

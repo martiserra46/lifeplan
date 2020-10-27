@@ -27,7 +27,7 @@ class SituationFragment : BaseFragment<FragmentNavSituationBinding>(), OnAddMenu
         ).get(SituationViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentNavSituationBinding {

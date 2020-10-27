@@ -24,7 +24,7 @@ class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
         ).get(EditDayViewModel::class.java)
     }
 
-    override fun getBinding(
+    override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentNavSituationDaySaveBinding {
