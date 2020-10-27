@@ -9,10 +9,11 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnSaveMenuItemClickListener
+import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.life.edit.EditLifeViewModel
 
 class EditLifeFragment :
-    UpFragment<FragmentNavLifeSaveBinding>(),
+    UpLifeFragment<FragmentNavLifeSaveBinding>(),
     OnSaveMenuItemClickListener
 {
 
