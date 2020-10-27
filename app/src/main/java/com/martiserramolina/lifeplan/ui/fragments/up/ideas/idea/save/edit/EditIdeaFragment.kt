@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea.save.edit
+package com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.save.edit
 
 import android.os.Bundle
 import android.view.*
@@ -7,9 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
-import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaImportanceAdapter
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.save.edit.EditIdeaViewModel
 import java.util.*
 

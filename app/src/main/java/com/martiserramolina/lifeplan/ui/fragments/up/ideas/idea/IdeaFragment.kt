@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.ideas.idea
+package com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea
 
 import android.os.Bundle
 import android.view.*
@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.IdeaViewModel
 
 class IdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaBinding>() {

@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.abstracts
+package com.martiserramolina.lifeplan.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

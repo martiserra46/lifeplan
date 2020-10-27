@@ -1,26 +1,27 @@
-package com.martiserramolina.lifeplan.ui.fragments.nav.situation.day.save.add
+package com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.edit
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
-import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
-import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.add.AddDayViewModel
-import java.util.*
+import com.martiserramolina.lifeplan.ui.fragments.up.UpButtonFragment
+import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.edit.EditDayViewModel
 
-class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
+class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this, AddDayViewModel.Factory(requireActivity().application)
-        ).get(AddDayViewModel::class.java)
+            this,
+            EditDayViewModel.Factory(
+                EditDayFragmentArgs.fromBundle(requireArguments()).day,
+                requireActivity().application
+            )
+        ).get(EditDayViewModel::class.java)
     }
 
     override fun buildBinding(
@@ -32,42 +33,37 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
 
     override fun getToolbar(): Toolbar = binding.fragmentNavSituationDaySaveTb
 
-    override fun getToolbarTitle(): String = getString(R.string.situation_day_add)
+    override fun getToolbarTitle(): String = getString(R.string.edit)
 
     override fun navigateToPreviousFragment() {
-        navController.navigate(
-            AddDayFragmentDirections.actionAddDayFragmentToMainFragment(NavSection.SITUATION)
-        )
+        navController
+            .navigate(EditDayFragmentDirections.actionEditDayFragmentToDayFragment(viewModel.day))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        saveDateToViewModel()
         setupDateTv()
         setupSatisfactionSp()
+        setupTextTv()
         navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.situation_day_add_menu, menu)
+        inflater.inflate(R.menu.situation_day_edit_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.situation_day_add_save_mi -> {
-                saveDataIfValid()
+            R.id.situation_day_edit_save_mi -> {
+                saveDay()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun saveDateToViewModel() {
-        viewModel.day.dayDate = Date()
-    }
-
     private fun setupDateTv() {
-        binding.fragmentNavSituationDaySaveDateTv.text = getDate().formatted()
+        binding.fragmentNavSituationDaySaveDateTv.text = viewModel.day.dayDate.formatted()
     }
 
     private fun setupSatisfactionSp() {
@@ -75,32 +71,20 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
             adapter = DaySatisfactionAdapter(
                 requireContext(), R.layout.spinner_item
             ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
+            setSelection(viewModel.day.daySatisfaction.ordinal)
         }
     }
 
-    private fun saveDataIfValid() {
-        if (isDataValid()) saveData()
-        else showInvalidDataMessage()
+    private fun setupTextTv() {
+        binding.fragmentNavSituationDaySaveDescriptionEt.setText(viewModel.day.dayText)
     }
 
-    private fun isDataValid(): Boolean {
-        return getText().isNotEmpty()
-    }
-
-    private fun saveData() {
+    private fun saveDay() {
         viewModel.day.apply {
             daySatisfaction = getSatisfaction()
             dayText = getText()
         }
-        viewModel.addDay()
-    }
-
-    private fun showInvalidDataMessage() {
-        Toast.makeText(context, "Invalid Data", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun getDate(): Date {
-        return viewModel.day.dayDate
+        viewModel.editDay()
     }
 
     private fun getSatisfaction(): DaySatisfaction {
@@ -113,8 +97,8 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.dayAdded.observe(viewLifecycleOwner) { dayAdded ->
-            if (dayAdded) navigateToPreviousFragment()
+        viewModel.dayEdited.observe(viewLifecycleOwner) { dayEdited ->
+            if (dayEdited) navigateToPreviousFragment()
         }
     }
 }

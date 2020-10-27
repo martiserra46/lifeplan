@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments
+package com.martiserramolina.lifeplan.ui.fragments.main
 
 import android.os.Bundle
 import android.os.Handler
@@ -15,7 +15,8 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
-import com.martiserramolina.lifeplan.ui.fragments.abstracts.BaseFragment
+import com.martiserramolina.lifeplan.ui.fragments.MainFragmentArgs
+import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 

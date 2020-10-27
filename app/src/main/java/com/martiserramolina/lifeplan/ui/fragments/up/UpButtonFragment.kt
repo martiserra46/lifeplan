@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.abstracts
+package com.martiserramolina.lifeplan.ui.fragments.up
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
+import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 abstract class UpButtonFragment<T : ViewBinding> : BaseFragment<T>() {
 
