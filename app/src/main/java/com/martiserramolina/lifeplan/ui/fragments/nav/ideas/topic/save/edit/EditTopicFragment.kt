@@ -59,8 +59,10 @@ class EditTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
     }
 
     private fun saveTopic() {
-        viewModel.topic = Topic(viewModel.topic.topicId, getText())
-        viewModel.editTopic(viewModel.topic)
+        viewModel.topic.apply {
+            topicText = getText()
+        }
+        viewModel.editTopic()
     }
 
     private fun setupTextTv() {

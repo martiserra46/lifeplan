@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
+import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
-import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.add.AddDayViewModel
@@ -63,11 +63,11 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun saveDateToViewModel() {
-        viewModel.date = Date()
+        viewModel.day.dayDate = Date()
     }
 
     private fun setupDateTv() {
-        binding.fragmentNavSituationDaySaveDateTv.text = viewModel.date.formatted()
+        binding.fragmentNavSituationDaySaveDateTv.text = getDate().formatted()
     }
 
     private fun setupSatisfactionSp() {
@@ -84,11 +84,15 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun isDataValid(): Boolean {
-        return getDescription().isNotEmpty()
+        return getText().isNotEmpty()
     }
 
     private fun saveData() {
-        viewModel.addDay(Day(0, getDate(), getDescription(), getSatisfaction()))
+        viewModel.day.apply {
+            daySatisfaction = getSatisfaction()
+            dayText = getText()
+        }
+        viewModel.addDay()
     }
 
     private fun showInvalidDataMessage() {
@@ -96,7 +100,7 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun getDate(): Date {
-        return viewModel.date
+        return viewModel.day.dayDate
     }
 
     private fun getSatisfaction(): DaySatisfaction {
@@ -104,13 +108,13 @@ class AddDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
             .run { this as DaySatisfaction }
     }
 
-    private fun getDescription(): String {
+    private fun getText(): String {
         return binding.fragmentNavSituationDaySaveDescriptionEt.text.toString()
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.dayAdded.observe(viewLifecycleOwner) { dayInserted ->
-            if (dayInserted) navigateToPreviousFragment()
+        viewModel.dayAdded.observe(viewLifecycleOwner) { dayAdded ->
+            if (dayAdded) navigateToPreviousFragment()
         }
     }
 }

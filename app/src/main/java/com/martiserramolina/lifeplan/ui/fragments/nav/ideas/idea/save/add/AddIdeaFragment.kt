@@ -70,9 +70,14 @@ class AddIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {
     }
 
     private fun saveIdea() {
-        viewModel.addIdea(
-            Idea(0, getTopicId(), getTitle(), getImportance(), getDescription(), getDate())
-        )
+        viewModel.idea.apply {
+            ideaTopicId = getTopicId()
+            ideaTitle = getTitle()
+            ideaImportance = getImportance()
+            ideaDescription = getDescription()
+            ideaLastTimeModified = getDate()
+        }
+        viewModel.addIdea()
     }
 
     private fun getTopicId(): Long {

@@ -71,9 +71,13 @@ class EditLifeFragment :
 
     private fun editLife() {
         viewModel.life.apply {
-            lifeText = binding.fragmentNavLifeSaveDescriptionEt.text.toString()
+            lifeText = getText()
         }
         viewModel.editLife()
+    }
+
+    private fun getText(): String {
+        return binding.fragmentNavLifeSaveDescriptionEt.text.toString()
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {

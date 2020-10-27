@@ -8,11 +8,9 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
-import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.abstracts.UpButtonFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.edit.EditDayViewModel
-import java.util.*
 
 class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
 
@@ -82,12 +80,11 @@ class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
     }
 
     private fun saveDay() {
-        viewModel.day = Day(viewModel.day.dayId, getDate(), getDescription(), getSatisfaction())
-        viewModel.editDay(viewModel.day)
-    }
-
-    private fun getDate(): Date {
-        return viewModel.day.dayDate
+        viewModel.day.apply {
+            daySatisfaction = getSatisfaction()
+            dayText = getText()
+        }
+        viewModel.editDay()
     }
 
     private fun getSatisfaction(): DaySatisfaction {
@@ -95,13 +92,13 @@ class EditDayFragment : UpButtonFragment<FragmentNavSituationDaySaveBinding>() {
             .run { this as DaySatisfaction }
     }
 
-    private fun getDescription(): String {
+    private fun getText(): String {
         return binding.fragmentNavSituationDaySaveDescriptionEt.text.toString()
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.dayEdited.observe(viewLifecycleOwner) { dayUpdated ->
-            if (dayUpdated) navigateToPreviousFragment()
+        viewModel.dayEdited.observe(viewLifecycleOwner) { dayEdited ->
+            if (dayEdited) navigateToPreviousFragment()
         }
     }
 }

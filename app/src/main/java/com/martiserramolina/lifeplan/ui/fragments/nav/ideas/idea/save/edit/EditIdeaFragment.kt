@@ -83,15 +83,14 @@ class EditIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {
     }
 
     private fun saveIdea() {
-        viewModel.idea = Idea(
-            viewModel.idea.ideaId,
-            getTopicId(),
-            getTitle(),
-            getImportance(),
-            getDescription(),
-            getDate()
-        )
-        viewModel.editIdea(viewModel.idea)
+        viewModel.idea.apply {
+            ideaTopicId = getTopicId()
+            ideaTitle = getTitle()
+            ideaImportance = getImportance()
+            ideaDescription = getDescription()
+            ideaLastTimeModified = getDate()
+        }
+        viewModel.editIdea()
     }
 
     private fun getTopicId(): Long {
@@ -116,8 +115,8 @@ class EditIdeaFragment : UpButtonFragment<FragmentNavIdeasIdeaSaveBinding>() {
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.ideaEdited.observe(viewLifecycleOwner) { ideaUpdated ->
-            if (ideaUpdated) navigateToPreviousFragment()
+        viewModel.ideaEdited.observe(viewLifecycleOwner) { ideaEdited ->
+            if (ideaEdited) navigateToPreviousFragment()
         }
     }
 }

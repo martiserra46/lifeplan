@@ -56,8 +56,14 @@ class AddTopicFragment : UpButtonFragment<FragmentNavIdeasTopicSaveBinding>() {
     }
 
     private fun saveTopic() {
-        viewModel
-            .addTopic(Topic(0, binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()))
+        viewModel.topic.apply {
+            topicText = getText()
+        }
+        viewModel.addTopic()
+    }
+
+    private fun getText(): String {
+        return binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {

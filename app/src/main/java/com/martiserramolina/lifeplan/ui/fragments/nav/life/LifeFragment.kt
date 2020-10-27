@@ -47,7 +47,7 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>(), OnEditMenuItemClick
 
     private fun setupTextTv() {
         viewModel.life.observe(viewLifecycleOwner) { life ->
-            life?.let { binding.fragmentNavLifeDescriptionTv.text = life.lifeText }
+            binding.fragmentNavLifeDescriptionTv.text = life.lifeText
         }
     }
 
@@ -57,7 +57,7 @@ class LifeFragment : BaseFragment<FragmentNavLifeBinding>(), OnEditMenuItemClick
         return true
     }
 
-    private fun isDataLoaded(): Boolean = viewModel.life.value != null
+    private fun isDataLoaded(): Boolean = viewModel.isLifeLoaded.value == true
 
     private fun navigateToEditLifeFragment() {
         mainActivity.navController.navigate(
