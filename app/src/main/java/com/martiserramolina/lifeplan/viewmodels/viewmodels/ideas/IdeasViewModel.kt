@@ -1,10 +1,9 @@
-package com.martiserramolina.lifeplan.viewmodels.nav.ideas
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.IdeasRepositoryViewModel
-import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class IdeasViewModel(application: Application) : IdeasRepositoryViewModel(application) {

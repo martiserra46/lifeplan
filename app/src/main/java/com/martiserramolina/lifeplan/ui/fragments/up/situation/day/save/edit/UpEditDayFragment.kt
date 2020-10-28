@@ -9,9 +9,8 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBind
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
-import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.UpSaveDayFragment
-import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.edit.EditDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.edit.EditDayViewModel
 
 class UpEditDayFragment : UpSaveDayFragment() {
 

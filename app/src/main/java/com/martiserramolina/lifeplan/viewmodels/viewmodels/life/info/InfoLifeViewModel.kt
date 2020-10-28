@@ -1,13 +1,13 @@
-package com.martiserramolina.lifeplan.viewmodels.nav.life
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.life.info
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.LifeRepositoryViewModel
-import kotlinx.coroutines.*
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.LifeViewModel
 import java.lang.IllegalArgumentException
 
-class LifeViewModel(application: Application) : LifeRepositoryViewModel(application) {
+class InfoLifeViewModel(application: Application) : LifeViewModel(application) {
 
     val life = MutableLiveData<Life>().apply { value = Life() }
 

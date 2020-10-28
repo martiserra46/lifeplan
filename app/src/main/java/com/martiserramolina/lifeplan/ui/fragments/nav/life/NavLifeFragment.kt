@@ -7,11 +7,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
-import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnEditMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
-import com.martiserramolina.lifeplan.viewmodels.nav.life.LifeViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.info.InfoLifeViewModel
 
 class NavLifeFragment : NavFragment<FragmentNavLifeBinding>(), OnEditMenuItemClickListener {
 
@@ -19,8 +18,8 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>(), OnEditMenuItemCli
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this, LifeViewModel.Factory(requireActivity().application)
-        ).get(LifeViewModel::class.java)
+            this, InfoLifeViewModel.Factory(requireActivity().application)
+        ).get(InfoLifeViewModel::class.java)
     }
 
     override fun buildBinding(

@@ -12,7 +12,7 @@ import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentDirections
-import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.DayViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.DayViewModel
 
 class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
 

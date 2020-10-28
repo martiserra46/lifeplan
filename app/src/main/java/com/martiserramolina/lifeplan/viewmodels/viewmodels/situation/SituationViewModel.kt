@@ -1,10 +1,9 @@
-package com.martiserramolina.lifeplan.viewmodels.nav.situation
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.SituationRepositoryViewModel
-import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class SituationViewModel(application: Application) : SituationRepositoryViewModel(application) {

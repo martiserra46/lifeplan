@@ -1,10 +1,9 @@
-package com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.add
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.add
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.SituationRepositoryViewModel
-import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class AddDayViewModel(application: Application) : SituationRepositoryViewModel(application) {

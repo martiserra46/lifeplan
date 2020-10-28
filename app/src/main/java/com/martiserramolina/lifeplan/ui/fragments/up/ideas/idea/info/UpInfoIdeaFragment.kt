@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentDirections
-import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.IdeaViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.IdeaViewModel
 
 class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
 

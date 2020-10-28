@@ -1,10 +1,9 @@
-package com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.save.add
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.save.add
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.IdeasRepositoryViewModel
-import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class AddTopicViewModel(application: Application) : IdeasRepositoryViewModel(application) {

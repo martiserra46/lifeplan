@@ -11,12 +11,11 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.activities.MainActivity
-import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
-import com.martiserramolina.lifeplan.viewmodels.nav.situation.SituationViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.SituationViewModel
 
 class NavSituationFragment : NavFragment<FragmentNavSituationBinding>(), OnAddMenuItemClickListener {
 

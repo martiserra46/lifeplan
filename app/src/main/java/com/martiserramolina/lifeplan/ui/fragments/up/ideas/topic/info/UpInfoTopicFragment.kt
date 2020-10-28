@@ -16,7 +16,7 @@ import com.martiserramolina.lifeplan.ui.adapters.IdeaAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentDirections
-import com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.TopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.TopicViewModel
 
 class UpInfoTopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
 

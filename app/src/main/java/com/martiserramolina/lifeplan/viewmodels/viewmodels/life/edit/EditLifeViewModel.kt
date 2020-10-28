@@ -1,10 +1,9 @@
-package com.martiserramolina.lifeplan.viewmodels.nav.life.edit
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.life.edit
 
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.LifeRepositoryViewModel
-import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class EditLifeViewModel(
