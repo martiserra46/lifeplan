@@ -3,10 +3,10 @@ package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Day
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.SituationRepositoryViewModel
-import java.lang.IllegalArgumentException
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.SituationViewModel
+import kotlinx.coroutines.launch
 
-class InfoSituationViewModel(application: Application) : SituationRepositoryViewModel(application) {
+class InfoSituationViewModel(application: Application) : SituationViewModel(application) {
 
     companion object { private const val NUM_DAYS_TO_FETCH = 20 }
 
