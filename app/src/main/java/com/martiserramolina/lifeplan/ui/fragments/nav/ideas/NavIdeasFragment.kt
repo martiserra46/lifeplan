@@ -15,7 +15,7 @@ import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.IdeasViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.InfoIdeasViewModel
 
 class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>(), OnAddMenuItemClickListener {
 
@@ -23,8 +23,8 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>(), OnAddMenuItemCl
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this, IdeasViewModel.Factory(requireActivity().application)
-        ).get(IdeasViewModel::class.java)
+            this, InfoIdeasViewModel.Factory(requireActivity().application)
+        ).get(InfoIdeasViewModel::class.java)
     }
 
     override fun buildBinding(
