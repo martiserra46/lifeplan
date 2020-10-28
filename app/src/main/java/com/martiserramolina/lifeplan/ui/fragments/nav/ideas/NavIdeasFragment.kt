@@ -3,40 +3,34 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.ideas
 import android.os.Bundle
 import android.view.*
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasBinding
 import com.martiserramolina.lifeplan.repository.room.Topic
-import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.adapters.TopicAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
-import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
+import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.info.InfoIdeasViewModel
 
-class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>(), OnAddMenuItemClickListener {
+class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>() {
 
-    private val mainActivity by lazy { activity as MainActivity }
-
-    private val viewModel by lazy {
-        ViewModelProvider(
-            this, InfoIdeasViewModel.Factory(requireActivity().application)
-        ).get(InfoIdeasViewModel::class.java)
-    }
+    private val viewModel by ViewModelFactory.Delegate(
+        this, InfoIdeasViewModel::class.java
+    ) { InfoIdeasViewModel(mainActivity.application) }
 
     override fun buildBinding(
         inflater: LayoutInflater, container: ViewGroup?
-    ): FragmentNavIdeasBinding {
-        return FragmentNavIdeasBinding.inflate(inflater, container, false)
-    }
+    ): FragmentNavIdeasBinding = FragmentNavIdeasBinding.inflate(
+        inflater, container, false
+    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupTopicsRv()
+        setupTopicsRecyclerView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -45,12 +39,12 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>(), OnAddMenuItemCl
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.ideas_topic_add_mi -> onAddMenuItemClicked()
+            R.id.ideas_topic_add_mi -> onAddMenuItemSelected()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupTopicsRv() {
+    private fun setupTopicsRecyclerView() {
         binding.fragmentNavIdeasRv.apply {
             setHasFixedSize(true)
             adapter = TopicAdapter { navigateToTopicFragment(it) }
@@ -70,7 +64,7 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>(), OnAddMenuItemCl
         }
     }
 
-    override fun onAddMenuItemClicked(): Boolean {
+    private fun onAddMenuItemSelected(): Boolean {
         navigateToAddTopicFragment()
         return true
     }
