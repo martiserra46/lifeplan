@@ -18,7 +18,7 @@ import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
-    private val mainFragmentNavController by lazy {
+    private val navController by lazy {
         childFragmentManager.findFragmentById(R.id.fragment_main_fcv)
             .run { this as NavHostFragment }.navController
     }
@@ -71,7 +71,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     private fun navigateToNavSection(navSection: NavSection) {
         mainActivity.supportActionBar?.title = getString(navSection.label)
         binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
-        mainFragmentNavController.navigate(navSection.destinationId)
+        navController.navigate(navSection.destinationId)
     }
 
     private fun setupNavigationView() {
