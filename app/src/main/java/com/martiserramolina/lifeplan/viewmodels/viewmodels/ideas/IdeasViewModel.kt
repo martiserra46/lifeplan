@@ -5,7 +5,7 @@ import com.martiserramolina.lifeplan.repository.IdeasRepository
 import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.RepositoryViewModel
 
-abstract class IdeasRepositoryViewModel(
+abstract class IdeasViewModel(
     application: Application
 ) : RepositoryViewModel<IdeasRepository>(application) {
     override val repository by lazy {

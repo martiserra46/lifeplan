@@ -6,7 +6,7 @@ import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.IdeasRepositoryViewModel
 import java.lang.IllegalArgumentException
 
-class InfoIdeasViewModel(application: Application) : IdeasRepositoryViewModel(application) {
+class InfoIdeasViewModel(application: Application) : IdeasViewModel(application) {
 
     companion object { private const val NUM_TOPICS_TO_FETCH = 20 }
 
