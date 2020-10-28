@@ -12,6 +12,4 @@ abstract class LifeViewModel(
     override val repository by lazy {
         LifeRepository(AppDb.getInstance(application.applicationContext).daoLife())
     }
-
-    protected abstract val life: Life
 }
