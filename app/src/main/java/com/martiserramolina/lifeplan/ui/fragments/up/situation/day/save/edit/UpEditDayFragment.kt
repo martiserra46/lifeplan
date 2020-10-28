@@ -36,7 +36,7 @@ class UpEditDayFragment : UpSaveDayFragment() {
     override fun getToolbarTitle(): String = getString(R.string.edit)
 
     override fun navigateToPreviousFragment() {
-        navController
+        mainActivityNavController
             .navigate(EditDayFragmentDirections.actionEditDayFragmentToDayFragment(viewModel.day))
     }
 

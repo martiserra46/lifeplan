@@ -7,31 +7,26 @@ import android.view.View
 import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.viewbinding.ViewBinding
-import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 abstract class UpFragment<T : ViewBinding> : BaseFragment<T>() {
 
-    private val mainActivity by lazy { activity as MainActivity }
-    protected val navController by lazy { mainActivity.navController }
+    protected val mainActivityNavController by lazy { mainActivity.navController }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupActionBar()
+        setupToolbar()
         setupBackButton()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
-                navigateToPreviousFragment()
-                true
-            }
+            android.R.id.home -> onUpButtonClicked()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupActionBar() {
+    private fun setupToolbar() {
         mainActivity.apply {
             setSupportActionBar(getToolbar())
             supportActionBar?.apply {
@@ -43,7 +38,13 @@ abstract class UpFragment<T : ViewBinding> : BaseFragment<T>() {
     }
 
     private fun setupBackButton() {
-        mainActivity.onBackPressedDispatcher.addCallback(mainActivity) { navigateToPreviousFragment() }
+        mainActivity.onBackPressedDispatcher
+            .addCallback(mainActivity) { navigateToPreviousFragment() }
+    }
+
+    private fun onUpButtonClicked(): Boolean {
+        navigateToPreviousFragment()
+        return true
     }
 
     abstract fun getToolbar(): Toolbar

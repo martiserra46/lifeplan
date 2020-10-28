@@ -34,7 +34,7 @@ class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
     override fun getToolbarTitle(): String = ""
 
     override fun navigateToPreviousFragment() {
-        navController
+        mainActivityNavController
             .navigate(IdeaFragmentDirections.actionIdeaFragmentToTopicFragment(viewModel.topic))
     }
 
@@ -82,7 +82,7 @@ class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
     }
 
     private fun navigateToEditIdeaFragment() {
-        navController.navigate(
+        mainActivityNavController.navigate(
             IdeaFragmentDirections.actionIdeaFragmentToEditIdeaFragment(
                 viewModel.idea,
                 viewModel.topic

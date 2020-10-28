@@ -34,7 +34,7 @@ class UpEditIdeaFragment : UpSaveIdeaFragment() {
     override fun getToolbarTitle(): String = ""
 
     override fun navigateToPreviousFragment() {
-        navController.navigate(
+        mainActivityNavController.navigate(
             EditIdeaFragmentDirections.actionEditIdeaFragmentToIdeaFragment(
                 viewModel.idea,
                 viewModel.topic
