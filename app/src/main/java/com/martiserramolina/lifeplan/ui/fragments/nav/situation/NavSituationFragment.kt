@@ -15,7 +15,7 @@ import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.SituationViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.InfoSituationViewModel
 
 class NavSituationFragment : NavFragment<FragmentNavSituationBinding>(), OnAddMenuItemClickListener {
 
@@ -23,8 +23,8 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>(), OnAddMe
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this, SituationViewModel.Factory(requireActivity().application)
-        ).get(SituationViewModel::class.java)
+            this, InfoSituationViewModel.Factory(requireActivity().application)
+        ).get(InfoSituationViewModel::class.java)
     }
 
     override fun buildBinding(
