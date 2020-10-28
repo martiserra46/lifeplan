@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.save.UpSaveTopicFragment
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.save.add.AddTopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.add.AddTopicViewModel
 
 class UpAddTopicFragment : UpSaveTopicFragment() {
 
