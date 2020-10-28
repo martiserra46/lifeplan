@@ -42,7 +42,7 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
 
     private fun setupTextTextView() {
         viewModel.life.observe(viewLifecycleOwner) { life ->
-            binding.fragmentNavLifeDescriptionTv.text = life.lifeText
+            setTextToTextTextView(life.lifeText)
         }
     }
 
@@ -73,5 +73,9 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
             getString(R.string.wait_until_all_life_data_is_loaded),
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun setTextToTextTextView(text: String) {
+        binding.fragmentNavLifeDescriptionTv.text = text
     }
 }
