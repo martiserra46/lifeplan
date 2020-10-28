@@ -5,6 +5,6 @@ import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.SituationViewModel
 
 abstract class DayViewModel(
-    protected val day: Day,
+    val day: Day,
     application: Application
 ) : SituationViewModel(application)
