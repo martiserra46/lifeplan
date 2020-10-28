@@ -9,20 +9,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.core.view.GravityCompat
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
-    private val navController: NavController
-        get() = childFragmentManager.findFragmentById(
-            R.id.fragment_main_fcv
-        ).run { this as NavHostFragment }.navController
+
+    private val mainFragmentNavController by lazy {
+        childFragmentManager.findFragmentById(R.id.fragment_main_fcv)
+            .run { this as NavHostFragment }.navController
+    }
 
     override fun buildBinding(
         inflater: LayoutInflater,
@@ -72,7 +71,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     private fun navigateToNavSection(navSection: NavSection) {
         mainActivity.supportActionBar?.title = getString(navSection.label)
         binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
-        navController.navigate(navSection.destinationId)
+        mainFragmentNavController.navigate(navSection.destinationId)
     }
 
     private fun setupNavigationView() {
