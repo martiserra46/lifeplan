@@ -27,31 +27,26 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             R.id.fragment_main_fcv
         ).run { this as NavHostFragment }.navController
 
-    private lateinit var navSection: NavSection
-
-    override fun buildBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentMainBinding {
-        return FragmentMainBinding.inflate(inflater, container, false)
-    }
+    override fun buildBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentMainBinding = FragmentMainBinding.inflate(inflater, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupActionBar()
-        setupNavSection()
-        setupNavView()
+        setupToolbar()
+        setupNavigation()
         setupBackButton()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
-                binding.fragmentMainDl.openDrawer(GravityCompat.START)
-                true
-            }
+            android.R.id.home -> onToolbarMenuClicked()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupActionBar() {
+    private fun setupToolbar() {
         mainActivity.apply {
             setSupportActionBar(binding.fragmentMainTb)
             supportActionBar?.apply {
@@ -62,30 +57,36 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         setHasOptionsMenu(true)
     }
 
-    private fun setupNavSection() {
-        navSection = MainFragmentArgs.fromBundle(requireArguments()).navSection
-        mainActivity.supportActionBar?.title = getString(navSection.label)
-        if (navSection != NavSection.LIFE) navigateToNavSection(navSection)
-    }
-
-    private fun setupNavView() {
-        binding.fragmentMainNv.setNavigationItemSelectedListener { menuItem ->
-            navSection = NavSection.getNavSection(menuItem.itemId)
-            navigateToNavSection(navSection)
-            Handler(Looper.getMainLooper()).postDelayed({
-                binding.fragmentMainDl.closeDrawers()
-            }, requireContext().resources.getInteger(R.integer.animation_start_offset).toLong())
-            true
-        }
+    private fun setupNavigation() {
+        navigateToNavSection(MainFragmentArgs.fromBundle(requireArguments()).navSection)
+        setupNavigationView()
     }
 
     private fun setupBackButton() {
-        mainActivity.onBackPressedDispatcher.addCallback(mainActivity) { requireActivity().finish() }
+        mainActivity.onBackPressedDispatcher
+            .addCallback(mainActivity) { requireActivity().finish() }
+    }
+
+    private fun onToolbarMenuClicked(): Boolean {
+        binding.fragmentMainDl.openDrawer(GravityCompat.START)
+        return true
     }
 
     private fun navigateToNavSection(navSection: NavSection) {
         mainActivity.supportActionBar?.title = getString(navSection.label)
         binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
         navController.navigate(navSection.destinationId)
+    }
+
+    private fun setupNavigationView() {
+        binding.fragmentMainNv.setNavigationItemSelectedListener { onNavigationItemSelected(it) }
+    }
+
+    private fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
+        navigateToNavSection(NavSection.getNavSection(menuItem.itemId))
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.fragmentMainDl.closeDrawer(GravityCompat.START)
+        }, requireContext().resources.getInteger(R.integer.animation_start_offset).toLong())
+        return true
     }
 }
