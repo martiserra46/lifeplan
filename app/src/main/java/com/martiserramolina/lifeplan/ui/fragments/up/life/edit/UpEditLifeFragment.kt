@@ -3,35 +3,28 @@ package com.martiserramolina.lifeplan.ui.fragments.up.life.edit
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnSaveMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
+import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.edit.EditLifeViewModel
 
-class UpEditLifeFragment :
-    UpLifeFragment<FragmentNavLifeSaveBinding>(),
-    OnSaveMenuItemClickListener
-{
+class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 
-    private val viewModel by lazy {
-        ViewModelProvider(
-            this,
-            EditLifeViewModel.Factory(
-                EditLifeFragmentArgs.fromBundle(requireArguments()).life,
-                requireActivity().application
-            )
-        ).get(EditLifeViewModel::class.java)
+    private val viewModel by ViewModelFactory.Delegate(
+        this, EditLifeViewModel::class.java
+    ) {
+        val args = EditLifeFragmentArgs.fromBundle(requireArguments())
+        EditLifeViewModel(args.life, mainActivity.application)
     }
 
     override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentNavLifeSaveBinding {
-        return FragmentNavLifeSaveBinding.inflate(inflater, container, false)
-    }
+    ): FragmentNavLifeSaveBinding = FragmentNavLifeSaveBinding.inflate(
+        inflater, container, false
+    )
 
     override fun getToolbar(): Toolbar = binding.fragmentNavLifeSaveTb
 
@@ -45,8 +38,8 @@ class UpEditLifeFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupTextTv()
-        navigateToPreviousFragmentAfterDbOp()
+        setupTextTextView()
+        whenLifeSavedNavigateToPreviousFragment()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -55,34 +48,35 @@ class UpEditLifeFragment :
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.life_edit_save_mi -> onSaveMenuItemClicked()
+            R.id.life_edit_save_mi -> onSaveMenuItemSelected()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupTextTv() {
-        binding.fragmentNavLifeSaveDescriptionEt.setText(viewModel.life.lifeText)
+    private fun setupTextTextView() {
+        setTextToEditText(viewModel.life.lifeText)
     }
 
-    override fun onSaveMenuItemClicked(): Boolean {
-        editLife()
-        return true
+    private fun whenLifeSavedNavigateToPreviousFragment() {
+        viewModel.lifeEdited.observe(viewLifecycleOwner) {
+            if (it) navigateToPreviousFragment()
+        }
     }
 
-    private fun editLife() {
+    private fun onSaveMenuItemSelected(): Boolean = saveLife().run { true }
+
+    private fun saveLife() {
         viewModel.life.apply {
-            lifeText = getText()
+            lifeText = getTextFromEditText()
         }
         viewModel.editLife()
     }
 
-    private fun getText(): String {
-        return binding.fragmentNavLifeSaveDescriptionEt.text.toString()
+    private fun setTextToEditText(text: String) {
+        binding.fragmentNavLifeSaveDescriptionEt.setText(text)
     }
 
-    private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.lifeEdited.observe(viewLifecycleOwner) { lifeInserted ->
-            if (lifeInserted) navigateToPreviousFragment()
-        }
+    private fun getTextFromEditText(): String {
+        return binding.fragmentNavLifeSaveDescriptionEt.text.toString()
     }
 }
