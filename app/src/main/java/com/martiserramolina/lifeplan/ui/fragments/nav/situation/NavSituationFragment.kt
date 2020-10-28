@@ -15,7 +15,7 @@ import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.InfoSituationViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info.InfoSituationViewModel
 
 class NavSituationFragment : NavFragment<FragmentNavSituationBinding>(), OnAddMenuItemClickListener {
 

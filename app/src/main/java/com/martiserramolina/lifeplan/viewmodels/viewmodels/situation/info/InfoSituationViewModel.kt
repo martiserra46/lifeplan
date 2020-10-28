@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info
 
 import android.app.Application
 import androidx.lifecycle.*

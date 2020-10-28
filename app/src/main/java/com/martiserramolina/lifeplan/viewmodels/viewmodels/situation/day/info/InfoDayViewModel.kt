@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.info
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -6,7 +6,7 @@ import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.SituationRepositoryViewModel
 import java.lang.IllegalArgumentException
 
-class DayViewModel(val day: Day, application: Application) : SituationRepositoryViewModel(application) {
+class InfoDayViewModel(val day: Day, application: Application) : SituationRepositoryViewModel(application) {
 
     val dayDeleted = MutableLiveData<Boolean>().apply { value = false }
 
@@ -21,9 +21,9 @@ class DayViewModel(val day: Day, application: Application) : SituationRepository
         private val day: Day, private val application: Application
     ) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(DayViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(InfoDayViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return DayViewModel(day, application) as T
+                return InfoDayViewModel(day, application) as T
             }
             throw IllegalArgumentException("Invalid ViewModel")
         }

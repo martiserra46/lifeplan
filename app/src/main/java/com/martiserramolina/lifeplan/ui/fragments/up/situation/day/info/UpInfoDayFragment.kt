@@ -12,18 +12,18 @@ import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentDirections
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.DayViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.info.InfoDayViewModel
 
 class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
             this,
-            DayViewModel.Factory(
+            InfoDayViewModel.Factory(
                 DayFragmentArgs.fromBundle(requireArguments()).day,
                 requireActivity().application
             )
-        ).get(DayViewModel::class.java)
+        ).get(InfoDayViewModel::class.java)
     }
 
     override fun buildBinding(
