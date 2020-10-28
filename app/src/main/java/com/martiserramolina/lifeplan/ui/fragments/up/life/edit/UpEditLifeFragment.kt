@@ -8,15 +8,15 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.edit.EditLifeViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.save.SaveLifeViewModel
 
 class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 
     private val viewModel by ViewModelFactory.Delegate(
-        this, EditLifeViewModel::class.java
+        this, SaveLifeViewModel::class.java
     ) {
         val args = EditLifeFragmentArgs.fromBundle(requireArguments())
-        EditLifeViewModel(args.life, mainActivity.application)
+        SaveLifeViewModel(args.life, mainActivity.application)
     }
 
     override fun buildBinding(
@@ -58,7 +58,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
     }
 
     private fun whenLifeSavedNavigateToPreviousFragment() {
-        viewModel.lifeEdited.observe(viewLifecycleOwner) {
+        viewModel.lifeSaved.observe(viewLifecycleOwner) {
             if (it) navigateToPreviousFragment()
         }
     }
@@ -69,7 +69,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
         viewModel.life.apply {
             lifeText = getTextFromTextEditText()
         }
-        viewModel.editLife()
+        viewModel.saveLife()
     }
 
     private fun setTextToTextEditText(text: String) {

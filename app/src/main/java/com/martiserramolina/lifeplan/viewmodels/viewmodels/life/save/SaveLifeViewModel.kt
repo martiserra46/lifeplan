@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.viewmodels.life.edit
+package com.martiserramolina.lifeplan.viewmodels.viewmodels.life.save
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -6,15 +6,15 @@ import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.LifeViewModel
 import kotlinx.coroutines.launch
 
-class EditLifeViewModel(
+class SaveLifeViewModel(
     val life: Life,
     application: Application
 ) : LifeViewModel(application) {
-    val lifeEdited = MutableLiveData<Boolean>().apply { value = false }
-    fun editLife() {
+    val lifeSaved = MutableLiveData<Boolean>().apply { value = false }
+    fun saveLife() {
         viewModelScope.launch {
             repository.insertLife(life)
-            lifeEdited.value = true
+            lifeSaved.value = true
         }
     }
 }
