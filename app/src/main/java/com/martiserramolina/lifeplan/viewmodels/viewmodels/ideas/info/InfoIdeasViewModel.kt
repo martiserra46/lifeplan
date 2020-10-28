@@ -3,9 +3,8 @@ package com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.info
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Topic
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.IdeasRepositoryViewModel
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.IdeasViewModel
-import java.lang.IllegalArgumentException
+import kotlinx.coroutines.launch
 
 class InfoIdeasViewModel(application: Application) : IdeasViewModel(application) {
 
@@ -26,15 +25,5 @@ class InfoIdeasViewModel(application: Application) : IdeasViewModel(application)
             }
         }
         return true
-    }
-
-    class Factory(private val application: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(InfoIdeasViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return InfoIdeasViewModel(application) as T
-            }
-            throw IllegalArgumentException("Invalid ViewModel")
-        }
     }
 }
