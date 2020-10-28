@@ -33,7 +33,7 @@ class UpEditTopicFragment : UpSaveTopicFragment() {
     override fun getToolbarTitle(): String = getString(R.string.edit)
 
     override fun navigateToPreviousFragment() {
-        mainActivityNavController
+        mainActivity.navController
             .navigate(EditTopicFragmentDirections.actionEditTopicFragmentToTopicFragment(viewModel.topic))
     }
 

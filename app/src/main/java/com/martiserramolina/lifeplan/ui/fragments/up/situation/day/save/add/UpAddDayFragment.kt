@@ -35,7 +35,7 @@ class UpAddDayFragment : UpSaveDayFragment() {
     override fun getToolbarTitle(): String = getString(R.string.situation_day_add)
 
     override fun navigateToPreviousFragment() {
-        mainActivityNavController.navigate(
+        mainActivity.navController.navigate(
             AddDayFragmentDirections.actionAddDayFragmentToMainFragment(NavSection.SITUATION)
         )
     }

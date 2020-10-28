@@ -38,7 +38,7 @@ class UpEditLifeFragment :
     override fun getToolbarTitle(): String = getString(R.string.life_edit)
 
     override fun navigateToPreviousFragment() {
-        mainActivityNavController.navigate(
+        mainActivity.navController.navigate(
             EditLifeFragmentDirections.actionEditLifeFragmentToMainFragment(NavSection.LIFE)
         )
     }

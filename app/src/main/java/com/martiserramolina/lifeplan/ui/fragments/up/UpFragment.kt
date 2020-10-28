@@ -11,8 +11,6 @@ import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 abstract class UpFragment<T : ViewBinding> : BaseFragment<T>() {
 
-    protected val mainActivityNavController by lazy { mainActivity.navController }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()

@@ -42,7 +42,7 @@ class UpInfoTopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
     override fun getToolbarTitle(): String = ""
 
     override fun navigateToPreviousFragment() {
-        mainActivityNavController
+        mainActivity.navController
             .navigate(TopicFragmentDirections.actionTopicFragmentToMainFragment(NavSection.IDEAS))
     }
 
@@ -100,12 +100,12 @@ class UpInfoTopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
     }
 
     private fun navigateToAddIdeaFragment() {
-        mainActivityNavController
+        mainActivity.navController
             .navigate(TopicFragmentDirections.actionTopicFragmentToAddIdeaFragment(viewModel.topic))
     }
 
     private fun navigateToEditTopicFragment() {
-        mainActivityNavController.navigate(
+        mainActivity.navController.navigate(
             TopicFragmentDirections.actionTopicFragmentToEditTopicFragment(viewModel.topic)
         )
     }
@@ -115,7 +115,7 @@ class UpInfoTopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
     }
 
     private fun navigateToIdeaFragment(idea: Idea) {
-        mainActivityNavController.navigate(
+        mainActivity.navController.navigate(
             TopicFragmentDirections.actionTopicFragmentToIdeaFragment(idea, viewModel.topic)
         )
     }
