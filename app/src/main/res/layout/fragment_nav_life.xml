@@ -8,7 +8,7 @@
     tools:context=".ui.fragments.nav.life.NavLifeFragment">
 
     <TextView
-        android:id="@+id/fragment_nav_life_description_tv"
+        android:id="@+id/fragment_nav_life_text_tv"
         style="@style/styleDescriptionTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

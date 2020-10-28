@@ -11,7 +11,7 @@
         style="@style/styleSecondaryTb" />
 
     <EditText
-        android:id="@+id/fragment_nav_life_save_description_et"
+        android:id="@+id/fragment_nav_life_save_text_et"
         style="@style/styleDescriptionEt"
         android:layout_height="0dp"
         android:layout_weight="1"

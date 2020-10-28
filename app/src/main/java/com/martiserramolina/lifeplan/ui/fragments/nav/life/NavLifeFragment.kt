@@ -76,6 +76,6 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
     }
 
     private fun setTextToTextTextView(text: String) {
-        binding.fragmentNavLifeDescriptionTv.text = text
+        binding.fragmentNavLifeTextTv.text = text
     }
 }

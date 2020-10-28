@@ -73,10 +73,10 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
     }
 
     private fun setTextToTextEditText(text: String) {
-        binding.fragmentNavLifeSaveDescriptionEt.setText(text)
+        binding.fragmentNavLifeSaveTextEt.setText(text)
     }
 
     private fun getTextFromTextEditText(): String {
-        return binding.fragmentNavLifeSaveDescriptionEt.text.toString()
+        return binding.fragmentNavLifeSaveTextEt.text.toString()
     }
 }
