@@ -16,18 +16,18 @@ import com.martiserramolina.lifeplan.ui.adapters.IdeaAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentDirections
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.TopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.info.InfoTopicViewModel
 
 class UpInfoTopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
             this,
-            TopicViewModel.Factory(
+            InfoTopicViewModel.Factory(
                 TopicFragmentArgs.fromBundle(requireArguments()).topic,
                 requireActivity().application
             )
-        ).get(TopicViewModel::class.java)
+        ).get(InfoTopicViewModel::class.java)
     }
 
     override fun buildBinding(
