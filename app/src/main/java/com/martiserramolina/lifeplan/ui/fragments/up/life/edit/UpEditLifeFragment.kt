@@ -54,7 +54,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
     }
 
     private fun setupTextTextView() {
-        setTextToEditText(viewModel.life.lifeText)
+        setTextToTextEditText(viewModel.life.lifeText)
     }
 
     private fun whenLifeSavedNavigateToPreviousFragment() {
@@ -67,16 +67,16 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 
     private fun saveLife() {
         viewModel.life.apply {
-            lifeText = getTextFromEditText()
+            lifeText = getTextFromTextEditText()
         }
         viewModel.editLife()
     }
 
-    private fun setTextToEditText(text: String) {
+    private fun setTextToTextEditText(text: String) {
         binding.fragmentNavLifeSaveDescriptionEt.setText(text)
     }
 
-    private fun getTextFromEditText(): String {
+    private fun getTextFromTextEditText(): String {
         return binding.fragmentNavLifeSaveDescriptionEt.text.toString()
     }
 }
