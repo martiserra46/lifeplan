@@ -1,22 +1,11 @@
 package com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea
 
 import android.app.Application
-import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.repository.room.Topic
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.IdeasRepositoryViewModel
-import java.lang.IllegalArgumentException
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.IdeasViewModel
 
-class IdeaViewModel(
-    val idea: Idea, val topic: Topic, application: Application
-) : IdeasRepositoryViewModel(application) {
-
-    val ideaDeleted = MutableLiveData<Boolean>().apply { value = false }
-
-    fun deleteIdea() {
-        viewModelScope.launch {
-            repository.deleteIdea(idea)
-            ideaDeleted.value = true
-        }
-    }
+abstract class IdeaViewModel(application: Application): IdeasViewModel(application) {
+    protected abstract val idea: Idea
+    protected abstract val topic: Topic
 }

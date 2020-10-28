@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentDirections
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.IdeaViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.info.InfoIdeaViewModel
 
 class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
 
@@ -18,8 +18,8 @@ class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
         val args = IdeaFragmentArgs.fromBundle(requireArguments())
         ViewModelProvider(
             this,
-            IdeaViewModel.Factory(args.topic, args.idea, requireActivity().application)
-        ).get(IdeaViewModel::class.java)
+            InfoIdeaViewModel.Factory(args.topic, args.idea, requireActivity().application)
+        ).get(InfoIdeaViewModel::class.java)
     }
 
     override fun buildBinding(
