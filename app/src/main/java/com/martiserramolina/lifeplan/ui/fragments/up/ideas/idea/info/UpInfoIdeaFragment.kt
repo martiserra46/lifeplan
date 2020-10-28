@@ -12,7 +12,7 @@ import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.IdeaViewModel
 
-class IdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
+class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
 
     private val viewModel by lazy {
         val args = IdeaFragmentArgs.fromBundle(requireArguments())

@@ -12,7 +12,7 @@ import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.save.add.AddIdeaViewModel
 import java.util.*
 
-class AddIdeaFragment : UpFragment<FragmentNavIdeasIdeaSaveBinding>() {
+class UpAddIdeaFragment : UpFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

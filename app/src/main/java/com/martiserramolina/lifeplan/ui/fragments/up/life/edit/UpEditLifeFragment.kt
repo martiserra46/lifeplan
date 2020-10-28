@@ -12,7 +12,7 @@ import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnSaveMenuItemClick
 import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.life.edit.EditLifeViewModel
 
-class EditLifeFragment :
+class UpEditLifeFragment :
     UpLifeFragment<FragmentNavLifeSaveBinding>(),
     OnSaveMenuItemClickListener
 {

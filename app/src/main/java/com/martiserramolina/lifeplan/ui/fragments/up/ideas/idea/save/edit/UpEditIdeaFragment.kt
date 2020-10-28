@@ -12,7 +12,7 @@ import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.idea.save.edit.EditIdeaViewModel
 import java.util.*
 
-class EditIdeaFragment : UpFragment<FragmentNavIdeasIdeaSaveBinding>() {
+class UpEditIdeaFragment : UpFragment<FragmentNavIdeasIdeaSaveBinding>() {
 
     private val viewModel by lazy {
         val args = EditIdeaFragmentArgs.fromBundle(requireArguments())

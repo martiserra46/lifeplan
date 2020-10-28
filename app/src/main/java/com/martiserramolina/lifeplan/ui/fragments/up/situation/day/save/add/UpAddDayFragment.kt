@@ -15,7 +15,7 @@ import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.add.AddDayViewModel
 import java.util.*
 
-class AddDayFragment : UpFragment<FragmentNavSituationDaySaveBinding>() {
+class UpAddDayFragment : UpFragment<FragmentNavSituationDaySaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

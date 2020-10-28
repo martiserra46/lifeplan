@@ -14,7 +14,7 @@ import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentAr
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.DayViewModel
 
-class DayFragment : UpFragment<FragmentNavSituationDayBinding>() {
+class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

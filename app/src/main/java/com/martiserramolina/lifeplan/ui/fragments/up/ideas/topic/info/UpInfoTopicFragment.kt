@@ -18,7 +18,7 @@ import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentAr
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.TopicViewModel
 
-class TopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
+class UpInfoTopicFragment : UpFragment<FragmentNavIdeasTopicBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(

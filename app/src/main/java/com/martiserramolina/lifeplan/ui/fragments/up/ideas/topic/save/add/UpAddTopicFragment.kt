@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.save.edit
+package com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.save.add
 
 import android.os.Bundle
 import android.view.*
@@ -6,21 +6,18 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
+import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
-import com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.save.edit.EditTopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.nav.ideas.topic.save.add.AddTopicViewModel
 
-class EditTopicFragment : UpFragment<FragmentNavIdeasTopicSaveBinding>() {
+class UpAddTopicFragment : UpFragment<FragmentNavIdeasTopicSaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
-            this,
-            EditTopicViewModel.Factory(
-                EditTopicFragmentArgs.fromBundle(requireArguments()).topic,
-                requireActivity().application
-            )
-        ).get(EditTopicViewModel::class.java)
+            this, AddTopicViewModel.Factory(requireActivity().application)
+        ).get(AddTopicViewModel::class.java)
     }
-    
+
     override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -30,26 +27,26 @@ class EditTopicFragment : UpFragment<FragmentNavIdeasTopicSaveBinding>() {
 
     override fun getToolbar(): Toolbar = binding.fragmentNavIdeasTopicSaveTb
 
-    override fun getToolbarTitle(): String = getString(R.string.edit)
+    override fun getToolbarTitle(): String = getString(R.string.ideas_topic_add)
 
     override fun navigateToPreviousFragment() {
-        navController
-            .navigate(EditTopicFragmentDirections.actionEditTopicFragmentToTopicFragment(viewModel.topic))
+        navController.navigate(
+            AddTopicFragmentDirections.actionAddTopicFragmentToMainFragment(NavSection.IDEAS)
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupTextTv()
         navigateToPreviousFragmentAfterDbOp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.ideas_topic_edit_menu, menu)
+        inflater.inflate(R.menu.ideas_topic_add_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.ideas_topic_edit_save_mi -> {
+            R.id.ideas_topic_add_save_mi -> {
                 saveTopic()
                 true
             }
@@ -61,11 +58,7 @@ class EditTopicFragment : UpFragment<FragmentNavIdeasTopicSaveBinding>() {
         viewModel.topic.apply {
             topicText = getText()
         }
-        viewModel.editTopic()
-    }
-
-    private fun setupTextTv() {
-        binding.fragmentNavIdeasTopicSaveTitleEt.setText(viewModel.topic.topicText)
+        viewModel.addTopic()
     }
 
     private fun getText(): String {
@@ -73,8 +66,8 @@ class EditTopicFragment : UpFragment<FragmentNavIdeasTopicSaveBinding>() {
     }
 
     private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.topicEdited.observe(viewLifecycleOwner) { topicUpdated ->
-            if (topicUpdated) navigateToPreviousFragment()
+        viewModel.topicAdded.observe(viewLifecycleOwner) { topicAdded ->
+            if (topicAdded) navigateToPreviousFragment()
         }
     }
 }

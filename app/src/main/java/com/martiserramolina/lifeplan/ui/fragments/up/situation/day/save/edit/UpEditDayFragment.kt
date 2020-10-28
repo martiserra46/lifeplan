@@ -12,7 +12,7 @@ import com.martiserramolina.lifeplan.ui.adapters.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.edit.EditDayViewModel
 
-class EditDayFragment : UpFragment<FragmentNavSituationDaySaveBinding>() {
+class UpEditDayFragment : UpFragment<FragmentNavSituationDaySaveBinding>() {
 
     private val viewModel by lazy {
         ViewModelProvider(
