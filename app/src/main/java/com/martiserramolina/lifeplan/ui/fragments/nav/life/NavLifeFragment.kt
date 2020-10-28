@@ -46,10 +46,8 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
         }
     }
 
-    private fun onEditMenuItemSelected(): Boolean {
-        navigateToEditLifeFragmentIfDataIsLoaded()
-        return true
-    }
+    private fun onEditMenuItemSelected(): Boolean =
+        navigateToEditLifeFragmentIfDataIsLoaded().run { true }
 
     private fun navigateToEditLifeFragmentIfDataIsLoaded() {
         if (isDataLoaded()) {
