@@ -6,7 +6,9 @@ import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.IdeasViewModel
 import kotlinx.coroutines.launch
 
-class InfoIdeasViewModel(application: Application) : IdeasViewModel(application) {
+class InfoIdeasViewModel(
+    application: Application
+) : IdeasViewModel(application) {
 
     companion object { private const val NUM_TOPICS_TO_FETCH = 20 }
 

@@ -9,10 +9,10 @@ import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.IdeaViewMo
 import kotlinx.coroutines.launch
 
 class InfoIdeaViewModel(
-    override val idea: Idea,
-    override val topic: Topic,
+    idea: Idea,
+    topic: Topic,
     application: Application
-) : IdeaViewModel(application) {
+) : IdeaViewModel(idea, topic, application) {
     val ideaDeleted = MutableLiveData<Boolean>().apply { value = false }
     fun deleteIdea() {
         viewModelScope.launch {

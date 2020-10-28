@@ -8,9 +8,9 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class EditTopicViewModel(
-    override var topic: Topic,
+    topic: Topic,
     application: Application
-) : TopicViewModel(application) {
+) : TopicViewModel(topic, application) {
     val topicEdited = MutableLiveData<Boolean>().apply { value = false }
     fun editTopic() {
         viewModelScope.launch {

@@ -7,9 +7,9 @@ import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.DayView
 import kotlinx.coroutines.launch
 
 class InfoDayViewModel(
-    override val day: Day,
+    day: Day,
     application: Application
-) : DayViewModel(application) {
+) : DayViewModel(day, application) {
     val dayDeleted = MutableLiveData<Boolean>().apply { value = false }
     fun deleteDay() {
         viewModelScope.launch {

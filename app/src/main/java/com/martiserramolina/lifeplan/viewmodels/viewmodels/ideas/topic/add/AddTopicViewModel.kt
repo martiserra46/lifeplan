@@ -6,8 +6,9 @@ import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.TopicViewModel
 import kotlinx.coroutines.launch
 
-class AddTopicViewModel(application: Application) : TopicViewModel(application) {
-    override var topic = Topic()
+class AddTopicViewModel(
+    application: Application
+) : TopicViewModel(Topic(), application) {
     val topicAdded = MutableLiveData<Boolean>().apply { value = false }
     fun addTopic() {
         viewModelScope.launch {

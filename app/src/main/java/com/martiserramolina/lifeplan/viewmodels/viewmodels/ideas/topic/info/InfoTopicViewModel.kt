@@ -9,9 +9,9 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class InfoTopicViewModel(
-    override val topic: Topic,
+    topic: Topic,
     application: Application
-) : TopicViewModel(application) {
+) : TopicViewModel(topic, application) {
 
     companion object {
         private const val NUM_IDEAS_TO_FETCH = 20

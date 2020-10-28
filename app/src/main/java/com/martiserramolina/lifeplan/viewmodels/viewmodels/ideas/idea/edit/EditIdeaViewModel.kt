@@ -8,10 +8,10 @@ import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.IdeaViewMo
 import kotlinx.coroutines.launch
 
 class EditIdeaViewModel(
-    override var idea: Idea,
-    override val topic: Topic,
+    idea: Idea,
+    topic: Topic,
     application: Application
-) : IdeaViewModel(application) {
+) : IdeaViewModel(idea, topic, application) {
     val ideaEdited = MutableLiveData<Boolean>().apply { value = false }
     fun editIdea() {
         viewModelScope.launch {

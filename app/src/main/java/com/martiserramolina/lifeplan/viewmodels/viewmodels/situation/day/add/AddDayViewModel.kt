@@ -6,8 +6,9 @@ import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.DayViewModel
 import kotlinx.coroutines.launch
 
-class AddDayViewModel(application: Application) : DayViewModel(application) {
-    override var day = Day()
+class AddDayViewModel(
+    application: Application
+) : DayViewModel(Day(), application) {
     val dayAdded = MutableLiveData<Boolean>().apply { value = false }
     fun addDay() {
         viewModelScope.launch {
