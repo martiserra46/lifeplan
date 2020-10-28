@@ -67,10 +67,7 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>() {
         }
     }
 
-    private fun onAddMenuItemSelected(): Boolean {
-        navigateToAddDayFragment()
-        return true
-    }
+    private fun onAddMenuItemSelected(): Boolean = navigateToAddDayFragment().run { true }
 
     private fun navigateToAddDayFragment() {
         mainActivity.navController
