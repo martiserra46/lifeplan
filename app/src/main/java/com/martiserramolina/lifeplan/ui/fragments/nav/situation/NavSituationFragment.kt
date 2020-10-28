@@ -3,41 +3,35 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.situation
 import android.os.Bundle
 import android.view.*
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.repository.room.Day
-import com.martiserramolina.lifeplan.ui.activities.MainActivity
 import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
-import com.martiserramolina.lifeplan.ui.fragments.interfaces.OnAddMenuItemClickListener
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
+import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info.InfoSituationViewModel
 
-class NavSituationFragment : NavFragment<FragmentNavSituationBinding>(), OnAddMenuItemClickListener {
+class NavSituationFragment : NavFragment<FragmentNavSituationBinding>() {
 
-    private val mainActivity by lazy { activity as MainActivity }
-
-    private val viewModel by lazy {
-        ViewModelProvider(
-            this, InfoSituationViewModel.Factory(requireActivity().application)
-        ).get(InfoSituationViewModel::class.java)
-    }
+    private val viewModel by ViewModelFactory.Delegate(
+        this, InfoSituationViewModel::class.java
+    ) { InfoSituationViewModel(mainActivity.application) }
 
     override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentNavSituationBinding {
-        return FragmentNavSituationBinding.inflate(inflater, container, false)
-    }
+    ): FragmentNavSituationBinding = FragmentNavSituationBinding.inflate(
+        inflater, container, false
+    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupDaysRv()
+        setupDaysRecyclerView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -46,12 +40,12 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>(), OnAddMe
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.situation_add_mi -> onAddMenuItemClicked()
+            R.id.situation_add_mi -> onAddMenuItemSelected()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupDaysRv() {
+    private fun setupDaysRecyclerView() {
         binding.fragmentNavSituationRv.apply {
             adapter = DayAdapter { navigateToDayFragment(it) }
             addItemDecoration(
@@ -73,7 +67,7 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>(), OnAddMe
         }
     }
 
-    override fun onAddMenuItemClicked(): Boolean {
+    private fun onAddMenuItemSelected(): Boolean {
         navigateToAddDayFragment()
         return true
     }
