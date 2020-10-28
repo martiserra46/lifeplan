@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.save.UpSaveTopicFragment
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.edit.EditTopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.save.edit.EditTopicViewModel
 
 class UpEditTopicFragment : UpSaveTopicFragment() {
 
