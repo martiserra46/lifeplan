@@ -2,10 +2,8 @@ package com.martiserramolina.lifeplan.viewmodels.nav.life
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.martiserramolina.lifeplan.repository.LifeRepository
-import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Life
-import com.martiserramolina.lifeplan.viewmodels.abstracts.LifeRepositoryViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.LifeRepositoryViewModel
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 

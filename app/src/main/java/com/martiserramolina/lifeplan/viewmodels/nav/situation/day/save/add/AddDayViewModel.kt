@@ -2,10 +2,8 @@ package com.martiserramolina.lifeplan.viewmodels.nav.situation.day.save.add
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.martiserramolina.lifeplan.repository.SituationRepository
-import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Day
-import com.martiserramolina.lifeplan.viewmodels.abstracts.SituationRepositoryViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.SituationRepositoryViewModel
 import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
