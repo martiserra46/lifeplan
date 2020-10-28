@@ -18,16 +18,4 @@ class EditDayViewModel(
             dayEdited.value = true
         }
     }
-
-    class Factory(
-        private val day: Day, private val application: Application
-    ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(EditDayViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return EditDayViewModel(day, application) as T
-            }
-            throw IllegalArgumentException("Invalid ViewModel")
-        }
-    }
 }

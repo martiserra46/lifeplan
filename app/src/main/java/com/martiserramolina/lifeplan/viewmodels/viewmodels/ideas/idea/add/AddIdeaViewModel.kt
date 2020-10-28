@@ -21,16 +21,4 @@ class AddIdeaViewModel(
             ideaAdded.value = true
         }
     }
-
-    class Factory(
-        private val topic: Topic, private val application: Application
-    ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(AddIdeaViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return AddIdeaViewModel(topic, application) as T
-            }
-            throw IllegalArgumentException("Invalid ViewModel")
-        }
-    }
 }

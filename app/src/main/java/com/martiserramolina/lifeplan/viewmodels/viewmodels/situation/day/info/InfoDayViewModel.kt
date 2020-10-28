@@ -16,16 +16,4 @@ class InfoDayViewModel(val day: Day, application: Application) : SituationReposi
             dayDeleted.value = true
         }
     }
-
-    class Factory(
-        private val day: Day, private val application: Application
-    ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(InfoDayViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return InfoDayViewModel(day, application) as T
-            }
-            throw IllegalArgumentException("Invalid ViewModel")
-        }
-    }
 }

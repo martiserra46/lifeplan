@@ -26,14 +26,4 @@ class InfoSituationViewModel(application: Application) : SituationRepositoryView
         }
         return true
     }
-
-    class Factory(private val application: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(InfoSituationViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return InfoSituationViewModel(application) as T
-            }
-            throw IllegalArgumentException("Invalid ViewModel")
-        }
-    }
 }
