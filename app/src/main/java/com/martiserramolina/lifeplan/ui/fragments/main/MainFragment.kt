@@ -19,9 +19,6 @@ import com.martiserramolina.lifeplan.ui.fragments.MainFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
-
-    private val mainActivity by lazy { activity as MainActivity }
-
     private val navController: NavController
         get() = childFragmentManager.findFragmentById(
             R.id.fragment_main_fcv
