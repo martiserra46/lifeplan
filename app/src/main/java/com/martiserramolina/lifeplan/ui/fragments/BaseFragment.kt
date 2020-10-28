@@ -24,7 +24,7 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        requireActivity().hideKeyboard()
+        hideKeyboard()
     }
 
     override fun onDestroyView() {
@@ -33,4 +33,8 @@ abstract class BaseFragment<T : ViewBinding> : Fragment() {
     }
 
     abstract fun buildBinding(inflater: LayoutInflater, container: ViewGroup?): T
+
+    private fun hideKeyboard() {
+        requireActivity().hideKeyboard()
+    }
 }
