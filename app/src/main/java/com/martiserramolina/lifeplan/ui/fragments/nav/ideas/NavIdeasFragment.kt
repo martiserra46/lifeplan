@@ -64,10 +64,7 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>() {
         }
     }
 
-    private fun onAddMenuItemSelected(): Boolean {
-        navigateToAddTopicFragment()
-        return true
-    }
+    private fun onAddMenuItemSelected(): Boolean = navigateToAddTopicFragment().run { true }
 
     private fun navigateToAddTopicFragment() {
         mainActivity.navController
