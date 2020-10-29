@@ -43,7 +43,9 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
     }
 
     private fun setupViews() {
+        setupTitleEditText()
         setupImportanceSpinner()
+        setupDescriptionEditText()
     }
 
     private fun whenIdeaSavedNavigateToPreviousFragment() {
@@ -58,12 +60,21 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
 
     private fun onSaveMenuItemSelected(): Boolean = saveIdeaIfValid().run { true }
 
+    private fun setupTitleEditText() {
+        binding.fragmentNavIdeasIdeaSaveTitleEt.setText(viewModel.idea.ideaTitle)
+    }
+
     private fun setupImportanceSpinner() {
         binding.fragmentNavIdeasIdeaSaveImportanceSp.apply {
             adapter = IdeaImportanceAdapter(
                 requireContext(), R.layout.spinner_item
             ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
+            setSelection(viewModel.idea.ideaImportance.ordinal)
         }
+    }
+
+    private fun setupDescriptionEditText() {
+        binding.fragmentNavIdeasIdeaSaveDescriptionEt.setText(viewModel.idea.ideaDescription)
     }
 
     private fun saveIdeaIfValid() {
