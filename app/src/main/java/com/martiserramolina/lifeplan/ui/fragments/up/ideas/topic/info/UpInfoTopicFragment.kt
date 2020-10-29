@@ -43,8 +43,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupTitleTextView()
-        setupIdeasRecyclerView()
+        setupViews()
         whenTopicDeletedNavigateToPreviousFragment()
     }
 
@@ -61,8 +60,25 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
         }
     }
 
+    private fun setupViews() {
+        setupTitleTextView()
+        setupIdeasRecyclerView()
+    }
+
+    private fun whenTopicDeletedNavigateToPreviousFragment() {
+        viewModel.topicDeleted.observe(viewLifecycleOwner) { topicDeleted ->
+            if (topicDeleted) navigateToPreviousFragment()
+        }
+    }
+
+    private fun onAddMenuItemSelected(): Boolean = navigateToAddIdeaFragment().run { true }
+
+    private fun onEditMenuItemSelected(): Boolean = navigateToEditTopicFragment().run { true }
+
+    private fun onDeleteMenuItemSelected(): Boolean = deleteTopic().run { true }
+
     private fun setupTitleTextView() {
-        setTextToTitleTextView(viewModel.topic.topicText)
+        binding.fragmentNavIdeasTopicTitleTv.text = viewModel.topic.topicText
     }
 
     private fun setupIdeasRecyclerView() {
@@ -84,18 +100,6 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
             binding.fragmentNavIdeasTopicRv.adapter.run { this as IdeaAdapter }.listIdeas = ideas
         }
     }
-
-    private fun whenTopicDeletedNavigateToPreviousFragment() {
-        viewModel.topicDeleted.observe(viewLifecycleOwner) { topicDeleted ->
-            if (topicDeleted) navigateToPreviousFragment()
-        }
-    }
-
-    private fun onAddMenuItemSelected(): Boolean = navigateToAddIdeaFragment().run { true }
-
-    private fun onEditMenuItemSelected(): Boolean = navigateToEditTopicFragment().run { true }
-
-    private fun onDeleteMenuItemSelected(): Boolean = deleteTopic().run { true }
 
     private fun navigateToAddIdeaFragment() {
         mainActivity.navController
@@ -126,9 +130,5 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
         if (lastVisibleIdeaPosition == lastIdeaPositionRv) {
             viewModel.fetchIdeasFromPositionIfNotFetched(lastIdeaPositionRv + 1)
         }
-    }
-
-    private fun setTextToTitleTextView(title: String) {
-        binding.fragmentNavIdeasTopicTitleTv.text = title
     }
 }
