@@ -27,4 +27,5 @@
     <string name="add_idea">Add Idea</string>
     <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
     <string name="invalid_day">Invalid Day</string>
+    <string name="invalid_topic">Invalid Topic</string>
 </resources>
