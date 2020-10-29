@@ -40,9 +40,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupDateTextView()
-        setupSatisfactionTextView()
-        setupDescriptionTextView()
+        setupViews()
         whenDayDeletedNavigateToPreviousFragment()
     }
 
@@ -57,6 +55,22 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+    private fun setupViews() {
+        setupDateTextView()
+        setupSatisfactionTextView()
+        setupDescriptionTextView()
+    }
+
+    private fun whenDayDeletedNavigateToPreviousFragment() {
+        viewModel.dayDeleted.observe(viewLifecycleOwner) { dayDeleted ->
+            if (dayDeleted) navigateToPreviousFragment()
+        }
+    }
+
+    private fun onEditMenuItemSelected(): Boolean = navigateToEditDayFragment().run { true }
+
+    private fun onDeleteMenuItemSelected(): Boolean = deleteDay().run { true }
 
     private fun setupDateTextView() {
         binding.fragmentNavSituationDayDateTv.text = viewModel.day
@@ -75,16 +89,6 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
     private fun setupDescriptionTextView() {
         binding.fragmentNavSituationDayDescriptionTv.text = viewModel.day.dayText
     }
-
-    private fun whenDayDeletedNavigateToPreviousFragment() {
-        viewModel.dayDeleted.observe(viewLifecycleOwner) { dayDeleted ->
-            if (dayDeleted) navigateToPreviousFragment()
-        }
-    }
-
-    private fun onEditMenuItemSelected(): Boolean = navigateToEditDayFragment().run { true }
-
-    private fun onDeleteMenuItemSelected(): Boolean = deleteDay().run { true }
 
     private fun navigateToEditDayFragment() {
         mainActivity.navController.navigate(
