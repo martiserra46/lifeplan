@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.Sa
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.add.AddDayViewModel
 
 class UpAddDayFragment : UpSaveDayFragment() {
-    
+
     override val viewModel by ViewModelFactory.Delegate(
         this, AddDayViewModel::class.java
     ) { AddDayViewModel(mainActivity.application) }
