@@ -47,7 +47,7 @@ abstract class UpFragment<T : ViewBinding> : BaseFragment<T>() {
 
     abstract fun getToolbar(): Toolbar
 
-    abstract fun getToolbarTitle(): String
+    open fun getToolbarTitle(): String = ""
 
     abstract fun navigateToPreviousFragment()
 }

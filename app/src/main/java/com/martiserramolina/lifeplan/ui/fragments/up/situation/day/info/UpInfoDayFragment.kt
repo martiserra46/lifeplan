@@ -35,8 +35,6 @@ class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
 
     override fun getToolbar(): Toolbar = binding.fragmentNavSituationDayTb
 
-    override fun getToolbarTitle(): String = ""
-
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(
             DayFragmentDirections.actionDayFragmentToMainFragment(NavSection.SITUATION)
