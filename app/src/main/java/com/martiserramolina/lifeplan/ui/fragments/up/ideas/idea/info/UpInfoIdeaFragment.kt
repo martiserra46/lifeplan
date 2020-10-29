@@ -4,30 +4,29 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
-import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
+import com.martiserramolina.lifeplan.ui.fragments.up.ideas.UpIdeasFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentDirections
+import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.info.InfoIdeaViewModel
 
-class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
+class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
 
-    private val viewModel by lazy {
+    private val viewModel by ViewModelFactory.Delegate(
+        this, InfoIdeaViewModel::class.java
+    ) {
         val args = IdeaFragmentArgs.fromBundle(requireArguments())
-        ViewModelProvider(
-            this,
-            InfoIdeaViewModel.Factory(args.topic, args.idea, requireActivity().application)
-        ).get(InfoIdeaViewModel::class.java)
+        InfoIdeaViewModel(args.idea, args.topic, mainActivity.application)
     }
 
     override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentNavIdeasIdeaBinding {
-        return FragmentNavIdeasIdeaBinding.inflate(inflater, container, false)
-    }
+    ): FragmentNavIdeasIdeaBinding = FragmentNavIdeasIdeaBinding.inflate(
+        inflater, container, false
+    )
 
     override fun getToolbar(): Toolbar = binding.fragmentNavIdeasIdeaTb
 
@@ -38,10 +37,8 @@ class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupTitleTv()
-        setupImportanceTv()
-        setupDescriptionTv()
-        navigateToPreviousFragmentAfterDbOp()
+        setupViews()
+        whenIdeaDeletedNavigateToPreviousFragment()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -50,23 +47,33 @@ class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.ideas_idea_edit_mi -> {
-                navigateToEditIdeaFragment()
-                true
-            }
-            R.id.ideas_idea_delete_mi -> {
-                deleteIdea()
-                true
-            }
+            R.id.ideas_idea_edit_mi -> onEditMenuItemSelected()
+            R.id.ideas_idea_delete_mi -> onDeleteMenuItemSelected()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupTitleTv() {
+    private fun setupViews() {
+        setupTitleTextView()
+        setupImportanceTextView()
+        setupDescriptionTextView()
+    }
+
+    private fun whenIdeaDeletedNavigateToPreviousFragment() {
+        viewModel.ideaDeleted.observe(viewLifecycleOwner) {
+            if (it) navigateToPreviousFragment()
+        }
+    }
+
+    private fun onEditMenuItemSelected(): Boolean = navigateToEditIdeaFragment().run { true }
+
+    private fun onDeleteMenuItemSelected(): Boolean = deleteIdea().run { true }
+
+    private fun setupTitleTextView() {
         binding.fragmentNavIdeasIdeaTitleTv.text = viewModel.idea.ideaTitle
     }
 
-    private fun setupImportanceTv() {
+    private fun setupImportanceTextView() {
         viewModel.idea.ideaImportance.let { importance ->
             binding.fragmentNavIdeasIdeaImportanceTv.apply {
                 text = getString(importance.stringId)
@@ -75,7 +82,7 @@ class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
         }
     }
 
-    private fun setupDescriptionTv() {
+    private fun setupDescriptionTextView() {
         binding.fragmentNavIdeasIdeaDescriptionTv.text = viewModel.idea.ideaDescription
     }
 
@@ -90,11 +97,5 @@ class UpInfoIdeaFragment : UpFragment<FragmentNavIdeasIdeaBinding>() {
 
     private fun deleteIdea() {
         viewModel.deleteIdea()
-    }
-
-    private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.ideaDeleted.observe(viewLifecycleOwner) { ideaDeleted ->
-            if (ideaDeleted) navigateToPreviousFragment()
-        }
     }
 }
