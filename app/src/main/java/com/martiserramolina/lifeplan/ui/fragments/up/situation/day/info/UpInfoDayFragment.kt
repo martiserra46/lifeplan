@@ -4,34 +4,31 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
-import com.martiserramolina.lifeplan.ui.fragments.up.UpFragment
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentDirections
+import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
+import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.info.InfoDayViewModel
 
-class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
+class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
 
-    private val viewModel by lazy {
-        ViewModelProvider(
-            this,
-            InfoDayViewModel.Factory(
-                DayFragmentArgs.fromBundle(requireArguments()).day,
-                requireActivity().application
-            )
-        ).get(InfoDayViewModel::class.java)
+    private val viewModel by ViewModelFactory.Delegate(
+        this, InfoDayViewModel::class.java
+    ) {
+        val args = DayFragmentArgs.fromBundle(requireArguments())
+        InfoDayViewModel(args.day, mainActivity.application)
     }
 
     override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentNavSituationDayBinding {
-        return FragmentNavSituationDayBinding.inflate(inflater, container, false)
-    }
+    ): FragmentNavSituationDayBinding = FragmentNavSituationDayBinding.inflate(
+        inflater, container, false
+    )
 
     override fun getToolbar(): Toolbar = binding.fragmentNavSituationDayTb
 
@@ -43,10 +40,10 @@ class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupDateTv()
-        setupSatisfactionTv()
-        setupDescriptionTv()
-        navigateToPreviousFragmentAfterDbOp()
+        setupDateTextView()
+        setupSatisfactionTextView()
+        setupDescriptionTextView()
+        whenDayDeletedNavigateToPreviousFragment()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -55,24 +52,18 @@ class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.situation_day_edit_mi -> {
-                navigateToEditDayFragment()
-                true
-            }
-            R.id.situation_day_delete_mi -> {
-                deleteDay()
-                true
-            }
+            R.id.situation_day_edit_mi -> onEditMenuItemSelected()
+            R.id.situation_day_delete_mi -> onDeleteMenuItemSelected()
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun setupDateTv() {
+    private fun setupDateTextView() {
         binding.fragmentNavSituationDayDateTv.text = viewModel.day
             .dayDate.formatted()
     }
 
-    private fun setupSatisfactionTv() {
+    private fun setupSatisfactionTextView() {
         viewModel.day.daySatisfaction.let { satisfaction ->
             binding.fragmentNavSituationDaySatisfactionTv.apply {
                 text = getString(satisfaction.stringId)
@@ -81,9 +72,19 @@ class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
         }
     }
 
-    private fun setupDescriptionTv() {
+    private fun setupDescriptionTextView() {
         binding.fragmentNavSituationDayDescriptionTv.text = viewModel.day.dayText
     }
+
+    private fun whenDayDeletedNavigateToPreviousFragment() {
+        viewModel.dayDeleted.observe(viewLifecycleOwner) { dayDeleted ->
+            if (dayDeleted) navigateToPreviousFragment()
+        }
+    }
+
+    private fun onEditMenuItemSelected(): Boolean = navigateToEditDayFragment().run { true }
+
+    private fun onDeleteMenuItemSelected(): Boolean = deleteDay().run { true }
 
     private fun navigateToEditDayFragment() {
         mainActivity.navController.navigate(
@@ -93,11 +94,5 @@ class UpInfoDayFragment : UpFragment<FragmentNavSituationDayBinding>() {
 
     private fun deleteDay() {
         viewModel.deleteDay()
-    }
-
-    private fun navigateToPreviousFragmentAfterDbOp() {
-        viewModel.dayDeleted.observe(viewLifecycleOwner) { dayDeleted ->
-            if (dayDeleted) navigateToPreviousFragment()
-        }
     }
 }
