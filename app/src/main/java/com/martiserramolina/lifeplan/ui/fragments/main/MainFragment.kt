@@ -17,10 +17,14 @@ import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
+    companion object { private const val NAV_SECTION_KEY = "navSection" }
+
     private val navController by lazy {
         childFragmentManager.findFragmentById(R.id.fragment_main_fcv)
             .run { this as NavHostFragment }.navController
     }
+
+    private lateinit var navSection: NavSection
 
     override fun buildBinding(
         inflater: LayoutInflater,
@@ -30,7 +34,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
-        setupNavigation()
+        setupNavigation(savedInstanceState)
         setupBackButton()
     }
 
@@ -39,6 +43,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
             android.R.id.home -> onToolbarMenuClicked()
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable(NAV_SECTION_KEY, navSection)
     }
 
     private fun setupToolbar() {
@@ -52,8 +61,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         setHasOptionsMenu(true)
     }
 
-    private fun setupNavigation() {
-        navigateToNavSection(MainFragmentArgs.fromBundle(requireArguments()).navSection)
+    private fun setupNavigation(savedInstanceState: Bundle?) {
+        navSection = getFirstNavSection(savedInstanceState)
+        navigateToNavSection()
         setupNavigationView()
     }
 
@@ -67,7 +77,15 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         return true
     }
 
-    private fun navigateToNavSection(navSection: NavSection) {
+    private fun getFirstNavSection(savedInstanceState: Bundle?): NavSection {
+        return if (savedInstanceState == null) {
+            MainFragmentArgs.fromBundle(requireArguments()).navSection
+        } else {
+            savedInstanceState.getSerializable("navSection") as NavSection
+        }
+    }
+
+    private fun navigateToNavSection() {
         mainActivity.supportActionBar?.title = getString(navSection.label)
         binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
         navController.navigate(navSection.destinationId)
@@ -78,7 +96,8 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        navigateToNavSection(NavSection.getNavSection(menuItem.itemId))
+        navSection = NavSection.getNavSection(menuItem.itemId)
+        navigateToNavSection()
         Handler(Looper.getMainLooper()).postDelayed({
             binding.fragmentMainDl.closeDrawer(GravityCompat.START)
         }, requireContext().resources.getInteger(R.integer.animation_start_offset).toLong())
