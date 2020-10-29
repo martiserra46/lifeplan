@@ -26,4 +26,5 @@
     <string name="add_topic_hint">Topic name</string>
     <string name="add_idea">Add Idea</string>
     <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
+    <string name="invalid_day">Invalid Day</string>
 </resources>
