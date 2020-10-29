@@ -38,7 +38,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupTextTextView()
+        setupViews()
         whenLifeSavedNavigateToPreviousFragment()
     }
 
@@ -53,8 +53,8 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
         }
     }
 
-    private fun setupTextTextView() {
-        setTextToTextEditText(viewModel.life.lifeText)
+    private fun setupViews() {
+        setupTextTextView()
     }
 
     private fun whenLifeSavedNavigateToPreviousFragment() {
@@ -65,15 +65,15 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 
     private fun onSaveMenuItemSelected(): Boolean = saveLife().run { true }
 
+    private fun setupTextTextView() {
+        binding.fragmentNavLifeSaveTextEt.setText(viewModel.life.lifeText)
+    }
+
     private fun saveLife() {
         viewModel.life.apply {
             lifeText = getTextFromTextEditText()
         }
         viewModel.saveLife()
-    }
-
-    private fun setTextToTextEditText(text: String) {
-        binding.fragmentNavLifeSaveTextEt.setText(text)
     }
 
     private fun getTextFromTextEditText(): String {
