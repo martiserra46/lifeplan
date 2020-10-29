@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.adapters
+package com.martiserramolina.lifeplan.ui.adapters.spinner
 
 import android.content.Context
 import android.view.View

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.repository.room.Day
-import com.martiserramolina.lifeplan.ui.adapters.DayAdapter
+import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.situation.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory

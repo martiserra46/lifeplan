@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.adapters
+package com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.situation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,7 +16,7 @@ class DayAdapter(
         set(value) {
             val oldValue = field
             field = value.toList()
-            DiffUtil.calculateDiff(DayAdapter.DayListDiffCallback(oldValue, field))
+            DiffUtil.calculateDiff(DayListDiffCallback(oldValue, field))
                 .dispatchUpdatesTo(this)
         }
 
