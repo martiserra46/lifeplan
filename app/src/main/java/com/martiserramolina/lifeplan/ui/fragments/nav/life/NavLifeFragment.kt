@@ -5,7 +5,7 @@ import android.view.*
 import android.widget.Toast
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
-import com.martiserramolina.lifeplan.ui.fragments.MainFragmentDirections
+import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.info.InfoLifeViewModel

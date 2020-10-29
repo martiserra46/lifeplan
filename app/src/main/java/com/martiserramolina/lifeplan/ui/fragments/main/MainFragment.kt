@@ -13,7 +13,6 @@ import androidx.navigation.fragment.NavHostFragment
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.ui.fragments.MainFragmentArgs
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {

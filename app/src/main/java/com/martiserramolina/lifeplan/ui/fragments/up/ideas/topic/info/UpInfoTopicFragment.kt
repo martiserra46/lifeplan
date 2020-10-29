@@ -12,8 +12,6 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.IdeaAdapter
-import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentArgs
-import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.TopicFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.info.InfoTopicViewModel
@@ -23,7 +21,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoTopicViewModel::class.java
     ) {
-        val args = TopicFragmentArgs.fromBundle(requireArguments())
+        val args = UpInfoTopicFragmentArgs.fromBundle(requireArguments())
         InfoTopicViewModel(args.topic, mainActivity.application)
     }
 
@@ -37,8 +35,9 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
     override fun getToolbar(): Toolbar = binding.fragmentNavIdeasTopicTb
 
     override fun navigateToPreviousFragment() {
-        mainActivity.navController
-            .navigate(TopicFragmentDirections.actionTopicFragmentToMainFragment(NavSection.IDEAS))
+        mainActivity.navController.navigate(
+            UpInfoTopicFragmentDirections.actionTopicFragmentToMainFragment(NavSection.IDEAS)
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -103,12 +102,12 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
 
     private fun navigateToAddIdeaFragment() {
         mainActivity.navController
-            .navigate(TopicFragmentDirections.actionTopicFragmentToAddIdeaFragment(viewModel.topic))
+            .navigate(UpInfoTopicFragmentDirections.actionTopicFragmentToAddIdeaFragment(viewModel.topic))
     }
 
     private fun navigateToEditTopicFragment() {
         mainActivity.navController.navigate(
-            TopicFragmentDirections.actionTopicFragmentToEditTopicFragment(viewModel.topic)
+            UpInfoTopicFragmentDirections.actionTopicFragmentToEditTopicFragment(viewModel.topic)
         )
     }
 
@@ -118,7 +117,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
 
     private fun navigateToIdeaFragment(idea: Idea) {
         mainActivity.navController.navigate(
-            TopicFragmentDirections.actionTopicFragmentToIdeaFragment(idea, viewModel.topic)
+            UpInfoTopicFragmentDirections.actionTopicFragmentToIdeaFragment(idea, viewModel.topic)
         )
     }
 

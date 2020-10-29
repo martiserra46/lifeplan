@@ -15,7 +15,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
     private val viewModel by ViewModelFactory.Delegate(
         this, SaveLifeViewModel::class.java
     ) {
-        val args = EditLifeFragmentArgs.fromBundle(requireArguments())
+        val args = UpEditLifeFragmentArgs.fromBundle(requireArguments())
         SaveLifeViewModel(args.life, mainActivity.application)
     }
 
@@ -32,7 +32,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(
-            EditLifeFragmentDirections.actionEditLifeFragmentToMainFragment(NavSection.LIFE)
+            UpEditLifeFragmentDirections.actionEditLifeFragmentToMainFragment(NavSection.LIFE)
         )
     }
 

@@ -10,7 +10,7 @@ class UpAddIdeaFragment : UpSaveIdeaFragment() {
     override val viewModel by ViewModelFactory.Delegate(
         this, AddIdeaViewModel::class.java
     ) {
-        val args = AddIdeaFragmentArgs.fromBundle(requireArguments())
+        val args = UpAddIdeaFragmentArgs.fromBundle(requireArguments())
         AddIdeaViewModel(args.topic, mainActivity.application)
     }
 
@@ -20,7 +20,7 @@ class UpAddIdeaFragment : UpSaveIdeaFragment() {
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(
-            AddIdeaFragmentDirections.actionAddIdeaFragmentToTopicFragment(viewModel.topic)
+            UpAddIdeaFragmentDirections.actionAddIdeaFragmentToTopicFragment(viewModel.topic)
         )
     }
 }

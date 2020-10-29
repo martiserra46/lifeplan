@@ -8,8 +8,6 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
-import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentArgs
-import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.DayFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.info.InfoDayViewModel
@@ -19,7 +17,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoDayViewModel::class.java
     ) {
-        val args = DayFragmentArgs.fromBundle(requireArguments())
+        val args = UpInfoDayFragmentArgs.fromBundle(requireArguments())
         InfoDayViewModel(args.day, mainActivity.application)
     }
 
@@ -34,7 +32,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(
-            DayFragmentDirections.actionDayFragmentToMainFragment(NavSection.SITUATION)
+            UpInfoDayFragmentDirections.actionDayFragmentToMainFragment(NavSection.SITUATION)
         )
     }
 
@@ -92,7 +90,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
 
     private fun navigateToEditDayFragment() {
         mainActivity.navController.navigate(
-            DayFragmentDirections.actionDayFragmentToEditDayFragment(viewModel.day)
+            UpInfoDayFragmentDirections.actionDayFragmentToEditDayFragment(viewModel.day)
         )
     }
 

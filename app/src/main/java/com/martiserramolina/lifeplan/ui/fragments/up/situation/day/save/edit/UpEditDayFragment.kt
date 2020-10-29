@@ -10,7 +10,7 @@ class UpEditDayFragment : UpSaveDayFragment() {
     override val viewModel by ViewModelFactory.Delegate(
         this, EditDayViewModel::class.java
     ) {
-        val args = EditDayFragmentArgs.fromBundle(requireArguments())
+        val args = UpEditDayFragmentArgs.fromBundle(requireArguments())
         EditDayViewModel(args.day, mainActivity.application)
     }
 
@@ -20,7 +20,7 @@ class UpEditDayFragment : UpSaveDayFragment() {
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(
-            EditDayFragmentDirections.actionEditDayFragmentToDayFragment(viewModel.day)
+            UpEditDayFragmentDirections.actionEditDayFragmentToDayFragment(viewModel.day)
         )
     }
 }

@@ -10,7 +10,7 @@ class UpEditIdeaFragment : UpSaveIdeaFragment() {
     override val viewModel by ViewModelFactory.Delegate(
         this, EditIdeaViewModel::class.java
     ) {
-        val args = EditIdeaFragmentArgs.fromBundle(requireArguments())
+        val args = UpEditIdeaFragmentArgs.fromBundle(requireArguments())
         EditIdeaViewModel(args.idea, args.topic, mainActivity.application)
     }
 
@@ -20,7 +20,7 @@ class UpEditIdeaFragment : UpSaveIdeaFragment() {
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(
-            EditIdeaFragmentDirections
+            UpEditIdeaFragmentDirections
                 .actionEditIdeaFragmentToIdeaFragment(viewModel.idea, viewModel.topic)
         )
     }

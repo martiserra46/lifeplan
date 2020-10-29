@@ -18,7 +18,7 @@ class UpAddTopicFragment : UpSaveTopicFragment() {
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(
-            AddTopicFragmentDirections.actionAddTopicFragmentToMainFragment(NavSection.IDEAS)
+            UpAddTopicFragmentDirections.actionAddTopicFragmentToMainFragment(NavSection.IDEAS)
         )
     }
 }

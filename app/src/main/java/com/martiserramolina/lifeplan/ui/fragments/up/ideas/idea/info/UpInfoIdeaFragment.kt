@@ -7,8 +7,6 @@ import androidx.core.content.ContextCompat
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.UpIdeasFragment
-import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentArgs
-import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.IdeaFragmentDirections
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.info.InfoIdeaViewModel
 
@@ -17,7 +15,7 @@ class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoIdeaViewModel::class.java
     ) {
-        val args = IdeaFragmentArgs.fromBundle(requireArguments())
+        val args = UpInfoIdeaFragmentArgs.fromBundle(requireArguments())
         InfoIdeaViewModel(args.idea, args.topic, mainActivity.application)
     }
 
@@ -32,7 +30,7 @@ class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController
-            .navigate(IdeaFragmentDirections.actionIdeaFragmentToTopicFragment(viewModel.topic))
+            .navigate(UpInfoIdeaFragmentDirections.actionIdeaFragmentToTopicFragment(viewModel.topic))
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -88,7 +86,7 @@ class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
 
     private fun navigateToEditIdeaFragment() {
         mainActivity.navController.navigate(
-            IdeaFragmentDirections.actionIdeaFragmentToEditIdeaFragment(
+            UpInfoIdeaFragmentDirections.actionIdeaFragmentToEditIdeaFragment(
                 viewModel.idea,
                 viewModel.topic
             )
