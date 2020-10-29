@@ -86,7 +86,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun navigateToNavSection() {
-        mainActivity.supportActionBar?.title = getString(navSection.label)
+        mainActivity.supportActionBar?.title = getString(navSection.labelId)
         binding.fragmentMainNv.setCheckedItem(navSection.destinationId)
         navController.navigate(navSection.destinationId)
     }
