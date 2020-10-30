@@ -2,13 +2,13 @@ package com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.save
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.adapters.spinner.idea_importance.IdeaImportanceAdapter
 import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.UpIdeaFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.save.SaveIdeaViewModel
 import java.util.*
@@ -53,7 +53,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
         viewModel.ideaSaved.observe(viewLifecycleOwner) { ideaSaved ->
             if (ideaSaved) {
                 navigateToPreviousFragment()
-                showMessage(binding.root, getIdeaSavedMessage())
+                showMessageWithDelay(binding.root, getIdeaSavedMessage())
             }
         }
     }
@@ -80,7 +80,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
     }
 
     private fun saveIdeaIfValid() {
-        if (isIdeaValid()) saveIdea() else showInvalidIdeaMessage()
+        if (isIdeaValid()) saveIdea() else showMessage(binding.root, R.string.invalid_idea)
     }
 
     private fun isIdeaValid(): Boolean = getTitleFromEditText().isNotEmpty() &&
@@ -98,10 +98,6 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
     }
 
     protected abstract fun getIdeaSavedMessage(): Int
-
-    private fun showInvalidIdeaMessage() {
-        Toast.makeText(context, getString(R.string.invalid_topic), Toast.LENGTH_SHORT).show()
-    }
 
     private fun getTitleFromEditText(): String {
         return binding.fragmentNavIdeasIdeaSaveTitleEt.text.toString()

@@ -26,9 +26,12 @@
     <string name="add_topic_hint">Topic name</string>
     <string name="add_idea">Add Idea</string>
     <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
-    <string name="invalid_day">Invalid Day</string>
-    <string name="invalid_topic">Invalid Topic</string>
+
     <string name="snackBar_close">Close</string>
+
+    <string name="invalid_topic">Invalid Topic</string>
+    <string name="invalid_idea">Invalid Idea</string>
+    <string name="invalid_day">Invalid Day</string>
 
     <string name="life_saved">Life saved</string>
     <string name="topic_added">Topic added</string>

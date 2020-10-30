@@ -9,7 +9,7 @@ import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.adapters.recyclerview.adapters.ideas.idea.IdeaAdapter
 import com.martiserramolina.lifeplan.extensions.setupAutoLoadItemsFunctionality
-import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.info.InfoTopicViewModel
@@ -66,7 +66,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
         viewModel.topicDeleted.observe(viewLifecycleOwner) { topicDeleted ->
             if (topicDeleted){
                 navigateToPreviousFragment()
-                showMessage(binding.root, R.string.topic_deleted)
+                showMessageWithDelay(binding.root, R.string.topic_deleted)
             }
         }
     }

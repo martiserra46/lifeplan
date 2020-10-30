@@ -2,7 +2,6 @@ package com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
@@ -10,6 +9,7 @@ import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.SaveDayViewModel
 
@@ -53,7 +53,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
         viewModel.daySaved.observe(viewLifecycleOwner) { daySaved ->
             if (daySaved) {
                 navigateToPreviousFragment()
-                showMessage(binding.root, getDaySavedMessage())
+                showMessageWithDelay(binding.root, getDaySavedMessage())
             }
         }
     }
@@ -80,7 +80,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
     }
 
     private fun saveDayIfValid() {
-        if (isDayValid()) saveDay() else showInvalidDayMessage()
+        if (isDayValid()) saveDay() else showMessage(binding.root, R.string.invalid_day)
     }
 
     private fun isDayValid(): Boolean = getDescriptionFromEditText().isNotEmpty()
@@ -94,10 +94,6 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
     }
 
     protected abstract fun getDaySavedMessage(): Int
-
-    private fun showInvalidDayMessage() {
-        Toast.makeText(context, getString(R.string.invalid_day), Toast.LENGTH_SHORT).show()
-    }
 
     private fun getSatisfactionFromSpinner(): DaySatisfaction {
         return binding.fragmentNavSituationDaySaveSatisfactionSp.selectedItem

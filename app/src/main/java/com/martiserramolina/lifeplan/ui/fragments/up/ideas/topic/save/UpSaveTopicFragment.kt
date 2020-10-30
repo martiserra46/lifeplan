@@ -2,11 +2,11 @@ package com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.save
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
 import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.save.SaveTopicViewModel
 
@@ -48,7 +48,7 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
         viewModel.topicSaved.observe(viewLifecycleOwner) { topicSaved ->
             if (topicSaved) {
                 navigateToPreviousFragment()
-                showMessage(binding.root, getTopicSavedMessage())
+                showMessageWithDelay(binding.root, getTopicSavedMessage())
             }
         }
     }
@@ -64,7 +64,7 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
     }
 
     private fun saveTopicIfValid() {
-        if (isTopicValid()) saveTopic() else showInvalidTopicMessage()
+        if (isTopicValid()) saveTopic() else showMessage(binding.root, R.string.invalid_topic)
     }
 
     private fun isTopicValid(): Boolean = getTitleFromEditText().isNotEmpty()
@@ -77,10 +77,6 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
     }
 
     protected abstract fun getTopicSavedMessage(): Int
-
-    private fun showInvalidTopicMessage() {
-        Toast.makeText(context, getString(R.string.invalid_topic), Toast.LENGTH_SHORT).show()
-    }
 
     private fun getTitleFromEditText(): String {
         return binding.fragmentNavIdeasTopicSaveTitleEt.text.toString()
