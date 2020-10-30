@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels
+package com.martiserramolina.lifeplan.viewmodels.utils.classes
 
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
