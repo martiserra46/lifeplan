@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.info.InfoLifeViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.info.InfoLifeViewModel
 
 class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
 

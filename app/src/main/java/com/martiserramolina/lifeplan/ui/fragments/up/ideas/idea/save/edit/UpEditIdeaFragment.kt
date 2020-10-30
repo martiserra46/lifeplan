@@ -3,7 +3,7 @@ package com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.save.edit
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.save.UpSaveIdeaFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.save.edit.EditIdeaViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.save.edit.EditIdeaViewModel
 
 class UpEditIdeaFragment : UpSaveIdeaFragment() {
 

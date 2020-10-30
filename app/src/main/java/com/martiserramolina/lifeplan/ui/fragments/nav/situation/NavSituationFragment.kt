@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.extensions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info.InfoSituationViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.info.InfoSituationViewModel
 
 class NavSituationFragment : NavFragment<FragmentNavSituationBinding>() {
 

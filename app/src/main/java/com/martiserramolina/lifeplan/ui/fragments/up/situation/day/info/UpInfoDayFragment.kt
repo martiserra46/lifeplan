@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.info.InfoDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.info.InfoDayViewModel
 
 class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
 

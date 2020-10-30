@@ -3,7 +3,7 @@ package com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.edit
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.UpSaveDayFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.edit.EditDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.edit.EditDayViewModel
 
 class UpEditDayFragment : UpSaveDayFragment() {
 

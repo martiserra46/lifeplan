@@ -4,7 +4,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.UpSaveDayFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.add.AddDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.add.AddDayViewModel
 
 class UpAddDayFragment : UpSaveDayFragment() {
 

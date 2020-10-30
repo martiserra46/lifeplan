@@ -11,7 +11,7 @@ import com.martiserramolina.lifeplan.adapters.recyclerview.adapters.ideas.idea.I
 import com.martiserramolina.lifeplan.extensions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.info.InfoTopicViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.info.InfoTopicViewModel
 
 class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
 

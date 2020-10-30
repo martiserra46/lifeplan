@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.life.save.SaveLifeViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.save.SaveLifeViewModel
 
 class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 

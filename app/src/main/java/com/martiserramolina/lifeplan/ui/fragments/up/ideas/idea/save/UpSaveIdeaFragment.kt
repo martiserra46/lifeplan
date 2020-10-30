@@ -9,7 +9,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.adapters.spinner.idea_importance.IdeaImportanceAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.UpIdeaFragment
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.save.SaveIdeaViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.save.SaveIdeaViewModel
 import java.util.*
 
 abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBinding>() {

@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.UpIdeasFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.info.InfoIdeaViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.info.InfoIdeaViewModel
 
 class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
 

@@ -10,7 +10,7 @@ import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.SaveDayViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.SaveDayViewModel
 
 abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBinding>() {
 
