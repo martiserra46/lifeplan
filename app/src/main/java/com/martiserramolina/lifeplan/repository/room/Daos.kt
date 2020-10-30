@@ -24,7 +24,7 @@ interface DaoIdeas {
     suspend fun deleteTopic(topic: Topic)
 
     @Query("SELECT * FROM topic ORDER BY topic_id DESC LIMIT :position, :numTopics")
-    suspend fun getTopics(position: Int, numTopics: Int): List<Topic>
+    suspend fun getTopics(position: Long, numTopics: Int): List<Topic>
 
     @Query("SELECT * FROM topic WHERE topic_id = :topicId")
     suspend fun getTopic(topicId: Long): Topic
@@ -43,7 +43,7 @@ interface DaoIdeas {
     suspend fun getIdeas(): List<Idea>
 
     @Query("SELECT * FROM idea WHERE idea_topic_id = :topicId ORDER BY idea_id DESC LIMIT :position, :numIdeas")
-    suspend fun getIdeas(topicId: Long, position: Int, numIdeas: Int): List<Idea>
+    suspend fun getIdeas(topicId: Long, position: Long, numIdeas: Int): List<Idea>
 
     @Query("SELECT * FROM idea WHERE idea_id = :ideaId")
     suspend fun getIdea(ideaId: Long): Idea
@@ -74,7 +74,7 @@ interface DaoSituation {
     suspend fun deleteDay(day: Day)
 
     @Query("SELECT * FROM day ORDER BY day_id DESC LIMIT :position, :numDays")
-    suspend fun getDays(position: Int, numDays: Int): List<Day>
+    suspend fun getDays(position: Long, numDays: Int): List<Day>
 
     @Query("SELECT * FROM day WHERE day_id = :dayId")
     suspend fun getDay(dayId: Long): Day

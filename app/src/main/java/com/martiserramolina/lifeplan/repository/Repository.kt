@@ -19,7 +19,7 @@ class LifeRepository(private val daoLife: DaoLife): Repository() {
 
 class IdeasRepository(private val daoIdeas: DaoIdeas): Repository() {
 
-    suspend fun getTopics(position: Int, numTopics: Int): List<Topic> {
+    suspend fun getTopics(position: Long, numTopics: Int): List<Topic> {
         return withContext(Dispatchers.IO) { daoIdeas.getTopics(position, numTopics) }
     }
 
@@ -35,7 +35,7 @@ class IdeasRepository(private val daoIdeas: DaoIdeas): Repository() {
         withContext(Dispatchers.IO) { daoIdeas.deleteTopic(topic) }
     }
 
-    suspend fun getIdeas(topicId: Long, position: Int, numIdeas: Int): List<Idea> {
+    suspend fun getIdeas(topicId: Long, position: Long, numIdeas: Int): List<Idea> {
         return withContext(Dispatchers.IO) { daoIdeas.getIdeas(topicId, position, numIdeas) }
     }
 
@@ -54,7 +54,7 @@ class IdeasRepository(private val daoIdeas: DaoIdeas): Repository() {
 
 class SituationRepository(private val daoSituation: DaoSituation): Repository() {
 
-    suspend fun getDays(position: Int, numDays: Int): List<Day> {
+    suspend fun getDays(position: Long, numDays: Int): List<Day> {
         return withContext(Dispatchers.IO) { daoSituation.getDays(position, numDays) }
     }
 

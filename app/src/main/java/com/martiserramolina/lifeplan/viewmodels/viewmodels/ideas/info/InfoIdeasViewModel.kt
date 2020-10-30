@@ -2,30 +2,28 @@ package com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.info
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.repository.room.Topic
+import com.martiserramolina.lifeplan.viewmodels.utils.classes.CapableOfFetchingItems
+import com.martiserramolina.lifeplan.viewmodels.utils.interfaces.CapableOfFetchingItemsI
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.IdeasViewModel
 import kotlinx.coroutines.launch
 
 class InfoIdeasViewModel(
     application: Application
-) : IdeasViewModel(application) {
+) : IdeasViewModel(application),
+    CapableOfFetchingItemsI<Topic> {
 
-    companion object { private const val NUM_TOPICS_TO_FETCH = 20 }
-
-    val topics = MutableLiveData<MutableList<Topic>>().apply { value = mutableListOf() }
-
-    private var lastTopicPositionUsedToFetch: Int? = null
-
-    init { fetchTopicsFromPositionIfNotFetched(0) }
-
-    fun fetchTopicsFromPositionIfNotFetched(position: Int): Boolean {
-        if (position == lastTopicPositionUsedToFetch) return false
-        lastTopicPositionUsedToFetch = position
-        viewModelScope.launch {
-            topics.value = topics.value?.apply {
-                addAll(repository.getTopics(position, NUM_TOPICS_TO_FETCH))
-            }
+    private val capableOfFetchingItems = object : CapableOfFetchingItems<Topic>(viewModelScope) {
+        override suspend fun getItemsFromDatabase(position: Long, numItems: Int): List<Topic> {
+            return repository.getTopics(position, numItems)
         }
-        return true
+    }
+
+    override val itemsFetched: MutableLiveData<MutableList<Topic>>
+        get() = capableOfFetchingItems.itemsFetched
+
+    override fun fetchItemsIfNotFetched(position: Long, numItems: Int): Boolean {
+        return capableOfFetchingItems.fetchItemsIfNotFetched(position, numItems)
     }
 }

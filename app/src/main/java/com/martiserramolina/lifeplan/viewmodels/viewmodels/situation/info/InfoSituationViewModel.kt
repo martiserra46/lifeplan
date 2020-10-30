@@ -3,27 +3,26 @@ package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Day
+import com.martiserramolina.lifeplan.viewmodels.utils.classes.CapableOfFetchingItems
+import com.martiserramolina.lifeplan.viewmodels.utils.interfaces.CapableOfFetchingItemsI
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.SituationViewModel
 import kotlinx.coroutines.launch
 
-class InfoSituationViewModel(application: Application) : SituationViewModel(application) {
+class InfoSituationViewModel(
+    application: Application
+) : SituationViewModel(application),
+    CapableOfFetchingItemsI<Day> {
 
-    companion object { private const val NUM_DAYS_TO_FETCH = 20 }
-
-    val days = MutableLiveData<MutableList<Day>>().apply { value = mutableListOf() }
-
-    private var lastDayPositionUsedToFetch: Int? = null
-
-    init { fetchDaysFromPositionIfNotFetched(0) }
-
-    fun fetchDaysFromPositionIfNotFetched(position: Int): Boolean {
-        if (position == lastDayPositionUsedToFetch) return false
-        lastDayPositionUsedToFetch = position
-        viewModelScope.launch {
-            days.value = days.value?.apply {
-                addAll(repository.getDays(position, NUM_DAYS_TO_FETCH))
-            }
+    private val capableOfFetchingItems = object : CapableOfFetchingItems<Day>(viewModelScope) {
+        override suspend fun getItemsFromDatabase(position: Long, numItems: Int): List<Day> {
+            return repository.getDays(position, numItems)
         }
-        return true
+    }
+
+    override val itemsFetched: MutableLiveData<MutableList<Day>>
+        get() = capableOfFetchingItems.itemsFetched
+
+    override fun fetchItemsIfNotFetched(position: Long, numItems: Int): Boolean {
+        return capableOfFetchingItems.fetchItemsIfNotFetched(position, numItems)
     }
 }

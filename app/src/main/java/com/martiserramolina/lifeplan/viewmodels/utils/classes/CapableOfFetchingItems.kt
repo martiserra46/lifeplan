@@ -5,27 +5,31 @@ import com.martiserramolina.lifeplan.viewmodels.utils.interfaces.CapableOfFetchi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-abstract class CapableOfFetchingItems<T>() : CapableOfFetchingItemsI<T> {
+abstract class CapableOfFetchingItems<T>(
+    private val coroutineScope: CoroutineScope
+) : CapableOfFetchingItemsI<T> {
 
     override val itemsFetched = MutableLiveData<MutableList<T>>().apply { value = mutableListOf() }
 
-    protected abstract val coroutineScope: CoroutineScope
+    private var lastFetchedPosition: Long? = null
 
-    private var lastFetchedPosition: Int? = null
+    init { fetchItemsIfNotFetched(0) }
 
-    override fun fetchItemsIfNotFetched(
-        position: Int,
+    final override fun fetchItemsIfNotFetched(
+        position: Long,
         numItems: Int
     ): Boolean {
         synchronized(this) {
             if (position == lastFetchedPosition) return false
             lastFetchedPosition = position
             coroutineScope.launch {
-                itemsFetched.value = itemsFetched.value?.apply { addAll(getItemsFromDatabase()) }
+                itemsFetched.value = itemsFetched.value?.apply {
+                    addAll(getItemsFromDatabase(position, numItems))
+                }
             }
             return true
         }
     }
 
-    abstract suspend fun getItemsFromDatabase(): List<T>
+    abstract suspend fun getItemsFromDatabase(position: Long, numItems: Int): List<T>
 }
