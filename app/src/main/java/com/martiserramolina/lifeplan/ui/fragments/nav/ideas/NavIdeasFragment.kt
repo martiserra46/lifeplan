@@ -2,14 +2,11 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.ideas
 
 import android.os.Bundle
 import android.view.*
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasBinding
 import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.ideas.topic.TopicAdapter
+import com.martiserramolina.lifeplan.ui.extensions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
@@ -47,20 +44,9 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>() {
     private fun setupTopicsRecyclerView() {
         binding.fragmentNavIdeasRv.apply {
             setHasFixedSize(true)
-            adapter = TopicAdapter { navigateToTopicFragment(it) }
-            addItemDecoration(
-                DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
-                    setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
-                }
+            setupAutoLoadItemsFunctionality(
+                viewLifecycleOwner, TopicAdapter { navigateToTopicFragment(it) }, viewModel
             )
-            addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    onScrollTopicsRv()
-                }
-            })
-        }
-        viewModel.itemsFetched.observe(viewLifecycleOwner) { topics ->
-            binding.fragmentNavIdeasRv.adapter.run { this as TopicAdapter }.items = topics
         }
     }
 
@@ -74,15 +60,5 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>() {
     private fun navigateToTopicFragment(topic: Topic) {
         mainActivity.navController
             .navigate(MainFragmentDirections.actionMainFragmentToTopicFragment(topic))
-    }
-
-    private fun onScrollTopicsRv() {
-        val lastVisibleTopicPosition = binding.fragmentNavIdeasRv.layoutManager
-            .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
-        val lastTopicPositionRv = binding.fragmentNavIdeasRv.adapter
-            .run { this as TopicAdapter }.items.size - 1
-        if (lastVisibleTopicPosition == lastTopicPositionRv) {
-            viewModel.fetchItemsIfNotFetched((lastTopicPositionRv + 1).toLong())
-        }
     }
 }

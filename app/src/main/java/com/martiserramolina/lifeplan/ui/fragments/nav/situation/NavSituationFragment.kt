@@ -2,14 +2,11 @@ package com.martiserramolina.lifeplan.ui.fragments.nav.situation
 
 import android.os.Bundle
 import android.view.*
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationBinding
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.situation.day.DayAdapter
+import com.martiserramolina.lifeplan.ui.extensions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
@@ -46,25 +43,9 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>() {
     }
 
     private fun setupDaysRecyclerView() {
-        binding.fragmentNavSituationRv.apply {
-            adapter = DayAdapter { navigateToDayFragment(it) }
-            addItemDecoration(
-                DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
-                    setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
-                }
-            )
-            addOnScrollListener(object : RecyclerView.OnScrollListener() {
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    onScrollDaysRv()
-                }
-            })
-        }
-
-        viewModel.itemsFetched.observe(viewLifecycleOwner) { days ->
-            binding.fragmentNavSituationRv.apply {
-                adapter.run { this as DayAdapter }.items = days
-            }
-        }
+        binding.fragmentNavSituationRv.setupAutoLoadItemsFunctionality(
+            viewLifecycleOwner, DayAdapter { navigateToDayFragment(it) }, viewModel
+        )
     }
 
     private fun onAddMenuItemSelected(): Boolean = navigateToAddDayFragment().run { true }
@@ -79,15 +60,5 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>() {
             MainFragmentDirections
                 .actionMainFragmentToDayFragment(day)
         )
-    }
-
-    private fun onScrollDaysRv() {
-        val lastVisibleDayPosition = binding.fragmentNavSituationRv.layoutManager
-            .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
-        val lastDayPositionRv = binding.fragmentNavSituationRv.adapter
-            .run { this as DayAdapter }.items.size - 1
-        if (lastVisibleDayPosition == lastDayPositionRv) {
-            viewModel.fetchItemsIfNotFetched((lastDayPositionRv + 1).toLong())
-        }
     }
 }
