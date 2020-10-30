@@ -112,4 +112,14 @@
         <item name="android:textSize">@dimen/textSizeSpinnerTv</item>
     </style>
 
+    <style name="styleSpinnerDropdownTv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/paddingNormal</item>
+        <item name="android:paddingBottom">@dimen/paddingNormal</item>
+        <item name="android:paddingStart">@dimen/paddingNormal</item>
+        <item name="android:paddingEnd">@dimen/paddingNormal</item>
+        <item name="android:textSize">@dimen/textSizeSpinnerTv</item>
+    </style>
+
 </resources>

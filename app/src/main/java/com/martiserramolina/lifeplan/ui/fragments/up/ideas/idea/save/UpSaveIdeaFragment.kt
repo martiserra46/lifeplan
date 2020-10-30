@@ -7,7 +7,7 @@ import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
-import com.martiserramolina.lifeplan.adapters.spinner.IdeaImportanceAdapter
+import com.martiserramolina.lifeplan.adapters.spinner.idea_importance.IdeaImportanceAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.UpIdeaFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.idea.save.SaveIdeaViewModel
 import java.util.*
@@ -66,9 +66,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
 
     private fun setupImportanceSpinner() {
         binding.fragmentNavIdeasIdeaSaveImportanceSp.apply {
-            adapter = IdeaImportanceAdapter(
-                requireContext(), R.layout.spinner_item
-            ).apply { setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
+            adapter = IdeaImportanceAdapter(requireContext())
             setSelection(viewModel.idea.ideaImportance.ordinal)
         }
     }
