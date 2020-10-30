@@ -96,7 +96,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
             })
         }
         viewModel.ideas.observe(viewLifecycleOwner) { ideas ->
-            binding.fragmentNavIdeasTopicRv.adapter.run { this as IdeaAdapter }.listIdeas = ideas
+            binding.fragmentNavIdeasTopicRv.adapter.run { this as IdeaAdapter }.items = ideas
         }
     }
 
@@ -125,7 +125,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
         val lastVisibleIdeaPosition = binding.fragmentNavIdeasTopicRv.layoutManager
             .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
         val lastIdeaPositionRv = binding.fragmentNavIdeasTopicRv.adapter
-            .run { this as IdeaAdapter }.listIdeas.size - 1
+            .run { this as IdeaAdapter }.items.size - 1
         if (lastVisibleIdeaPosition == lastIdeaPositionRv) {
             viewModel.fetchIdeasFromPositionIfNotFetched(lastIdeaPositionRv + 1)
         }

@@ -60,7 +60,7 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>() {
             })
         }
         viewModel.topics.observe(viewLifecycleOwner) { topics ->
-            binding.fragmentNavIdeasRv.adapter.run { this as TopicAdapter }.listTopics = topics
+            binding.fragmentNavIdeasRv.adapter.run { this as TopicAdapter }.items = topics
         }
     }
 
@@ -80,7 +80,7 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>() {
         val lastVisibleTopicPosition = binding.fragmentNavIdeasRv.layoutManager
             .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
         val lastTopicPositionRv = binding.fragmentNavIdeasRv.adapter
-            .run { this as TopicAdapter }.listTopics.size - 1
+            .run { this as TopicAdapter }.items.size - 1
         if (lastVisibleTopicPosition == lastTopicPositionRv) {
             viewModel.fetchTopicsFromPositionIfNotFetched(lastTopicPositionRv + 1)
         }

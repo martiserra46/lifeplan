@@ -62,7 +62,7 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>() {
 
         viewModel.days.observe(viewLifecycleOwner) { days ->
             binding.fragmentNavSituationRv.apply {
-                adapter.run { this as DayAdapter }.listDays = days
+                adapter.run { this as DayAdapter }.items = days
             }
         }
     }
@@ -85,7 +85,7 @@ class NavSituationFragment : NavFragment<FragmentNavSituationBinding>() {
         val lastVisibleDayPosition = binding.fragmentNavSituationRv.layoutManager
             .run { this as LinearLayoutManager }.findLastVisibleItemPosition()
         val lastDayPositionRv = binding.fragmentNavSituationRv.adapter
-            .run { this as DayAdapter }.listDays.size - 1
+            .run { this as DayAdapter }.items.size - 1
         if (lastVisibleDayPosition == lastDayPositionRv) {
             viewModel.fetchDaysFromPositionIfNotFetched(lastDayPositionRv + 1)
         }
