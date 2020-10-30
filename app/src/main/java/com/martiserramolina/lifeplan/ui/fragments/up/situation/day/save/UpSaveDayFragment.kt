@@ -80,7 +80,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
     }
 
     private fun saveDayIfValid() {
-        if (isDayValid()) saveDay() else showMessage(binding.root, R.string.invalid_day)
+        if (isDayValid()) saveDay() else showMessageWithDelay(binding.root, R.string.invalid_day)
     }
 
     private fun isDayValid(): Boolean = getDescriptionFromEditText().isNotEmpty()

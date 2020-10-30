@@ -80,7 +80,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
     }
 
     private fun saveIdeaIfValid() {
-        if (isIdeaValid()) saveIdea() else showMessage(binding.root, R.string.invalid_idea)
+        if (isIdeaValid()) saveIdea() else showMessageWithDelay(binding.root, R.string.invalid_idea)
     }
 
     private fun isIdeaValid(): Boolean = getTitleFromEditText().isNotEmpty() &&

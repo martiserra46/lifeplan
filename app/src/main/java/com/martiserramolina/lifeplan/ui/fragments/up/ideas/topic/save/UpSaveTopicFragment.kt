@@ -64,7 +64,7 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
     }
 
     private fun saveTopicIfValid() {
-        if (isTopicValid()) saveTopic() else showMessage(binding.root, R.string.invalid_topic)
+        if (isTopicValid()) saveTopic() else showMessageWithDelay(binding.root, R.string.invalid_topic)
     }
 
     private fun isTopicValid(): Boolean = getTitleFromEditText().isNotEmpty()
