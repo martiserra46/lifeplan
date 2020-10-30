@@ -28,4 +28,16 @@
     <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
     <string name="invalid_day">Invalid Day</string>
     <string name="invalid_topic">Invalid Topic</string>
+    <string name="snackBar_close">Close</string>
+
+    <string name="life_saved">Life saved</string>
+    <string name="topic_added">Topic added</string>
+    <string name="topic_edited">Topic edited</string>
+    <string name="topic_deleted">Topic deleted</string>
+    <string name="idea_added">Idea added</string>
+    <string name="idea_edited">Idea edited</string>
+    <string name="idea_deleted">Idea deleted</string>
+    <string name="day_added">Day added</string>
+    <string name="day_edited">Day edited</string>
+    <string name="day_deleted">Day deleted</string>
 </resources>

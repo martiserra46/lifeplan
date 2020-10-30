@@ -3,9 +3,13 @@ package com.martiserramolina.lifeplan.ui.fragments.up.life.edit
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
+import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.save.SaveLifeViewModel
@@ -39,7 +43,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        whenLifeSavedNavigateToPreviousFragment()
+        setupWhenLifeSavedFunctionality()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -57,9 +61,12 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
         setupTextTextView()
     }
 
-    private fun whenLifeSavedNavigateToPreviousFragment() {
-        viewModel.lifeSaved.observe(viewLifecycleOwner) {
-            if (it) navigateToPreviousFragment()
+    private fun setupWhenLifeSavedFunctionality() {
+        viewModel.lifeSaved.observe(viewLifecycleOwner) { lifeSaved ->
+            if (lifeSaved) {
+                navigateToPreviousFragment()
+                showMessage(binding.root, R.string.life_saved)
+            }
         }
     }
 

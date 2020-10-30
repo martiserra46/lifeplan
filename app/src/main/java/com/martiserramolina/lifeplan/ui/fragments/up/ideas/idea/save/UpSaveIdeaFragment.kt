@@ -8,6 +8,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.adapters.spinner.idea_importance.IdeaImportanceAdapter
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.UpIdeaFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.save.SaveIdeaViewModel
 import java.util.*
@@ -28,7 +29,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        whenIdeaSavedNavigateToPreviousFragment()
+        setupWhenIdeaSavedFunctionality()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -48,9 +49,12 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
         setupDescriptionEditText()
     }
 
-    private fun whenIdeaSavedNavigateToPreviousFragment() {
-        viewModel.ideaSaved.observe(viewLifecycleOwner) {
-            if (it) navigateToPreviousFragment()
+    private fun setupWhenIdeaSavedFunctionality() {
+        viewModel.ideaSaved.observe(viewLifecycleOwner) { ideaSaved ->
+            if (ideaSaved) {
+                navigateToPreviousFragment()
+                showMessage(binding.root, getIdeaSavedMessage())
+            }
         }
     }
 
@@ -92,6 +96,8 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
         }
         viewModel.saveIdea()
     }
+
+    protected abstract fun getIdeaSavedMessage(): Int
 
     private fun showInvalidIdeaMessage() {
         Toast.makeText(context, getString(R.string.invalid_topic), Toast.LENGTH_SHORT).show()

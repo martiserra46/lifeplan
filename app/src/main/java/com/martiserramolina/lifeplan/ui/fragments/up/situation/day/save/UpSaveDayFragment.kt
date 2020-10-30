@@ -9,6 +9,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBind
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.SaveDayViewModel
 
@@ -28,7 +29,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        whenDaySavedNavigateToPreviousFragment()
+        setupWhenDaySavedFunctionality()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -48,9 +49,12 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
         setupDescriptionTextView()
     }
 
-    private fun whenDaySavedNavigateToPreviousFragment() {
-        viewModel.daySaved.observe(viewLifecycleOwner) {
-            if (it) navigateToPreviousFragment()
+    private fun setupWhenDaySavedFunctionality() {
+        viewModel.daySaved.observe(viewLifecycleOwner) { daySaved ->
+            if (daySaved) {
+                navigateToPreviousFragment()
+                showMessage(binding.root, getDaySavedMessage())
+            }
         }
     }
 
@@ -88,6 +92,8 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
         }
         viewModel.saveDay()
     }
+
+    protected abstract fun getDaySavedMessage(): Int
 
     private fun showInvalidDayMessage() {
         Toast.makeText(context, getString(R.string.invalid_day), Toast.LENGTH_SHORT).show()

@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.UpIdeasFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.info.InfoIdeaViewModel
@@ -36,7 +37,7 @@ class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        whenIdeaDeletedNavigateToPreviousFragment()
+        setupWhenIdeaDeletedFunctionality()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -57,9 +58,12 @@ class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
         setupDescriptionTextView()
     }
 
-    private fun whenIdeaDeletedNavigateToPreviousFragment() {
-        viewModel.ideaDeleted.observe(viewLifecycleOwner) {
-            if (it) navigateToPreviousFragment()
+    private fun setupWhenIdeaDeletedFunctionality() {
+        viewModel.ideaDeleted.observe(viewLifecycleOwner) { ideaDeleted ->
+            if (ideaDeleted) {
+                navigateToPreviousFragment()
+                showMessage(binding.root, R.string.idea_deleted)
+            }
         }
     }
 

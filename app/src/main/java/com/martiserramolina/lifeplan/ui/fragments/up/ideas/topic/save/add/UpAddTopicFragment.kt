@@ -21,4 +21,6 @@ class UpAddTopicFragment : UpSaveTopicFragment() {
             UpAddTopicFragmentDirections.actionAddTopicFragmentToMainFragment(NavSection.IDEAS)
         )
     }
+
+    override fun getTopicSavedMessage(): Int = R.string.topic_added
 }

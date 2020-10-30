@@ -9,6 +9,7 @@ import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.adapters.recyclerview.adapters.ideas.idea.IdeaAdapter
 import com.martiserramolina.lifeplan.extensions.setupAutoLoadItemsFunctionality
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.info.InfoTopicViewModel
@@ -40,7 +41,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        whenTopicDeletedNavigateToPreviousFragment()
+        setupWhenTopicDeletedFunctionality()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -61,9 +62,12 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
         setupIdeasRecyclerView()
     }
 
-    private fun whenTopicDeletedNavigateToPreviousFragment() {
+    private fun setupWhenTopicDeletedFunctionality() {
         viewModel.topicDeleted.observe(viewLifecycleOwner) { topicDeleted ->
-            if (topicDeleted) navigateToPreviousFragment()
+            if (topicDeleted){
+                navigateToPreviousFragment()
+                showMessage(binding.root, R.string.topic_deleted)
+            }
         }
     }
 

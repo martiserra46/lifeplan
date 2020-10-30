@@ -23,4 +23,6 @@ class UpEditDayFragment : UpSaveDayFragment() {
             UpEditDayFragmentDirections.actionEditDayFragmentToDayFragment(viewModel.day)
         )
     }
+
+    override fun getDaySavedMessage(): Int = R.string.day_edited
 }

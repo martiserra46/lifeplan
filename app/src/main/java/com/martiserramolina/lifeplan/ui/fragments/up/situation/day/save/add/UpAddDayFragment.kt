@@ -21,4 +21,6 @@ class UpAddDayFragment : UpSaveDayFragment() {
             UpAddDayFragmentDirections.actionAddDayFragmentToMainFragment(NavSection.SITUATION)
         )
     }
+
+    override fun getDaySavedMessage(): Int = R.string.day_added
 }

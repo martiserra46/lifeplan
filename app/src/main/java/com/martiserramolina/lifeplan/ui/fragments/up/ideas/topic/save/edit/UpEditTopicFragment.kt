@@ -23,4 +23,6 @@ class UpEditTopicFragment : UpSaveTopicFragment() {
             UpEditTopicFragmentDirections.actionEditTopicFragmentToTopicFragment(viewModel.topic)
         )
     }
+
+    override fun getTopicSavedMessage(): Int = R.string.topic_edited
 }

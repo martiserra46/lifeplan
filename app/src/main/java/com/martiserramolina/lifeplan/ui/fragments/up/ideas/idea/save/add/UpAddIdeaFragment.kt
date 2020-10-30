@@ -23,4 +23,6 @@ class UpAddIdeaFragment : UpSaveIdeaFragment() {
             UpAddIdeaFragmentDirections.actionAddIdeaFragmentToTopicFragment(viewModel.topic)
         )
     }
+
+    override fun getIdeaSavedMessage(): Int = R.string.idea_added
 }

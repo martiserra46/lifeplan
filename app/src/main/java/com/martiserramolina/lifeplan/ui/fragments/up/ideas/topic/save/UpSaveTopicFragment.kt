@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.save.SaveTopicViewModel
 
@@ -25,7 +26,7 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        whenTopicSavedNavigateToPreviousFragment()
+        setupWhenTopicSavedFunctionality()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -43,9 +44,12 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
         setupTitleTextView()
     }
 
-    private fun whenTopicSavedNavigateToPreviousFragment() {
-        viewModel.topicSaved.observe(viewLifecycleOwner) {
-            if (it) navigateToPreviousFragment()
+    private fun setupWhenTopicSavedFunctionality() {
+        viewModel.topicSaved.observe(viewLifecycleOwner) { topicSaved ->
+            if (topicSaved) {
+                navigateToPreviousFragment()
+                showMessage(binding.root, getTopicSavedMessage())
+            }
         }
     }
 
@@ -71,6 +75,8 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
         }
         viewModel.saveTopic()
     }
+
+    protected abstract fun getTopicSavedMessage(): Int
 
     private fun showInvalidTopicMessage() {
         Toast.makeText(context, getString(R.string.invalid_topic), Toast.LENGTH_SHORT).show()

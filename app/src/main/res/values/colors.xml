@@ -27,4 +27,8 @@
     <color name="colorIdeaLowImportance">#CDDC39</color>
 
     <color name="colorTitleText">#FFFFFF</color>
+
+    <color name="colorSnackBarBackground">@color/colorPrimary</color>
+    <color name="colorSnackBarText">#FFFFFF</color>
+    <color name="colorSnackBarActionText">#FFFFFF</color>
 </resources>
