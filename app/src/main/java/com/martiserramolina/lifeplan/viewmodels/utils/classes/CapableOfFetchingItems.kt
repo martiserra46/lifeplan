@@ -1,22 +1,21 @@
 package com.martiserramolina.lifeplan.viewmodels.utils.classes
 
 import androidx.lifecycle.MutableLiveData
+import com.martiserramolina.lifeplan.viewmodels.utils.interfaces.CapableOfFetchingItemsI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-abstract class CapableOfFetchingItems<T>() {
-    companion object {
-        private const val NUM_ITEMS_TO_FETCH = 20
-    }
+abstract class CapableOfFetchingItems<T>() : CapableOfFetchingItemsI<T> {
 
-    val itemsFetched = MutableLiveData<MutableList<T>>().apply { value = mutableListOf() }
+    override val itemsFetched = MutableLiveData<MutableList<T>>().apply { value = mutableListOf() }
 
     protected abstract val coroutineScope: CoroutineScope
+
     private var lastFetchedPosition: Int? = null
 
-    fun fetchItemsIfNotFetched(
+    override fun fetchItemsIfNotFetched(
         position: Int,
-        numItems: Int = NUM_ITEMS_TO_FETCH
+        numItems: Int
     ): Boolean {
         synchronized(this) {
             if (position == lastFetchedPosition) return false
