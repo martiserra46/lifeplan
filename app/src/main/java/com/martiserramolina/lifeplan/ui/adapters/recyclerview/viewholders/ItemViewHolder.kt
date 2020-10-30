@@ -9,9 +9,13 @@ abstract class ItemViewHolder<T: ViewBinding, U>(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: U) {
-        bindItemData(item)
-        itemView.setOnClickListener { onItemClick(item) }
+        bindData(item)
+        bindClickListener(item)
     }
 
-    protected abstract fun bindItemData(item: U)
+    protected abstract fun bindData(item: U)
+
+    private fun bindClickListener(item: U) {
+        itemView.setOnClickListener { onItemClick(item) }
+    }
 }

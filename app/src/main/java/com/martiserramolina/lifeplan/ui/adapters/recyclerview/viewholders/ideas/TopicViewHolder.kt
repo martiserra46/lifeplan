@@ -9,7 +9,7 @@ class TopicViewHolder(
     binding: RviIdeasTopicBinding,
     onItemClick: (Topic) -> Unit
 ) : ItemViewHolder<RviIdeasTopicBinding, Topic>(binding, onItemClick) {
-    override fun bindItemData(item: Topic) {
+    override fun bindData(item: Topic) {
         binding.apply {
             rviIdeasTopicTitleTv.text = item.topicText
             rviIdeasTopicNumIdeasTv.text = root.context
