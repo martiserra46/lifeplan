@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.viewmodels.utils.interfaces
+package com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.interfaces
 
 import androidx.lifecycle.MutableLiveData
 

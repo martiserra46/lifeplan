@@ -1,7 +1,7 @@
-package com.martiserramolina.lifeplan.viewmodels.utils.classes
+package com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.classes
 
 import androidx.lifecycle.MutableLiveData
-import com.martiserramolina.lifeplan.viewmodels.utils.interfaces.CapableOfFetchingItemsI
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.interfaces.CapableOfFetchingItemsI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

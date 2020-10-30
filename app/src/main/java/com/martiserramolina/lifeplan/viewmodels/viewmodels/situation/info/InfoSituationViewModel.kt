@@ -3,10 +3,9 @@ package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Day
-import com.martiserramolina.lifeplan.viewmodels.utils.classes.CapableOfFetchingItems
-import com.martiserramolina.lifeplan.viewmodels.utils.interfaces.CapableOfFetchingItemsI
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.classes.CapableOfFetchingItems
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.interfaces.CapableOfFetchingItemsI
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.SituationViewModel
-import kotlinx.coroutines.launch
 
 class InfoSituationViewModel(
     application: Application

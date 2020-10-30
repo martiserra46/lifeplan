@@ -4,11 +4,10 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.repository.room.Topic
-import com.martiserramolina.lifeplan.viewmodels.utils.classes.CapableOfFetchingItems
-import com.martiserramolina.lifeplan.viewmodels.utils.interfaces.CapableOfFetchingItemsI
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.classes.CapableOfFetchingItems
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.interfaces.CapableOfFetchingItemsI
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.TopicViewModel
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
 
 class InfoTopicViewModel(
     topic: Topic,
