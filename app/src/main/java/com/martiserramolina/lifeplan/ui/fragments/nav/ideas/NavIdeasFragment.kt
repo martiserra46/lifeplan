@@ -5,8 +5,8 @@ import android.view.*
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasBinding
 import com.martiserramolina.lifeplan.repository.room.Topic
-import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.ideas.topic.TopicAdapter
-import com.martiserramolina.lifeplan.ui.extensions.setupAutoLoadItemsFunctionality
+import com.martiserramolina.lifeplan.adapters.recyclerview.adapters.ideas.topic.TopicAdapter
+import com.martiserramolina.lifeplan.extensions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory

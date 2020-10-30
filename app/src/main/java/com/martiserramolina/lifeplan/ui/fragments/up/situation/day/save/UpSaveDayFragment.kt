@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
-import com.martiserramolina.lifeplan.ui.adapters.spinner.DaySatisfactionAdapter
+import com.martiserramolina.lifeplan.adapters.spinner.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.day.save.SaveDayViewModel
 

@@ -3,8 +3,8 @@ package com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.info
 import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Day
-import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.classes.CapableOfFetchingItems
-import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.interfaces.CapableOfFetchingItemsI
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.CapableOfFetchingItems
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.CapableOfFetchingItemsI
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.situation.SituationViewModel
 
 class InfoSituationViewModel(

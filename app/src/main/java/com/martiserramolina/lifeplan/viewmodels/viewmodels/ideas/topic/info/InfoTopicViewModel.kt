@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.repository.room.Topic
-import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.classes.CapableOfFetchingItems
-import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.interfaces.CapableOfFetchingItemsI
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.CapableOfFetchingItems
+import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.CapableOfFetchingItemsI
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.TopicViewModel
 import kotlinx.coroutines.launch
 

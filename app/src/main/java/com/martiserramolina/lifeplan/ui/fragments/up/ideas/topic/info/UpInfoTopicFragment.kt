@@ -7,8 +7,8 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
-import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.ideas.idea.IdeaAdapter
-import com.martiserramolina.lifeplan.ui.extensions.setupAutoLoadItemsFunctionality
+import com.martiserramolina.lifeplan.adapters.recyclerview.adapters.ideas.idea.IdeaAdapter
+import com.martiserramolina.lifeplan.extensions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.ideas.topic.info.InfoTopicViewModel
