@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.ideas
+package com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.ideas.topic
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

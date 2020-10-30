@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.adapters.recyclerview.diffutils.ideas
+package com.martiserramolina.lifeplan.ui.adapters.recyclerview.diffutils.ideas.topic
 
 import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.diffutils.ItemListDiffCallback

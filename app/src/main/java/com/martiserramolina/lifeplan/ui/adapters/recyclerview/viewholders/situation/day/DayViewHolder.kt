@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.situation
+package com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.situation.day
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.adapters.recyclerview.diffutils.situation
+package com.martiserramolina.lifeplan.ui.adapters.recyclerview.diffutils.situation.day
 
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.diffutils.ItemListDiffCallback

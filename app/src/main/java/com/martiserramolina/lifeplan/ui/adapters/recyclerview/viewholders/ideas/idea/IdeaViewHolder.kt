@@ -1,9 +1,8 @@
-package com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.ideas
+package com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.ideas.idea
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.martiserramolina.lifeplan.databinding.RviIdeasIdeaBinding
-import com.martiserramolina.lifeplan.databinding.RviSituationDayBinding
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.ItemViewHolder
