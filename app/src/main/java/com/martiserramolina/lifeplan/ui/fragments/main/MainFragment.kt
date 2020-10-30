@@ -81,7 +81,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         return if (savedInstanceState == null) {
             MainFragmentArgs.fromBundle(requireArguments()).navSection
         } else {
-            savedInstanceState.getSerializable("navSection") as NavSection
+            savedInstanceState.getSerializable(NAV_SECTION_KEY) as NavSection
         }
     }
 
