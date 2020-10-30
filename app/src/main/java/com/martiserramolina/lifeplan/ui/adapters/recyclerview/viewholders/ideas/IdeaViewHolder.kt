@@ -1,14 +1,21 @@
 package com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.ideas
 
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import com.martiserramolina.lifeplan.databinding.RviIdeasIdeaBinding
+import com.martiserramolina.lifeplan.databinding.RviSituationDayBinding
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.ItemViewHolder
 
 class IdeaViewHolder(
-    binding: RviIdeasIdeaBinding,
+    parent: ViewGroup,
     onItemClick: (Idea) -> Unit
-) : ItemViewHolder<RviIdeasIdeaBinding, Idea>(binding, onItemClick) {
+) : ItemViewHolder<RviIdeasIdeaBinding, Idea>(
+    RviIdeasIdeaBinding.inflate(
+        LayoutInflater.from(parent.context), parent, false
+    ), onItemClick
+) {
     override fun bindData(item: Idea) {
         binding.apply {
             rviIdeasIdeaDateTv.text = item.ideaLastTimeModified.formatted()
