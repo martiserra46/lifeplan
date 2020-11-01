@@ -8,6 +8,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicBinding
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.adapters.recyclerview.adapters.ideas.idea.IdeaAdapter
+import com.martiserramolina.lifeplan.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.extensions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
@@ -102,7 +103,10 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
     }
 
     private fun deleteTopic() {
-        viewModel.deleteTopic()
+        DeleteItemDialogFragment(
+            R.string.dialog_message_delete_item,
+            { viewModel.deleteTopic() }
+        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_item))
     }
 
     private fun navigateToIdeaFragment(idea: Idea) {

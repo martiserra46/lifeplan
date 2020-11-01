@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
+import com.martiserramolina.lifeplan.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.functions.showMessageWithDelay
@@ -99,6 +100,9 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
     }
 
     private fun deleteDay() {
-        viewModel.deleteDay()
+        DeleteItemDialogFragment(
+            R.string.dialog_message_delete_item,
+            { viewModel.deleteDay() }
+        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_item))
     }
 }

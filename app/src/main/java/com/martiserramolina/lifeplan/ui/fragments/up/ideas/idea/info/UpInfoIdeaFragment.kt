@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
+import com.martiserramolina.lifeplan.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.UpIdeasFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
@@ -98,6 +99,9 @@ class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
     }
 
     private fun deleteIdea() {
-        viewModel.deleteIdea()
+        DeleteItemDialogFragment(
+            R.string.dialog_message_delete_item,
+            { viewModel.deleteIdea() }
+        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_item))
     }
 }
