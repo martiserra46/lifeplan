@@ -43,4 +43,7 @@
     <string name="day_added">Day added</string>
     <string name="day_edited">Day edited</string>
     <string name="day_deleted">Day deleted</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
