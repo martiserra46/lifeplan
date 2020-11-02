@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
+    android:orientation="vertical"
     tools:context=".ui.fragments.up.ideas.topic.save.add.UpAddTopicFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -13,7 +13,10 @@
 
     <EditText
         android:id="@+id/fragment_nav_ideas_topic_save_title_et"
-        style="@style/styleTitleEt"
+        style="@style/styleTitleEditText"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="start"
         android:hint="@string/notebook_title_hint"
         android:importantForAutofill="no"
         android:inputType="text" />
