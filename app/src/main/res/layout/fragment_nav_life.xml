@@ -6,6 +6,7 @@
     android:paddingHorizontal="@dimen/paddingHorizontalContainer"
     android:paddingVertical="@dimen/paddingVerticalContainer"
     android:scrollbars="none"
+    android:background="@color/colorBackground"
     tools:context=".ui.fragments.nav.life.NavLifeFragment">
 
     <TextView

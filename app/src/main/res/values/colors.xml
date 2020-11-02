@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">@color/colorWhite</color>
     <color name="colorAccent">@color/colorBlack</color>
 
+    <color name="colorBackground">@color/colorWhite</color>
+
     <color name="colorToolbar">@color/colorPrimary</color>
 
     <color name="colorText">@color/colorBlack</color>
