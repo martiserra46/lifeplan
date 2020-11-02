@@ -135,6 +135,18 @@
         <item name="android:textAppearance">@style/textAppearanceSpinner</item>
     </style>
 
+    <style name="styleSpinnerDropdownTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/dimen_16dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_16dp</item>
+        <item name="android:paddingStart">@dimen/paddingStartContainer</item>
+        <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
+        <item name="android:textAppearance">@style/textAppearanceSpinner</item>
+    </style>
+
+
+
     <style name="textAppearanceTitleTv" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/textSizeTitle</item>
@@ -177,14 +189,6 @@
         <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/textSizeDescription</item>
         <item name="android:textStyle">normal</item>
-    </style>
-
-
-
-    <style name="styleSpinnerDropdownTv">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/textSizeSpinnerTextView</item>
     </style>
 
 
