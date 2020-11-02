@@ -19,7 +19,7 @@
         <item name="android:layout_height">?android:attr/actionBarSize</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:background">@color/colorMainTb</item>
+        <item name="android:background">@color/colorMainToolbar</item>
         <item name="titleTextAppearance">@style/textAppearanceMainTb</item>
     </style>
 

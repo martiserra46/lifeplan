@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000000</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#000000</color>
+    <color name="colorPrimary">@color/colorWhite</color>
+    <color name="colorPrimaryDark">@color/colorWhite</color>
+    <color name="colorAccent">@color/colorBlack</color>
 
-    <color name="colorMainTb">@color/colorPrimary</color>
-    <color name="colorSecondaryTb">#ffffff</color>
+    <color name="colorMainToolbar">@color/colorPrimary</color>
+    <color name="colorSecondaryToolbar">@color/colorPrimary</color>
 
-    <color name="colorControlNormal">#000000</color>
+    <color name="colorText">@color/colorBlack</color>
 
-    <color name="colorText">#000000</color>
-    <color name="colorSecondaryText">#8E8E8E</color>
-    <color name="colorDividerLine">#E3E3E3</color>
+    <color name="colorTitleText">@color/colorBlack</color>
+    <color name="colorDescriptionText">@color/colorBlack</color>
 
-    <color name="colorSituationDayLine">#CECECE</color>
+    <color name="colorDividerLine">@color/colorLightGrey</color>
 
-    <color name="colorNavSelectedMenuItem">@color/colorText</color>
-    <color name="colorNavUnselectedMenuItem">@color/colorSecondaryText</color>
+    <color name="colorSelectedNavigationMenuItem">@color/colorBlack</color>
+    <color name="colorUnselectedNavigationMenuItem">@color/colorGrey</color>
 
-    <color name="colorDayHighSatisfaction">#4DD500</color>
-    <color name="colorDayNormalSatisfaction">#FFC17B</color>
-    <color name="colorDayLowSatisfaction">#FF7878</color>
+    <color name="colorPrimaryTextRecyclerViewItem">@color/colorBlack</color>
+    <color name="colorSecondaryTextRecyclerViewItem">@color/colorGrey</color>
 
-    <color name="colorIdeaHighImportance">#FF7878</color>
-    <color name="colorIdeaNormalImportance">#FFC17B</color>
-    <color name="colorIdeaLowImportance">#CDDC39</color>
+    <color name="colorSnackBarBackground">@color/colorLightGrey</color>
+    <color name="colorSnackBarText">@color/colorBlack</color>
+    <color name="colorSnackBarActionText">@color/colorBlack</color>
 
-    <color name="colorTitleText">#FFFFFF</color>
+    <color name="colorDayHighSatisfaction">@color/colorGreen</color>
+    <color name="colorDayNormalSatisfaction">@color/colorOrange</color>
+    <color name="colorDayLowSatisfaction">@color/colorRed</color>
 
-    <color name="colorSnackBarBackground">@color/colorPrimary</color>
-    <color name="colorSnackBarText">#FFFFFF</color>
-    <color name="colorSnackBarActionText">#FFFFFF</color>
+    <color name="colorIdeaHighImportance">@color/colorRed</color>
+    <color name="colorIdeaNormalImportance">@color/colorOrange</color>
+    <color name="colorIdeaLowImportance">@color/colorYellow</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#B4B4B4</color>
+    <color name="colorLightGrey">#F6F6F6</color>
+
+    <color name="colorRed">#FF7878</color>
+    <color name="colorOrange">#FFC17B</color>
+    <color name="colorYellow">#CDDC39</color>
+    <color name="colorGreen">#4DD500</color>
+
 </resources>
