@@ -25,7 +25,7 @@
     <color name="colorPrimaryTextRecyclerViewItem">@color/colorBlack</color>
     <color name="colorSecondaryTextRecyclerViewItem">@color/colorGrey</color>
 
-    <color name="colorSnackBarBackground">@color/colorLightGrey</color>
+    <color name="colorSnackBarBackground">@color/colorWhite</color>
     <color name="colorSnackBarText">@color/colorBlack</color>
     <color name="colorSnackBarActionText">@color/colorBlack</color>
 
