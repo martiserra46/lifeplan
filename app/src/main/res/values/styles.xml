@@ -152,16 +152,29 @@
 
 
     <!-- Text Appearances -->
+    <!-- Default text appearance -->
     <style name="textAppearanceText" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/dimen_16sp</item>
     </style>
 
+    <!-- Recycler view texts text appearances -->
     <style name="textAppearancePrimaryTextRecyclerViewItem" parent="textAppearanceText">
         <item name="android:textSize">@dimen/textSizePrimaryTextRecyclerViewItem</item>
     </style>
 
     <style name="textAppearanceSecondaryTextRecyclerViewItem" parent="textAppearanceText">
         <item name="android:textSize">@dimen/textSizeSecondaryTextRecyclerViewItem</item>
+    </style>
+
+    <!-- Navigation menu items text appearances -->
+    <style name="textAppearanceSelectedNavigationMenuItem">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize">@dimen/dimen_14sp</item>
+    </style>
+
+    <style name="textAppearanceUnselectedNavigationMenuItem">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize">@dimen/dimen_12sp</item>
     </style>
 </resources>

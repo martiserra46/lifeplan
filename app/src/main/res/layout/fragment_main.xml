@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
+    android:orientation="vertical"
     tools:context=".ui.fragments.main.MainFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,12 +19,16 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         app:navGraph="@navigation/fragment_main_nav_graph" />
-    
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/fragment_main_bn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:menu="@menu/bottom_nav_menu"/>
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@color/nav_menu_item_color"
+        app:itemTextAppearanceActive="@style/textAppearanceSelectedNavigationMenuItem"
+        app:itemTextAppearanceInactive="@style/textAppearanceUnselectedNavigationMenuItem"
+        app:itemTextColor="@color/nav_menu_item_color"
+        app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>
