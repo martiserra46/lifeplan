@@ -11,7 +11,7 @@ enum class IdeaImportance(val drawableId: Int, val colorId: Int, val stringId: I
     NORMAL(
         R.drawable.bg_rvi_ideas_idea_circle_normal,
         R.color.colorIdeaNormalImportance,
-        R.string.normal_importance
+        R.string.medium_importance
     ),
     UNIMPORTANT(
         R.drawable.bg_rvi_ideas_idea_circle_unimportant,
@@ -29,7 +29,7 @@ enum class DaySatisfaction(val drawableId: Int, val colorId: Int, val stringId: 
     NORMAL(
         R.drawable.bg_rvi_situation_day_circle_normal,
         R.color.colorDayNormalSatisfaction,
-        R.string.normal_satisfaction
+        R.string.medium_satisfaction
     ),
     UNSATISFIED(
         R.drawable.bg_rvi_situation_day_circle_unsatisfied,

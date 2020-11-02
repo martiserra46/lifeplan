@@ -5,7 +5,6 @@ import android.view.*
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasTopicSaveBinding
-import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.UpTopicFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.save.SaveTopicViewModel
@@ -64,7 +63,7 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
     }
 
     private fun saveTopicIfValid() {
-        if (isTopicValid()) saveTopic() else showMessageWithDelay(binding.root, R.string.invalid_topic)
+        if (isTopicValid()) saveTopic() else showMessageWithDelay(binding.root, R.string.invalid_notebook)
     }
 
     private fun isTopicValid(): Boolean = getTitleFromEditText().isNotEmpty()

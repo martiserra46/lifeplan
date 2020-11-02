@@ -14,7 +14,7 @@
         android:id="@+id/fragment_nav_ideas_idea_save_title_et"
         style="@style/styleTitleEt"
         android:layout_width="match_parent"
-        android:hint="@string/title_of_the_idea"
+        android:hint="@string/note_title_hint"
         android:importantForAutofill="no"
         android:inputType="text" />
 
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:hint="@string/description_of_the_idea"
+        android:hint="@string/note_description_hint"
         android:importantForAutofill="no"
         android:inputType="text"
         android:paddingHorizontal="@dimen/paddingNormal"

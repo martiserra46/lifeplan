@@ -101,8 +101,8 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
 
     private fun deleteDay() {
         DeleteItemDialogFragment(
-            R.string.dialog_message_delete_item,
+            R.string.dialog_message_delete_notebook,
             { viewModel.deleteDay() }
-        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_item))
+        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_notebook))
     }
 }

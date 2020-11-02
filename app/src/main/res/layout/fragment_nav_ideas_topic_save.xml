@@ -13,7 +13,7 @@
     <EditText
         android:id="@+id/fragment_nav_ideas_topic_save_title_et"
         style="@style/styleTitleEt"
-        android:hint="@string/add_topic_hint"
+        android:hint="@string/notebook_title_hint"
         android:importantForAutofill="no"
         android:inputType="text" />
 

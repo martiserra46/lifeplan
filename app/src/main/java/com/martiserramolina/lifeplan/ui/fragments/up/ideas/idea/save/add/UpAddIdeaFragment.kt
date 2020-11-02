@@ -24,5 +24,5 @@ class UpAddIdeaFragment : UpSaveIdeaFragment() {
         )
     }
 
-    override fun getIdeaSavedMessage(): Int = R.string.idea_added
+    override fun getIdeaSavedMessage(): Int = R.string.note_added
 }

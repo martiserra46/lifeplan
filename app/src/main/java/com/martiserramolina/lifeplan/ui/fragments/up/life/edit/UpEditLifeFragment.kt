@@ -29,7 +29,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
 
     override fun getToolbar(): Toolbar = binding.fragmentNavLifeSaveTb
 
-    override fun getToolbarTitle(): String = getString(R.string.life_edit)
+    override fun getToolbarTitle(): String = getString(R.string.life_save)
 
     override fun navigateToPreviousFragment() {
         mainActivity.navController.navigate(

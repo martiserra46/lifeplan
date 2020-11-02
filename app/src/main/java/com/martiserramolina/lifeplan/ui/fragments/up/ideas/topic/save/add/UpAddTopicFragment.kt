@@ -22,5 +22,5 @@ class UpAddTopicFragment : UpSaveTopicFragment() {
         )
     }
 
-    override fun getTopicSavedMessage(): Int = R.string.topic_added
+    override fun getTopicSavedMessage(): Int = R.string.notebook_added
 }

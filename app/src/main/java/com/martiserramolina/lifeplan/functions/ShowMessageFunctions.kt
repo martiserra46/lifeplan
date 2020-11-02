@@ -27,6 +27,6 @@ fun showMessage(view: View, messageId: Int, duration: Int = Snackbar.LENGTH_SHOR
         setBackgroundTint(ContextCompat.getColor(context, R.color.colorSnackBarBackground))
         setTextColor(ContextCompat.getColor(context, R.color.colorSnackBarText))
         setActionTextColor(ContextCompat.getColor(context, R.color.colorSnackBarActionText))
-        setAction(R.string.snackBar_close) { dismiss() }
+        setAction(R.string.close) { dismiss() }
     }.show()
 }

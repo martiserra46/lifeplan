@@ -1,51 +1,84 @@
 <resources>
+    <!-- Main strings -->
     <string name="app_name">Life Plan</string>
-    <string name="design_life">Design your life</string>
-    <string name="save">Save</string>
-    <string name="write_here">Write here</string>
-    <string name="title_of_the_idea">Title of the Idea</string>
-    <string name="description_of_the_idea">Description of the Idea</string>
-    <string name="describe_your_situation">Describe your situation</string>
+
+    <!-- Navigation sections -->
     <string name="life">Life</string>
-    <string name="ideas">Ideas</string>
-    <string name="situation">Situation</string>
-    <string name="edit">Edit</string>
-    <string name="delete">Delete</string>
-    <string name="life_edit">Describe your desired life</string>
-    <string name="life_plan_icon_description">Life Plan Icon</string>
-    <string name="num_ideas">%1$d Ideas</string>
-    <string name="add">Add</string>
-    <string name="ideas_topic_add">Add Topic</string>
-    <string name="situation_day_add">Describe current situation</string>
-    <string name="high_satisfaction">High satisfaction</string>
-    <string name="normal_satisfaction">Normal satisfaction</string>
-    <string name="low_satisfaction">Low satisfaction</string>
-    <string name="high_importance">High importance</string>
-    <string name="normal_importance">Normal importance</string>
-    <string name="low_importance">Low importance</string>
-    <string name="add_topic_hint">Topic name</string>
-    <string name="add_idea">Add Idea</string>
+    <string name="notes">Notes</string>
+    <string name="status">Status</string>
+
+    <!-- Database operation names -->
+    <string name="life_save">Describe your desired life</string>
+
+    <string name="notebook_add">Add Notebook</string>
+    <string name="notebook_edit">Edit Notebook</string>
+    <string name="notebook_delete">Delete Notebook</string>
+
+    <string name="note_add">Add Note</string>
+    <string name="note_edit">Edit Note</string>
+    <string name="note_delete">Delete Note</string>
+
+    <string name="day_add">Are you achieving it?</string>
+    <string name="day_edit">Edit Day</string>
+    <string name="day_delete">Delete Day</string>
+
+    <!-- RecyclerView item messages -->
+    <string name="num_notes">%1$d Notes</string>
+
+    <!-- EditText hint messages -->
+    <string name="notebook_title_hint">Notebook title</string>
+    <string name="note_title_hint">Note title</string>
+    <string name="note_description_hint">Note description</string>
+
     <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
 
-    <string name="snackBar_close">Close</string>
 
-    <string name="invalid_topic">Invalid Topic</string>
-    <string name="invalid_idea">Invalid Idea</string>
-    <string name="invalid_day">Invalid Day</string>
+    <!-- Database operations messages -->
+    <string name="life_saved">Life description saved</string>
 
-    <string name="life_saved">Life saved</string>
-    <string name="topic_added">Topic added</string>
-    <string name="topic_edited">Topic edited</string>
-    <string name="topic_deleted">Topic deleted</string>
-    <string name="idea_added">Idea added</string>
-    <string name="idea_edited">Idea edited</string>
-    <string name="idea_deleted">Idea deleted</string>
+    <string name="notebook_added">Notebook added</string>
+    <string name="notebook_edited">Notebook edited</string>
+    <string name="notebook_deleted">Notebook deleted</string>
+
+    <string name="note_added">Idea added</string>
+    <string name="note_edited">Idea edited</string>
+    <string name="note_deleted">Idea deleted</string>
+
     <string name="day_added">Day added</string>
     <string name="day_edited">Day edited</string>
     <string name="day_deleted">Day deleted</string>
 
+    <!-- Invalid data -->
+    <string name="invalid_notebook">Invalid Notebook</string>
+    <string name="invalid_note">Invalid Note</string>
+    <string name="invalid_day">Invalid Day</string>
+
+    <!-- Dialog messages delete item -->
+    <string name="dialog_message_delete_notebook">Are you sure you want to delete this notebook?</string>
+    <string name="dialog_message_delete_note">Are you sure you want to delete this note?</string>
+    <string name="dialog_message_delete_day">Are you sure you want to delete this day?</string>
+
+    <!-- Satisfaction levels -->
+    <string name="high_satisfaction">High satisfaction</string>
+    <string name="medium_satisfaction">Medium satisfaction</string>
+    <string name="low_satisfaction">Low satisfaction</string>
+
+    <!-- Importance levels -->
+    <string name="high_importance">High importance</string>
+    <string name="medium_importance">Medium importance</string>
+    <string name="low_importance">Low importance</string>
+
+    <!-- Other -->
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
-    <string name="dialog_message_delete_item">Are you sure you want to delete it?</string>
+    <string name="close">Close</string>
+
+    <string name="write_here">Write here</string>
+
 </resources>

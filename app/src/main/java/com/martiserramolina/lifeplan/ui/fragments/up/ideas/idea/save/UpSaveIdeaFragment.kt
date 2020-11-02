@@ -7,7 +7,6 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
 import com.martiserramolina.lifeplan.adapters.spinner.idea_importance.IdeaImportanceAdapter
-import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.UpIdeaFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.save.SaveIdeaViewModel
@@ -80,7 +79,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
     }
 
     private fun saveIdeaIfValid() {
-        if (isIdeaValid()) saveIdea() else showMessageWithDelay(binding.root, R.string.invalid_idea)
+        if (isIdeaValid()) saveIdea() else showMessageWithDelay(binding.root, R.string.invalid_note)
     }
 
     private fun isIdeaValid(): Boolean = getTitleFromEditText().isNotEmpty() &&

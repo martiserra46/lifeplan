@@ -5,7 +5,7 @@
     <item
         android:id="@+id/ideas_topic_add_idea_mi"
         android:icon="@drawable/ic_add"
-        android:title="@string/add_idea"
+        android:title="@string/note_add"
         app:showAsAction="always" />
     <item
         android:id="@+id/ideas_topic_edit_mi"

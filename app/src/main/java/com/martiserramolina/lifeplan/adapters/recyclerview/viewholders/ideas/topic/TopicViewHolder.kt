@@ -19,7 +19,7 @@ class TopicViewHolder(
         binding.apply {
             rviIdeasTopicTitleTv.text = item.topicText
             rviIdeasTopicNumIdeasTv.text = root.context
-                .getString(R.string.num_ideas, item.topicNumIdeas)
+                .getString(R.string.num_notes, item.topicNumIdeas)
         }
     }
 }
