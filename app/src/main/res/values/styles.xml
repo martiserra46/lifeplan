@@ -62,6 +62,17 @@
         <item name="android:lineHeight">26sp</item>
     </style>
 
+    <style name="styleLifeDescriptionEditText" parent="styleEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">@dimen/paddingTopContainer</item>
+        <item name="android:paddingBottom">@dimen/paddingBottomContainer</item>
+        <item name="android:paddingStart">@dimen/paddingStartContainer</item>
+        <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
+        <item name="android:lineHeight">26sp</item>
+        <item name="android:gravity">start</item>
+    </style>
+
     <style name="styleTitleTv" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
