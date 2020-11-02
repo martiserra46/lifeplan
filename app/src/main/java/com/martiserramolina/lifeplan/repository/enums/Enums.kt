@@ -4,17 +4,17 @@ import com.martiserramolina.lifeplan.R
 
 enum class IdeaImportance(val drawableId: Int, val colorId: Int, val stringId: Int) {
     IMPORTANT(
-        R.drawable.bg_rvi_ideas_idea_circle_important,
+        R.drawable.bg_note_high_importance,
         R.color.colorIdeaHighImportance,
         R.string.high_importance
     ),
     NORMAL(
-        R.drawable.bg_rvi_ideas_idea_circle_normal,
+        R.drawable.bg_note_medium_importance,
         R.color.colorIdeaMediumImportance,
         R.string.medium_importance
     ),
     UNIMPORTANT(
-        R.drawable.bg_rvi_ideas_idea_circle_unimportant,
+        R.drawable.bg_note_low_importance,
         R.color.colorIdeaLowImportance,
         R.string.low_importance
     )
@@ -27,12 +27,12 @@ enum class DaySatisfaction(val drawableId: Int, val colorId: Int, val stringId: 
         R.string.high_satisfaction
     ),
     NORMAL(
-        R.drawable.bg_rvi_situation_day_circle_normal,
+        R.drawable.bg_day_medium_satisfaction,
         R.color.colorDayMediumSatisfaction,
         R.string.medium_satisfaction
     ),
     UNSATISFIED(
-        R.drawable.bg_rvi_situation_day_circle_unsatisfied,
+        R.drawable.bg_day_low_satisfaction,
         R.color.colorDayLowSatisfaction,
         R.string.low_satisfaction
     )

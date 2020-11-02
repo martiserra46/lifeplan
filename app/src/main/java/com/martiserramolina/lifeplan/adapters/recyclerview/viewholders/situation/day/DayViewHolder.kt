@@ -19,7 +19,7 @@ class DayViewHolder(
         binding.apply {
             rviSituationDayDateTv.text = item.dayDate.formatted()
             rviSituationDayTextTv.text = item.dayText
-            rviSituationDayCircleV.setBackgroundResource(item.daySatisfaction.drawableId)
+            rviSituationDaySatisfactionV.setBackgroundResource(item.daySatisfaction.drawableId)
         }
     }
 }
