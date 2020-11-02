@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
+    android:orientation="vertical"
     tools:context=".ui.fragments.up.situation.day.info.UpInfoDayFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,18 +19,16 @@
     <TextView
         android:id="@+id/fragment_nav_situation_day_satisfaction_tv"
         style="@style/styleSpinnerTextView"
-        android:layout_marginTop="@dimen/marginNormal"
-        android:paddingHorizontal="@dimen/paddingNormal"
         android:textColor="@color/colorDayHighSatisfaction"
         tools:text="High Satisfaction" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingTop="@dimen/marginNormal"
         android:layout_weight="1"
-        android:paddingHorizontal="@dimen/paddingNormal"
-        android:paddingBottom="@dimen/paddingNormal">
+        android:paddingHorizontal="@dimen/paddingHorizontalContainer"
+        android:paddingVertical="@dimen/dimen_16dp"
+        android:scrollbars="none">
 
         <TextView
             android:id="@+id/fragment_nav_situation_day_description_tv"
