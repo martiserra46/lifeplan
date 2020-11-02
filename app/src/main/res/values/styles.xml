@@ -54,6 +54,7 @@
     <style name="styleLifeDescriptionTextView" parent="styleTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/textAppearanceLifeDescription</item>
         <item name="android:lineHeight">@dimen/lineHeightDescription</item>
     </style>
 
@@ -64,6 +65,7 @@
         <item name="android:paddingBottom">@dimen/paddingBottomContainer</item>
         <item name="android:paddingStart">@dimen/paddingStartContainer</item>
         <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
+        <item name="android:textAppearance">@style/textAppearanceLifeDescription</item>
         <item name="android:lineHeight">@dimen/lineHeightDescription</item>
         <item name="android:gravity">start</item>
     </style>
@@ -202,6 +204,11 @@
     <style name="textAppearanceUnselectedNavigationMenuItem">
         <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/dimen_12sp</item>
+    </style>
+
+    <style name="textAppearanceLifeDescription" parent="textAppearanceText">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize">@dimen/textSizeDescription</item>
     </style>
 
     <!-- Recycler view texts text appearances -->
