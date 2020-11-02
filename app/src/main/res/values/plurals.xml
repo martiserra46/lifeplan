@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- RecyclerView item messages -->
+    <plurals name="num_notes">
+        <item quantity="one">%d Note</item>
+        <item quantity="other">%d Notes</item>
+    </plurals>
+</resources>

@@ -18,8 +18,8 @@ class TopicViewHolder(
     override fun bindData(item: Topic) {
         binding.apply {
             rviIdeasTopicTitleTv.text = item.topicText
-            rviIdeasTopicNumIdeasTv.text = root.context
-                .getString(R.string.num_notes, item.topicNumIdeas)
+            rviIdeasTopicNumIdeasTv.text = root.context.resources
+                .getQuantityString(R.plurals.num_notes, item.topicNumIdeas, item.topicNumIdeas)
         }
     }
 }

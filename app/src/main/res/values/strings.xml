@@ -22,9 +22,6 @@
     <string name="day_edit">Edit Day</string>
     <string name="day_delete">Delete Day</string>
 
-    <!-- RecyclerView item messages -->
-    <string name="num_notes">%1$d Notes</string>
-
     <!-- EditText hint messages -->
     <string name="notebook_title_hint">Notebook title</string>
     <string name="note_title_hint">Note title</string>
