@@ -13,8 +13,7 @@
 
     <EditText
         android:id="@+id/fragment_nav_ideas_idea_save_title_et"
-        style="@style/styleTitleEt"
-        android:layout_width="match_parent"
+        style="@style/styleTitleEditText"
         android:hint="@string/note_title_hint"
         android:importantForAutofill="no"
         android:inputType="text" />
@@ -23,21 +22,16 @@
         android:id="@+id/fragment_nav_ideas_idea_save_importance_sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginNormal"
-        android:paddingHorizontal="@dimen/paddingNormal"
         tools:listitem="@layout/spinner_item" />
 
     <EditText
         android:id="@+id/fragment_nav_ideas_idea_save_description_et"
-        style="@style/styleDescriptionEt"
+        style="@style/styleDescriptionEditText"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:hint="@string/note_description_hint"
         android:importantForAutofill="no"
-        android:inputType="text"
-        android:paddingHorizontal="@dimen/paddingNormal"
-        android:paddingTop="@dimen/paddingNormal"
-        android:paddingBottom="@dimen/paddingNormal" />
+        android:inputType="text|textMultiLine" />
 
 </LinearLayout>

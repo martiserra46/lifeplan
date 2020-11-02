@@ -112,10 +112,15 @@
 
     <style name="styleDescriptionEditText" parent="styleEditText">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">@dimen/dimen_16dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_16dp</item>
+        <item name="android:paddingStart">@dimen/paddingStartContainer</item>
+        <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
         <item name="android:textColor">@color/colorDescriptionText</item>
         <item name="android:textAppearance">@style/textAppearanceDescription</item>
         <item name="android:lineHeight">@dimen/lineHeightDescription</item>
+        <item name="android:gravity">start</item>
     </style>
 
     <style name="styleSpinnerTextView" parent="styleTextView">
