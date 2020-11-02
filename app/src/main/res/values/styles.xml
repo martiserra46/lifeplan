@@ -36,7 +36,6 @@
         <item name="android:textSize">@dimen/dimen_16sp</item>
     </style>
 
-
     <!-- Text styles -->
     <style name="styleTextView" parent="Widget.AppCompat.TextView">
         <item name="android:textAppearance">@style/textAppearanceText</item>
@@ -144,53 +143,6 @@
         <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
         <item name="android:textAppearance">@style/textAppearanceSpinner</item>
     </style>
-
-
-
-    <style name="textAppearanceTitleTv" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/open_sans</item>
-        <item name="android:textSize">@dimen/textSizeTitle</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="textAppearanceDescriptionTv" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/open_sans</item>
-        <item name="android:textSize">@dimen/textSizeDescription</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="styleTitleEt" parent="Widget.AppCompat.EditText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:textAppearance">@style/textAppearanceTitleEt</item>
-        <item name="android:textColor">@color/colorTitleText</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColorHint">@color/colorTextHint</item>
-        <item name="android:textCursorDrawable">@drawable/cs_edit_text_title</item>
-    </style>
-
-    <style name="styleDescriptionEt" parent="Widget.AppCompat.EditText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:textAppearance">@style/textAppearanceDescriptionEt</item>
-        <item name="android:lineHeight">30dp</item>
-        <item name="android:gravity">start</item>
-    </style>
-
-    <style name="textAppearanceTitleEt" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/open_sans</item>
-        <item name="android:textSize">@dimen/textSizeTitle</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
-    <style name="textAppearanceDescriptionEt" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/open_sans</item>
-        <item name="android:textSize">@dimen/textSizeDescription</item>
-        <item name="android:textStyle">normal</item>
-    </style>
-
 
     <!-- Text Appearances -->
     <!-- Default text appearance -->
