@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_situation_day_save_tb"
-        style="@style/styleSecondaryTb" />
+        style="@style/styleSecondaryToolbar" />
 
     <TextView
         android:id="@+id/fragment_nav_situation_day_save_date_tv"

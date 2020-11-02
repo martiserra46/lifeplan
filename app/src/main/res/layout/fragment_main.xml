@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_main_tb"
-        style="@style/styleMainTb" />
+        style="@style/stylePrimaryToolbar" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_main_fcv"

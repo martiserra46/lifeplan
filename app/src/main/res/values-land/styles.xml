@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="textAppearanceMainTb" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="textAppearanceTitlePrimaryToolbar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="textAppearanceSecondaryTb" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="textAppearanceTitleSecondaryToolbar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">14sp</item>
     </style>

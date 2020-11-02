@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_topic_tb"
-        style="@style/styleSecondaryTb" />
+        style="@style/styleSecondaryToolbar" />
 
     <TextView
         android:id="@+id/fragment_nav_ideas_topic_title_tv"

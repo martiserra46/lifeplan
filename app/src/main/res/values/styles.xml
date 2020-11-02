@@ -1,49 +1,68 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:fontFamily">@font/roboto</item>
-
-        <item name="android:textColor">@color/colorText</item>
-        <item name="android:textColorHint">@color/colorSecondaryText</item>
-
-        <item name="colorControlNormal">@color/colorControlNormal</item>
     </style>
 
-    <style name="styleMainTb" parent="Widget.AppCompat.Toolbar">
+    <!-- Toolbar styles -->
+    <style name="styleToolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?android:attr/actionBarSize</item>
+        <item name="android:layout_height">@dimen/heightToolbar</item>
         <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:background">@color/colorMainToolbar</item>
-        <item name="titleTextAppearance">@style/textAppearanceMainTb</item>
+        <item name="android:background">@color/colorToolbar</item>
+        <item name="titleTextAppearance">@style/textAppearanceTitleToolbar</item>
     </style>
 
-    <style name="styleSecondaryTb" parent="styleMainTb">
-        <item name="titleTextAppearance">@style/textAppearanceSecondaryTb</item>
+    <style name="stylePrimaryToolbar" parent="styleToolbar">
+        <item name="titleTextAppearance">@style/textAppearanceTitlePrimaryToolbar</item>
     </style>
 
-    <style name="textAppearanceMainTb" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textSize">18sp</item>
+    <style name="styleSecondaryToolbar" parent="styleToolbar">
+        <item name="titleTextAppearance">@style/textAppearanceTitleSecondaryToolbar</item>
     </style>
 
-    <style name="textAppearanceSecondaryTb" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:fontFamily">@font/roboto</item>
-        <item name="android:textSize">16sp</item>
+    <style name="textAppearanceTitleToolbar" parent="TextAppearance.Widget.AppCompat.Toolbar.Title"/>
+
+    <style name="textAppearanceTitlePrimaryToolbar" parent="textAppearanceTitleToolbar">
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:textSize">@dimen/dimen_18sp</item>
+    </style>
+
+    <style name="textAppearanceTitleSecondaryToolbar" parent="textAppearanceTitleToolbar">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textSize">@dimen/dimen_16sp</item>
+    </style>
+
+
+    <!-- Text styles -->
+    <style name="styleTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textAppearance">@style/textAppearanceText</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="styleEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textAppearance">@style/textAppearanceText</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+    </style>
+
+    <style name="textAppearanceText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize">@dimen/dimen_16sp</item>
+    </style>
+
+
+    <!-- Life description style -->
+    <style name="styleLifeDescriptionTextView" parent="styleTextView">
+        <item name="android:lineHeight">26sp</item>
     </style>
 
     <style name="styleTitleTv" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">@dimen/paddingNormal</item>
-        <item name="android:paddingEnd">@dimen/paddingNormal</item>
-        <item name="android:paddingTop">@dimen/paddingNormal</item>
-        <item name="android:paddingBottom">@dimen/paddingNormal</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textAppearance">@style/textAppearanceTitleTv</item>
         <item name="android:textColor">@color/colorTitleText</item>
@@ -57,13 +76,13 @@
     </style>
 
     <style name="textAppearanceTitleTv" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/textSizeTitle</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceDescriptionTv" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/textSizeDescription</item>
         <item name="android:textStyle">normal</item>
     </style>
@@ -71,15 +90,11 @@
     <style name="styleTitleEt" parent="Widget.AppCompat.EditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingStart">@dimen/paddingNormal</item>
-        <item name="android:paddingEnd">@dimen/paddingNormal</item>
-        <item name="android:paddingTop">@dimen/paddingNormal</item>
-        <item name="android:paddingBottom">@dimen/paddingNormal</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textAppearance">@style/textAppearanceTitleEt</item>
         <item name="android:textColor">@color/colorTitleText</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColorHint">@color/colorSecondaryText</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
         <item name="android:textCursorDrawable">@drawable/cs_edit_text_title</item>
     </style>
 
@@ -93,13 +108,13 @@
     </style>
 
     <style name="textAppearanceTitleEt" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/textSizeTitle</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="textAppearanceDescriptionEt" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/textSizeDescription</item>
         <item name="android:textStyle">normal</item>
     </style>
@@ -107,18 +122,12 @@
     <style name="styleSpinnerTv">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingTop">@dimen/paddingNormal</item>
-        <item name="android:paddingBottom">@dimen/paddingNormal</item>
         <item name="android:textSize">@dimen/textSizeSpinnerTextView</item>
     </style>
 
     <style name="styleSpinnerDropdownTv">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingTop">@dimen/paddingNormal</item>
-        <item name="android:paddingBottom">@dimen/paddingNormal</item>
-        <item name="android:paddingStart">@dimen/paddingNormal</item>
-        <item name="android:paddingEnd">@dimen/paddingNormal</item>
         <item name="android:textSize">@dimen/textSizeSpinnerTextView</item>
     </style>
 

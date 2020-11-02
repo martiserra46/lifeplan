@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/paddingNormal"
-    android:paddingVertical="@dimen/paddingNormal"
+    android:paddingHorizontal="@dimen/paddingHorizontalContainer"
+    android:paddingVertical="@dimen/paddingVerticalContainer"
     tools:context=".ui.fragments.nav.life.NavLifeFragment">
 
     <TextView
         android:id="@+id/fragment_nav_life_text_tv"
-        style="@style/styleDescriptionTv"
+        style="@style/styleLifeDescriptionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="@tools:sample/lorem/random" />

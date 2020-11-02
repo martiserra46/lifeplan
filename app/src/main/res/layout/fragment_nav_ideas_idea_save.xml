@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_ideas_idea_save_tb"
-        style="@style/styleSecondaryTb" />
+        style="@style/styleSecondaryToolbar" />
 
     <EditText
         android:id="@+id/fragment_nav_ideas_idea_save_title_et"
