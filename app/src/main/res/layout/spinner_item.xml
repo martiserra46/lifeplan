@@ -2,5 +2,5 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/spinner_item_tv"
-    style="@style/styleSpinnerTv"
+    style="@style/styleSpinnerTextView"
     tools:text="Item" />

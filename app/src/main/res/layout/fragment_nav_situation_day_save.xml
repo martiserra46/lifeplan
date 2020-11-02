@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@+id/fragment_nav_situation_day_save_date_tv"
-        style="@style/styleTitleTv"
+        style="@style/styleTitleTextView"
         tools:text="26/9/2020" />
 
     <Spinner

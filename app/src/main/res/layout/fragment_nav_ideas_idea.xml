@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
+    android:orientation="vertical"
     tools:context=".ui.fragments.up.ideas.idea.info.UpInfoIdeaFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -13,14 +13,12 @@
 
     <TextView
         android:id="@+id/fragment_nav_ideas_idea_title_tv"
-        style="@style/styleTitleTv"
+        style="@style/styleTitleTextView"
         tools:text="Read 1h a day" />
 
     <TextView
         android:id="@+id/fragment_nav_ideas_idea_importance_tv"
-        style="@style/styleSpinnerTv"
-        android:layout_marginTop="@dimen/marginNormal"
-        android:paddingHorizontal="@dimen/paddingNormal"
+        style="@style/styleSpinnerTextView"
         tools:text="High Importance"
         tools:textColor="@color/colorIdeaHighImportance" />
 
@@ -28,15 +26,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingHorizontal="@dimen/paddingNormal"
-        android:paddingTop="@dimen/paddingNormal"
-        android:paddingBottom="@dimen/paddingNormal">
+        android:paddingHorizontal="@dimen/paddingHorizontalContainer"
+        android:paddingVertical="@dimen/paddingVerticalContainer"
+        android:scrollbars="none">
 
         <TextView
             android:id="@+id/fragment_nav_ideas_idea_description_tv"
-            style="@style/styleDescriptionTv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/styleDescriptionTextView"
             tools:text="I have to read 1h a day to learn new things and improve my productivity" />
 
     </ScrollView>

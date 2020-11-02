@@ -24,6 +24,8 @@
     <dimen name="widthSatisfactionRectangle">@dimen/dimen_5dp</dimen>
     <dimen name="widthImportanceRectangle">@dimen/dimen_5dp</dimen>
 
+    <dimen name="lineHeightDescription">@dimen/dimen_26sp</dimen>
+
     <dimen name="dimen_4dp">4dp</dimen>
     <dimen name="dimen_5dp">5dp</dimen>
     <dimen name="dimen_8dp">8dp</dimen>
@@ -38,4 +40,5 @@
     <dimen name="dimen_16sp">16sp</dimen>
     <dimen name="dimen_14sp">14sp</dimen>
     <dimen name="dimen_12sp">12sp</dimen>
+    <dimen name="dimen_26sp">26sp</dimen>
 </resources>

@@ -13,12 +13,12 @@
 
     <TextView
         android:id="@+id/fragment_nav_situation_day_date_tv"
-        style="@style/styleTitleTv"
+        style="@style/styleTitleTextView"
         tools:text="26/09/2020" />
 
     <TextView
         android:id="@+id/fragment_nav_situation_day_satisfaction_tv"
-        style="@style/styleSpinnerTv"
+        style="@style/styleSpinnerTextView"
         android:layout_marginTop="@dimen/marginNormal"
         android:paddingHorizontal="@dimen/paddingNormal"
         android:textColor="@color/colorDayHighSatisfaction"
@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/fragment_nav_situation_day_description_tv"
-            style="@style/styleDescriptionTv"
+            style="@style/styleDescriptionTextView"
             tools:text="I have studied a lot and I have improved my overall health" />
 
     </ScrollView>

@@ -14,7 +14,7 @@
 
     <TextView
         android:id="@+id/fragment_nav_ideas_topic_title_tv"
-        style="@style/styleTitleTv"
+        style="@style/styleTitleTextView"
         tools:text="Ideas about how to live your life" />
 
     <androidx.recyclerview.widget.RecyclerView
