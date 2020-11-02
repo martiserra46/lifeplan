@@ -16,7 +16,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="bottom"
-        android:textSize="@dimen/textSizeMainTvInRvi"
+        android:textSize="@dimen/textSizePrimaryTextRecyclerViewItem"
         tools:text="Ideas about how to live your life" />
 
     <TextView

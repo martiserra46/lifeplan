@@ -14,7 +14,7 @@
         android:id="@+id/rvi_situation_day_date_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/textSizeMainTvInRvi"
+        android:textSize="@dimen/textSizePrimaryTextRecyclerViewItem"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="20/03/2021" />

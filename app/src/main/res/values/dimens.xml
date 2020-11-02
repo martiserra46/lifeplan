@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="paddingNormal">16dp</dimen>
+    <dimen name="heightMainToolbar">@dimen/dimen_48dp</dimen>
+    <dimen name="heightSecondaryToolbar">@dimen/dimen_48dp</dimen>
 
-    <dimen name="paddingSmall">8dp</dimen>
+    <dimen name="paddingVerticalContainer">@dimen/dimen_8dp</dimen>
+    <dimen name="paddingHorizontalContainer">@dimen/dimen_16dp</dimen>
 
-    <dimen name="marginNormal">16dp</dimen>
+    <dimen name="paddingTopContainer">@dimen/dimen_8dp</dimen>
+    <dimen name="paddingBottomContainer">@dimen/dimen_8dp</dimen>
+    <dimen name="paddingStartContainer">@dimen/dimen_16dp</dimen>
+    <dimen name="paddingEndContainer">@dimen/dimen_16dp</dimen>
 
-    <dimen name="marginSmall">8dp</dimen>
+    <dimen name="textSizeTitle">@dimen/dimen_18sp</dimen>
+    <dimen name="textSizeDescription">@dimen/dimen_16sp</dimen>
 
-    <dimen name="textSizeTitle">18sp</dimen>
-    <dimen name="textSizeDescription">16sp</dimen>
+    <dimen name="textSizePrimaryTextRecyclerViewItem">@dimen/dimen_16sp</dimen>
+    <dimen name="textSizeSecondaryTextRecyclerViewItem">@dimen/dimen_14sp</dimen>
 
-    <dimen name="textSizeMainTvInRvi">16sp</dimen>
-    <dimen name="textSizeSecondaryTvInRvi">14sp</dimen>
+    <dimen name="textSizeSpinnerTextView">@dimen/dimen_16sp</dimen>
 
-    <dimen name="textSizeSpinnerTv">16sp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_16dp">16dp</dimen>
+    <dimen name="dimen_24dp">24dp</dimen>
+    <dimen name="dimen_32dp">32dp</dimen>
+    <dimen name="dimen_40dp">40dp</dimen>
+    <dimen name="dimen_48dp">48dp</dimen>
+
+    <dimen name="dimen_18sp">18sp</dimen>
+    <dimen name="dimen_16sp">16sp</dimen>
+    <dimen name="dimen_14sp">14sp</dimen>
+    <dimen name="dimen_12sp">12sp</dimen>
 </resources>
