@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/ideasFragment"
+            android:icon="@drawable/ic_nav_ideas"
+            android:title="@string/ideas" />
+        <item
             android:id="@+id/lifeFragment"
             android:icon="@drawable/ic_nav_life"
             android:title="@string/life"
             android:checked="true" />
-        <item
-            android:id="@+id/ideasFragment"
-            android:icon="@drawable/ic_nav_ideas"
-            android:title="@string/ideas" />
         <item
             android:id="@+id/situationFragment"
             android:icon="@drawable/ic_nav_situation"

@@ -1,18 +1,14 @@
 package com.martiserramolina.lifeplan.ui.fragments.main
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.activity.addCallback
-import androidx.core.view.GravityCompat
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
-import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.main.MainViewModel
@@ -43,58 +39,21 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         setupBackButton()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> onToolbarMenuClicked()
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     private fun setupToolbar() {
-        mainActivity.apply {
-            setSupportActionBar(binding.fragmentMainTb)
-            supportActionBar?.apply {
-                setDisplayHomeAsUpEnabled(true)
-                setHomeAsUpIndicator(R.drawable.ic_toolbar_menu)
-            }
-        }
+        mainActivity.setSupportActionBar(binding.fragmentMainTb)
         setHasOptionsMenu(true)
     }
 
     private fun setupNavigation() {
-        setupNavigationView()
-        navigateToNavSection()
+        binding.fragmentMainBn.setupWithNavController(navController)
+        mainActivity.setupActionBarWithNavController(
+            navController, AppBarConfiguration(binding.fragmentMainBn.menu)
+        )
+        navController.navigate(viewModel.navSection.destinationId)
     }
 
     private fun setupBackButton() {
         mainActivity.onBackPressedDispatcher
             .addCallback(mainActivity) { requireActivity().finish() }
-    }
-
-    private fun onToolbarMenuClicked(): Boolean {
-        binding.fragmentMainDl.openDrawer(GravityCompat.START)
-        return true
-    }
-
-    private fun setupNavigationView() {
-        binding.fragmentMainNv.apply {
-            isSaveEnabled = false
-            setNavigationItemSelectedListener { onNavigationItemSelected(it) }
-        }
-    }
-
-    private fun navigateToNavSection() {
-        mainActivity.supportActionBar?.title = getString(viewModel.navSection.labelId)
-        binding.fragmentMainNv.setCheckedItem(viewModel.navSection.destinationId)
-        navController.navigate(viewModel.navSection.destinationId)
-    }
-
-    private fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        viewModel.navSection = NavSection.getNavSection(menuItem.itemId)
-        navigateToNavSection()
-        Handler(Looper.getMainLooper()).postDelayed({
-            binding.fragmentMainDl.closeDrawer(GravityCompat.START)
-        }, requireContext().resources.getInteger(R.integer.animation_start_offset).toLong())
-        return true
     }
 }
