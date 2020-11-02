@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorBackground"
+    android:orientation="vertical"
     tools:context=".ui.fragments.up.ideas.idea.save.add.UpAddIdeaFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,7 +16,8 @@
         style="@style/styleTitleEditText"
         android:hint="@string/note_title_hint"
         android:importantForAutofill="no"
-        android:inputType="text" />
+        android:inputType="text"
+        android:maxLength="@integer/maxLengthTitle" />
 
     <Spinner
         android:id="@+id/fragment_nav_ideas_idea_save_importance_sp"

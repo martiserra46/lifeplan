@@ -21,6 +21,7 @@ fun <T: ItemViewHolder<out ViewBinding, U>, S: ItemListDiffCallback<U>, U> Recyc
     val linearLayoutManager = LinearLayoutManager(context)
     layoutManager = linearLayoutManager
     adapter = itemAdapter
+    setHasFixedSize(true)
     addItemDecoration(
         DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
             setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)

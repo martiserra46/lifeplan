@@ -42,12 +42,9 @@ class NavIdeasFragment : NavFragment<FragmentNavIdeasBinding>() {
     }
 
     private fun setupTopicsRecyclerView() {
-        binding.fragmentNavIdeasRv.apply {
-            setHasFixedSize(true)
-            setupAutoLoadItemsFunctionality(
-                viewLifecycleOwner, TopicAdapter { navigateToTopicFragment(it) }, viewModel
-            )
-        }
+        binding.fragmentNavIdeasRv.setupAutoLoadItemsFunctionality(
+            viewLifecycleOwner, TopicAdapter { navigateToTopicFragment(it) }, viewModel
+        )
     }
 
     private fun onAddMenuItemSelected(): Boolean = navigateToAddTopicFragment().run { true }

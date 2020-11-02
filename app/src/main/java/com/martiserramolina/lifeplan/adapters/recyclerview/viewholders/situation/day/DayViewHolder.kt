@@ -2,10 +2,12 @@ package com.martiserramolina.lifeplan.adapters.recyclerview.viewholders.situatio
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.RviSituationDayBinding
 import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.adapters.recyclerview.viewholders.ItemViewHolder
+import com.martiserramolina.lifeplan.extensions.formattedWithMaxLength
 
 class DayViewHolder(
     parent: ViewGroup,
@@ -18,7 +20,10 @@ class DayViewHolder(
     override fun bindData(item: Day) {
         binding.apply {
             rviSituationDayDateTv.text = item.dayDate.formatted()
-            rviSituationDayTextTv.text = item.dayText
+            rviSituationDayTextTv.text = item.dayText.formattedWithMaxLength(
+                itemView.context.resources
+                    .getInteger(R.integer.maxLengthDayDescriptionRecyclerViewItem)
+            )
             rviSituationDaySatisfactionV.setBackgroundResource(item.daySatisfaction.drawableId)
         }
     }

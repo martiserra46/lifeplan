@@ -84,7 +84,6 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
 
     private fun setupIdeasRecyclerView() {
         binding.fragmentNavIdeasTopicRv.apply {
-            setHasFixedSize(true)
             setupAutoLoadItemsFunctionality(
                 viewLifecycleOwner, IdeaAdapter { navigateToIdeaFragment(it) }, viewModel
             )
