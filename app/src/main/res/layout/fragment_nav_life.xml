@@ -5,13 +5,12 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/paddingHorizontalContainer"
     android:paddingVertical="@dimen/paddingVerticalContainer"
+    android:scrollbars="none"
     tools:context=".ui.fragments.nav.life.NavLifeFragment">
 
     <TextView
         android:id="@+id/fragment_nav_life_text_tv"
         style="@style/styleLifeDescriptionTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         tools:text="@tools:sample/lorem/random" />
 
 </ScrollView>
