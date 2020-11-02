@@ -7,38 +7,37 @@
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:paddingHorizontal="@dimen/paddingNormal"
-    android:paddingVertical="@dimen/paddingNormal">
+    android:paddingHorizontal="@dimen/paddingHorizontalRecyclerViewItem"
+    android:paddingVertical="@dimen/paddingVerticalRecyclerViewItem">
 
     <TextView
         android:id="@+id/rvi_situation_day_date_tv"
+        style="@style/stylePrimaryTextRecyclerViewItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/textSizePrimaryTextRecyclerViewItem"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/dimen_12dp"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
         tools:text="20/03/2021" />
 
     <TextView
         android:id="@+id/rvi_situation_day_text_tv"
+        style="@style/styleSecondaryTextRecyclerViewItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/colorSecondaryText"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rvi_situation_day_date_tv"
         app:layout_constraintTop_toBottomOf="@+id/rvi_situation_day_date_tv"
-        tools:text="I have been studying a lot and I have learned a lot of things. I am being very productive..." />
+        tools:text="I have been studying a lot and I have learned a..." />
 
     <View
-        android:id="@+id/rvi_situation_day_circle_v"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/bg_rvi_situation_day_circle_satisfied"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/view"
+        android:layout_width="@dimen/widthSatisfactionRectangle"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_day_high_satisfaction"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

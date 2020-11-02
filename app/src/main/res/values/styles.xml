@@ -49,12 +49,6 @@
         <item name="android:textColorHint">@color/colorTextHint</item>
     </style>
 
-    <style name="textAppearanceText" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/open_sans</item>
-        <item name="android:textSize">@dimen/dimen_16sp</item>
-    </style>
-
-
     <!-- Life description style -->
     <style name="styleLifeDescriptionTextView" parent="styleTextView">
         <item name="android:layout_width">match_parent</item>
@@ -72,6 +66,18 @@
         <item name="android:lineHeight">26sp</item>
         <item name="android:gravity">start</item>
     </style>
+
+    <!-- Recycler view items texts style -->
+    <style name="stylePrimaryTextRecyclerViewItem">
+        <item name="android:textColor">@color/colorPrimaryTextRecyclerViewItem</item>
+        <item name="android:textAppearance">@style/textAppearancePrimaryTextRecyclerViewItem</item>
+    </style>
+
+    <style name="styleSecondaryTextRecyclerViewItem">
+        <item name="android:textColor">@color/colorSecondaryTextRecyclerViewItem</item>
+        <item name="android:textAppearance">@style/textAppearanceSecondaryTextRecyclerViewItem</item>
+    </style>
+
 
     <style name="styleTitleTv" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">match_parent</item>
@@ -144,4 +150,18 @@
         <item name="android:textSize">@dimen/textSizeSpinnerTextView</item>
     </style>
 
+
+    <!-- Text Appearances -->
+    <style name="textAppearanceText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize">@dimen/dimen_16sp</item>
+    </style>
+
+    <style name="textAppearancePrimaryTextRecyclerViewItem" parent="textAppearanceText">
+        <item name="android:textSize">@dimen/textSizePrimaryTextRecyclerViewItem</item>
+    </style>
+
+    <style name="textAppearanceSecondaryTextRecyclerViewItem" parent="textAppearanceText">
+        <item name="android:textSize">@dimen/textSizeSecondaryTextRecyclerViewItem</item>
+    </style>
 </resources>

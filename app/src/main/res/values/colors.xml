@@ -28,11 +28,11 @@
     <color name="colorSnackBarActionText">@color/colorBlack</color>
 
     <color name="colorDayHighSatisfaction">@color/colorGreen</color>
-    <color name="colorDayNormalSatisfaction">@color/colorOrange</color>
+    <color name="colorDayMediumSatisfaction">@color/colorOrange</color>
     <color name="colorDayLowSatisfaction">@color/colorRed</color>
 
     <color name="colorIdeaHighImportance">@color/colorRed</color>
-    <color name="colorIdeaNormalImportance">@color/colorOrange</color>
+    <color name="colorIdeaMediumImportance">@color/colorOrange</color>
     <color name="colorIdeaLowImportance">@color/colorYellow</color>
 
     <color name="colorBlack">#000000</color>

@@ -18,7 +18,15 @@
 
     <dimen name="textSizeSpinnerTextView">@dimen/dimen_16sp</dimen>
 
+    <dimen name="paddingVerticalRecyclerViewItem">@dimen/dimen_16dp</dimen>
+    <dimen name="paddingHorizontalRecyclerViewItem">@dimen/paddingHorizontalContainer</dimen>
+
+    <dimen name="widthSatisfactionRectangle">@dimen/dimen_5dp</dimen>
+
+    <dimen name="dimen_4dp">4dp</dimen>
+    <dimen name="dimen_5dp">5dp</dimen>
     <dimen name="dimen_8dp">8dp</dimen>
+    <dimen name="dimen_12dp">12dp</dimen>
     <dimen name="dimen_16dp">16dp</dimen>
     <dimen name="dimen_24dp">24dp</dimen>
     <dimen name="dimen_32dp">32dp</dimen>
