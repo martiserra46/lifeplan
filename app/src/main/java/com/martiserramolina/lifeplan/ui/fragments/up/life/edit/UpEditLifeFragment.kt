@@ -59,7 +59,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
     }
 
     private fun setupWhenLifeSavedFunctionality() {
-        viewModel.lifeSaved.observe(viewLifecycleOwner) { lifeSaved ->
+        viewModel.itemSaved.observe(viewLifecycleOwner) { lifeSaved ->
             if (lifeSaved) {
                 navigateToPreviousFragment()
                 showMessage(binding.root, R.string.life_saved)
@@ -77,7 +77,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
         viewModel.life.apply {
             lifeText = getTextFromTextEditText()
         }
-        viewModel.saveLife()
+        viewModel.saveItem()
     }
 
     private fun getTextFromTextEditText(): String {
