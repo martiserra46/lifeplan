@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.sections.up.notes.notebook.info.UpInfoNotebookFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_nav_notes_notebook_tb"
+        style="@style/styleSecondaryToolbar" />
+
+    <TextView
+        android:id="@+id/fragment_nav_notes_notebook_title_tv"
+        style="@style/styleTitleTextView"
+        tools:text="Notes about how to live your life" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_nav_notes_notebook_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/rvi_notes_note" />
+
+</LinearLayout>

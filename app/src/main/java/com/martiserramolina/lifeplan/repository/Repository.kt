@@ -21,56 +21,56 @@ class LifeRepository(private val daoLife: DaoLife): Repository() {
     }
 }
 
-class IdeasRepository(private val daoIdeas: DaoIdeas): Repository() {
+class NotesRepository(private val daoNotes: DaoNotes): Repository() {
 
-    suspend fun getTopics(position: Long, numTopics: Int): List<Topic> {
-        return withContext(Dispatchers.IO) { daoIdeas.getTopics(position, numTopics) }
+    suspend fun getNotebooks(position: Long, numNotebooks: Int): List<Notebook> {
+        return withContext(Dispatchers.IO) { daoNotes.getNotebooks(position, numNotebooks) }
     }
 
-    suspend fun insertTopic(topic: Topic): Long {
-        return withContext(Dispatchers.IO) { daoIdeas.insertTopic(topic) }
+    suspend fun insertNotebook(notebook: Notebook): Long {
+        return withContext(Dispatchers.IO) { daoNotes.insertNotebook(notebook) }
     }
 
-    suspend fun updateTopic(topic: Topic) {
-        withContext(Dispatchers.IO) { daoIdeas.updateTopic(topic) }
+    suspend fun updateNotebook(notebook: Notebook) {
+        withContext(Dispatchers.IO) { daoNotes.updateNotebook(notebook) }
     }
 
-    suspend fun deleteTopic(topic: Topic) {
-        withContext(Dispatchers.IO) { daoIdeas.deleteTopic(topic) }
+    suspend fun deleteNotebook(notebook: Notebook) {
+        withContext(Dispatchers.IO) { daoNotes.deleteNotebook(notebook) }
     }
 
-    suspend fun getIdeas(topicId: Long, position: Long, numIdeas: Int): List<Idea> {
-        return withContext(Dispatchers.IO) { daoIdeas.getIdeas(topicId, position, numIdeas) }
+    suspend fun getNotes(notebookId: Long, position: Long, numNotes: Int): List<Note> {
+        return withContext(Dispatchers.IO) { daoNotes.getNotes(notebookId, position, numNotes) }
     }
 
-    suspend fun insertIdea(idea: Idea): Long {
-        return withContext(Dispatchers.IO) { daoIdeas.insertIdeaAndUpdateItsTopic(idea) }
+    suspend fun insertNote(note: Note): Long {
+        return withContext(Dispatchers.IO) { daoNotes.insertNoteAndUpdateItsNotebook(note) }
     }
 
-    suspend fun updateIdea(idea: Idea) {
-        withContext(Dispatchers.IO) { daoIdeas.updateIdea(idea) }
+    suspend fun updateNote(note: Note) {
+        withContext(Dispatchers.IO) { daoNotes.updateNote(note) }
     }
 
-    suspend fun deleteIdea(idea: Idea) {
-        withContext(Dispatchers.IO) { daoIdeas.deleteIdeaAndUpdateItsTopic(idea) }
+    suspend fun deleteNote(note: Note) {
+        withContext(Dispatchers.IO) { daoNotes.deleteNoteAndUpdateItsNotebook(note) }
     }
 }
 
-class SituationRepository(private val daoSituation: DaoSituation): Repository() {
+class StatusRepository(private val daoStatus: DaoStatus): Repository() {
 
     suspend fun getDays(position: Long, numDays: Int): List<Day> {
-        return withContext(Dispatchers.IO) { daoSituation.getDays(position, numDays) }
+        return withContext(Dispatchers.IO) { daoStatus.getDays(position, numDays) }
     }
 
     suspend fun insertDay(day: Day): Long {
-        return withContext(Dispatchers.IO) { daoSituation.insertDay(day) }
+        return withContext(Dispatchers.IO) { daoStatus.insertDay(day) }
     }
 
     suspend fun updateDay(day: Day) {
-        withContext(Dispatchers.IO) { daoSituation.updateDay(day) }
+        withContext(Dispatchers.IO) { daoStatus.updateDay(day) }
     }
 
     suspend fun deleteDay(day: Day) {
-        withContext(Dispatchers.IO) { daoSituation.deleteDay(day) }
+        withContext(Dispatchers.IO) { daoStatus.deleteDay(day) }
     }
 }

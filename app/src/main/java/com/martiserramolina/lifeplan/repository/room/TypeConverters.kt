@@ -1,18 +1,18 @@
 package com.martiserramolina.lifeplan.repository.room
 
 import androidx.room.TypeConverter
-import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
+import com.martiserramolina.lifeplan.repository.enums.NoteImportance
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import java.util.*
 
-class IdeaImportanceConverter {
+class NoteImportanceConverter {
     @TypeConverter
-    fun fromIdeaImportanceToInt(ideaImportance: IdeaImportance): Int {
-        return ideaImportance.ordinal
+    fun fromNoteImportanceToInt(noteImportance: NoteImportance): Int {
+        return noteImportance.ordinal
     }
     @TypeConverter
-    fun fromIntToIdeaImportance(int: Int): IdeaImportance {
-        return IdeaImportance.values()[int]
+    fun fromIntToNoteImportance(int: Int): NoteImportance {
+        return NoteImportance.values()[int]
     }
 }
 

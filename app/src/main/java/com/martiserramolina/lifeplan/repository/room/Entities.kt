@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
+import com.martiserramolina.lifeplan.repository.enums.NoteImportance
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import kotlinx.android.parcel.Parcelize
 import java.util.*
@@ -20,33 +20,33 @@ data class Life(
 ) : Parcelable
 
 @Parcelize
-@Entity(tableName = "topic")
-data class Topic(
+@Entity(tableName = "notebook")
+data class Notebook(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "topic_id")
-    var topicId: Long = 0,
-    @ColumnInfo(name = "topic_text")
-    var topicText: String = "",
-    @ColumnInfo(name = "topic_num_ideas")
-    var topicNumIdeas: Int = 0
+    @ColumnInfo(name = "notebook_id")
+    var notebookId: Long = 0,
+    @ColumnInfo(name = "notebook_text")
+    var notebookText: String = "",
+    @ColumnInfo(name = "notebook_num_notes")
+    var notebookNumNotes: Int = 0
 ) : Parcelable
 
 @Parcelize
-@Entity(tableName = "idea")
-data class Idea(
+@Entity(tableName = "note")
+data class Note(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "idea_id")
-    var ideaId: Long = 0,
-    @ColumnInfo(name = "idea_topic_id")
-    var ideaTopicId: Long = 0,
-    @ColumnInfo(name = "idea_title")
-    var ideaTitle: String = "",
-    @ColumnInfo(name = "idea_importance")
-    var ideaImportance: IdeaImportance = IdeaImportance.NORMAL,
-    @ColumnInfo(name = "idea_description")
-    var ideaDescription: String = "",
-    @ColumnInfo(name = "idea_last_time_modified")
-    var ideaLastTimeModified: Date = Date()
+    @ColumnInfo(name = "note_id")
+    var noteId: Long = 0,
+    @ColumnInfo(name = "note_notebook_id")
+    var noteNotebookId: Long = 0,
+    @ColumnInfo(name = "note_title")
+    var noteTitle: String = "",
+    @ColumnInfo(name = "note_importance")
+    var noteImportance: NoteImportance = NoteImportance.NORMAL,
+    @ColumnInfo(name = "note_description")
+    var noteDescription: String = "",
+    @ColumnInfo(name = "note_last_time_modified")
+    var noteLastTimeModified: Date = Date()
 ) : Parcelable
 
 @Parcelize

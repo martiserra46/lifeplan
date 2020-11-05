@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     android:orientation="vertical"
-    tools:context=".ui.fragments.up.life.edit.UpEditLifeFragment">
+    tools:context=".ui.fragments.sections.up.life.edit.UpEditLifeFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/fragment_nav_life_save_tb"

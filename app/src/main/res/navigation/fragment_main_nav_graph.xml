@@ -6,18 +6,18 @@
     app:startDestination="@id/lifeFragment">
 
     <fragment
-        android:id="@+id/ideasFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.ideas.NavIdeasFragment"
+        android:id="@+id/notesFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.nav.notes.NavNotesFragment"
         android:label="@string/notes"
-        tools:layout="@layout/fragment_nav_ideas" />
+        tools:layout="@layout/fragment_nav_notes" />
     <fragment
-        android:id="@+id/situationFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.situation.NavSituationFragment"
+        android:id="@+id/statusFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.nav.status.NavStatusFragment"
         android:label="@string/status"
-        tools:layout="@layout/fragment_nav_situation" />
+        tools:layout="@layout/fragment_nav_status" />
     <fragment
         android:id="@+id/lifeFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.nav.life.NavLifeFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.nav.life.NavLifeFragment"
         android:label="@string/life"
         tools:layout="@layout/fragment_nav_life" />
 </navigation>

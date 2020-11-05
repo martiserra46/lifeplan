@@ -16,8 +16,8 @@
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <action
-            android:id="@+id/action_mainFragment_to_topicFragment"
-            app:destination="@id/topicFragment"
+            android:id="@+id/action_mainFragment_to_notebookFragment"
+            app:destination="@id/notebookFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <action
@@ -26,8 +26,8 @@
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <action
-            android:id="@+id/action_mainFragment_to_addTopicFragment"
-            app:destination="@id/addTopicFragment"
+            android:id="@+id/action_mainFragment_to_addNotebookFragment"
+            app:destination="@id/addNotebookFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <action
@@ -37,90 +37,90 @@
             app:exitAnim="@anim/to_left" />
         <argument
             android:name="navSection"
-            app:argType="com.martiserramolina.lifeplan.enums.NavSection"
+            app:argType="com.martiserramolina.lifeplan.utils.enums.NavSection"
             android:defaultValue="LIFE" />
     </fragment>
     <fragment
-        android:id="@+id/ideaFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.info.UpInfoIdeaFragment"
-        android:label="ideaFragment"
-        tools:layout="@layout/fragment_nav_ideas_idea" >
+        android:id="@+id/noteFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.note.info.UpInfoNoteFragment"
+        android:label="noteFragment"
+        tools:layout="@layout/fragment_nav_notes_note" >
         <action
-            android:id="@+id/action_ideaFragment_to_editIdeaFragment"
-            app:destination="@id/editIdeaFragment"
+            android:id="@+id/action_noteFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <argument
-            android:name="idea"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Idea" />
+            android:name="note"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Note" />
         <argument
-            android:name="topic"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+            android:name="notebook"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Notebook" />
         <action
-            android:id="@+id/action_ideaFragment_to_topicFragment"
-            app:destination="@id/topicFragment"
+            android:id="@+id/action_noteFragment_to_notebookFragment"
+            app:destination="@id/notebookFragment"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
-        android:id="@+id/addIdeaFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.save.add.UpAddIdeaFragment"
-        android:label="addIdeaFragment"
-        tools:layout="@layout/fragment_nav_ideas_idea_save" >
+        android:id="@+id/addNoteFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.note.save.add.UpAddNoteFragment"
+        android:label="addNoteFragment"
+        tools:layout="@layout/fragment_nav_notes_note_save" >
         <argument
-            android:name="topic"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+            android:name="notebook"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Notebook" />
         <action
-            android:id="@+id/action_addIdeaFragment_to_topicFragment"
-            app:destination="@id/topicFragment"
+            android:id="@+id/action_addNoteFragment_to_notebookFragment"
+            app:destination="@id/notebookFragment"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
-        android:id="@+id/topicFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.info.UpInfoTopicFragment"
-        android:label="topicFragment"
-        tools:layout="@layout/fragment_nav_ideas_topic" >
+        android:id="@+id/notebookFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.notebook.info.UpInfoNotebookFragment"
+        android:label="notebookFragment"
+        tools:layout="@layout/fragment_nav_notes_notebook" >
         <action
-            android:id="@+id/action_topicFragment_to_editTopicFragment"
-            app:destination="@id/editTopicFragment"
+            android:id="@+id/action_notebookFragment_to_editNotebookFragment"
+            app:destination="@id/editNotebookFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <action
-            android:id="@+id/action_topicFragment_to_ideaFragment"
-            app:destination="@id/ideaFragment"
+            android:id="@+id/action_notebookFragment_to_noteFragment"
+            app:destination="@id/noteFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <action
-            android:id="@+id/action_topicFragment_to_addIdeaFragment"
-            app:destination="@id/addIdeaFragment"
+            android:id="@+id/action_notebookFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
         <argument
-            android:name="topic"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+            android:name="notebook"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Notebook" />
         <action
-            android:id="@+id/action_topicFragment_to_mainFragment"
+            android:id="@+id/action_notebookFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
-        android:id="@+id/addTopicFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.save.add.UpAddTopicFragment"
-        android:label="addTopicFragment"
-        tools:layout="@layout/fragment_nav_ideas_topic_save" >
+        android:id="@+id/addNotebookFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.notebook.save.add.UpAddNotebookFragment"
+        android:label="addNotebookFragment"
+        tools:layout="@layout/fragment_nav_notes_notebook_save" >
         <action
-            android:id="@+id/action_addTopicFragment_to_mainFragment"
+            android:id="@+id/action_addNotebookFragment_to_mainFragment"
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/dayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.situation.day.info.UpInfoDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.status.day.info.UpInfoDayFragment"
         android:label="dayFragment"
-        tools:layout="@layout/fragment_nav_situation_day" >
+        tools:layout="@layout/fragment_nav_status_day" >
         <action
             android:id="@+id/action_dayFragment_to_editDayFragment"
             app:destination="@id/editDayFragment"
@@ -137,9 +137,9 @@
     </fragment>
     <fragment
         android:id="@+id/addDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.add.UpAddDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.status.day.save.add.UpAddDayFragment"
         android:label="addDayFragment"
-        tools:layout="@layout/fragment_nav_situation_day_save" >
+        tools:layout="@layout/fragment_nav_status_day_save" >
         <action
             android:id="@+id/action_addDayFragment_to_mainFragment"
             app:destination="@id/mainFragment"
@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/editLifeFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.life.edit.UpEditLifeFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.life.edit.UpEditLifeFragment"
         android:label="editLifeFragment"
         tools:layout="@layout/fragment_nav_life_save" >
         <action
@@ -161,41 +161,41 @@
             app:argType="com.martiserramolina.lifeplan.repository.room.Life" />
     </fragment>
     <fragment
-        android:id="@+id/editIdeaFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.save.edit.UpEditIdeaFragment"
-        android:label="editIdeaFragment"
-        tools:layout="@layout/fragment_nav_ideas_idea_save" >
+        android:id="@+id/editNoteFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.note.save.edit.UpEditNoteFragment"
+        android:label="editNoteFragment"
+        tools:layout="@layout/fragment_nav_notes_note_save" >
         <argument
-            android:name="idea"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Idea" />
+            android:name="note"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Note" />
         <argument
-            android:name="topic"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+            android:name="notebook"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Notebook" />
         <action
-            android:id="@+id/action_editIdeaFragment_to_ideaFragment"
-            app:destination="@id/ideaFragment"
+            android:id="@+id/action_editNoteFragment_to_noteFragment"
+            app:destination="@id/noteFragment"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
-        android:id="@+id/editTopicFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.ideas.topic.save.edit.UpEditTopicFragment"
-        android:label="editTopicFragment"
-        tools:layout="@layout/fragment_nav_ideas_topic_save" >
+        android:id="@+id/editNotebookFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.notebook.save.edit.UpEditNotebookFragment"
+        android:label="editNotebookFragment"
+        tools:layout="@layout/fragment_nav_notes_notebook_save" >
         <argument
-            android:name="topic"
-            app:argType="com.martiserramolina.lifeplan.repository.room.Topic" />
+            android:name="notebook"
+            app:argType="com.martiserramolina.lifeplan.repository.room.Notebook" />
         <action
-            android:id="@+id/action_editTopicFragment_to_topicFragment"
-            app:destination="@id/topicFragment"
+            android:id="@+id/action_editNotebookFragment_to_notebookFragment"
+            app:destination="@id/notebookFragment"
             app:enterAnim="@anim/from_left"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/editDayFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.edit.UpEditDayFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.sections.up.status.day.save.edit.UpEditDayFragment"
         android:label="editDayFragment"
-        tools:layout="@layout/fragment_nav_situation_day_save" >
+        tools:layout="@layout/fragment_nav_status_day_save" >
         <argument
             android:name="day"
             app:argType="com.martiserramolina.lifeplan.repository.room.Day" />

@@ -2,20 +2,20 @@ package com.martiserramolina.lifeplan.repository.enums
 
 import com.martiserramolina.lifeplan.R
 
-enum class IdeaImportance(val drawableId: Int, val colorId: Int, val stringId: Int) {
+enum class NoteImportance(val drawableId: Int, val colorId: Int, val stringId: Int) {
     IMPORTANT(
         R.drawable.bg_note_high_importance,
-        R.color.colorIdeaHighImportance,
+        R.color.colorNoteHighImportance,
         R.string.high_importance
     ),
     NORMAL(
         R.drawable.bg_note_medium_importance,
-        R.color.colorIdeaMediumImportance,
+        R.color.colorNoteMediumImportance,
         R.string.medium_importance
     ),
     UNIMPORTANT(
         R.drawable.bg_note_low_importance,
-        R.color.colorIdeaLowImportance,
+        R.color.colorNoteLowImportance,
         R.string.low_importance
     )
 }

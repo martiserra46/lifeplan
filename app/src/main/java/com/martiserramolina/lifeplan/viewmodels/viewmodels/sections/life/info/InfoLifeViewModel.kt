@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.info
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.martiserramolina.lifeplan.repository.room.AppDb
 import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.viewmodels.interfaces.DeleteItemViewModel
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.LifeViewModel

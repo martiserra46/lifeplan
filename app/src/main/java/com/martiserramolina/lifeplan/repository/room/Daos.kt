@@ -15,58 +15,58 @@ interface DaoLife {
 }
 
 @Dao
-interface DaoIdeas {
-    /* TOPIC */
+interface DaoNotes {
+    /* NOTEBOOK */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTopic(topic: Topic): Long
+    suspend fun insertNotebook(notebook: Notebook): Long
 
     @Update
-    suspend fun updateTopic(topic: Topic)
+    suspend fun updateNotebook(notebook: Notebook)
 
     @Delete
-    suspend fun deleteTopic(topic: Topic)
+    suspend fun deleteNotebook(notebook: Notebook)
 
-    @Query("SELECT * FROM topic ORDER BY topic_id DESC LIMIT :position, :numTopics")
-    suspend fun getTopics(position: Long, numTopics: Int): List<Topic>
+    @Query("SELECT * FROM notebook ORDER BY notebook_id DESC LIMIT :position, :numNotebooks")
+    suspend fun getNotebooks(position: Long, numNotebooks: Int): List<Notebook>
 
-    @Query("SELECT * FROM topic WHERE topic_id = :topicId")
-    suspend fun getTopic(topicId: Long): Topic
+    @Query("SELECT * FROM notebook WHERE notebook_id = :notebookId")
+    suspend fun getNotebook(notebookId: Long): Notebook
 
-    /* IDEA */
+    /* NOTE */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertIdea(idea: Idea): Long
+    suspend fun insertNote(note: Note): Long
 
     @Update
-    suspend fun updateIdea(idea: Idea)
+    suspend fun updateNote(note: Note)
 
     @Delete
-    suspend fun deleteIdea(idea: Idea)
+    suspend fun deleteNote(note: Note)
 
-    @Query("SELECT * FROM idea ORDER BY idea_id DESC")
-    suspend fun getIdeas(): List<Idea>
+    @Query("SELECT * FROM note ORDER BY note_id DESC")
+    suspend fun getNotes(): List<Note>
 
-    @Query("SELECT * FROM idea WHERE idea_topic_id = :topicId ORDER BY idea_id DESC LIMIT :position, :numIdeas")
-    suspend fun getIdeas(topicId: Long, position: Long, numIdeas: Int): List<Idea>
+    @Query("SELECT * FROM note WHERE note_notebook_id = :notebookId ORDER BY note_id DESC LIMIT :position, :numNotes")
+    suspend fun getNotes(notebookId: Long, position: Long, numNotes: Int): List<Note>
 
-    @Query("SELECT * FROM idea WHERE idea_id = :ideaId")
-    suspend fun getIdea(ideaId: Long): Idea
+    @Query("SELECT * FROM note WHERE note_id = :noteId")
+    suspend fun getNote(noteId: Long): Note
 
-    /* TOPIC & IDEA */
+    /* NOTEBOOK & NOTE */
     @Transaction
-    suspend fun insertIdeaAndUpdateItsTopic(idea: Idea): Long {
-        updateTopic(getTopic(idea.ideaTopicId).apply { topicNumIdeas++ })
-        return insertIdea(idea)
+    suspend fun insertNoteAndUpdateItsNotebook(note: Note): Long {
+        updateNotebook(getNotebook(note.noteNotebookId).apply { notebookNumNotes++ })
+        return insertNote(note)
     }
 
     @Transaction
-    suspend fun deleteIdeaAndUpdateItsTopic(idea: Idea) {
-        updateTopic(getTopic(idea.ideaTopicId).apply { topicNumIdeas-- })
-        deleteIdea(idea)
+    suspend fun deleteNoteAndUpdateItsNotebook(note: Note) {
+        updateNotebook(getNotebook(note.noteNotebookId).apply { notebookNumNotes-- })
+        deleteNote(note)
     }
 }
 
 @Dao
-interface DaoSituation {
+interface DaoStatus {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDay(day: Day): Long
 

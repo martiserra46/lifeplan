@@ -38,9 +38,9 @@
     <string name="notebook_edited">Notebook edited</string>
     <string name="notebook_deleted">Notebook deleted</string>
 
-    <string name="note_added">Idea added</string>
-    <string name="note_edited">Idea edited</string>
-    <string name="note_deleted">Idea deleted</string>
+    <string name="note_added">Note added</string>
+    <string name="note_edited">Note edited</string>
+    <string name="note_deleted">Note deleted</string>
 
     <string name="day_added">Day added</string>
     <string name="day_edited">Day edited</string>

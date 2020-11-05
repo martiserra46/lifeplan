@@ -33,9 +33,9 @@
     <color name="colorDayMediumSatisfaction">@color/colorOrange</color>
     <color name="colorDayLowSatisfaction">@color/colorRed</color>
 
-    <color name="colorIdeaHighImportance">@color/colorRed</color>
-    <color name="colorIdeaMediumImportance">@color/colorOrange</color>
-    <color name="colorIdeaLowImportance">@color/colorYellow</color>
+    <color name="colorNoteHighImportance">@color/colorRed</color>
+    <color name="colorNoteMediumImportance">@color/colorOrange</color>
+    <color name="colorNoteLowImportance">@color/colorYellow</color>
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>

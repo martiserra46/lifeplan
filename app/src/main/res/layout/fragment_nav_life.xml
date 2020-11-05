@@ -7,7 +7,7 @@
     android:paddingVertical="@dimen/paddingVerticalContainer"
     android:scrollbars="none"
     android:background="@color/colorBackground"
-    tools:context=".ui.fragments.nav.life.NavLifeFragment">
+    tools:context=".ui.fragments.sections.nav.life.NavLifeFragment">
 
     <TextView
         android:id="@+id/fragment_nav_life_text_tv"
