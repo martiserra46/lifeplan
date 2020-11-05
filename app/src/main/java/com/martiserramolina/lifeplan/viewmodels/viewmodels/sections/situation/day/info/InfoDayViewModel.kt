@@ -10,12 +10,12 @@ class InfoDayViewModel(
     day: Day,
     application: Application
 ) : DayViewModel(day, application), DeleteItemViewModel {
-    private val infoItemViewModel = object : DeleteItemViewModel.Object() {
+    private val deleteItemViewModel = object : DeleteItemViewModel.Object() {
         override val coroutineScope = viewModelScope
         override suspend fun deleteItemFromDatabase() {
             repository.deleteDay(day)
         }
     }
-    override val itemDeleted get() = infoItemViewModel.itemDeleted
-    override fun deleteItem() = infoItemViewModel.deleteItem()
+    override val itemDeleted get() = deleteItemViewModel.itemDeleted
+    override fun deleteItem() = deleteItemViewModel.deleteItem()
 }

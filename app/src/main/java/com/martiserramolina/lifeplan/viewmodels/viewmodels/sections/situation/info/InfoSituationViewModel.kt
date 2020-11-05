@@ -17,7 +17,6 @@ class InfoSituationViewModel(
     }
 
     override val itemsFetched get() = loadListItemsViewModel.itemsFetched
-    override fun fetchItemsIfNotFetched(position: Long, numItems: Int): Boolean {
-        return loadListItemsViewModel.fetchItemsIfNotFetched(position, numItems)
-    }
+    override fun fetchItemsIfNotFetched(position: Long, numItems: Int): Boolean =
+        loadListItemsViewModel.fetchItemsIfNotFetched(position, numItems)
 }
