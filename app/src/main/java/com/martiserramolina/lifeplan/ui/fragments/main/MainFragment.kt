@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.fragments.main
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -46,16 +47,18 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
     }
 
     private fun setupNavigation() {
-        binding.fragmentMainBn.setupWithNavController(navController)
+        binding.fragmentMainBn.apply {
+            setupWithNavController(navController)
+            selectedItemId = viewModel.navSection.destinationId
+            setOnNavigationItemSelectedListener {
+                viewModel.navSection = NavSection.getNavSection(it.itemId)
+                navController.navigate(viewModel.navSection.destinationId)
+                true
+            }
+        }
         mainActivity.setupActionBarWithNavController(
             navController, AppBarConfiguration(binding.fragmentMainBn.menu)
         )
-        navController.apply {
-            addOnDestinationChangedListener { _, destination, _ ->
-                viewModel.navSection = NavSection.getNavSection(destination.id)
-            }
-            navigate(viewModel.navSection.destinationId)
-        }
     }
 
     private fun setupBackButton() {
