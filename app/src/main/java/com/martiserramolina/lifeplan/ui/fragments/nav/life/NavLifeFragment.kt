@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.Toast
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
+import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.nav.NavFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
@@ -36,6 +37,7 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.life_edit_mi -> onEditMenuItemSelected()
+            R.id.life_delete_mi -> onDeleteMenuItemSelected()
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -57,6 +59,8 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
         }
     }
 
+    private fun onDeleteMenuItemSelected(): Boolean = deleteLife().run { true }
+
     private fun isDataLoaded(): Boolean = viewModel.isLifeLoaded.value == true
 
     private fun navigateToEditLifeFragment() {
@@ -71,5 +75,12 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
             getString(R.string.wait_until_all_life_data_is_loaded),
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    private fun deleteLife() {
+        DeleteItemDialogFragment(
+            R.string.dialog_message_delete_life,
+            { viewModel.deleteItem() }
+        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_life))
     }
 }

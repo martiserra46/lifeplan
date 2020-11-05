@@ -9,6 +9,9 @@ interface DaoLife {
 
     @Query("SELECT * FROM life LIMIT 1")
     suspend fun getLife(): Life?
+
+    @Query("DELETE FROM life")
+    suspend fun deleteLife()
 }
 
 @Dao

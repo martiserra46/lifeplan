@@ -15,6 +15,10 @@ class LifeRepository(private val daoLife: DaoLife): Repository() {
     suspend fun insertLife(life: Life): Long {
         return withContext(Dispatchers.IO) { daoLife.insertLife(life) }
     }
+
+    suspend fun deleteLife() {
+        withContext(Dispatchers.IO) { daoLife.deleteLife() }
+    }
 }
 
 class IdeasRepository(private val daoIdeas: DaoIdeas): Repository() {
