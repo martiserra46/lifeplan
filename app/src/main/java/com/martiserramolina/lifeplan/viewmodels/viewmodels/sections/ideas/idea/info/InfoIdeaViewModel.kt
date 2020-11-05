@@ -4,19 +4,22 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.repository.room.Topic
+import com.martiserramolina.lifeplan.viewmodels.interfaces.InfoItemViewModel
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.IdeaViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class InfoIdeaViewModel(
     idea: Idea,
     topic: Topic,
     application: Application
-) : IdeaViewModel(idea, topic, application) {
-    val ideaDeleted = MutableLiveData<Boolean>().apply { value = false }
-    fun deleteIdea() {
-        viewModelScope.launch {
+) : IdeaViewModel(idea, topic, application), InfoItemViewModel {
+    private val infoItemViewModel = object : InfoItemViewModel.Object() {
+        override val coroutineScope = viewModelScope
+        override suspend fun deleteItemFromDatabase() {
             repository.deleteIdea(idea)
-            ideaDeleted.value = true
         }
     }
+    override val itemDeleted get() = infoItemViewModel.itemDeleted
+    override fun deleteItem() = infoItemViewModel.deleteItem()
 }

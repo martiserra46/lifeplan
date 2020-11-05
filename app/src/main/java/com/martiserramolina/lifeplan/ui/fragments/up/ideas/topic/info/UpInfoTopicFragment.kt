@@ -64,7 +64,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
     }
 
     private fun setupWhenTopicDeletedFunctionality() {
-        viewModel.topicDeleted.observe(viewLifecycleOwner) { topicDeleted ->
+        viewModel.itemDeleted.observe(viewLifecycleOwner) { topicDeleted ->
             if (topicDeleted){
                 navigateToPreviousFragment()
                 showMessage(binding.root, R.string.notebook_deleted)
@@ -104,7 +104,7 @@ class UpInfoTopicFragment : UpTopicFragment<FragmentNavIdeasTopicBinding>() {
     private fun deleteTopic() {
         DeleteItemDialogFragment(
             R.string.dialog_message_delete_notebook,
-            { viewModel.deleteTopic() }
+            { viewModel.deleteItem() }
         ).show(parentFragmentManager, getString(R.string.dialog_message_delete_notebook))
     }
 

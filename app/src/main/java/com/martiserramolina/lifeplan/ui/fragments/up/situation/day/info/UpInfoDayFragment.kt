@@ -63,7 +63,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
     }
 
     private fun setupWhenDayDeletedFunctionality() {
-        viewModel.dayDeleted.observe(viewLifecycleOwner) { dayDeleted ->
+        viewModel.itemDeleted.observe(viewLifecycleOwner) { dayDeleted ->
             if (dayDeleted) {
                 navigateToPreviousFragment()
                 showMessage(binding.root, R.string.day_deleted)
@@ -102,7 +102,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
     private fun deleteDay() {
         DeleteItemDialogFragment(
             R.string.dialog_message_delete_notebook,
-            { viewModel.deleteDay() }
+            { viewModel.deleteItem() }
         ).show(parentFragmentManager, getString(R.string.dialog_message_delete_notebook))
     }
 }
