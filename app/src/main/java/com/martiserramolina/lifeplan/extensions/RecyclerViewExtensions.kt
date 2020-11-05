@@ -10,13 +10,13 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.adapters.recyclerview.adapters.ItemAdapter
 import com.martiserramolina.lifeplan.adapters.recyclerview.diffutils.ItemListDiffCallback
 import com.martiserramolina.lifeplan.adapters.recyclerview.viewholders.ItemViewHolder
-import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.CapableOfFetchingItemsI
+import com.martiserramolina.lifeplan.viewmodels.interfaces.LoadListItemsViewModel
 
 fun <T: ItemViewHolder<out ViewBinding, U>, S: ItemListDiffCallback<U>, U> RecyclerView
         .setupAutoLoadItemsFunctionality(
     lifecycleOwner: LifecycleOwner,
     itemAdapter: ItemAdapter<T, S, U>,
-    capableOfFetchingItems: CapableOfFetchingItemsI<U>
+    loadListItems: LoadListItemsViewModel<U>
 ) {
     val linearLayoutManager = LinearLayoutManager(context)
     layoutManager = linearLayoutManager
@@ -30,8 +30,8 @@ fun <T: ItemViewHolder<out ViewBinding, U>, S: ItemListDiffCallback<U>, U> Recyc
     addOnScrollListener(object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             if (linearLayoutManager.findLastVisibleItemPosition() == itemAdapter.itemCount)
-                capableOfFetchingItems.fetchItemsIfNotFetched((itemAdapter.itemCount + 1).toLong())
+                loadListItems.fetchItemsIfNotFetched((itemAdapter.itemCount + 1).toLong())
         }
     })
-    capableOfFetchingItems.itemsFetched.observe(lifecycleOwner) { itemAdapter.items = it }
+    loadListItems.itemsFetched.observe(lifecycleOwner) { itemAdapter.items = it }
 }
