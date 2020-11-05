@@ -9,7 +9,6 @@ import com.martiserramolina.lifeplan.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.functions.showMessage
-import com.martiserramolina.lifeplan.functions.showMessageWithDelay
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.SaveDayViewModel
 
@@ -53,7 +52,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
         viewModel.daySaved.observe(viewLifecycleOwner) { daySaved ->
             if (daySaved) {
                 navigateToPreviousFragment()
-                showMessageWithDelay(binding.root, getDaySavedMessage())
+                showMessage(binding.root, getDaySavedMessage())
             }
         }
     }
@@ -80,7 +79,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
     }
 
     private fun saveDayIfValid() {
-        if (isDayValid()) saveDay() else showMessageWithDelay(binding.root, R.string.invalid_day)
+        if (isDayValid()) saveDay() else showMessage(binding.root, R.string.invalid_day)
     }
 
     private fun isDayValid(): Boolean = getDescriptionFromEditText().isNotEmpty()

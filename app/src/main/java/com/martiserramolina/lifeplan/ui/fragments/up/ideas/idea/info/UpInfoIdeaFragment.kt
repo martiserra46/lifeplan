@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaBinding
 import com.martiserramolina.lifeplan.dialogs.DeleteItemDialogFragment
-import com.martiserramolina.lifeplan.functions.showMessageWithDelay
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.UpIdeasFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.info.InfoIdeaViewModel
@@ -63,7 +63,7 @@ class UpInfoIdeaFragment : UpIdeasFragment<FragmentNavIdeasIdeaBinding>() {
         viewModel.ideaDeleted.observe(viewLifecycleOwner) { ideaDeleted ->
             if (ideaDeleted) {
                 navigateToPreviousFragment()
-                showMessageWithDelay(binding.root, R.string.note_deleted)
+                showMessage(binding.root, R.string.note_deleted)
             }
         }
     }

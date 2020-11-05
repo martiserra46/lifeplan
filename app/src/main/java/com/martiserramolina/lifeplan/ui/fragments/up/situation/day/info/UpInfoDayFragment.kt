@@ -9,7 +9,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDayBinding
 import com.martiserramolina.lifeplan.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.extensions.formatted
-import com.martiserramolina.lifeplan.functions.showMessageWithDelay
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.info.InfoDayViewModel
@@ -66,7 +66,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavSituationDayBinding>() {
         viewModel.dayDeleted.observe(viewLifecycleOwner) { dayDeleted ->
             if (dayDeleted) {
                 navigateToPreviousFragment()
-                showMessageWithDelay(binding.root, R.string.day_deleted)
+                showMessage(binding.root, R.string.day_deleted)
             }
         }
     }

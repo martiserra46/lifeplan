@@ -6,7 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
 import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.functions.showMessageWithDelay
+import com.martiserramolina.lifeplan.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.save.SaveLifeViewModel
@@ -62,7 +62,7 @@ class UpEditLifeFragment : UpLifeFragment<FragmentNavLifeSaveBinding>() {
         viewModel.lifeSaved.observe(viewLifecycleOwner) { lifeSaved ->
             if (lifeSaved) {
                 navigateToPreviousFragment()
-                showMessageWithDelay(binding.root, R.string.life_saved)
+                showMessage(binding.root, R.string.life_saved)
             }
         }
     }
