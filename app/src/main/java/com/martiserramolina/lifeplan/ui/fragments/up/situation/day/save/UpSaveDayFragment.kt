@@ -5,10 +5,10 @@ import android.view.*
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavSituationDaySaveBinding
-import com.martiserramolina.lifeplan.extensions.formatted
+import com.martiserramolina.lifeplan.utils.extensions.formatted
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
-import com.martiserramolina.lifeplan.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
-import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.ui.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
+import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.UpDayFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.SaveDayViewModel
 

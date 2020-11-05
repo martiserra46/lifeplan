@@ -5,8 +5,8 @@ import android.view.*
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeSaveBinding
-import com.martiserramolina.lifeplan.enums.NavSection
-import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.utils.enums.NavSection
+import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.life.UpLifeFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.save.SaveLifeViewModel

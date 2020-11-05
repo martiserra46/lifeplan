@@ -2,7 +2,6 @@ package com.martiserramolina.lifeplan.ui.fragments.main
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,7 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
-import com.martiserramolina.lifeplan.enums.NavSection
+import com.martiserramolina.lifeplan.utils.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.main.MainViewModel

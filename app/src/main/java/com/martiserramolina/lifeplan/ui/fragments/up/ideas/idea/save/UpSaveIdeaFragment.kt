@@ -6,8 +6,8 @@ import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavIdeasIdeaSaveBinding
 import com.martiserramolina.lifeplan.repository.enums.IdeaImportance
-import com.martiserramolina.lifeplan.adapters.spinner.idea_importance.IdeaImportanceAdapter
-import com.martiserramolina.lifeplan.functions.showMessage
+import com.martiserramolina.lifeplan.ui.adapters.spinner.idea_importance.IdeaImportanceAdapter
+import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.up.ideas.idea.UpIdeaFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.idea.save.SaveIdeaViewModel
 import java.util.*

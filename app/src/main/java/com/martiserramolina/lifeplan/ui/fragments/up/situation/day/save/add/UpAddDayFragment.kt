@@ -1,7 +1,7 @@
 package com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.add
 
 import com.martiserramolina.lifeplan.R
-import com.martiserramolina.lifeplan.enums.NavSection
+import com.martiserramolina.lifeplan.utils.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.up.situation.day.save.UpSaveDayFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.save.add.AddDayViewModel
