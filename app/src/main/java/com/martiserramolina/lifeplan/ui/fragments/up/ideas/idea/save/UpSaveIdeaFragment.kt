@@ -49,7 +49,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
     }
 
     private fun setupWhenIdeaSavedFunctionality() {
-        viewModel.ideaSaved.observe(viewLifecycleOwner) { ideaSaved ->
+        viewModel.itemSaved.observe(viewLifecycleOwner) { ideaSaved ->
             if (ideaSaved) {
                 navigateToPreviousFragment()
                 showMessage(binding.root, getIdeaSavedMessage())
@@ -93,7 +93,7 @@ abstract class UpSaveIdeaFragment : UpIdeaFragment<FragmentNavIdeasIdeaSaveBindi
             ideaDescription = getDescriptionFromEditText()
             ideaLastTimeModified = Date()
         }
-        viewModel.saveIdea()
+        viewModel.saveItem()
     }
 
     protected abstract fun getIdeaSavedMessage(): Int

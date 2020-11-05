@@ -8,7 +8,7 @@ class EditDayViewModel(
     day: Day,
     application: Application
 ) : SaveDayViewModel(day, application) {
-    override suspend fun saveDayToDatabase() {
+    override suspend fun saveItemToDatabase() {
         repository.updateDay(day)
     }
 }

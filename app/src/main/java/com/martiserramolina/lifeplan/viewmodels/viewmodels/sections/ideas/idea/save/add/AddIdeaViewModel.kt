@@ -9,7 +9,7 @@ class AddIdeaViewModel(
     topic: Topic,
     application: Application
 ) : SaveIdeaViewModel(Idea(), topic, application) {
-    override suspend fun saveIdeaToDatabase() {
+    override suspend fun saveItemToDatabase() {
         repository.insertIdea(idea)
     }
 }

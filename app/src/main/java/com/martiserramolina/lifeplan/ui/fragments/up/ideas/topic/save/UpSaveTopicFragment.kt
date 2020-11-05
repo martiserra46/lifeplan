@@ -44,7 +44,7 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
     }
 
     private fun setupWhenTopicSavedFunctionality() {
-        viewModel.topicSaved.observe(viewLifecycleOwner) { topicSaved ->
+        viewModel.itemSaved.observe(viewLifecycleOwner) { topicSaved ->
             if (topicSaved) {
                 navigateToPreviousFragment()
                 showMessage(binding.root, getTopicSavedMessage())
@@ -72,7 +72,7 @@ abstract class UpSaveTopicFragment : UpTopicFragment<FragmentNavIdeasTopicSaveBi
         viewModel.topic.apply {
             topicText = getTitleFromEditText()
         }
-        viewModel.saveTopic()
+        viewModel.saveItem()
     }
 
     protected abstract fun getTopicSavedMessage(): Int

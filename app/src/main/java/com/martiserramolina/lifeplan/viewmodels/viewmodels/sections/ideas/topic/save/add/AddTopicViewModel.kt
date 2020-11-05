@@ -7,7 +7,7 @@ import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.
 class AddTopicViewModel(
     application: Application
 ) : SaveTopicViewModel(Topic(), application) {
-    override suspend fun saveTopicToDatabase() {
+    override suspend fun saveItemToDatabase() {
         repository.insertTopic(topic)
     }
 }

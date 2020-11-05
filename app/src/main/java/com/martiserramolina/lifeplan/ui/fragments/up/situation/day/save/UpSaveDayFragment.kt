@@ -49,7 +49,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
     }
 
     private fun setupWhenDaySavedFunctionality() {
-        viewModel.daySaved.observe(viewLifecycleOwner) { daySaved ->
+        viewModel.itemSaved.observe(viewLifecycleOwner) { daySaved ->
             if (daySaved) {
                 navigateToPreviousFragment()
                 showMessage(binding.root, getDaySavedMessage())
@@ -89,7 +89,7 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavSituationDaySaveBi
             daySatisfaction = getSatisfactionFromSpinner()
             dayText = getDescriptionFromEditText()
         }
-        viewModel.saveDay()
+        viewModel.saveItem()
     }
 
     protected abstract fun getDaySavedMessage(): Int

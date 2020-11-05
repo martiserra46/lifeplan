@@ -4,20 +4,23 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.martiserramolina.lifeplan.repository.room.Day
+import com.martiserramolina.lifeplan.viewmodels.interfaces.SaveItemViewModel
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.day.DayViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 abstract class SaveDayViewModel(
     day: Day,
     application: Application
-) : DayViewModel(day, application) {
-    val daySaved = MutableLiveData<Boolean>().apply { value = false }
-    fun saveDay() {
-        viewModelScope.launch {
-            saveDayToDatabase()
-            daySaved.value = true
+) : DayViewModel(day, application), SaveItemViewModel {
+    private val saveItemViewModel = object : SaveItemViewModel.Object() {
+        override val coroutineScope = viewModelScope
+        override suspend fun saveItemToDatabase() {
+            this@SaveDayViewModel.saveItemToDatabase()
         }
     }
+    override val itemSaved get() = saveItemViewModel.itemSaved
+    override fun saveItem() = saveItemViewModel.saveItem()
 
-    abstract suspend fun saveDayToDatabase()
+    abstract suspend fun saveItemToDatabase()
 }

@@ -10,7 +10,7 @@ class EditIdeaViewModel(
     topic: Topic,
     application: Application
 ) : SaveIdeaViewModel(idea, topic, application) {
-    override suspend fun saveIdeaToDatabase() {
+    override suspend fun saveItemToDatabase() {
         repository.updateIdea(idea)
     }
 }

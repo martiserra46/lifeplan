@@ -7,7 +7,7 @@ import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.situation.da
 class AddDayViewModel(
     application: Application
 ) : SaveDayViewModel(Day(), application) {
-    override suspend fun saveDayToDatabase() {
+    override suspend fun saveItemToDatabase() {
         repository.insertDay(day)
     }
 }

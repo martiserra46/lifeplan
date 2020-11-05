@@ -8,7 +8,7 @@ class EditTopicViewModel(
     topic: Topic,
     application: Application
 ) : SaveTopicViewModel(topic, application) {
-    override suspend fun saveTopicToDatabase() {
+    override suspend fun saveItemToDatabase() {
         repository.updateTopic(topic)
     }
 }
