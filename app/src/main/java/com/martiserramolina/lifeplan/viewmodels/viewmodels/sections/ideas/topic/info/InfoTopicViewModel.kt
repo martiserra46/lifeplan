@@ -6,16 +6,15 @@ import com.martiserramolina.lifeplan.repository.room.Idea
 import com.martiserramolina.lifeplan.repository.room.Topic
 import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.CapableOfFetchingItems
 import com.martiserramolina.lifeplan.viewmodels.capable_of_fetching_items.CapableOfFetchingItemsI
-import com.martiserramolina.lifeplan.viewmodels.interfaces.InfoItemViewModel
+import com.martiserramolina.lifeplan.viewmodels.interfaces.DeleteItemViewModel
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.ideas.topic.TopicViewModel
-import kotlinx.coroutines.launch
 
 class InfoTopicViewModel(
     topic: Topic,
     application: Application
 ) : TopicViewModel(topic, application),
-    CapableOfFetchingItemsI<Idea>, InfoItemViewModel {
-    private val infoItemViewModel = object : InfoItemViewModel.Object() {
+    CapableOfFetchingItemsI<Idea>, DeleteItemViewModel {
+    private val infoItemViewModel = object : DeleteItemViewModel.Object() {
         override val coroutineScope = viewModelScope
         override suspend fun deleteItemFromDatabase() {
             repository.deleteTopic(topic)

@@ -4,11 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-interface InfoItemViewModel {
+interface DeleteItemViewModel {
     val itemDeleted: MutableLiveData<Boolean>
     fun deleteItem()
 
-    abstract class Object : InfoItemViewModel {
+    abstract class Object : DeleteItemViewModel {
         override val itemDeleted = MutableLiveData<Boolean>().apply { value = false }
         abstract val coroutineScope: CoroutineScope
         override fun deleteItem() {
