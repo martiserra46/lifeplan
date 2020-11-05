@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentMainBinding
+import com.martiserramolina.lifeplan.enums.NavSection
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.main.MainViewModel
@@ -49,7 +50,12 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         mainActivity.setupActionBarWithNavController(
             navController, AppBarConfiguration(binding.fragmentMainBn.menu)
         )
-        navController.navigate(viewModel.navSection.destinationId)
+        navController.apply {
+            addOnDestinationChangedListener { _, destination, _ ->
+                viewModel.navSection = NavSection.getNavSection(destination.id)
+            }
+            navigate(viewModel.navSection.destinationId)
+        }
     }
 
     private fun setupBackButton() {
