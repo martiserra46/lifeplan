@@ -20,6 +20,6 @@
         android:hint="@string/notebook_title_hint"
         android:importantForAutofill="no"
         android:inputType="text"
-        android:maxLength="@integer/maxLengthTitle" />
+        android:maxLength="@integer/maxLengthNotebookTitle" />
 
 </LinearLayout>

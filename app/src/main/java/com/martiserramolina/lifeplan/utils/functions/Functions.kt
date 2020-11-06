@@ -27,14 +27,6 @@ fun Date.formatted(): String {
     return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
 }
 
-fun String.formattedWithMaxLength(maxLength: Int): String {
-    val positionLineBreak = indexOf("\n")
-    return if (positionLineBreak != -1 && positionLineBreak <= maxLength)
-        substring(0, positionLineBreak).trim() + "..."
-    else if (length <= maxLength) this
-    else substring(0, maxLength - 2).trim() + "..."
-}
-
 fun showMessage(view: View, messageId: Int, duration: Int = Snackbar.LENGTH_SHORT) {
     (view.context as Activity).hideKeyboard()
     Snackbar.make(view, messageId, duration).apply {
