@@ -25,9 +25,9 @@
     <color name="colorPrimaryTextRecyclerViewItem">@color/colorBlack</color>
     <color name="colorSecondaryTextRecyclerViewItem">@color/colorGrey</color>
 
-    <color name="colorSnackBarBackground">@color/colorWhite</color>
-    <color name="colorSnackBarText">@color/colorBlack</color>
-    <color name="colorSnackBarActionText">@color/colorBlack</color>
+    <color name="colorSnackBarBackground">@color/colorDarkGrey</color>
+    <color name="colorSnackBarText">@color/colorWhite</color>
+    <color name="colorSnackBarActionText">@color/colorWhite</color>
 
     <color name="colorDayHighSatisfaction">@color/colorGreen</color>
     <color name="colorDayMediumSatisfaction">@color/colorOrange</color>
@@ -39,6 +39,7 @@
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorDarkGrey">>#212121</color>
     <color name="colorGrey">#B4B4B4</color>
     <color name="colorLightGrey">#F6F6F6</color>
 
