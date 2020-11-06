@@ -8,6 +8,7 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.sections.nav.NavFragment
+import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.info.InfoLifeViewModel
 
@@ -34,6 +35,11 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
         inflater.inflate(R.menu.life_menu, menu)
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.findItem(R.id.life_delete_mi).isVisible =
+            !viewModel.life.value?.lifeText.isNullOrEmpty()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.life_edit_mi -> onEditMenuItemSelected()
@@ -44,15 +50,15 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
 
     private fun setupDescription() {
         viewModel.life.observe(viewLifecycleOwner) { life ->
-            if (life == null) return@observe
             if (life.lifeText.isEmpty()) {
                 binding.apply {
                     fragmentNavLifeEmptyCl.visibility = View.VISIBLE
                     fragmentNavLifeTextSv.visibility = View.GONE
                 }
             } else {
-                binding.fragmentNavLifeEmptyTv.text = life.lifeText
+                binding.fragmentNavLifeTextTv.text = life.lifeText
             }
+            mainActivity.invalidateOptionsMenu()
         }
     }
 
@@ -78,11 +84,7 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
     }
 
     private fun showWaitUntilDataIsLoadedMessage() {
-        Toast.makeText(
-            context,
-            getString(R.string.wait_until_all_life_data_is_loaded),
-            Toast.LENGTH_SHORT
-        ).show()
+        showMessage(binding.root, R.string.wait_until_all_life_data_is_loaded)
     }
 
     private fun deleteLife() {

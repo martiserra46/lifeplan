@@ -10,13 +10,13 @@ import kotlinx.coroutines.launch
 class InfoLifeViewModel(
     application: Application
 ) : LifeViewModel(application), DeleteItemViewModel {
-    val life = MutableLiveData<Life?>().apply { value = null }
+    val life = MutableLiveData<Life>()
 
     private val deleteItemViewModel = object : DeleteItemViewModel.Object() {
         override val coroutineScope get() = viewModelScope
         override suspend fun deleteItemFromDatabase() {
             repository.deleteLife()
-            life.value = null
+            life.value = Life()
         }
     }
 

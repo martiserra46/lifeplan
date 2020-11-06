@@ -6,10 +6,11 @@
         android:id="@+id/life_edit_mi"
         android:icon="@drawable/ic_edit"
         android:title="@string/edit"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/life_delete_mi"
         android:icon="@drawable/ic_delete"
         android:title="@string/life_delete"
+        android:visible="false"
         app:showAsAction="never" />
 </menu>
