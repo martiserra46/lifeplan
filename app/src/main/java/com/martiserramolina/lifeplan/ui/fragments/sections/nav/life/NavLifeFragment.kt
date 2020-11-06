@@ -44,12 +44,14 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
 
     private fun setupDescription() {
         viewModel.life.observe(viewLifecycleOwner) { life ->
-            binding.apply {
-                if (life.lifeText.isNotEmpty()) {
-                    fragmentNavLifeEmptyCl.visibility = View.GONE
-                    fragmentNavLifeTextSv.visibility = View.VISIBLE
-                    fragmentNavLifeTextTv.text = life.lifeText
+            if (life == null) return@observe
+            if (life.lifeText.isEmpty()) {
+                binding.apply {
+                    fragmentNavLifeEmptyCl.visibility = View.VISIBLE
+                    fragmentNavLifeTextSv.visibility = View.GONE
                 }
+            } else {
+                binding.fragmentNavLifeEmptyTv.text = life.lifeText
             }
         }
     }
@@ -67,7 +69,7 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
 
     private fun onDeleteMenuItemSelected(): Boolean = deleteLife().run { true }
 
-    private fun isDataLoaded(): Boolean = viewModel.isLifeLoaded.value == true
+    private fun isDataLoaded(): Boolean = viewModel.life.value != null
 
     private fun navigateToEditLifeFragment() {
         mainActivity.navController.navigate(

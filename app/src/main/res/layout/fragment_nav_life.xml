@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/fragment_nav_life_empty_iv"
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/fragment_nav_life_text_tv"
