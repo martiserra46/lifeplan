@@ -85,7 +85,7 @@
     <string name="empty_days_message">Add a description of your status</string>
 
     <!-- Image content description messages -->
-    <string name="write_life_description_image">Write life description</string>
+    <string name="edit_life_image">Write life description</string>
     <string name="add_notebook_image">Add notebook</string>
     <string name="add_note_image">Add note</string>
     <string name="add_day_image">Add day</string>
