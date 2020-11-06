@@ -27,7 +27,7 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupTextTextView()
+        setupDescription()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -42,9 +42,21 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
         }
     }
 
-    private fun setupTextTextView() {
-        viewModel.life.observe(viewLifecycleOwner) { life ->
-            binding.fragmentNavLifeTextTv.text = life.lifeText
+    private fun setupDescription() {
+        viewModel.isLifeLoaded.observe(viewLifecycleOwner) { isLifeLoaded ->
+            if (isLifeLoaded) {
+                binding.fragmentNavStatusPb.visibility = View.GONE
+                viewModel.life.observe(viewLifecycleOwner) { life ->
+                    if (life.lifeText.isEmpty()) {
+                        binding.fragmentNavLifeEmptyCl.visibility = View.VISIBLE
+                    } else {
+                        binding.apply {
+                            fragmentNavLifeTextSv.visibility = View.VISIBLE
+                            fragmentNavLifeTextTv.text = life.lifeText
+                        }
+                    }
+                }
+            }
         }
     }
 

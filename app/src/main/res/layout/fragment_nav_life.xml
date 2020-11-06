@@ -49,6 +49,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/fragment_nav_life_text_sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
