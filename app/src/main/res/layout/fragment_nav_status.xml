@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_nav_status_rv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".ui.fragments.sections.nav.status.NavStatusFragment"
-    tools:listitem="@layout/rvi_status_day" />
+    tools:context=".ui.fragments.sections.nav.status.NavStatusFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_nav_status_empty_cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/fragment_nav_status_empty_iv"
+            android:layout_width="@dimen/sizeIconEmpty"
+            android:layout_height="@dimen/sizeIconEmpty"
+            android:contentDescription="@string/add_notebook_image"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_nav_status_empty_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:srcCompat="@drawable/ic_empty"
+            app:tint="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/fragment_nav_status_empty_tv"
+            style="@style/styleEmptySectionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:text="@string/empty_days_message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_nav_status_empty_iv"
+            app:layout_constraintStart_toStartOf="@+id/fragment_nav_status_empty_iv"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_nav_status_empty_iv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_nav_status_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/rvi_status_day"
+        android:visibility="gone"/>
+
+</FrameLayout>

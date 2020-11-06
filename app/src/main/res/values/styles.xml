@@ -58,6 +58,15 @@
         <item name="android:gravity">start</item>
     </style>
 
+    <!-- Empty section style -->
+    <style name="styleEmptySectionTextView" parent="styleTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/textAppearanceEmptySection</item>
+        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:lineHeight">@dimen/lineHeightDescription</item>
+    </style>
+
     <!-- Recycler view items texts style -->
     <style name="stylePrimaryTextRecyclerViewItem">
         <item name="android:textColor">@color/colorPrimaryTextRecyclerViewItem</item>
@@ -166,7 +175,14 @@
         <item name="android:textSize">@dimen/dimen_12sp</item>
     </style>
 
+    <!-- Life description text appearance -->
     <style name="textAppearanceLifeDescription" parent="textAppearanceText">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize">@dimen/textSizeDescription</item>
+    </style>
+
+    <!-- Empty section text appearance -->
+    <style name="textAppearanceEmptySection" parent="textAppearanceText">
         <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:textSize">@dimen/textSizeDescription</item>
     </style>
