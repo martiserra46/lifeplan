@@ -7,11 +7,16 @@
     android:background="@color/colorBackground"
     tools:context=".ui.fragments.sections.nav.notes.NavNotesFragment">
 
+    <ProgressBar
+        android:id="@+id/fragment_nav_notes_pb"
+        style="@style/styleProgressBar" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_nav_notes_empty_cl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/fragment_nav_notes_empty_iv"
