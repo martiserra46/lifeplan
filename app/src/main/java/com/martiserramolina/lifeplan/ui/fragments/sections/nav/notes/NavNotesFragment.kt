@@ -44,11 +44,10 @@ class NavNotesFragment : NavFragment<FragmentNavNotesBinding>() {
         val adapter = NotebookAdapter { navigateToNotebookFragment(it) }
         binding.fragmentNavNotesRv.adapter = adapter
         viewModel.items.observe(viewLifecycleOwner) { items ->
-            adapter.submitList(items)
-            if (items.isNotEmpty()) {
+            if (items.isEmpty()) {
                 binding.apply {
-                    fragmentNavNotesEmptyCl.visibility = View.GONE
-                    fragmentNavNotesRv.visibility = View.VISIBLE
+                    fragmentNavNotesEmptyCl.visibility = View.VISIBLE
+                    fragmentNavNotesRv.visibility = View.GONE
                 }
             }
             adapter.submitList(items)

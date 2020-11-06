@@ -85,10 +85,10 @@ class UpInfoNotebookFragment : UpNotebookFragment<FragmentNavNotesNotebookBindin
         val adapter = NoteAdapter { navigateToNoteFragment(it) }
         binding.fragmentNavNotesNotebookRv.adapter = adapter
         viewModel.items.observe(viewLifecycleOwner) { items ->
-            if (items.isNotEmpty()) {
+            if (items.isEmpty()) {
                 binding.apply {
-                    fragmentNavNotesNotebookEmptyCl.visibility = View.GONE
-                    fragmentNavNotesNotebookRv.visibility = View.VISIBLE
+                    fragmentNavNotesNotebookEmptyCl.visibility = View.VISIBLE
+                    fragmentNavNotesNotebookRv.visibility = View.GONE
                 }
             }
             adapter.submitList(items)
