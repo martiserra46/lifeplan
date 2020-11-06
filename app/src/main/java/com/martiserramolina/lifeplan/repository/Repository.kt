@@ -1,5 +1,8 @@
 package com.martiserramolina.lifeplan.repository
 
+import androidx.lifecycle.LiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.martiserramolina.lifeplan.repository.room.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -23,8 +26,14 @@ class LifeRepository(private val daoLife: DaoLife): Repository() {
 
 class NotesRepository(private val daoNotes: DaoNotes): Repository() {
 
-    suspend fun getNotebooks(position: Long, numNotebooks: Int): List<Notebook> {
-        return withContext(Dispatchers.IO) { daoNotes.getNotebooks(position, numNotebooks) }
+    fun getNotebooks(): LiveData<PagedList<Notebook>> {
+        return LivePagedListBuilder(
+            daoNotes.getNotebooks(),
+            PagedList.Config.Builder()
+                .setPageSize(30)
+                .setEnablePlaceholders(false)
+                .build()
+        ).build()
     }
 
     suspend fun insertNotebook(notebook: Notebook): Long {
@@ -39,8 +48,14 @@ class NotesRepository(private val daoNotes: DaoNotes): Repository() {
         withContext(Dispatchers.IO) { daoNotes.deleteNotebook(notebook) }
     }
 
-    suspend fun getNotes(notebookId: Long, position: Long, numNotes: Int): List<Note> {
-        return withContext(Dispatchers.IO) { daoNotes.getNotes(notebookId, position, numNotes) }
+    fun getNotes(notebookId: Long): LiveData<PagedList<Note>> {
+        return LivePagedListBuilder(
+            daoNotes.getNotes(notebookId),
+            PagedList.Config.Builder()
+                .setPageSize(30)
+                .setEnablePlaceholders(false)
+                .build()
+        ).build()
     }
 
     suspend fun insertNote(note: Note): Long {
@@ -58,8 +73,14 @@ class NotesRepository(private val daoNotes: DaoNotes): Repository() {
 
 class StatusRepository(private val daoStatus: DaoStatus): Repository() {
 
-    suspend fun getDays(position: Long, numDays: Int): List<Day> {
-        return withContext(Dispatchers.IO) { daoStatus.getDays(position, numDays) }
+    fun getDays(): LiveData<PagedList<Day>> {
+        return LivePagedListBuilder(
+            daoStatus.getDays(),
+            PagedList.Config.Builder()
+                .setPageSize(30)
+                .setEnablePlaceholders(false)
+                .build()
+        ).build()
     }
 
     suspend fun insertDay(day: Day): Long {

@@ -11,7 +11,6 @@ import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.notes.not
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.notebook.UpNotebookFragment
-import com.martiserramolina.lifeplan.utils.functions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.notes.notebook.info.InfoNotebookViewModel
 
@@ -83,10 +82,10 @@ class UpInfoNotebookFragment : UpNotebookFragment<FragmentNavNotesNotebookBindin
     }
 
     private fun setupNotesRecyclerView() {
-        binding.fragmentNavNotesNotebookRv.apply {
-            setupAutoLoadItemsFunctionality(
-                viewLifecycleOwner, NoteAdapter { navigateToNoteFragment(it) }, viewModel
-            )
+        val adapter = NoteAdapter { navigateToNoteFragment(it) }
+        binding.fragmentNavNotesNotebookRv.adapter = adapter
+        viewModel.items.observe(viewLifecycleOwner) { items ->
+            adapter.submitList(items)
         }
     }
 

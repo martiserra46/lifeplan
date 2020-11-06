@@ -2,13 +2,13 @@ package com.martiserramolina.lifeplan.ui.fragments.sections.nav.status
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavStatusBinding
 import com.martiserramolina.lifeplan.repository.room.Day
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.day.DayAdapter
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.sections.nav.NavFragment
-import com.martiserramolina.lifeplan.utils.functions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.status.info.InfoStatusViewModel
 
@@ -43,9 +43,11 @@ class NavStatusFragment : NavFragment<FragmentNavStatusBinding>() {
     }
 
     private fun setupDaysRecyclerView() {
-        binding.fragmentNavStatusRv.setupAutoLoadItemsFunctionality(
-            viewLifecycleOwner, DayAdapter { navigateToDayFragment(it) }, viewModel
-        )
+        val adapter = DayAdapter { navigateToDayFragment(it) }
+        binding.fragmentNavStatusRv.adapter = adapter
+        viewModel.items.observe(viewLifecycleOwner) { items ->
+            adapter.submitList(items)
+        }
     }
 
     private fun onAddMenuItemSelected(): Boolean = navigateToAddDayFragment().run { true }

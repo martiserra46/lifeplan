@@ -13,10 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.martiserramolina.lifeplan.R
-import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.ItemAdapter
-import com.martiserramolina.lifeplan.ui.adapters.recyclerview.diffutils.ItemListDiffCallback
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.ItemViewHolder
-import com.martiserramolina.lifeplan.viewmodels.interfaces.LoadListItemsViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -36,30 +33,6 @@ fun String.formattedWithMaxLength(maxLength: Int): String {
         substring(0, positionLineBreak).trim() + "..."
     else if (length <= maxLength) this
     else substring(0, maxLength - 2).trim() + "..."
-}
-
-fun <T: ItemViewHolder<out ViewBinding, U>, S: ItemListDiffCallback<U>, U> RecyclerView
-        .setupAutoLoadItemsFunctionality(
-    lifecycleOwner: LifecycleOwner,
-    itemAdapter: ItemAdapter<T, S, U>,
-    loadListItemsViewModel: LoadListItemsViewModel<U>
-) {
-    val linearLayoutManager = LinearLayoutManager(context)
-    layoutManager = linearLayoutManager
-    adapter = itemAdapter
-    setHasFixedSize(true)
-    addItemDecoration(
-        DividerItemDecoration(context, DividerItemDecoration.VERTICAL).apply {
-            setDrawable(ContextCompat.getDrawable(context, R.drawable.div_rvi)!!)
-        }
-    )
-    addOnScrollListener(object : RecyclerView.OnScrollListener() {
-        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-            if (linearLayoutManager.findLastVisibleItemPosition() == itemAdapter.itemCount)
-                loadListItemsViewModel.fetchItemsIfNotFetched((itemAdapter.itemCount + 1).toLong())
-        }
-    })
-    loadListItemsViewModel.itemsFetched.observe(lifecycleOwner) { itemAdapter.items = it }
 }
 
 fun showMessage(view: View, messageId: Int, duration: Int = Snackbar.LENGTH_SHORT) {

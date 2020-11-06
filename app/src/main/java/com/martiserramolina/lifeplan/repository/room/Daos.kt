@@ -1,5 +1,6 @@
 package com.martiserramolina.lifeplan.repository.room
 
+import androidx.paging.DataSource
 import androidx.room.*
 
 @Dao
@@ -26,8 +27,8 @@ interface DaoNotes {
     @Delete
     suspend fun deleteNotebook(notebook: Notebook)
 
-    @Query("SELECT * FROM notebook ORDER BY notebook_id DESC LIMIT :position, :numNotebooks")
-    suspend fun getNotebooks(position: Long, numNotebooks: Int): List<Notebook>
+    @Query("SELECT * FROM notebook ORDER BY notebook_num_notes DESC")
+    fun getNotebooks(): DataSource.Factory<Int, Notebook>
 
     @Query("SELECT * FROM notebook WHERE notebook_id = :notebookId")
     suspend fun getNotebook(notebookId: Long): Notebook
@@ -42,11 +43,8 @@ interface DaoNotes {
     @Delete
     suspend fun deleteNote(note: Note)
 
-    @Query("SELECT * FROM note ORDER BY note_id DESC")
-    suspend fun getNotes(): List<Note>
-
-    @Query("SELECT * FROM note WHERE note_notebook_id = :notebookId ORDER BY note_id DESC LIMIT :position, :numNotes")
-    suspend fun getNotes(notebookId: Long, position: Long, numNotes: Int): List<Note>
+    @Query("SELECT * FROM note WHERE note_notebook_id = :notebookId ORDER BY note_last_time_modified DESC")
+    fun getNotes(notebookId: Long): DataSource.Factory<Int, Note>
 
     @Query("SELECT * FROM note WHERE note_id = :noteId")
     suspend fun getNote(noteId: Long): Note
@@ -76,8 +74,8 @@ interface DaoStatus {
     @Delete
     suspend fun deleteDay(day: Day)
 
-    @Query("SELECT * FROM day ORDER BY day_id DESC LIMIT :position, :numDays")
-    suspend fun getDays(position: Long, numDays: Int): List<Day>
+    @Query("SELECT * FROM day ORDER BY day_date DESC")
+    fun getDays(): DataSource.Factory<Int, Day>
 
     @Query("SELECT * FROM day WHERE day_id = :dayId")
     suspend fun getDay(dayId: Long): Day

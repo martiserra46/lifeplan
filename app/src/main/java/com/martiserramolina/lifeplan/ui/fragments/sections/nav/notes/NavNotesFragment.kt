@@ -8,7 +8,6 @@ import com.martiserramolina.lifeplan.repository.room.Notebook
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.notes.notebook.NotebookAdapter
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.sections.nav.NavFragment
-import com.martiserramolina.lifeplan.utils.functions.setupAutoLoadItemsFunctionality
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.notes.info.InfoNotesViewModel
 
@@ -42,9 +41,11 @@ class NavNotesFragment : NavFragment<FragmentNavNotesBinding>() {
     }
 
     private fun setupNotebooksRecyclerView() {
-        binding.fragmentNavNotesRv.setupAutoLoadItemsFunctionality(
-            viewLifecycleOwner, NotebookAdapter { navigateToNotebookFragment(it) }, viewModel
-        )
+        val adapter = NotebookAdapter { navigateToNotebookFragment(it) }
+        binding.fragmentNavNotesRv.adapter = adapter
+        viewModel.items.observe(viewLifecycleOwner) { items ->
+            adapter.submitList(items)
+        }
     }
 
     private fun onAddMenuItemSelected(): Boolean = navigateToAddNotebookFragment().run { true }

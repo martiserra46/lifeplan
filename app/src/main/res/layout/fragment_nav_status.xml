@@ -9,7 +9,8 @@
 
     <ProgressBar
         android:id="@+id/fragment_nav_status_pb"
-        style="@style/styleProgressBar" />
+        style="@style/styleProgressBar"
+        android:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_nav_status_empty_cl"
@@ -49,7 +50,8 @@
         android:id="@+id/fragment_nav_status_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/rvi_status_day"
-        android:visibility="gone"/>
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/rvi_status_day" />
 
 </FrameLayout>
