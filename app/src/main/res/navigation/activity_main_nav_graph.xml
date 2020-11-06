@@ -14,27 +14,27 @@
             android:id="@+id/action_mainFragment_to_editLifeFragment"
             app:destination="@id/editLifeFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_mainFragment_to_notebookFragment"
             app:destination="@id/notebookFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_mainFragment_to_dayFragment"
             app:destination="@id/dayFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_mainFragment_to_addNotebookFragment"
             app:destination="@id/addNotebookFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_mainFragment_to_addDayFragment"
             app:destination="@id/addDayFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <argument
             android:name="navSection"
             app:argType="com.martiserramolina.lifeplan.utils.enums.NavSection"
@@ -49,7 +49,7 @@
             android:id="@+id/action_noteFragment_to_editNoteFragment"
             app:destination="@id/editNoteFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <argument
             android:name="note"
             app:argType="com.martiserramolina.lifeplan.repository.room.Note" />
@@ -59,7 +59,7 @@
         <action
             android:id="@+id/action_noteFragment_to_notebookFragment"
             app:destination="@id/notebookFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -73,7 +73,7 @@
         <action
             android:id="@+id/action_addNoteFragment_to_notebookFragment"
             app:destination="@id/notebookFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -85,24 +85,24 @@
             android:id="@+id/action_notebookFragment_to_editNotebookFragment"
             app:destination="@id/editNotebookFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_notebookFragment_to_noteFragment"
             app:destination="@id/noteFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_notebookFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <argument
             android:name="notebook"
             app:argType="com.martiserramolina.lifeplan.repository.room.Notebook" />
         <action
             android:id="@+id/action_notebookFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -113,7 +113,7 @@
         <action
             android:id="@+id/action_addNotebookFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -125,11 +125,11 @@
             android:id="@+id/action_dayFragment_to_editDayFragment"
             app:destination="@id/editDayFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/fade_out" />
         <action
             android:id="@+id/action_dayFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
         <argument
             android:name="day"
@@ -143,7 +143,7 @@
         <action
             android:id="@+id/action_addDayFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -154,7 +154,7 @@
         <action
             android:id="@+id/action_editLifeFragment_to_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
         <argument
             android:name="life"
@@ -174,7 +174,7 @@
         <action
             android:id="@+id/action_editNoteFragment_to_noteFragment"
             app:destination="@id/noteFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -188,7 +188,7 @@
         <action
             android:id="@+id/action_editNotebookFragment_to_notebookFragment"
             app:destination="@id/notebookFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
     <fragment
@@ -202,7 +202,7 @@
         <action
             android:id="@+id/action_editDayFragment_to_dayFragment"
             app:destination="@id/dayFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
 </navigation>
