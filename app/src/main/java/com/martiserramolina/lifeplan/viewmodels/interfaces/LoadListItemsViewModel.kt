@@ -11,29 +11,36 @@ interface LoadListItemsViewModel<T> {
     }
 
     val itemsFetched: MutableLiveData<MutableList<T>>
+    var lastFetchedPosition: Long?
+    var allItemsFetched: Boolean
 
     fun fetchItemsIfNotFetched(position: Long, numItems: Int = NUM_ITEMS_TO_FETCH): Boolean
+
 
     abstract class Object<T> : LoadListItemsViewModel<T> {
 
         override val itemsFetched = MutableLiveData<MutableList<T>>().apply { value = mutableListOf() }
 
+        override var allItemsFetched: Boolean = false
+
+        override var lastFetchedPosition: Long? = null
+
         abstract val coroutineScope: CoroutineScope
 
-        private var lastFetchedPosition: Long? = null
-
-        init { fetchItemsIfNotFetched(0) }
+        init {
+            fetchItemsIfNotFetched(0)
+        }
 
         final override fun fetchItemsIfNotFetched(
             position: Long, numItems: Int
         ): Boolean {
             synchronized(this) {
-                if (position == lastFetchedPosition) return false
+                if (allItemsFetched || position == lastFetchedPosition) return false
                 lastFetchedPosition = position
                 coroutineScope.launch {
-                    itemsFetched.value = itemsFetched.value?.apply {
-                        addAll(getItemsFromDatabase(position, numItems))
-                    }
+                    val items = getItemsFromDatabase(position, numItems)
+                    if (items.size < numItems) allItemsFetched = true
+                    itemsFetched.value = itemsFetched.value?.apply { addAll(items) }
                 }
                 return true
             }
