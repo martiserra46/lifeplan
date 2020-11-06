@@ -7,31 +7,34 @@
     <string name="notes">Notes</string>
     <string name="status">Status</string>
 
-    <!-- Database operation names -->
-    <string name="life_save">Describe your desired life</string>
-    <string name="life_delete">Delete life description</string>
+    <!-- Menu items texts -->
+    <string name="life_edit_mi">Write life description</string>
+    <string name="life_delete_mi">Delete life description</string>
 
-    <string name="notebook_add">Add Notebook</string>
-    <string name="notebook_edit">Edit Notebook</string>
-    <string name="notebook_delete">Delete Notebook</string>
+    <string name="notebook_add_mi">Add Notebook</string>
+    <string name="notebook_edit_mi">Edit Notebook</string>
+    <string name="notebook_delete_mi">Delete Notebook</string>
 
-    <string name="note_add">Add Note</string>
-    <string name="note_edit">Edit Note</string>
-    <string name="note_delete">Delete Note</string>
+    <string name="note_add_mi">Add Note</string>
+    <string name="note_edit_mi">Edit Note</string>
+    <string name="note_delete_mi">Delete Note</string>
 
-    <string name="day_add">Are you achieving it?</string>
-    <string name="day_edit">Edit Day</string>
-    <string name="day_delete">Delete Day</string>
+    <string name="day_add_mi">Add Day</string>
+    <string name="day_edit_mi">Edit Day</string>
+    <string name="day_delete_mi">Delete Day</string>
 
-    <!-- EditText hint messages -->
-    <string name="notebook_title_hint">Notebook title</string>
-    <string name="note_title_hint">Note title</string>
-    <string name="note_description_hint">Note description</string>
+    <string name="save_mi">Save</string>
 
-    <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
+    <!-- Toolbar messages -->
+    <string name="life_save_message">Describe your desired life</string>
 
+    <string name="notebook_add_message">Add Notebook</string>
 
-    <!-- Database operations messages -->
+    <string name="note_add_message">Add Note</string>
+
+    <string name="day_add_message">Describe your current status</string>
+
+    <!-- Snackbar messages -->
     <string name="life_saved">Life description saved</string>
 
     <string name="notebook_added">Notebook added</string>
@@ -46,10 +49,18 @@
     <string name="day_edited">Day edited</string>
     <string name="day_deleted">Day deleted</string>
 
-    <!-- Invalid data -->
     <string name="invalid_notebook">Invalid Notebook</string>
     <string name="invalid_note">Invalid Note</string>
     <string name="invalid_day">Invalid Day</string>
+
+    <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
+
+    <!-- EditText hint messages -->
+    <string name="life_description_hint">What\'s what you want to achieve?</string>
+    <string name="notebook_title_hint">Notebook title</string>
+    <string name="note_title_hint">Note title</string>
+    <string name="note_description_hint">Note description</string>
+    <string name="day_description_hint">Are you achieving it?</string>
 
     <!-- Dialog messages delete item -->
     <string name="dialog_message_delete_life">Are you sure you want to delete your life description?</string>
@@ -71,24 +82,16 @@
     <string name="empty_life_message">Write a description of your desired life</string>
     <string name="empty_notebooks_message">Add notebooks</string>
     <string name="empty_notes_message">Add notes</string>
-    <string name="empty_days_message">Add description of your status</string>
+    <string name="empty_days_message">Add a description of your status</string>
 
-    <!-- Other -->
-    <string name="save">Save</string>
-    <string name="add">Add</string>
-    <string name="edit">Edit</string>
-    <string name="delete">Delete</string>
-
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-
-    <string name="close">Close</string>
-
-    <string name="write_here">Write here</string>
-
+    <!-- Image content description messages -->
     <string name="write_life_description_image">Write life description</string>
     <string name="add_notebook_image">Add notebook</string>
     <string name="add_note_image">Add note</string>
     <string name="add_day_image">Add day</string>
 
+    <!-- General -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="close">Close</string>
 </resources>

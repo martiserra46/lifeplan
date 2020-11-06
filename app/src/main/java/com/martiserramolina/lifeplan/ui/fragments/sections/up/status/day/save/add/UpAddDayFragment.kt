@@ -12,6 +12,8 @@ class UpAddDayFragment : UpSaveDayFragment() {
         this, AddDayViewModel::class.java
     ) { AddDayViewModel(mainActivity.application) }
 
+    override fun getToolbarTitle(): String = getString(R.string.day_add_message)
+
     override fun getMenuResourceId(): Int = R.menu.status_day_add_menu
 
     override fun getSaveMenuItemId(): Int = R.id.status_day_add_save_mi

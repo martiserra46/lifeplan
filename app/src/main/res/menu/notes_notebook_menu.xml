@@ -5,16 +5,16 @@
     <item
         android:id="@+id/notes_notebook_add_note_mi"
         android:icon="@drawable/ic_add"
-        android:title="@string/note_add"
+        android:title="@string/note_add_mi"
         app:showAsAction="always" />
     <item
         android:id="@+id/notes_notebook_edit_mi"
         android:icon="@drawable/ic_edit"
-        android:title="@string/edit"
+        android:title="@string/notebook_edit_mi"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/notes_notebook_delete_mi"
         android:icon="@drawable/ic_delete"
-        android:title="@string/delete"
+        android:title="@string/notebook_delete_mi"
         app:showAsAction="ifRoom" />
 </menu>

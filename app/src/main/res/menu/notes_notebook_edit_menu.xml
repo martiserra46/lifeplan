@@ -5,6 +5,6 @@
     <item
         android:id="@+id/notes_notebook_edit_save_mi"
         android:icon="@drawable/ic_save"
-        android:title="@string/save"
-        app:showAsAction="always" />
+        android:title="@string/save_mi"
+        app:showAsAction="ifRoom" />
 </menu>

@@ -12,6 +12,8 @@ class UpAddNotebookFragment : UpSaveNotebookFragment() {
         this, AddNotebookViewModel::class.java
     ) { AddNotebookViewModel(mainActivity.application) }
 
+    override fun getToolbarTitle(): String = getString(R.string.notebook_add_message)
+
     override fun getMenuResource(): Int = R.menu.notes_notebook_add_menu
 
     override fun getSaveMenuItemId(): Int = R.id.notes_notebook_add_save_mi

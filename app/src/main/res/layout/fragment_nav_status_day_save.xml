@@ -27,7 +27,7 @@
         style="@style/styleDescriptionEditText"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:hint="@string/day_add"
+        android:hint="@string/day_description_hint"
         android:importantForAutofill="no"
         android:inputType="text|textMultiLine" />
 

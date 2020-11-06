@@ -5,11 +5,11 @@
     <item
         android:id="@+id/status_day_edit_mi"
         android:icon="@drawable/ic_edit"
-        android:title="@string/edit"
-        app:showAsAction="always" />
+        android:title="@string/day_edit_mi"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/status_day_delete_mi"
         android:icon="@drawable/ic_delete"
-        android:title="@string/delete"
+        android:title="@string/day_delete_mi"
         app:showAsAction="ifRoom" />
 </menu>
