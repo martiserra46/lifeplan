@@ -25,6 +25,7 @@
         style="@style/styleSecondaryTextRecyclerViewItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_4dp"
         app:layout_constraintBottom_toBottomOf="@+id/rvi_status_day_satisfaction_v"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/rvi_status_day_date_tv"
