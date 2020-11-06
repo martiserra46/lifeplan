@@ -10,10 +10,6 @@
     android:scrollbars="none"
     tools:context=".ui.fragments.sections.nav.life.NavLifeFragment">
 
-    <ProgressBar
-        android:id="@+id/fragment_nav_status_pb"
-        style="@style/styleProgressBar" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_nav_life_empty_cl"
         android:layout_width="match_parent"

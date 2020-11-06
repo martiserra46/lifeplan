@@ -143,13 +143,6 @@
     </style>
 
 
-    <!-- Progress bar style -->
-    <style name="styleProgressBar" parent="Widget.AppCompat.ProgressBar">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
-
     <!-- Text Appearances -->
     <!-- Default text appearance -->
     <style name="textAppearanceText" parent="TextAppearance.AppCompat">

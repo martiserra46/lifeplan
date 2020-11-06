@@ -7,11 +7,6 @@
     android:background="@color/colorBackground"
     tools:context=".ui.fragments.sections.nav.status.NavStatusFragment">
 
-    <ProgressBar
-        android:id="@+id/fragment_nav_status_pb"
-        style="@style/styleProgressBar"
-        android:visibility="gone" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_nav_status_empty_cl"
         android:layout_width="match_parent"
