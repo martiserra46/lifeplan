@@ -45,6 +45,13 @@ class NavNotesFragment : NavFragment<FragmentNavNotesBinding>() {
         binding.fragmentNavNotesRv.adapter = adapter
         viewModel.items.observe(viewLifecycleOwner) { items ->
             adapter.submitList(items)
+            if (items.isNotEmpty()) {
+                binding.apply {
+                    fragmentNavNotesEmptyCl.visibility = View.GONE
+                    fragmentNavNotesRv.visibility = View.VISIBLE
+                }
+            }
+            adapter.submitList(items)
         }
     }
 

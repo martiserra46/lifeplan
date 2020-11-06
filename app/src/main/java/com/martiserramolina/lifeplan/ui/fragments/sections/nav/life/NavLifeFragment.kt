@@ -43,18 +43,12 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
     }
 
     private fun setupDescription() {
-        viewModel.isLifeLoaded.observe(viewLifecycleOwner) { isLifeLoaded ->
-            if (isLifeLoaded) {
-                binding.fragmentNavStatusPb.visibility = View.GONE
-                viewModel.life.observe(viewLifecycleOwner) { life ->
-                    if (life.lifeText.isEmpty()) {
-                        binding.fragmentNavLifeEmptyCl.visibility = View.VISIBLE
-                    } else {
-                        binding.apply {
-                            fragmentNavLifeTextSv.visibility = View.VISIBLE
-                            fragmentNavLifeTextTv.text = life.lifeText
-                        }
-                    }
+        viewModel.life.observe(viewLifecycleOwner) { life ->
+            binding.apply {
+                if (life.lifeText.isNotEmpty()) {
+                    fragmentNavLifeEmptyCl.visibility = View.GONE
+                    fragmentNavLifeTextSv.visibility = View.VISIBLE
+                    fragmentNavLifeTextTv.text = life.lifeText
                 }
             }
         }

@@ -46,6 +46,12 @@ class NavStatusFragment : NavFragment<FragmentNavStatusBinding>() {
         val adapter = DayAdapter { navigateToDayFragment(it) }
         binding.fragmentNavStatusRv.adapter = adapter
         viewModel.items.observe(viewLifecycleOwner) { items ->
+            if (items.isNotEmpty()) {
+                binding.apply {
+                    fragmentNavStatusEmptyCl.visibility = View.GONE
+                    fragmentNavStatusRv.visibility = View.VISIBLE
+                }
+            }
             adapter.submitList(items)
         }
     }
