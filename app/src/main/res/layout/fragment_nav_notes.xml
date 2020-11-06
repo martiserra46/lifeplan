@@ -16,16 +16,14 @@
 
         <ImageView
             android:id="@+id/fragment_nav_notes_empty_iv"
-            android:layout_width="@dimen/sizeIconEmpty"
-            android:layout_height="@dimen/sizeIconEmpty"
+            style="@style/styleEmptySectionImageView"
             android:contentDescription="@string/add_notebook_image"
             app:layout_constraintBottom_toTopOf="@+id/fragment_nav_notes_empty_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            app:srcCompat="@drawable/ic_empty"
-            app:tint="@color/colorGrey" />
+            app:srcCompat="@drawable/ic_add" />
 
         <TextView
             android:id="@+id/fragment_nav_notes_empty_tv"

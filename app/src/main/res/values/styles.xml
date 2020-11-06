@@ -63,8 +63,14 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAppearance">@style/textAppearanceEmptySection</item>
-        <item name="android:textColor">@color/colorGrey</item>
+        <item name="android:textColor">@color/colorEmptySection</item>
         <item name="android:lineHeight">@dimen/lineHeightDescription</item>
+    </style>
+
+    <style name="styleEmptySectionImageView">
+        <item name="android:layout_width">@dimen/sizeIconEmpty</item>
+        <item name="android:layout_height">@dimen/sizeIconEmpty</item>
+        <item name="android:tint">@color/colorEmptySection</item>
     </style>
 
     <!-- Recycler view items texts style -->

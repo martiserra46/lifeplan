@@ -26,7 +26,7 @@
 
     <dimen name="lineHeightDescription">@dimen/dimen_26sp</dimen>
 
-    <dimen name="sizeIconEmpty">100dp</dimen>
+    <dimen name="sizeIconEmpty">128dp</dimen>
 
     <dimen name="dimen_4dp">4dp</dimen>
     <dimen name="dimen_5dp">5dp</dimen>

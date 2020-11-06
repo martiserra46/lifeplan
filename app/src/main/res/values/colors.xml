@@ -37,9 +37,11 @@
     <color name="colorNoteMediumImportance">@color/colorOrange</color>
     <color name="colorNoteLowImportance">@color/colorYellow</color>
 
+    <color name="colorEmptySection">#cfcfcf</color>
+
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorDarkGrey">>#212121</color>
+    <color name="colorDarkGrey">#212121</color>
     <color name="colorGrey">#B4B4B4</color>
     <color name="colorLightGrey">#F6F6F6</color>
 
