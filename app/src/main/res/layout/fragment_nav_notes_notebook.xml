@@ -33,11 +33,12 @@
             <ImageView
                 android:id="@+id/fragment_nav_notes_notebook_empty_iv"
                 style="@style/styleEmptySectionImageView"
-                android:contentDescription="@string/add_notebook_image"
+                android:contentDescription="@string/add_note_image"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/fragment_nav_notes_notebook_empty_tv"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/fragment_nav_notes_notebook_empty_tv"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_add" />
 
             <TextView
@@ -46,13 +47,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_8dp"
-                android:maxWidth="@dimen/maxWidthTextEmpty"
+                android:layout_marginTop="1dp"
                 android:text="@string/empty_notes_message"
-                app:drawableTint="@color/colorEmptySection"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/fragment_nav_notes_notebook_empty_iv"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/fragment_nav_notes_notebook_empty_iv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -61,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible"
+            tools:visibility="gone"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/rvi_notes_note" />
 
