@@ -11,10 +11,11 @@ import com.martiserramolina.lifeplan.utils.enums.NavSection
 import com.martiserramolina.lifeplan.utils.functions.formatted
 import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.sections.up.status.day.UpDayFragment
+import com.martiserramolina.lifeplan.utils.interfaces.InfoItemFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.status.day.info.InfoDayViewModel
 
-class UpInfoDayFragment : UpDayFragment<FragmentNavStatusDayBinding>() {
+class UpInfoDayFragment : UpDayFragment<FragmentNavStatusDayBinding>(), InfoItemFragment {
 
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoDayViewModel::class.java
@@ -40,8 +41,15 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavStatusDayBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews()
-        setupWhenDayDeletedFunctionality()
+        setupViews {
+            setupDateTextView()
+            setupSatisfactionTextView()
+            setupDescriptionTextView()
+        }
+        setupWhenItemDeletedFunctionality(viewModel, viewLifecycleOwner) {
+            navigateToPreviousFragment()
+            showMessage(binding.root, R.string.day_deleted)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -50,30 +58,11 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavStatusDayBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.status_day_edit_mi -> onEditMenuItemSelected()
-            R.id.status_day_delete_mi -> onDeleteMenuItemSelected()
+            R.id.status_day_edit_mi -> onEditMenuItemSelected { navigateToEditDayFragment() }
+            R.id.status_day_delete_mi -> onDeleteMenuItemSelected { deleteDay() }
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    private fun setupViews() {
-        setupDateTextView()
-        setupSatisfactionTextView()
-        setupDescriptionTextView()
-    }
-
-    private fun setupWhenDayDeletedFunctionality() {
-        viewModel.itemDeleted.observe(viewLifecycleOwner) { dayDeleted ->
-            if (dayDeleted) {
-                navigateToPreviousFragment()
-                showMessage(binding.root, R.string.day_deleted)
-            }
-        }
-    }
-
-    private fun onEditMenuItemSelected(): Boolean = navigateToEditDayFragment().run { true }
-
-    private fun onDeleteMenuItemSelected(): Boolean = deleteDay().run { true }
 
     private fun setupDateTextView() {
         binding.fragmentNavStatusDayDateTv.text = viewModel.day

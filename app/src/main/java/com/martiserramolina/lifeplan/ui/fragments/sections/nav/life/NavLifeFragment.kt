@@ -5,14 +5,16 @@ import android.view.*
 import android.widget.Toast
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
+import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.sections.nav.NavFragment
 import com.martiserramolina.lifeplan.utils.functions.showMessage
+import com.martiserramolina.lifeplan.utils.interfaces.InfoItemFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.life.info.InfoLifeViewModel
 
-class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
+class NavLifeFragment : NavFragment<FragmentNavLifeBinding>(), InfoItemFragment {
 
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoLifeViewModel::class.java
@@ -28,7 +30,7 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupDescription()
+        setupViews { setupDescription() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -42,8 +44,8 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.life_edit_mi -> onEditMenuItemSelected()
-            R.id.life_delete_mi -> onDeleteMenuItemSelected()
+            R.id.life_edit_mi -> onEditMenuItemSelected { navigateToEditLifeFragmentIfDataIsLoaded() }
+            R.id.life_delete_mi -> onDeleteMenuItemSelected { deleteLife() }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -62,9 +64,6 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
         }
     }
 
-    private fun onEditMenuItemSelected(): Boolean =
-        navigateToEditLifeFragmentIfDataIsLoaded().run { true }
-
     private fun navigateToEditLifeFragmentIfDataIsLoaded() {
         if (isDataLoaded()) {
             navigateToEditLifeFragment()
@@ -72,8 +71,6 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>() {
             showWaitUntilDataIsLoadedMessage()
         }
     }
-
-    private fun onDeleteMenuItemSelected(): Boolean = deleteLife().run { true }
 
     private fun isDataLoaded(): Boolean = viewModel.life.value != null
 

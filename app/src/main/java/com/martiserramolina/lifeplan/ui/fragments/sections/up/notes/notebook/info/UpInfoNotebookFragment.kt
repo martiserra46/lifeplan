@@ -11,13 +11,15 @@ import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.notes.not
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.notebook.UpNotebookFragment
+import com.martiserramolina.lifeplan.utils.interfaces.InfoItemFragment
 import com.martiserramolina.lifeplan.utils.interfaces.LoadItemsFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.notes.notebook.info.InfoNotebookViewModel
 
 class UpInfoNotebookFragment :
     UpNotebookFragment<FragmentNavNotesNotebookBinding>(),
-    LoadItemsFragment {
+    LoadItemsFragment,
+    InfoItemFragment {
 
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoNotebookViewModel::class.java
@@ -43,8 +45,20 @@ class UpInfoNotebookFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews()
-        setupWhenNotebookDeletedFunctionality()
+        setupViews {
+            setupTitleTextView()
+            setupItemsRecyclerView(
+                binding.fragmentNavNotesNotebookRv,
+                NoteAdapter { navigateToNoteFragment(it) },
+                viewModel,
+                viewLifecycleOwner,
+                binding.fragmentNavNotesNotebookEmptyCl
+            )
+        }
+        setupWhenItemDeletedFunctionality(viewModel, viewLifecycleOwner) {
+            navigateToPreviousFragment()
+            showMessage(binding.root, R.string.notebook_deleted)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -54,35 +68,11 @@ class UpInfoNotebookFragment :
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.notes_notebook_add_note_mi -> onAddMenuItemSelected { navigateToAddNoteFragment() }
-            R.id.notes_notebook_edit_mi -> onEditMenuItemSelected()
-            R.id.notes_notebook_delete_mi -> onDeleteMenuItemSelected()
+            R.id.notes_notebook_edit_mi -> onEditMenuItemSelected { navigateToEditNotebookFragment() }
+            R.id.notes_notebook_delete_mi -> onDeleteMenuItemSelected { deleteNotebook() }
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    private fun setupViews() {
-        setupTitleTextView()
-        setupItemsRecyclerView(
-            binding.fragmentNavNotesNotebookRv,
-            NoteAdapter { navigateToNoteFragment(it) },
-            viewModel,
-            viewLifecycleOwner,
-            binding.fragmentNavNotesNotebookEmptyCl
-        )
-    }
-
-    private fun setupWhenNotebookDeletedFunctionality() {
-        viewModel.itemDeleted.observe(viewLifecycleOwner) { notebookDeleted ->
-            if (notebookDeleted){
-                navigateToPreviousFragment()
-                showMessage(binding.root, R.string.notebook_deleted)
-            }
-        }
-    }
-
-    private fun onEditMenuItemSelected(): Boolean = navigateToEditNotebookFragment().run { true }
-
-    private fun onDeleteMenuItemSelected(): Boolean = deleteNotebook().run { true }
 
     private fun setupTitleTextView() {
         binding.fragmentNavNotesNotebookTitleTv.text = viewModel.notebook.notebookText

@@ -9,10 +9,11 @@ import com.martiserramolina.lifeplan.databinding.FragmentNavNotesNoteBinding
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.UpNotesFragment
+import com.martiserramolina.lifeplan.utils.interfaces.InfoItemFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.notes.note.info.InfoNoteViewModel
 
-class UpInfoNoteFragment : UpNotesFragment<FragmentNavNotesNoteBinding>() {
+class UpInfoNoteFragment : UpNotesFragment<FragmentNavNotesNoteBinding>(), InfoItemFragment {
 
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoNoteViewModel::class.java
@@ -37,8 +38,15 @@ class UpInfoNoteFragment : UpNotesFragment<FragmentNavNotesNoteBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews()
-        setupWhenNoteDeletedFunctionality()
+        setupViews {
+            setupTitleTextView()
+            setupImportanceTextView()
+            setupDescriptionTextView()
+        }
+        setupWhenItemDeletedFunctionality(viewModel, viewLifecycleOwner) {
+            navigateToPreviousFragment()
+            showMessage(binding.root, R.string.note_deleted)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -47,30 +55,11 @@ class UpInfoNoteFragment : UpNotesFragment<FragmentNavNotesNoteBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.notes_note_edit_mi -> onEditMenuItemSelected()
-            R.id.notes_note_delete_mi -> onDeleteMenuItemSelected()
+            R.id.notes_note_edit_mi -> onEditMenuItemSelected { navigateToEditNoteFragment() }
+            R.id.notes_note_delete_mi -> onDeleteMenuItemSelected { deleteNote() }
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    private fun setupViews() {
-        setupTitleTextView()
-        setupImportanceTextView()
-        setupDescriptionTextView()
-    }
-
-    private fun setupWhenNoteDeletedFunctionality() {
-        viewModel.itemDeleted.observe(viewLifecycleOwner) { noteDeleted ->
-            if (noteDeleted) {
-                navigateToPreviousFragment()
-                showMessage(binding.root, R.string.note_deleted)
-            }
-        }
-    }
-
-    private fun onEditMenuItemSelected(): Boolean = navigateToEditNoteFragment().run { true }
-
-    private fun onDeleteMenuItemSelected(): Boolean = deleteNote().run { true }
 
     private fun setupTitleTextView() {
         binding.fragmentNavNotesNoteTitleTv.text = viewModel.note.noteTitle
@@ -100,8 +89,8 @@ class UpInfoNoteFragment : UpNotesFragment<FragmentNavNotesNoteBinding>() {
 
     private fun deleteNote() {
         DeleteItemDialogFragment(
-            R.string.dialog_message_delete_notebook,
+            R.string.dialog_message_delete_note,
             { viewModel.deleteItem() }
-        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_notebook))
+        ).show(parentFragmentManager, getString(R.string.dialog_message_delete_note))
     }
 }
