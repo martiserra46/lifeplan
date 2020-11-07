@@ -9,10 +9,13 @@ import com.martiserramolina.lifeplan.repository.enums.NoteImportance
 import com.martiserramolina.lifeplan.ui.adapters.spinner.note_importance.NoteImportanceAdapter
 import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.sections.up.notes.note.UpNoteFragment
+import com.martiserramolina.lifeplan.utils.interfaces.SaveItemFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.notes.note.save.SaveNoteViewModel
 import java.util.*
 
-abstract class UpSaveNoteFragment : UpNoteFragment<FragmentNavNotesNoteSaveBinding>() {
+abstract class UpSaveNoteFragment :
+    UpNoteFragment<FragmentNavNotesNoteSaveBinding>(),
+    SaveItemFragment {
 
     protected abstract val viewModel: SaveNoteViewModel
 
@@ -27,8 +30,15 @@ abstract class UpSaveNoteFragment : UpNoteFragment<FragmentNavNotesNoteSaveBindi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews()
-        setupWhenNoteSavedFunctionality()
+        setupViews {
+            setupTitleEditText()
+            setupImportanceSpinner()
+            setupDescriptionEditText()
+        }
+        setupWhenItemSavedFunctionality(viewModel, viewLifecycleOwner) {
+            navigateToPreviousFragment()
+            showMessage(binding.root, getNoteSavedMessage())
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -37,31 +47,15 @@ abstract class UpSaveNoteFragment : UpNoteFragment<FragmentNavNotesNoteSaveBindi
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            getSaveMenuItemId() -> onSaveMenuItemSelected()
+            getSaveMenuItemId() -> onSaveMenuItemSelected(
+                ::isNoteValid, ::saveNote, ::showMessageInvalidNote)
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    private fun setupViews() {
-        setupTitleEditText()
-        setupImportanceSpinner()
-        setupDescriptionEditText()
-    }
-
-    private fun setupWhenNoteSavedFunctionality() {
-        viewModel.itemSaved.observe(viewLifecycleOwner) { noteSaved ->
-            if (noteSaved) {
-                navigateToPreviousFragment()
-                showMessage(binding.root, getNoteSavedMessage())
-            }
         }
     }
 
     abstract fun getMenuResource(): Int
 
     abstract fun getSaveMenuItemId(): Int
-
-    private fun onSaveMenuItemSelected(): Boolean = saveNoteIfValid().run { true }
 
     private fun setupTitleEditText() {
         binding.fragmentNavNotesNoteSaveTitleEt.setText(viewModel.note.noteTitle)
@@ -78,10 +72,6 @@ abstract class UpSaveNoteFragment : UpNoteFragment<FragmentNavNotesNoteSaveBindi
         binding.fragmentNavNotesNoteSaveDescriptionEt.setText(viewModel.note.noteDescription)
     }
 
-    private fun saveNoteIfValid() {
-        if (isNoteValid()) saveNote() else showMessage(binding.root, R.string.invalid_note)
-    }
-
     private fun isNoteValid(): Boolean = getTitleFromEditText().isNotEmpty() &&
             getDescriptionFromEditText().isNotEmpty()
 
@@ -94,6 +84,10 @@ abstract class UpSaveNoteFragment : UpNoteFragment<FragmentNavNotesNoteSaveBindi
             noteLastTimeModified = Date()
         }
         viewModel.saveItem()
+    }
+
+    private fun showMessageInvalidNote() {
+        showMessage(binding.root, R.string.invalid_note)
     }
 
     protected abstract fun getNoteSavedMessage(): Int

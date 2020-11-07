@@ -10,9 +10,12 @@ import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.ui.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.sections.up.status.day.UpDayFragment
+import com.martiserramolina.lifeplan.utils.interfaces.SaveItemFragment
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.status.day.save.SaveDayViewModel
 
-abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavStatusDaySaveBinding>() {
+abstract class UpSaveDayFragment() :
+    UpDayFragment<FragmentNavStatusDaySaveBinding>(),
+    SaveItemFragment {
 
     protected abstract val viewModel: SaveDayViewModel
 
@@ -27,8 +30,15 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavStatusDaySaveBindi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews()
-        setupWhenDaySavedFunctionality()
+        setupViews {
+            setupDateTextView()
+            setupSatisfactionSpinner()
+            setupDescriptionTextView()
+        }
+        setupWhenItemSavedFunctionality(viewModel, viewLifecycleOwner) {
+            navigateToPreviousFragment()
+            showMessage(binding.root, getDaySavedMessage())
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -37,31 +47,15 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavStatusDaySaveBindi
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            getSaveMenuItemId() -> onSaveMenuItemSelected()
+            getSaveMenuItemId() -> onSaveMenuItemSelected(
+                ::isDayValid, ::saveDay, ::showMessageInvalidDay)
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    protected open fun setupViews() {
-        setupDateTextView()
-        setupSatisfactionSpinner()
-        setupDescriptionTextView()
-    }
-
-    private fun setupWhenDaySavedFunctionality() {
-        viewModel.itemSaved.observe(viewLifecycleOwner) { daySaved ->
-            if (daySaved) {
-                navigateToPreviousFragment()
-                showMessage(binding.root, getDaySavedMessage())
-            }
         }
     }
 
     protected abstract fun getMenuResourceId(): Int
 
     protected abstract fun getSaveMenuItemId(): Int
-
-    private fun onSaveMenuItemSelected(): Boolean = saveDayIfValid().run { true }
 
     private fun setupDateTextView() {
         binding.fragmentNavStatusDaySaveDateTv.text = viewModel.day.dayDate.formatted()
@@ -78,10 +72,6 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavStatusDaySaveBindi
         binding.fragmentNavStatusDaySaveDescriptionEt.setText(viewModel.day.dayText)
     }
 
-    private fun saveDayIfValid() {
-        if (isDayValid()) saveDay() else showMessage(binding.root, R.string.invalid_day)
-    }
-
     private fun isDayValid(): Boolean = getDescriptionFromEditText().isNotEmpty()
 
     private fun saveDay() {
@@ -90,6 +80,10 @@ abstract class UpSaveDayFragment() : UpDayFragment<FragmentNavStatusDaySaveBindi
             dayText = getDescriptionFromEditText()
         }
         viewModel.saveItem()
+    }
+
+    private fun showMessageInvalidDay() {
+        showMessage(binding.root, R.string.invalid_day)
     }
 
     protected abstract fun getDaySavedMessage(): Int
