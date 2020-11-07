@@ -8,8 +8,8 @@
     <string name="status">Status</string>
 
     <!-- Menu items texts -->
-    <string name="life_edit_mi">Write life description</string>
-    <string name="life_delete_mi">Delete life description</string>
+    <string name="life_edit_mi">Write text</string>
+    <string name="life_delete_mi">Delete text</string>
 
     <string name="notebook_add_mi">Add Notebook</string>
     <string name="notebook_edit_mi">Edit Notebook</string>
