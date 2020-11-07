@@ -8,10 +8,11 @@ import com.martiserramolina.lifeplan.repository.room.Notebook
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.adapters.notes.notebook.NotebookAdapter
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.sections.nav.NavFragment
+import com.martiserramolina.lifeplan.utils.interfaces.LoadItemsFragment
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
 import com.martiserramolina.lifeplan.viewmodels.viewmodels.sections.notes.info.InfoNotesViewModel
 
-class NavNotesFragment : NavFragment<FragmentNavNotesBinding>() {
+class NavNotesFragment : NavFragment<FragmentNavNotesBinding>(), LoadItemsFragment {
 
     private val viewModel by ViewModelFactory.Delegate(
         this, InfoNotesViewModel::class.java
@@ -26,7 +27,13 @@ class NavNotesFragment : NavFragment<FragmentNavNotesBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupNotebooksRecyclerView()
+        setupItemsRecyclerView(
+            binding.fragmentNavNotesRv,
+            NotebookAdapter { navigateToNotebookFragment(it) },
+            viewModel,
+            viewLifecycleOwner,
+            binding.fragmentNavNotesEmptyCl
+        )
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -35,34 +42,18 @@ class NavNotesFragment : NavFragment<FragmentNavNotesBinding>() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.notes_notebook_add_mi -> onAddMenuItemSelected()
+            R.id.notes_notebook_add_mi -> onAddMenuItemSelected { navigateToAddNotebookFragment() }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    private fun setupNotebooksRecyclerView() {
-        val adapter = NotebookAdapter { navigateToNotebookFragment(it) }
-        binding.fragmentNavNotesRv.adapter = adapter
-        viewModel.items.observe(viewLifecycleOwner) { items ->
-            if (items.isEmpty()) {
-                binding.apply {
-                    fragmentNavNotesEmptyCl.visibility = View.VISIBLE
-                    fragmentNavNotesRv.visibility = View.GONE
-                }
-            }
-            adapter.submitList(items)
-        }
-    }
-
-    private fun onAddMenuItemSelected(): Boolean = navigateToAddNotebookFragment().run { true }
-
-    private fun navigateToAddNotebookFragment() {
-        mainActivity.navController
-            .navigate(MainFragmentDirections.actionMainFragmentToAddNotebookFragment())
     }
 
     private fun navigateToNotebookFragment(notebook: Notebook) {
         mainActivity.navController
             .navigate(MainFragmentDirections.actionMainFragmentToNotebookFragment(notebook))
+    }
+
+    private fun navigateToAddNotebookFragment() {
+        mainActivity.navController
+            .navigate(MainFragmentDirections.actionMainFragmentToAddNotebookFragment())
     }
 }
