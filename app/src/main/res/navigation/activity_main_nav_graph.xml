@@ -236,5 +236,8 @@
             app:destination="@id/mainInstructionsFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_instructionsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
