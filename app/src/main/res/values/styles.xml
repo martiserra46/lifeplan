@@ -72,12 +72,6 @@
         <item name="android:maxWidth">@dimen/maxWidthTextEmpty</item>
     </style>
 
-    <style name="styleEmptySectionImageView">
-        <item name="android:layout_width">@dimen/sizeIconEmpty</item>
-        <item name="android:layout_height">@dimen/sizeIconEmpty</item>
-        <item name="android:tint">@color/colorEmptySection</item>
-    </style>
-
     <!-- Recycler view items texts style -->
     <style name="stylePrimaryTextRecyclerViewItem">
         <item name="android:textColor">@color/colorPrimaryTextRecyclerViewItem</item>

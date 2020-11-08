@@ -15,28 +15,16 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <ImageView
-            android:id="@+id/fragment_nav_life_empty_iv"
-            style="@style/styleEmptySectionImageView"
-            android:contentDescription="@string/edit_life_image"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/fragment_nav_life_empty_tv"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_edit" />
-
         <TextView
             android:id="@+id/fragment_nav_life_empty_tv"
             style="@style/styleEmptySectionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_8dp"
-            android:layout_marginTop="1dp"
             android:text="@string/empty_life_message"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/fragment_nav_life_empty_iv"
-            app:layout_constraintTop_toTopOf="@+id/fragment_nav_life_empty_iv" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
