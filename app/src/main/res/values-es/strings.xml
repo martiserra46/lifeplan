@@ -58,7 +58,7 @@
     <string name="wait_until_all_life_data_is_loaded">Espera hasta que el texto se haya cargado</string>
 
     <!-- EditarText hint messages -->
-    <string name="life_description_hint">Cuál es la vida que deseas?\n\nEj: Quiero passar buena parte de mi vida aprendiendo i viviendo muchas experiencias. Quiero estudiar informática i crear una empresa…</string>
+    <string name="life_description_hint">Cuál es la vida que deseas?\n\nEj: Quiero passar buena parte de mi vida aprendiendo y viviendo muchas experiencias. Quiero estudiar informática y crear una empresa…</string>
     <string name="notebook_title_hint">Título (Ej: Objetivos, Hábitos…)</string>
     <string name="note_title_hint">Título (Ej: Leer 1h al día…)</string>
     <string name="note_description_hint">Descripción\n\nEj: Tengo que leer 1h al día cada mañana después de levantarme…</string>
@@ -82,9 +82,9 @@
 
     <!-- Empty messages -->
     <string name="empty_life_message">Escribe una descripción de la vida que deseas</string>
-    <string name="empty_notebooks_message">Añade blocs de notas</string>
-    <string name="empty_notes_message">Añade notas</string>
-    <string name="empty_days_message">Añade una descripción de tu estado actual</string>
+    <string name="empty_notebooks_message">Añade notas sobre ideas y cosas que puedes hacer para conseguir esta vida</string>
+    <string name="empty_notes_message">Añade notas en este bloc de notas</string>
+    <string name="empty_days_message">Añade una descripción de tu estado de vez en cuando</string>
 
     <!-- Image content description messages -->
     <string name="icon_image">@string/app_name</string>

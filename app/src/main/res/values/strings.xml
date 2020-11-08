@@ -81,9 +81,9 @@
 
     <!-- Empty messages -->
     <string name="empty_life_message">Write a description of your desired life</string>
-    <string name="empty_notebooks_message">Add notebooks</string>
-    <string name="empty_notes_message">Add notes</string>
-    <string name="empty_days_message">Add a description of your status</string>
+    <string name="empty_notebooks_message">Add notes about ideas and things you can do to achieve this life</string>
+    <string name="empty_notes_message">Add notes to this notebook</string>
+    <string name="empty_days_message">Add a description of your status from time to time</string>
 
     <!-- Image content description messages -->
     <string name="icon_image">@string/app_name</string>
