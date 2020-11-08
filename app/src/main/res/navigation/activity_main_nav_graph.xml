@@ -40,10 +40,8 @@
             app:argType="com.martiserramolina.lifeplan.utils.enums.NavSection"
             android:defaultValue="LIFE" />
         <action
-            android:id="@+id/action_mainFragment_to_mainInstructionsFragment"
-            app:destination="@id/mainInstructionsFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/fade_out" />
+            android:id="@+id/action_mainFragment_to_instructionsNestedNavGraph"
+            app:destination="@id/instructionsNestedNavGraph" />
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
@@ -210,15 +208,42 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
     </fragment>
-    <fragment
-        android:id="@+id/mainInstructionsFragment"
-        android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.MainInstructionsFragment"
-        android:label="fragment_instructions_main"
-        tools:layout="@layout/fragment_instructions_main" >
+    <navigation android:id="@+id/instructionsNestedNavGraph"
+        app:startDestination="@id/mainInstructionsFragment">
+        <fragment
+            android:id="@+id/mainInstructionsFragment"
+            android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.MainInstructionsFragment"
+            android:label="fragment_instructions_main"
+            tools:layout="@layout/fragment_instructions_main">
+            <action
+                android:id="@+id/action_mainInstructionsFragment_to_lifeInstructionsFragment"
+                app:destination="@id/lifeInstructionsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/lifeInstructionsFragment"
+            android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.sections.life.LifeInstructionsFragment"
+            android:label="LifeInstructionsFragment"
+            tools:layout="@layout/fragment_instructions_section">
+            <action
+                android:id="@+id/action_lifeInstructionsFragment_to_notesInstructionsFragment"
+                app:destination="@id/notesInstructionsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/notesInstructionsFragment"
+            android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.sections.notes.NotesInstructionsFragment"
+            android:label="NotesInstructionsFragment"
+            tools:layout="@layout/fragment_instructions_section">
+            <action
+                android:id="@+id/action_notesInstructionsFragment_to_statusInstructionsFragment"
+                app:destination="@id/statusInstructionsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/statusInstructionsFragment"
+            android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.sections.status.StatusInstructionsFragment"
+            android:label="StatusInstructionsFragment"
+            tools:layout="@layout/fragment_instructions_section"/>
         <action
-            android:id="@+id/action_mainInstructionsFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/to_right" />
-    </fragment>
+            android:id="@+id/action_global_mainFragment"
+            app:destination="@id/mainFragment" />
+    </navigation>
 </navigation>
