@@ -103,7 +103,8 @@
     <string name="status_instructions_title">Keep track of your progress</string>
     <string name="status_instructions_description">From time to time write about your current status and check if you are doing all you have to do</string>
 
-    
+    <!-- Shared preferences keys -->
+    <string name="preference_key_app_launched_before">app_launched_before</string>
 
     <!-- General -->
     <string name="yes">Yes</string>

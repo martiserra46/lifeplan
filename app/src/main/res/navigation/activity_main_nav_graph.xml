@@ -263,5 +263,5 @@
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/fade_out" />
-    </navigation>
+    </navigation><action android:id="@+id/action_global_instructionsNestedNavGraph" app:destination="@id/instructionsNestedNavGraph"/>
 </navigation>
