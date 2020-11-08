@@ -19,9 +19,9 @@
     <string name="note_edit_mi">Edit Note</string>
     <string name="note_delete_mi">Delete Note</string>
 
-    <string name="day_add_mi">Add Day</string>
-    <string name="day_edit_mi">Edit Day</string>
-    <string name="day_delete_mi">Delete Day</string>
+    <string name="day_add_mi">Add Status</string>
+    <string name="day_edit_mi">Edit Status</string>
+    <string name="day_delete_mi">Delete Status</string>
 
     <string name="save_mi">Save</string>
 
@@ -45,15 +45,15 @@
     <string name="note_edited">Note edited</string>
     <string name="note_deleted">Note deleted</string>
 
-    <string name="day_added">Day added</string>
-    <string name="day_edited">Day edited</string>
-    <string name="day_deleted">Day deleted</string>
+    <string name="day_added">Status added</string>
+    <string name="day_edited">Status edited</string>
+    <string name="day_deleted">Status deleted</string>
 
-    <string name="invalid_notebook">Invalid Notebook</string>
-    <string name="invalid_note">Invalid Note</string>
-    <string name="invalid_day">Invalid Day</string>
+    <string name="invalid_notebook">Data is not valid</string>
+    <string name="invalid_note">Data is not valid</string>
+    <string name="invalid_day">Data is not valid</string>
 
-    <string name="wait_until_all_life_data_is_loaded">Wait until all life data is loaded</string>
+    <string name="wait_until_all_life_data_is_loaded">Wait until all text is loaded</string>
 
     <!-- EditText hint messages -->
     <string name="life_description_hint">What\'s what you want to achieve?</string>
@@ -63,10 +63,10 @@
     <string name="day_description_hint">Are you achieving it?</string>
 
     <!-- Dialog messages delete item -->
-    <string name="dialog_message_delete_life">Are you sure you want to delete your life description?</string>
-    <string name="dialog_message_delete_notebook">Are you sure you want to delete this notebook?</string>
-    <string name="dialog_message_delete_note">Are you sure you want to delete this note?</string>
-    <string name="dialog_message_delete_day">Are you sure you want to delete this day?</string>
+    <string name="dialog_message_delete_life">Are you sure you want to delete it?</string>
+    <string name="dialog_message_delete_notebook">Are you sure you want to delete it?</string>
+    <string name="dialog_message_delete_note">Are you sure you want to delete it?</string>
+    <string name="dialog_message_delete_day">Are you sure you want to delete it?</string>
 
     <!-- Satisfaction levels -->
     <string name="high_satisfaction">High satisfaction</string>
@@ -85,15 +85,11 @@
     <string name="empty_days_message">Add a description of your status</string>
 
     <!-- Image content description messages -->
-    <string name="edit_life_image">Write life description</string>
-    <string name="add_notebook_image">Add notebook</string>
-    <string name="add_note_image">Add note</string>
-    <string name="add_day_image">Add day</string>
     <string name="icon_image">@string/app_name</string>
 
     <!-- Instruction messages -->
     <string name="main_instructions">Describe what you want. Write how to achieve it. Keep track of your progress.</string>
-    
+
     <string name="life_instructions_title">Describe your desired life</string>
     <string name="life_instructions_description">Take a moment and write about how you want to life and what you want to achieve. This will be a guide to know what you have to do.</string>
 

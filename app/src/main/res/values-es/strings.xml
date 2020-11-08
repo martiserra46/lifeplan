@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main strings -->
+    <string name="app_name">Life Plan</string>
+
+    <!-- Navigation sections -->
+    <string name="life">Vida</string>
+    <string name="notes">Notas</string>
+    <string name="status">Estado</string>
+
+    <!-- Menu items texts -->
+    <string name="life_edit_mi">Escribir texto</string>
+    <string name="life_delete_mi">Eliminar texto</string>
+
+    <string name="notebook_add_mi">Añadir Bloc de notas</string>
+    <string name="notebook_edit_mi">Editar Bloc de notas</string>
+    <string name="notebook_delete_mi">Eliminar Bloc de notas</string>
+
+    <string name="note_add_mi">Añadir Nota</string>
+    <string name="note_edit_mi">Editar Nota</string>
+    <string name="note_delete_mi">Eliminar Nota</string>
+
+    <string name="day_add_mi">Añadir Estado</string>
+    <string name="day_edit_mi">Editar Estado</string>
+    <string name="day_delete_mi">Eliminar Estado</string>
+
+    <string name="save_mi">Guardar</string>
+
+    <!-- Toolbar messages -->
+    <string name="life_save_message">Describe la vida que deseas</string>
+
+    <string name="notebook_add_message">Añade un bloc de notas</string>
+
+    <string name="note_add_message">Añade una nota</string>
+
+    <string name="day_add_message">Describe tu estado actual</string>
+
+    <!-- Snackbar messages -->
+    <string name="life_saved">Texto guardado</string>
+
+    <string name="notebook_added">Bloc de notas añadido</string>
+    <string name="notebook_edited">Bloc de notas editado</string>
+    <string name="notebook_deleted">Bloc de notas eliminado</string>
+
+    <string name="note_added">Nota añadida</string>
+    <string name="note_edited">Nota editada</string>
+    <string name="note_deleted">Nota eliminada</string>
+
+    <string name="day_added">Estado añadido</string>
+    <string name="day_edited">Estado editado</string>
+    <string name="day_deleted">Estado eliminado</string>
+
+    <string name="invalid_notebook">Los datos no son válidos</string>
+    <string name="invalid_note">Los datos no son válidos</string>
+    <string name="invalid_day">Los datos no son válidos</string>
+
+    <string name="wait_until_all_life_data_is_loaded">Espera hasta que el texto se haya cargado</string>
+
+    <!-- EditarText hint messages -->
+    <string name="life_description_hint">Que quieres conseguir?</string>
+    <string name="notebook_title_hint">Título del Bloc de notas</string>
+    <string name="note_title_hint">Título de la Nota</string>
+    <string name="note_description_hint">Descripcion de la Nota</string>
+    <string name="day_description_hint">Lo estas consiguiendo?</string>
+
+    <!-- Dialog messages delete item -->
+    <string name="dialog_message_delete_life">Estás seguro de que lo quieres eliminar?</string>
+    <string name="dialog_message_delete_notebook">Estás seguro de que lo quieres eliminar?</string>
+    <string name="dialog_message_delete_note">Estás seguro de que lo quieres eliminar?</string>
+    <string name="dialog_message_delete_day">Estás seguro de que lo quieres eliminar?</string>
+
+    <!-- Satisfaction levels -->
+    <string name="high_satisfaction">Alta satisfacción</string>
+    <string name="medium_satisfaction">Mediana satisfacción</string>
+    <string name="low_satisfaction">Baja satisfacción</string>
+
+    <!-- Importance levels -->
+    <string name="high_importance">Alta importancia</string>
+    <string name="medium_importance">Mediana importancia</string>
+    <string name="low_importance">Baja importancia</string>
+
+    <!-- Empty messages -->
+    <string name="empty_life_message">Escribe una descripción de la vida que deseas</string>
+    <string name="empty_notebooks_message">Añade blocs de notas</string>
+    <string name="empty_notes_message">Añade notas</string>
+    <string name="empty_days_message">Añade una descripción de tu estado actual</string>
+
+    <!-- Image content description messages -->
+    <string name="icon_image">@string/app_name</string>
+
+    <!-- Instruction messages -->
+    <string name="main_instructions">Describe lo que quieres. Escribe como conseguirlo. Haz un seguimiento de tu progreso.</string>
+
+    <string name="life_instructions_title">Describe la vida que deseas</string>
+    <string name="life_instructions_description">Tomate un tiempo y escribe sobre como quieres vivir y que quieres conseguir. Eso serà una guia para saber lo que tienes que hacer.</string>
+
+    <string name="notes_instructions_title">Escribe notas que te ayuden a conseguirlo</string>
+    <string name="notes_instructions_description">Crea blocs de notas sobre temas de tu vida (objetivos, hábitos, actitud…) y escribe notas sobre ideas y cosas que puedes hacer para conseguir esta vida.</string>
+
+    <string name="status_instructions_title">Haz un seguimiento de tu progreso</string>
+    <string name="status_instructions_description">De vez en cuando escribe tu situación actual y comprueba que estés haciendo todo lo que tengas que hacer.</string>
+
+    <!-- Shared preferences keys -->
+    <string name="preference_key_app_launched_before">app_launched_before</string>
+
+    <!-- General -->
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="close">Cierra</string>
+    <string name="Instructions">Instrucciones</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
+</resources>
