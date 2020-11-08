@@ -214,6 +214,10 @@
     </fragment>
     <navigation android:id="@+id/instructionsNestedNavGraph"
         app:startDestination="@id/mainInstructionsFragment">
+        <argument
+            android:name="isBackToMainFragmentEnabled"
+            app:argType="boolean"
+            android:defaultValue="true" />
         <fragment
             android:id="@+id/mainInstructionsFragment"
             android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.MainInstructionsFragment"
@@ -223,9 +227,11 @@
                 android:id="@+id/action_mainInstructionsFragment_to_lifeInstructionsFragment"
                 app:destination="@id/lifeInstructionsFragment"
                 app:enterAnim="@anim/from_right"
-                app:exitAnim="@anim/fade_out"
-                app:popEnterAnim="@anim/fade_in"
-                app:popExitAnim="@anim/to_right" />
+                app:exitAnim="@anim/fade_out" />
+            <argument
+                android:name="isBackToMainFragmentEnabled"
+                app:argType="boolean"
+                android:defaultValue="true" />
         </fragment>
         <fragment
             android:id="@+id/lifeInstructionsFragment"
@@ -236,9 +242,15 @@
                 android:id="@+id/action_lifeInstructionsFragment_to_notesInstructionsFragment"
                 app:destination="@id/notesInstructionsFragment"
                 app:enterAnim="@anim/from_right"
-                app:exitAnim="@anim/fade_out"
-                app:popEnterAnim="@anim/fade_in"
-                app:popExitAnim="@anim/to_right" />
+                app:exitAnim="@anim/fade_out" />
+            <argument
+                android:name="isBackToMainFragmentEnabled"
+                app:argType="boolean" />
+            <action
+                android:id="@+id/action_lifeInstructionsFragment_to_mainInstructionsFragment"
+                app:destination="@id/mainInstructionsFragment"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/to_right" />
         </fragment>
         <fragment
             android:id="@+id/notesInstructionsFragment"
@@ -249,19 +261,35 @@
                 android:id="@+id/action_notesInstructionsFragment_to_statusInstructionsFragment"
                 app:destination="@id/statusInstructionsFragment"
                 app:enterAnim="@anim/from_right"
-                app:exitAnim="@anim/fade_out"
-                app:popEnterAnim="@anim/fade_in"
-                app:popExitAnim="@anim/to_right" />
+                app:exitAnim="@anim/fade_out" />
+            <argument
+                android:name="isBackToMainFragmentEnabled"
+                app:argType="boolean" />
+            <action
+                android:id="@+id/action_notesInstructionsFragment_to_lifeInstructionsFragment"
+                app:destination="@id/lifeInstructionsFragment"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/to_right" />
         </fragment>
         <fragment
             android:id="@+id/statusInstructionsFragment"
             android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.sections.status.StatusInstructionsFragment"
             android:label="StatusInstructionsFragment"
-            tools:layout="@layout/fragment_instructions_section"/>
+            tools:layout="@layout/fragment_instructions_section">
+            <argument
+                android:name="isBackToMainFragmentEnabled"
+                app:argType="boolean" />
+            <action
+                android:id="@+id/action_statusInstructionsFragment_to_notesInstructionsFragment"
+                app:destination="@id/notesInstructionsFragment"
+                app:enterAnim="@anim/fade_in"
+                app:exitAnim="@anim/to_right" />
+        </fragment>
         <action
             android:id="@+id/action_global_mainFragment"
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/fade_out" />
-    </navigation><action android:id="@+id/action_global_instructionsNestedNavGraph" app:destination="@id/instructionsNestedNavGraph"/>
+    </navigation>
+    <action android:id="@+id/action_global_instructionsNestedNavGraph" app:destination="@id/instructionsNestedNavGraph" />
 </navigation>

@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.martiserramolina.lifeplan.InstructionsNestedNavGraphDirections
 import com.martiserramolina.lifeplan.R
+import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +27,10 @@ class MainActivity : AppCompatActivity() {
         val appLaunchedBeforeKey = getString(R.string.preference_key_app_launched_before)
         val appLaunchedBefore = sharedPreferences.getBoolean(appLaunchedBeforeKey, false)
         if (appLaunchedBefore) return
-        navController.navigate(R.id.action_global_instructionsNestedNavGraph)
+        navController.navigate(
+            InstructionsNestedNavGraphDirections
+                .actionGlobalInstructionsNestedNavGraph(false)
+        )
         sharedPreferences.edit().putBoolean(appLaunchedBeforeKey, true).apply()
     }
 }

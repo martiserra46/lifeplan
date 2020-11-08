@@ -5,6 +5,8 @@ import android.view.*
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentInstructionsSectionBinding
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
+import com.martiserramolina.lifeplan.ui.fragments.instructions.MainInstructionsFragmentArgs
+import com.martiserramolina.lifeplan.ui.fragments.instructions.sections.life.LifeInstructionsFragmentArgs
 
 abstract class SectionInstructionsFragment : BaseFragment<FragmentInstructionsSectionBinding>() {
 

@@ -5,6 +5,10 @@ import com.martiserramolina.lifeplan.ui.fragments.instructions.sections.SectionI
 
 class NotesInstructionsFragment : SectionInstructionsFragment() {
 
+    val isBackToMainFragmentEnabled by lazy {
+        NotesInstructionsFragmentArgs.fromBundle(requireArguments()).isBackToMainFragmentEnabled
+    }
+
     override fun getTitleText(): String =
         requireContext().getString(R.string.notes_instructions_title)
     override fun getDescriptionText(): String =
@@ -13,11 +17,13 @@ class NotesInstructionsFragment : SectionInstructionsFragment() {
     override fun navigateToNextFragment() {
         mainActivity.navController
             .navigate(NotesInstructionsFragmentDirections
-                .actionNotesInstructionsFragmentToStatusInstructionsFragment())
+                .actionNotesInstructionsFragmentToStatusInstructionsFragment(isBackToMainFragmentEnabled))
     }
 
     override fun navigateToPreviousFragment() {
-        mainActivity.navController.navigateUp()
+        mainActivity.navController
+            .navigate(NotesInstructionsFragmentDirections
+                .actionNotesInstructionsFragmentToLifeInstructionsFragment(isBackToMainFragmentEnabled))
     }
 
 }

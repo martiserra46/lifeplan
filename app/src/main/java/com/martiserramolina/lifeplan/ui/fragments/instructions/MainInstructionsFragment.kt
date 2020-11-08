@@ -9,6 +9,10 @@ import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 
 class MainInstructionsFragment : BaseFragment<FragmentInstructionsMainBinding>() {
 
+    val isBackToMainFragmentEnabled by lazy {
+        MainInstructionsFragmentArgs.fromBundle(requireArguments()).isBackToMainFragmentEnabled
+    }
+
     override fun buildBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -44,13 +48,13 @@ class MainInstructionsFragment : BaseFragment<FragmentInstructionsMainBinding>()
     private fun navigateToInstructionsFragment() {
         mainActivity.navController
             .navigate(MainInstructionsFragmentDirections
-                .actionMainInstructionsFragmentToLifeInstructionsFragment())
+                .actionMainInstructionsFragmentToLifeInstructionsFragment(isBackToMainFragmentEnabled))
     }
 
     private fun setupBackButton() {
         mainActivity.onBackPressedDispatcher
             .addCallback(mainActivity) {
-                mainActivity.navController.navigateUp()
+                if (isBackToMainFragmentEnabled) mainActivity.navController.navigateUp()
             }
     }
 }
