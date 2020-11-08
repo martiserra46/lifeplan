@@ -13,3 +13,9 @@ enum class NavSection(val labelId: Int, val destinationId: Int) {
         }
     }
 }
+
+enum class InstructionsSection(val titleId: Int, val descriptionId: Int) {
+    LIFE(R.string.life_instructions_title, R.string.life_instructions_description),
+    NOTES(R.string.notes_instructions_title, R.string.notes_instructions_description),
+    STATUS(R.string.status_instructions_title, R.string.status_instructions_description)
+}
