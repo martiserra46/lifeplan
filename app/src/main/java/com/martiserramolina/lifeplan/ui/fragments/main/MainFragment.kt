@@ -53,7 +53,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     private fun navigateToInstructionsFragment() {
         mainActivity.navController
-            .navigate(MainFragmentDirections.actionMainFragmentToMainInstructionsFragment())
+            .navigate(MainFragmentDirections.actionMainFragmentToInstructionsNestedNavGraph())
     }
 
     private fun setupToolbar() {

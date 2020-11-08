@@ -41,7 +41,11 @@
             android:defaultValue="LIFE" />
         <action
             android:id="@+id/action_mainFragment_to_instructionsNestedNavGraph"
-            app:destination="@id/instructionsNestedNavGraph" />
+            app:destination="@id/instructionsNestedNavGraph"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
@@ -217,7 +221,11 @@
             tools:layout="@layout/fragment_instructions_main">
             <action
                 android:id="@+id/action_mainInstructionsFragment_to_lifeInstructionsFragment"
-                app:destination="@id/lifeInstructionsFragment" />
+                app:destination="@id/lifeInstructionsFragment"
+                app:enterAnim="@anim/from_right"
+                app:exitAnim="@anim/fade_out"
+                app:popEnterAnim="@anim/fade_in"
+                app:popExitAnim="@anim/to_right" />
         </fragment>
         <fragment
             android:id="@+id/lifeInstructionsFragment"
@@ -226,7 +234,11 @@
             tools:layout="@layout/fragment_instructions_section">
             <action
                 android:id="@+id/action_lifeInstructionsFragment_to_notesInstructionsFragment"
-                app:destination="@id/notesInstructionsFragment" />
+                app:destination="@id/notesInstructionsFragment"
+                app:enterAnim="@anim/from_right"
+                app:exitAnim="@anim/fade_out"
+                app:popEnterAnim="@anim/fade_in"
+                app:popExitAnim="@anim/to_right" />
         </fragment>
         <fragment
             android:id="@+id/notesInstructionsFragment"
@@ -235,7 +247,11 @@
             tools:layout="@layout/fragment_instructions_section">
             <action
                 android:id="@+id/action_notesInstructionsFragment_to_statusInstructionsFragment"
-                app:destination="@id/statusInstructionsFragment" />
+                app:destination="@id/statusInstructionsFragment"
+                app:enterAnim="@anim/from_right"
+                app:exitAnim="@anim/fade_out"
+                app:popEnterAnim="@anim/fade_in"
+                app:popExitAnim="@anim/to_right" />
         </fragment>
         <fragment
             android:id="@+id/statusInstructionsFragment"
@@ -244,6 +260,8 @@
             tools:layout="@layout/fragment_instructions_section"/>
         <action
             android:id="@+id/action_global_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/to_right" />
     </navigation>
 </navigation>
