@@ -45,6 +45,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_instructions_tb" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_instructions_tb"
+        app:navGraph="@navigation/fragment_instructions_nav_graph" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

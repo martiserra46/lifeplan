@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".ui.fragments.instructions.sections.SectionInstructionsFragment">
+    tools:context=".ui.fragments.instructions.sections.life.LifeInstructionsFragment">
 
     <TextView
         android:id="@+id/fragment_instructions_section_title_tv"
