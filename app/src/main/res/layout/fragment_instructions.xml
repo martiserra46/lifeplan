@@ -37,15 +37,45 @@
         app:layout_constraintStart_toEndOf="@+id/fragment_instructions_icon_iv"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_instructions_fcv"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <TextView
+        android:id="@+id/fragment_instructions_title_tv"
+        style="@style/styleTextView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/life_instructions_title"
+        android:textSize="@dimen/textSizeTitleInstructions"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_instructions_description_tv"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_instructions_vertical_guideline_gl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/fragment_instructions_description_tv"
+        style="@style/styleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:lineHeight="@dimen/lineHeightInstructionsDescription"
+        android:text="@string/life_instructions_description"
+        android:textSize="@dimen/textSizeDescriptionInstructions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_instructions_tb"
-        app:navGraph="@navigation/fragment_instructions_nav_graph" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_instructions_title_tv" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_instructions_vertical_guideline_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
