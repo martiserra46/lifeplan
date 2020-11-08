@@ -41,7 +41,9 @@
             android:defaultValue="LIFE" />
         <action
             android:id="@+id/action_mainFragment_to_mainInstructionsFragment"
-            app:destination="@id/mainInstructionsFragment" />
+            app:destination="@id/mainInstructionsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
@@ -215,6 +217,8 @@
         tools:layout="@layout/fragment_instructions_main" >
         <action
             android:id="@+id/action_mainInstructionsFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/to_right" />
     </fragment>
 </navigation>
