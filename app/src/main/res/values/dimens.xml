@@ -30,7 +30,7 @@
 
     <dimen name="maxWidthTextEmpty">300dp</dimen>
 
-    <dimen name="textSizeTitleInstructions">32sp</dimen>
+    <dimen name="textSizeTitleInstructions">30sp</dimen>
     <dimen name="textSizeDescriptionInstructions">16sp</dimen>
 
     <dimen name="lineHeightInstructionsDescription">26sp</dimen>
