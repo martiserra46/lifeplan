@@ -93,6 +93,15 @@
 
     <!-- Instruction messages -->
     <string name="main_instructions">Describe what you want. Write how to achieve it. Keep track of your progress</string>
+    
+    <string name="life_instructions_title">Describe your desired life</string>
+    <string name="life_instructions_description">Take a moment and write how you want to life and what you want to achieve. This will be a guide to know what you have to do</string>
+
+    <string name="notes_instructions_title">Write notes to help you achieve it</string>
+    <string name="notes_instructions_description">Create notebooks about topics of your life (goals, habits, mindset…) and write notes to help you achieve this life</string>
+
+    <string name="status_instructions_title">Keep track of your progress</string>
+    <string name="status_instructions_description">From time to time write about your current status and check if you are doing all you have to do</string>
 
     <!-- General -->
     <string name="yes">Yes</string>
