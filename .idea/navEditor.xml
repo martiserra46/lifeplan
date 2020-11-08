@@ -222,6 +222,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="mainInstructionsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-512" />
+                            <option name="y" value="-924" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="noteFragment">
                     <value>
                       <LayoutPositions>
