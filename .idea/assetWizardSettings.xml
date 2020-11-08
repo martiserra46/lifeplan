@@ -315,7 +315,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialicons/note/baseline_note_24.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material/icons/materialiconsround/navigate_before/round_navigate_before_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -325,8 +325,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_edit_box" />
+                            <entry key="outputName" value="ic_previous" />
                             <entry key="sourceFile" value="C:\Users\marti\Desktop\edit-box.svg" />
                           </map>
                         </option>
