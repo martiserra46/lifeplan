@@ -1,4 +1,4 @@
-package com.martiserramolina.lifeplan.ui.fragments.instructions
+package com.martiserramolina.lifeplan.ui.fragments.instructions.sections
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

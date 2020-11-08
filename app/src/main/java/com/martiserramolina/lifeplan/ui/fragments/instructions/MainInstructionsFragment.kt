@@ -43,16 +43,15 @@ class MainInstructionsFragment : BaseFragment<FragmentInstructionsMainBinding>()
 
     private fun navigateToInstructionsFragment() {
         mainActivity.navController
-            .navigate(MainInstructionsFragmentDirections
-                .actionMainInstructionsFragmentToInstructionsFragment())
+            .navigate(MainInstructionsFragmentDirections.actionMainInstructionsFragmentToInstructionsFragment())
     }
 
     private fun setupBackButton() {
         mainActivity.onBackPressedDispatcher
             .addCallback(mainActivity) {
                 mainActivity.navController.navigate(
-                    MainInstructionsFragmentDirections
-                        .actionMainInstructionsFragmentToMainFragment())
+                    MainInstructionsFragmentDirections.actionMainInstructionsFragmentToMainFragment()
+                )
             }
     }
 }
