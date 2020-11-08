@@ -89,6 +89,7 @@
     <string name="add_notebook_image">Add notebook</string>
     <string name="add_note_image">Add note</string>
     <string name="add_day_image">Add day</string>
+    <string name="icon_image">@string/app_name</string>
 
     <!-- General -->
     <string name="yes">Yes</string>

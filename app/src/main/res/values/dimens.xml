@@ -30,6 +30,11 @@
 
     <dimen name="maxWidthTextEmpty">300dp</dimen>
 
+    <dimen name="textSizeTitleInstructions">32sp</dimen>
+    <dimen name="textSizeDescriptionInstructions">16sp</dimen>
+
+    <dimen name="lineHeightInstructionsDescription">26sp</dimen>
+
     <dimen name="dimen_4dp">4dp</dimen>
     <dimen name="dimen_5dp">5dp</dimen>
     <dimen name="dimen_8dp">8dp</dimen>
