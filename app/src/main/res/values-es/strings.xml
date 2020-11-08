@@ -60,7 +60,7 @@
     <!-- EditarText hint messages -->
     <string name="life_description_hint">Cuál es la vida que deseas?\n\nEj: Quiero passar buena parte de mi vida aprendiendo i viviendo muchas experiencias. Quiero estudiar informática i crear una empresa…</string>
     <string name="notebook_title_hint">Título (Ej: Objetivos, Hábitos…)</string>
-    <string name="note_title_hint">Título de la Nota</string>
+    <string name="note_title_hint">Título (Ej: Leer 1h al día)</string>
     <string name="note_description_hint">Descripcion de la Nota</string>
     <string name="day_description_hint">Lo estas consiguiendo?</string>
 

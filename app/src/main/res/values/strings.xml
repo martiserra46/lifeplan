@@ -59,7 +59,7 @@
     <!-- EditText hint messages -->
     <string name="life_description_hint">What\'s your desired life?\n\nEx: I want to spend most of my time learning and living a lot of experiences. I want to study computer science and start a company…</string>
     <string name="notebook_title_hint">Title (Ex: Goals, Habits…)</string>
-    <string name="note_title_hint">Note title</string>
+    <string name="note_title_hint">Title (Ex: Read 1h a day…)</string>
     <string name="note_description_hint">Note description</string>
     <string name="day_description_hint">Are you achieving it?</string>
 
