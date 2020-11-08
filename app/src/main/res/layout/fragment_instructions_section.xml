@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fragment_instructions_section_title_tv"
+        style="@style/styleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:textSize="@dimen/textSizeTitleInstructions"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_instructions_section_description_tv"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_instructions_section_vertical_guideline_gl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Describe your desired life" />
+
+    <TextView
+        android:id="@+id/fragment_instructions_section_description_tv"
+        style="@style/styleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:lineHeight="@dimen/lineHeightInstructionsDescription"
+        android:textSize="@dimen/textSizeDescriptionInstructions"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_instructions_section_title_tv"
+        tools:text="Take a moment and write how you want to life, what you want to achieve..." />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fragment_instructions_section_vertical_guideline_gl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
