@@ -8,13 +8,13 @@ import com.martiserramolina.lifeplan.databinding.FragmentInstructionsSectionBind
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
 import com.martiserramolina.lifeplan.utils.enums.InstructionsSection
 import com.martiserramolina.lifeplan.viewmodels.factory.ViewModelFactory
-import com.martiserramolina.lifeplan.viewmodels.viewmodels.instructions.InstructionsViewModel
+import com.martiserramolina.lifeplan.viewmodels.viewmodels.instructions.SectionInstructionsViewModel
 
 abstract class SectionInstructionsFragment : BaseFragment<FragmentInstructionsSectionBinding>() {
 
     private val viewModel by ViewModelFactory.Delegate(
-        this, InstructionsViewModel::class.java
-    ) { InstructionsViewModel(getInstructionsSection(), mainActivity.application) }
+        this, SectionInstructionsViewModel::class.java
+    ) { SectionInstructionsViewModel(getInstructionsSection(), mainActivity.application) }
 
     override fun buildBinding(
         inflater: LayoutInflater,
