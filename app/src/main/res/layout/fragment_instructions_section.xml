@@ -7,7 +7,7 @@
     android:background="@color/colorBackground">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/fragment_instructions_section_status_tb"
+        android:id="@+id/fragment_instructions_section_tb"
         style="@style/styleToolbar"
         android:layout_width="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,46 +15,46 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/fragment_instructions_section_status_icon_iv"
+        android:id="@+id/fragment_instructions_section_icon_iv"
         android:layout_width="@dimen/dimen_24dp"
         android:layout_height="@dimen/dimen_24dp"
         android:layout_marginStart="16dp"
         android:contentDescription="@string/icon_image"
-        app:layout_constraintBottom_toBottomOf="@+id/fragment_instructions_section_status_tb"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_instructions_section_tb"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_life_plan" />
 
     <TextView
-        android:id="@+id/fragment_instructions_section_status_app_name_tv"
+        android:id="@+id/fragment_instructions_section_app_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="@string/app_name"
         android:textAppearance="@style/textAppearanceTitlePrimaryToolbar"
-        app:layout_constraintBottom_toBottomOf="@+id/fragment_instructions_section_status_tb"
-        app:layout_constraintStart_toEndOf="@+id/fragment_instructions_section_status_icon_iv"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_instructions_section_tb"
+        app:layout_constraintStart_toEndOf="@+id/fragment_instructions_section_icon_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/app_name" />
 
     <TextView
-        android:id="@+id/fragment_instructions_section_status_title_tv"
+        android:id="@+id/fragment_instructions_section_title_tv"
         style="@style/styleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="@string/status_instructions_title"
         android:textSize="@dimen/textSizeTitleInstructions"
-        app:layout_constraintBottom_toTopOf="@+id/fragment_instructions_section_status_description_tv"
-        app:layout_constraintEnd_toStartOf="@+id/fragment_instructions_section_status_vertical_guideline_gl"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_instructions_section_description_tv"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_instructions_section_vertical_guideline_gl"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="@string/life_instructions_title" />
 
     <TextView
-        android:id="@+id/fragment_instructions_section_status_description_tv"
+        android:id="@+id/fragment_instructions_section_description_tv"
         style="@style/styleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -62,16 +62,16 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:lineHeight="@dimen/lineHeightInstructionsDescription"
-        android:text="@string/status_instructions_description"
+        android:text="@string/life_instructions_description"
         android:textSize="@dimen/textSizeDescriptionInstructions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_instructions_section_status_title_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_instructions_section_title_tv" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/fragment_instructions_section_status_vertical_guideline_gl"
+        android:id="@+id/fragment_instructions_section_vertical_guideline_gl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
