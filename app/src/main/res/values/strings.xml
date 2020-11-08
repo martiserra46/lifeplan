@@ -91,6 +91,9 @@
     <string name="add_day_image">Add day</string>
     <string name="icon_image">@string/app_name</string>
 
+    <!-- Instruction messages -->
+    <string name="main_instructions">Describe what you want. Write how to achieve it. Keep track of your progress</string>
+
     <!-- General -->
     <string name="yes">Yes</string>
     <string name="no">No</string>
