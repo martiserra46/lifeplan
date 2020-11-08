@@ -62,7 +62,7 @@
     <string name="notebook_title_hint">Títol (Ex: Objectius, Hàbits…)</string>
     <string name="note_title_hint">Títol (Ex: Llegir 1h al dia…)</string>
     <string name="note_description_hint">Descripció\n\nEx: He de llegir 1h al dia cada matí després d\'aixecar-me…</string>
-    <string name="day_description_hint">Ho estas aconseguint?</string>
+    <string name="day_description_hint">Quin és el teu estat actual?\n\nEx: Estic bastant satisfet amb mi mateix perquè he estat llegint molt. No obstant, hi ha coses que necessito millorar…</string>
 
     <!-- Dialog messages delete item -->
     <string name="dialog_message_delete_life">Estàs segur que ho vols eliminar?</string>

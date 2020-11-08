@@ -61,7 +61,7 @@
     <string name="notebook_title_hint">Title (Ex: Goals, Habits…)</string>
     <string name="note_title_hint">Title (Ex: Read 1h a day…)</string>
     <string name="note_description_hint">Description\n\nEx: I have to read 1h a day every morning after waking up…</string>
-    <string name="day_description_hint">Are you achieving it?</string>
+    <string name="day_description_hint">What\'s your current status?\n\nEx: I am quite satisfied with myself because I have been reading a lot. However, there are things that I need to improve…</string>
 
     <!-- Dialog messages delete item -->
     <string name="dialog_message_delete_life">Are you sure you want to delete it?</string>
