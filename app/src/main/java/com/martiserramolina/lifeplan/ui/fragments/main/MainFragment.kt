@@ -40,6 +40,22 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         setupBackButton()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.main_instructions_mi -> navigateToInstructionsFragment().run { true }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun navigateToInstructionsFragment() {
+        mainActivity.navController
+            .navigate(MainFragmentDirections.actionMainFragmentToMainInstructionsFragment())
+    }
+
     private fun setupToolbar() {
         mainActivity.setSupportActionBar(binding.fragmentMainTb)
         setHasOptionsMenu(true)
