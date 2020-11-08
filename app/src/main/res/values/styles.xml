@@ -66,10 +66,11 @@
     <style name="styleEmptySectionTextView" parent="styleTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">16dp</item>
         <item name="android:textAppearance">@style/textAppearanceEmptySection</item>
         <item name="android:textColor">@color/colorEmptySection</item>
         <item name="android:lineHeight">@dimen/lineHeightDescription</item>
-        <item name="android:maxWidth">@dimen/maxWidthTextEmpty</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <!-- Recycler view items texts style -->

@@ -26,8 +26,6 @@
 
     <dimen name="lineHeightDescription">@dimen/dimen_26sp</dimen>
 
-    <dimen name="maxWidthTextEmpty">300dp</dimen>
-
     <dimen name="textSizeTitleInstructions">30sp</dimen>
     <dimen name="textSizeDescriptionInstructions">16sp</dimen>
 
