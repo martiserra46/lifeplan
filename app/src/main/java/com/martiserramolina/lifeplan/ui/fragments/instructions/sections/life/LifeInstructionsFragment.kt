@@ -11,10 +11,12 @@ class LifeInstructionsFragment : SectionInstructionsFragment() {
         requireContext().getString(R.string.life_instructions_description)
 
     override fun navigateToNextFragment() {
-
+        mainActivity.navController
+            .navigate(LifeInstructionsFragmentDirections
+                .actionLifeInstructionsFragmentToNotesInstructionsFragment())
     }
 
     override fun navigateToPreviousFragment() {
-
+        mainActivity.navController.navigateUp()
     }
 }

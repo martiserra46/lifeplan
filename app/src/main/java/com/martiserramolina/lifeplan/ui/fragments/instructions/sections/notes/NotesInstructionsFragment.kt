@@ -11,11 +11,13 @@ class NotesInstructionsFragment : SectionInstructionsFragment() {
         requireContext().getString(R.string.notes_instructions_description)
 
     override fun navigateToNextFragment() {
-
+        mainActivity.navController
+            .navigate(NotesInstructionsFragmentDirections
+                .actionNotesInstructionsFragmentToStatusInstructionsFragment())
     }
 
     override fun navigateToPreviousFragment() {
-
+        mainActivity.navController.navigateUp()
     }
 
 }

@@ -17,7 +17,16 @@ abstract class SectionInstructionsFragment : BaseFragment<FragmentInstructionsSe
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupToolbar()
         setupViews()
+    }
+
+    private fun setupToolbar() {
+        mainActivity.apply {
+            setSupportActionBar(binding.fragmentInstructionsSectionTb)
+            supportActionBar?.title = ""
+        }
+        setHasOptionsMenu(true)
     }
 
     private fun setupViews() {
