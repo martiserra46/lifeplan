@@ -28,13 +28,13 @@ abstract class SectionInstructionsFragment : BaseFragment<FragmentInstructionsSe
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.instructions_menu, menu)
+        inflater.inflate(R.menu.section_instructions_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.instructions_next_mi -> navigateToNextFragment().run { true }
-            R.id.instructions_previous_mi -> navigateToPreviousFragment().run { true }
+            R.id.section_instructions_next_mi -> navigateToNextFragment().run { true }
+            R.id.section_instructions_previous_mi -> navigateToPreviousFragment().run { true }
             else -> super.onOptionsItemSelected(item)
         }
     }

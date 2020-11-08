@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/instructions_previous_mi"
+        android:id="@+id/section_instructions_previous_mi"
         android:icon="@drawable/ic_previous"
         android:title="@string/previous"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/instructions_next_mi"
+        android:id="@+id/section_instructions_next_mi"
         android:icon="@drawable/ic_next"
         android:title="@string/next"
         app:showAsAction="ifRoom" />

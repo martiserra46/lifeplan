@@ -15,7 +15,7 @@ class StatusInstructionsFragment : SectionInstructionsFragment() {
     }
 
     override fun navigateToPreviousFragment() {
-        
+
     }
 
 }
