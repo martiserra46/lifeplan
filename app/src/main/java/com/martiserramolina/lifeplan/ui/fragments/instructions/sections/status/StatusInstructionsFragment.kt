@@ -1,24 +1,21 @@
 package com.martiserramolina.lifeplan.ui.fragments.instructions.sections.status
 
-import android.view.*
-import com.martiserramolina.lifeplan.databinding.FragmentInstructionsSectionStatusBinding
+import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.ui.fragments.instructions.sections.SectionInstructionsFragment
 
-class StatusInstructionsFragment :
-    SectionInstructionsFragment<FragmentInstructionsSectionStatusBinding>() {
+class StatusInstructionsFragment : SectionInstructionsFragment() {
+    override fun getTitleText(): String =
+        requireContext().getString(R.string.status_instructions_title)
 
-    override fun buildBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentInstructionsSectionStatusBinding = FragmentInstructionsSectionStatusBinding.inflate(
-        inflater, container, false
-    )
+    override fun getDescriptionText(): String =
+        requireContext().getString(R.string.status_instructions_description)
 
     override fun navigateToNextFragment() {
 
     }
 
     override fun navigateToPreviousFragment() {
-
+        
     }
+
 }

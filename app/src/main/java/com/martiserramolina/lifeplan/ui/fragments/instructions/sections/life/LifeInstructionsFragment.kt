@@ -1,18 +1,14 @@
 package com.martiserramolina.lifeplan.ui.fragments.instructions.sections.life
 
-import android.view.*
-import com.martiserramolina.lifeplan.databinding.FragmentInstructionsSectionLifeBinding
+import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.ui.fragments.instructions.sections.SectionInstructionsFragment
 
-class LifeInstructionsFragment :
-    SectionInstructionsFragment<FragmentInstructionsSectionLifeBinding>() {
+class LifeInstructionsFragment : SectionInstructionsFragment() {
 
-    override fun buildBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentInstructionsSectionLifeBinding = FragmentInstructionsSectionLifeBinding.inflate(
-        inflater, container, false
-    )
+    override fun getTitleText(): String =
+        requireContext().getString(R.string.life_instructions_title)
+    override fun getDescriptionText(): String =
+        requireContext().getString(R.string.life_instructions_description)
 
     override fun navigateToNextFragment() {
 

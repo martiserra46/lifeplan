@@ -1,19 +1,14 @@
 package com.martiserramolina.lifeplan.ui.fragments.instructions.sections.notes
 
-import android.view.*
-import com.martiserramolina.lifeplan.databinding.FragmentInstructionsSectionLifeBinding
-import com.martiserramolina.lifeplan.databinding.FragmentInstructionsSectionNotesBinding
+import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.ui.fragments.instructions.sections.SectionInstructionsFragment
 
-class NotesInstructionsFragment :
-    SectionInstructionsFragment<FragmentInstructionsSectionNotesBinding>() {
+class NotesInstructionsFragment : SectionInstructionsFragment() {
 
-    override fun buildBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ): FragmentInstructionsSectionNotesBinding = FragmentInstructionsSectionNotesBinding.inflate(
-        inflater, container, false
-    )
+    override fun getTitleText(): String =
+        requireContext().getString(R.string.notes_instructions_title)
+    override fun getDescriptionText(): String =
+        requireContext().getString(R.string.notes_instructions_description)
 
     override fun navigateToNextFragment() {
 
@@ -22,4 +17,5 @@ class NotesInstructionsFragment :
     override fun navigateToPreviousFragment() {
 
     }
+
 }
