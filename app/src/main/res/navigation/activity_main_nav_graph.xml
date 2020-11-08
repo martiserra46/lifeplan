@@ -261,7 +261,7 @@
         <action
             android:id="@+id/action_global_mainFragment"
             app:destination="@id/mainFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/to_right" />
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/fade_out" />
     </navigation>
 </navigation>
