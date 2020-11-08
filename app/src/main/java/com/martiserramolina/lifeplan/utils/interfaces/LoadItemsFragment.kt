@@ -1,6 +1,7 @@
 package com.martiserramolina.lifeplan.utils.interfaces
 
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.paging.PagedListAdapter
@@ -28,7 +29,10 @@ interface LoadItemsFragment {
         }
         viewModel.items.observe(lifecycleOwner) { items ->
             if (items.isEmpty()) {
-                emptySection.visibility = View.VISIBLE
+                emptySection.apply {
+                    visibility = View.VISIBLE
+                    animation = AnimationUtils.loadAnimation(context, R.anim.fade_in)
+                }
                 recyclerView.visibility = View.GONE
             } else {
                 adapter.submitList(items)

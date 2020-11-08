@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.fragments.sections.nav.life
 
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AnimationUtils
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
@@ -55,7 +56,10 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>(), InfoItemFragment 
         viewModel.life.observe(viewLifecycleOwner) { life ->
             if (life.lifeText.isEmpty()) {
                 binding.apply {
-                    fragmentNavLifeEmptyCl.visibility = View.VISIBLE
+                    fragmentNavLifeEmptyCl.apply {
+                        visibility = View.VISIBLE
+                        animation = AnimationUtils.loadAnimation(context, R.anim.fade_in)
+                    }
                     fragmentNavLifeTextSv.visibility = View.GONE
                 }
             } else {
