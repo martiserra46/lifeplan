@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.instructions.MainInstructionsFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/fragment_instructions_main_tb"
+        style="@style/styleToolbar"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/fragment_instructions_main_icon_iv"
         android:layout_width="56dp"
