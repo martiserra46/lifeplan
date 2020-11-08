@@ -2,6 +2,7 @@ package com.martiserramolina.lifeplan.ui.fragments.instructions.sections
 
 import android.os.Bundle
 import android.view.*
+import androidx.activity.addCallback
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentInstructionsSectionBinding
 import com.martiserramolina.lifeplan.ui.fragments.BaseFragment
@@ -21,6 +22,19 @@ abstract class SectionInstructionsFragment : BaseFragment<FragmentInstructionsSe
         super.onViewCreated(view, savedInstanceState)
         setupToolbar()
         setupViews()
+        setupBackButton()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.section_instructions_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.section_instructions_next_mi -> navigateToNextFragment().run { true }
+            R.id.section_instructions_previous_mi -> navigateToPreviousFragment().run { true }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun setupToolbar() {
@@ -38,16 +52,11 @@ abstract class SectionInstructionsFragment : BaseFragment<FragmentInstructionsSe
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.section_instructions_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.section_instructions_next_mi -> navigateToNextFragment().run { true }
-            R.id.section_instructions_previous_mi -> navigateToPreviousFragment().run { true }
-            else -> super.onOptionsItemSelected(item)
-        }
+    private fun setupBackButton() {
+        mainActivity.onBackPressedDispatcher
+            .addCallback(mainActivity) {
+                navigateToPreviousFragment()
+            }
     }
 
     abstract fun getTitleText(): String

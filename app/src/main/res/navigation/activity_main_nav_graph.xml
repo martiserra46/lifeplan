@@ -290,6 +290,11 @@
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_global_mainFragmentPop"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/to_right" />
     </navigation>
     <action android:id="@+id/action_global_instructionsNestedNavGraph" app:destination="@id/instructionsNestedNavGraph" />
 </navigation>

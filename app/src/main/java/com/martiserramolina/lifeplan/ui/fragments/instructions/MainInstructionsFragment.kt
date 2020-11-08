@@ -54,7 +54,10 @@ class MainInstructionsFragment : BaseFragment<FragmentInstructionsMainBinding>()
     private fun setupBackButton() {
         mainActivity.onBackPressedDispatcher
             .addCallback(mainActivity) {
-                if (isBackToMainFragmentEnabled) mainActivity.navController.navigateUp()
+                if (isBackToMainFragmentEnabled) {
+                    mainActivity.navController
+                        .navigate(MainInstructionsFragmentDirections.actionGlobalMainFragmentPop())
+                }
             }
     }
 }
