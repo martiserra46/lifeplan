@@ -2,10 +2,8 @@ package com.martiserramolina.lifeplan.ui.fragments.sections.nav.life
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavLifeBinding
-import com.martiserramolina.lifeplan.repository.room.Life
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.ui.fragments.main.MainFragmentDirections
 import com.martiserramolina.lifeplan.ui.fragments.sections.nav.NavFragment
@@ -31,6 +29,9 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>(), InfoItemFragment 
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         setupViews { setupDescription() }
+        setupWhenItemDeletedFunctionality(viewModel, viewLifecycleOwner) {
+            showMessage(binding.root, R.string.life_deleted)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

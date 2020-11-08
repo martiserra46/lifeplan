@@ -37,6 +37,7 @@
 
     <!-- Snackbar messages -->
     <string name="life_saved">Texto guardado</string>
+    <string name="life_deleted">Texto eliminado</string>
 
     <string name="notebook_added">Bloc de notas añadido</string>
     <string name="notebook_edited">Bloc de notas editado</string>

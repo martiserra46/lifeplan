@@ -35,7 +35,8 @@
     <string name="day_add_message">Describe your current status</string>
 
     <!-- Snackbar messages -->
-    <string name="life_saved">Life description saved</string>
+    <string name="life_saved">Text saved</string>
+    <string name="life_deleted">Text deleted</string>
 
     <string name="notebook_added">Notebook added</string>
     <string name="notebook_edited">Notebook edited</string>
