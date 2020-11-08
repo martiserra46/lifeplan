@@ -220,5 +220,21 @@
             app:destination="@id/mainFragment"
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_mainInstructionsFragment_to_instructionsFragment"
+            app:destination="@id/instructionsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.martiserramolina.lifeplan.ui.fragments.instructions.InstructionsFragment"
+        android:label="fragment_instructions"
+        tools:layout="@layout/fragment_instructions" >
+        <action
+            android:id="@+id/action_instructionsFragment_to_mainInstructionsFragment"
+            app:destination="@id/mainInstructionsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/to_right" />
     </fragment>
 </navigation>
