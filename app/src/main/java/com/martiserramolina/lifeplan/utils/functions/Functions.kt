@@ -21,6 +21,16 @@ fun Date.formatted(): String {
     return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
 }
 
+fun Date.isSameDay(date: Date): Boolean {
+    val calendar1 = Calendar.getInstance();
+    calendar1.time = this;
+    val calendar2 = Calendar.getInstance();
+    calendar2.time = date;
+    return calendar1.get(Calendar.YEAR) == calendar2.get(Calendar.YEAR)
+            && calendar1.get(Calendar.MONTH) == calendar2.get(Calendar.MONTH)
+            && calendar1.get(Calendar.DAY_OF_MONTH) == calendar2.get(Calendar.DAY_OF_MONTH)
+}
+
 fun showMessage(view: View, messageId: Int, duration: Int = Snackbar.LENGTH_SHORT) {
     (view.context as Activity).hideKeyboard()
     Snackbar.make(view, messageId, duration).apply {

@@ -1,6 +1,7 @@
 package com.martiserramolina.lifeplan.ui.fragments.sections.nav.status
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -38,10 +39,17 @@ class NavStatusFragment : NavFragment<FragmentNavStatusBinding>(), LoadItemsFrag
             viewLifecycleOwner,
             binding.fragmentNavStatusEmptyCl
         )
+        viewModel.isCurrentDayStatusDefined.observe(viewLifecycleOwner) {
+            mainActivity.invalidateOptionsMenu()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.status_menu, menu)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        menu.findItem(R.id.status_add_mi).isEnabled = viewModel.isCurrentDayStatusDefined.value != true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

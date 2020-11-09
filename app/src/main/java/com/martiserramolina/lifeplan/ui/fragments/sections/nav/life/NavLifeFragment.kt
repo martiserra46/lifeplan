@@ -40,7 +40,7 @@ class NavLifeFragment : NavFragment<FragmentNavLifeBinding>(), InfoItemFragment 
     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
-        menu.findItem(R.id.life_delete_mi).isVisible =
+        menu.findItem(R.id.life_delete_mi).isEnabled =
             !viewModel.life.value?.lifeText.isNullOrEmpty()
     }
 
