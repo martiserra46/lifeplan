@@ -13,7 +13,7 @@
     <dimen name="textSizeTitle">@dimen/dimen_18sp</dimen>
     <dimen name="textSizeDescription">@dimen/dimen_16sp</dimen>
 
-    <dimen name="textSizePrimaryTextRecyclerViewItem">@dimen/dimen_16sp</dimen>
+    <dimen name="textSizePrimaryTextRecyclerViewItem">@dimen/dimen_14sp</dimen>
     <dimen name="textSizeSecondaryTextRecyclerViewItem">@dimen/dimen_14sp</dimen>
 
     <dimen name="textSizeSpinnerTextView">@dimen/dimen_16sp</dimen>
@@ -24,12 +24,10 @@
     <dimen name="widthSatisfactionRectangle">@dimen/dimen_5dp</dimen>
     <dimen name="widthImportanceRectangle">@dimen/dimen_5dp</dimen>
 
-    <dimen name="lineHeightDescription">@dimen/dimen_26sp</dimen>
-
     <dimen name="textSizeTitleInstructions">30sp</dimen>
     <dimen name="textSizeDescriptionInstructions">16sp</dimen>
 
-    <dimen name="lineHeightInstructionsDescription">26sp</dimen>
+    <dimen name="lineSpacingExtra">4sp</dimen>
 
     <dimen name="dimen_4dp">4dp</dimen>
     <dimen name="dimen_5dp">5dp</dimen>

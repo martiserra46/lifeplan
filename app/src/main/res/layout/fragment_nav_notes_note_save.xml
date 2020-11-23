@@ -16,7 +16,7 @@
         style="@style/styleTitleEditText"
         android:hint="@string/note_title_hint"
         android:importantForAutofill="no"
-        android:inputType="text"
+        android:inputType="textMultiLine|text"
         android:maxLength="@integer/maxLengthNoteTitle" />
 
     <Spinner

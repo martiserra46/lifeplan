@@ -3,7 +3,7 @@ package com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.notes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.martiserramolina.lifeplan.databinding.RviNotesNoteBinding
-import com.martiserramolina.lifeplan.utils.functions.formatted
+import com.martiserramolina.lifeplan.utils.functions.dayString
 import com.martiserramolina.lifeplan.repository.room.Note
 import com.martiserramolina.lifeplan.ui.adapters.recyclerview.viewholders.ItemViewHolder
 
@@ -17,7 +17,7 @@ class NoteViewHolder(
 ) {
     override fun bindData(item: Note) {
         binding.apply {
-            rviNotesNoteDateTv.text = item.noteLastTimeModified.formatted()
+            rviNotesNoteDayTv.text = item.noteLastTimeModified.dayString()
             rviNotesNoteTitleTv.text = item.noteTitle
             rviNotesNoteImportanceV.setBackgroundResource(item.noteImportance.drawableId)
         }

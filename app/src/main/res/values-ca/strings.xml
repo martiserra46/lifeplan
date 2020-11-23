@@ -58,7 +58,7 @@
     <string name="wait_until_all_life_data_is_loaded">Espera fins que el text s\'hagi carregat</string>
 
     <!-- EditarText hint messages -->
-    <string name="life_description_hint">Quina és la vida que desitges?\n\nVull passar una gran quantitat del meu temps aprenent i vivint moltes experiències. Vull estudiar informàtica i crear una empresa…</string>
+    <string name="life_description_hint">Quina és la vida que desitges?\n\nEx: Vull passar una gran quantitat del meu temps aprenent i vivint moltes experiències. Vull estudiar informàtica i crear una empresa…</string>
     <string name="notebook_title_hint">Títol (Ex: Objectius, Hàbits…)</string>
     <string name="note_title_hint">Títol (Ex: Llegir 1h al dia…)</string>
     <string name="note_description_hint">Descripció\n\nEx: He de llegir 1h al dia cada matí després d\'aixecar-me…</string>

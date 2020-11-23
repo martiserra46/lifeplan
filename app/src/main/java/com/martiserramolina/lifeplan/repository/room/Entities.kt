@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.martiserramolina.lifeplan.repository.enums.NoteImportance
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
 @Parcelize

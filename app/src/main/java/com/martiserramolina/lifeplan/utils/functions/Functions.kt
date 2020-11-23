@@ -17,18 +17,12 @@ fun Activity.hideKeyboard() {
     )?.hideSoftInputFromWindow((currentFocus ?: View(this)).windowToken, 0)
 }
 
-fun Date.formatted(): String {
+fun Date.dayString(): String {
     return SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
 }
 
-fun Date.isSameDay(date: Date): Boolean {
-    val calendar1 = Calendar.getInstance();
-    calendar1.time = this;
-    val calendar2 = Calendar.getInstance();
-    calendar2.time = date;
-    return calendar1.get(Calendar.YEAR) == calendar2.get(Calendar.YEAR)
-            && calendar1.get(Calendar.MONTH) == calendar2.get(Calendar.MONTH)
-            && calendar1.get(Calendar.DAY_OF_MONTH) == calendar2.get(Calendar.DAY_OF_MONTH)
+fun Date.timeString(): String {
+    return SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(this)
 }
 
 fun showMessage(view: View, messageId: Int, duration: Int = Snackbar.LENGTH_SHORT) {

@@ -19,7 +19,7 @@
         android:gravity="start"
         android:hint="@string/notebook_title_hint"
         android:importantForAutofill="no"
-        android:inputType="text"
+        android:inputType="textMultiLine|text"
         android:maxLength="@integer/maxLengthNotebookTitle" />
 
 </LinearLayout>

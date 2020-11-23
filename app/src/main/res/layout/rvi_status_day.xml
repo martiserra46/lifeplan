@@ -11,27 +11,38 @@
     android:paddingVertical="@dimen/paddingVerticalRecyclerViewItem">
 
     <TextView
-        android:id="@+id/rvi_status_day_date_tv"
+        android:id="@+id/rvi_status_day_day_tv"
         style="@style/stylePrimaryTextRecyclerViewItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_12dp"
         app:layout_constraintStart_toEndOf="@+id/rvi_status_day_satisfaction_v"
         app:layout_constraintTop_toTopOf="@+id/rvi_status_day_satisfaction_v"
-        tools:text="20/03/2021" />
+        tools:text="20/03/2020" />
+
+    <TextView
+        android:id="@+id/rvi_status_day_time_tv"
+        style="@style/stylePrimaryTextRecyclerViewItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rvi_status_day_day_tv"
+        tools:text="11:03:21" />
 
     <TextView
         android:id="@+id/rvi_status_day_text_tv"
         style="@style/styleSecondaryTextRecyclerViewItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_4dp"
         android:ellipsize="end"
         android:maxLines="1"
         app:layout_constraintBottom_toBottomOf="@+id/rvi_status_day_satisfaction_v"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/rvi_status_day_date_tv"
-        app:layout_constraintTop_toBottomOf="@+id/rvi_status_day_date_tv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rvi_status_day_day_tv"
+        app:layout_constraintTop_toBottomOf="@+id/rvi_status_day_day_tv"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="I have been studying a lot and I have learned a lot of things" />
 
     <View

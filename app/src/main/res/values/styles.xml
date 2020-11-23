@@ -47,7 +47,7 @@
         <item name="android:paddingStart">@dimen/paddingStartContainer</item>
         <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
         <item name="android:textAppearance">@style/textAppearanceLifeDescription</item>
-        <item name="android:lineHeight">@dimen/lineHeightDescription</item>
+        <item name="android:lineSpacingExtra">@dimen/lineSpacingExtra</item>
     </style>
 
     <style name="styleLifeDescriptionEditText" parent="styleEditText">
@@ -58,8 +58,8 @@
         <item name="android:paddingStart">@dimen/paddingStartContainer</item>
         <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
         <item name="android:textAppearance">@style/textAppearanceLifeDescription</item>
-        <item name="android:lineHeight">@dimen/lineHeightDescription</item>
         <item name="android:gravity">start</item>
+        <item name="android:lineSpacingExtra">@dimen/lineSpacingExtra</item>
     </style>
 
     <!-- Empty section style -->
@@ -69,8 +69,8 @@
         <item name="android:layout_margin">16dp</item>
         <item name="android:textAppearance">@style/textAppearanceEmptySection</item>
         <item name="android:textColor">@color/colorEmptySection</item>
-        <item name="android:lineHeight">@dimen/lineHeightDescription</item>
         <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">@dimen/lineSpacingExtra</item>
     </style>
 
     <!-- Recycler view items texts style -->
@@ -95,6 +95,7 @@
         <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
         <item name="android:textColor">@color/colorTitleText</item>
         <item name="android:textAppearance">@style/textAppearanceTitle</item>
+        <item name="android:lineSpacingExtra">@dimen/lineSpacingExtra</item>
     </style>
 
     <style name="styleDescriptionTextView" parent="styleTextView">
@@ -102,7 +103,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/colorDescriptionText</item>
         <item name="android:textAppearance">@style/textAppearanceDescription</item>
-        <item name="android:lineHeight">@dimen/lineHeightDescription</item>
+        <item name="android:lineSpacingExtra">@dimen/lineSpacingExtra</item>
     </style>
 
     <style name="styleTitleEditText" parent="styleEditText">
@@ -125,7 +126,7 @@
         <item name="android:paddingEnd">@dimen/paddingEndContainer</item>
         <item name="android:textColor">@color/colorDescriptionText</item>
         <item name="android:textAppearance">@style/textAppearanceDescription</item>
-        <item name="android:lineHeight">@dimen/lineHeightDescription</item>
+        <item name="android:lineSpacingExtra">@dimen/lineSpacingExtra</item>
         <item name="android:gravity">start</item>
     </style>
 

@@ -5,7 +5,7 @@ import android.view.*
 import androidx.appcompat.widget.Toolbar
 import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavStatusDaySaveBinding
-import com.martiserramolina.lifeplan.utils.functions.formatted
+import com.martiserramolina.lifeplan.utils.functions.dayString
 import com.martiserramolina.lifeplan.repository.enums.DaySatisfaction
 import com.martiserramolina.lifeplan.ui.adapters.spinner.day_satisfaction.DaySatisfactionAdapter
 import com.martiserramolina.lifeplan.utils.functions.showMessage
@@ -58,7 +58,7 @@ abstract class UpSaveDayFragment() :
     protected abstract fun getSaveMenuItemId(): Int
 
     private fun setupDateTextView() {
-        binding.fragmentNavStatusDaySaveDateTv.text = viewModel.day.dayDate.formatted()
+        binding.fragmentNavStatusDaySaveDateTv.text = viewModel.day.dayDate.dayString()
     }
 
     private fun setupSatisfactionSpinner() {

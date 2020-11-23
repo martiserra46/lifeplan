@@ -8,7 +8,7 @@ import com.martiserramolina.lifeplan.R
 import com.martiserramolina.lifeplan.databinding.FragmentNavStatusDayBinding
 import com.martiserramolina.lifeplan.ui.dialogs.DeleteItemDialogFragment
 import com.martiserramolina.lifeplan.utils.enums.NavSection
-import com.martiserramolina.lifeplan.utils.functions.formatted
+import com.martiserramolina.lifeplan.utils.functions.dayString
 import com.martiserramolina.lifeplan.utils.functions.showMessage
 import com.martiserramolina.lifeplan.ui.fragments.sections.up.status.day.UpDayFragment
 import com.martiserramolina.lifeplan.utils.interfaces.InfoItemFragment
@@ -66,7 +66,7 @@ class UpInfoDayFragment : UpDayFragment<FragmentNavStatusDayBinding>(), InfoItem
 
     private fun setupDateTextView() {
         binding.fragmentNavStatusDayDateTv.text = viewModel.day
-            .dayDate.formatted()
+            .dayDate.dayString()
     }
 
     private fun setupSatisfactionTextView() {

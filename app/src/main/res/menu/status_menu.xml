@@ -6,6 +6,5 @@
         android:id="@+id/status_add_mi"
         android:icon="@drawable/ic_add"
         android:title="@string/day_add_mi"
-        android:enabled="false"
         app:showAsAction="ifRoom" />
 </menu>
